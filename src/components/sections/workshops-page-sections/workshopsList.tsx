@@ -1,5 +1,5 @@
 import React from "react";
-import EventsCard from "../uncommon/landing-page-cards/eventsCard";
+import EventsCard from "../../uncommon/landing-page-cards/eventsCard";
 const WorkshopsList = () => {
   return (
     <>

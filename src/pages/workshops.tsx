@@ -1,6 +1,6 @@
 import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
-import WorkshopsList from "@/components/workshops-page-sections/workshopsList";
+import WorkshopsList from "@/components/sections/workshops-page-sections/workshopsList";
 import React from "react";
 
 const workshops = () => {
