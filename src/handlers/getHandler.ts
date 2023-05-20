@@ -5,9 +5,10 @@ const getHandler = async (URL: string, protect: boolean) => {
     const headers = {
         'Content-Type': 'application/json',
         Authorization: '',
+        'ngrok-skip-browser-warning': true,
     };
     if (protect) headers.Authorization = `Bearer ${Cookies.get('token')}`;
-    const response:any = {
+    const response: any = {
         status: 0,
         data: '',
     };

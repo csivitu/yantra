@@ -1,7 +1,17 @@
 import Image from 'next/image';
-import React from 'react';
-
+import React, { useEffect } from 'react';
+import Button from './button';
+import { useState } from 'react';
+import Cookies from 'js-cookie';
 const Header = () => {
+    const [token, setToken] = useState('');
+    const [name, setName] = useState('');
+
+    useEffect(() => {
+        setToken(Cookies.get('token'));
+        setName(Cookies.get('name'));
+    }, []);
+
     return (
         <>
             <div className="flex justify-around items-center w-full h-[7.5vh] fixed top-0">
@@ -19,7 +29,15 @@ const Header = () => {
                     <div className="w-[10%]">Workshops</div>
                     <div className="w-[10%]">Hackathons</div>
                     <div className="w-[10%]">Team</div>
-                    <div className="w-[10%]">Register</div>
+                    <div className="w-[10%]">
+                        {token !== '' ? (
+                            <div>Hi {name.split(' ')[0]}</div>
+                        ) : (
+                            <>
+                                <Button />
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
         </>
