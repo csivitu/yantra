@@ -1,12 +1,12 @@
 import axios from 'axios';
-import Cookies from 'js-cookie';
+import { getCookie } from 'cookies-next';
 
 const deleteHandler = async (URL: string) => {
     const headers = {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${Cookies.get('token')}`,
+        Authorization: `Bearer ${getCookie('token')}`,
     };
-    const response:any = {
+    const response: any = {
         status: 0,
         data: '',
     };

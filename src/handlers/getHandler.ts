@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Cookies from 'js-cookie';
+import { getCookie } from 'cookies-next';
 
 const getHandler = async (URL: string, protect: boolean) => {
     const headers = {
@@ -7,7 +7,7 @@ const getHandler = async (URL: string, protect: boolean) => {
         Authorization: '',
         'ngrok-skip-browser-warning': true,
     };
-    if (protect) headers.Authorization = `Bearer ${Cookies.get('token')}`;
+    if (protect) headers.Authorization = `Bearer ${getCookie('token')}`;
     const response: any = {
         status: 0,
         data: '',

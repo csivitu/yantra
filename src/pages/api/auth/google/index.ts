@@ -1,13 +1,7 @@
-import { google } from 'googleapis';
-import envHandler from '@/managers/envHandler';
+import oauth2Client from '@/utils/oauth2Client';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-const oauth2Client = new google.auth.OAuth2(
-    envHandler('GOOGLE_CLIENT_ID'),
-    envHandler('GOOGLE_CLIENT_SECRET'),
-    'http://localhost:3000/api/auth/google/callback'
-);
-
-const getGoogleAuthURL = async (req, res) => {
+const getGoogleAuthURL = async (req: NextApiRequest, res: NextApiResponse) => {
     const scopes = [
         'https://www.googleapis.com/auth/userinfo.profile',
         'https://www.googleapis.com/auth/userinfo.email',

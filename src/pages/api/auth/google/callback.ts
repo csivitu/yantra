@@ -1,26 +1,33 @@
-import { google } from 'googleapis';
 import envHandler from '@/managers/envHandler';
 import axios from 'axios';
 import User from '@/models/userModel';
 import { UserDocument } from '@/models/userModel';
 import * as jwt from 'jsonwebtoken';
 import { connectToDB, disconnectFromDB } from '@/managers/DB';
+import { setCookie } from 'cookies-next';
+import oauth2Client from '@/utils/oauth2Client';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-const oauth2Client = new google.auth.OAuth2(
-    envHandler('GOOGLE_CLIENT_ID'),
-    envHandler('GOOGLE_CLIENT_SECRET'),
-    'http://localhost:3000/api/auth/google/callback'
-);
-
-const createSendToken = (user: UserDocument, res) => {
+const createSendToken = (
+    user: UserDocument,
+    req: NextApiRequest,
+    res: NextApiResponse
+) => {
     const token = jwt.sign({ id: user._id }, envHandler('JWT_KEY'), {
         expiresIn: Number(envHandler('JWT_TIME')) * 24 * 60,
     });
 
-    res.redirect(`http://localhost:3000/auth/google?token=${token}`);
+    setCookie('token', token, {
+        req,
+        res,
+        httpOnly: false,
+        maxAge: Number(envHandler('JWT_TIME')) * 24 * 60,
+    });
+
+    res.redirect(envHandler('BASE_URL'));
 };
 
-const getUser = async (req, res) => {
+const getPayload = async (req: NextApiRequest, res: NextApiResponse) => {
     const code = req.query.code as string;
 
     const { tokens } = await oauth2Client.getToken(code);
@@ -41,26 +48,25 @@ const getUser = async (req, res) => {
 
     const VITEmailFormat =
         /^[a-zA-Z]+.[a-zA-Z]+20[0,1,2][0-9]@vitstudent.ac.in/;
+
     if (!googleUser.email.match(VITEmailFormat))
         res.status(401).json({
             message: 'Only VIT Students Allowed',
         });
     else {
         await connectToDB();
-        const user = await User.findOne({ email: googleUser.email });
+        const user = (await User.findOne({ email: googleUser.email }))
+            ? await User.findOne({ email: googleUser.email })
+            : await User.create({
+                  name: googleUser.name,
+                  email: googleUser.email,
+                  profilePic: googleUser.picture,
+              });
+
         await disconnectFromDB();
-        console.log(user);
-        if (!user) {
-            await connectToDB();
-            const newUser = await User.create({
-                name: googleUser.name,
-                email: googleUser.email,
-                profilePic: googleUser.picture,
-            });
-            await disconnectFromDB();
-            createSendToken(newUser, res);
-        } else createSendToken(user, res);
+
+        createSendToken(user, req, res);
     }
 };
 
-export default getUser;
+export default getPayload;

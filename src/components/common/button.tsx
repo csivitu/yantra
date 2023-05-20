@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 const Button = () => {
     const router = useRouter();
     const onClickHandler = () => {
-        router.push('https://a167-157-51-41-253.ngrok-free.app/auth/google');
+        router.push('http://localhost:3000/api/auth/google');
     };
     return (
         <div

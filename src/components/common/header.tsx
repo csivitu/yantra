@@ -1,15 +1,15 @@
 import Image from 'next/image';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from './button';
-import { useState } from 'react';
-import Cookies from 'js-cookie';
+import { getCookie } from 'cookies-next';
+import { GetServerSidePropsContext } from 'next';
+
 const Header = () => {
-    const [token, setToken] = useState('');
-    const [name, setName] = useState('');
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
-        setToken(Cookies.get('token'));
-        setName(Cookies.get('name'));
+        const token = getCookie('token');
+        if (token) setIsAuthenticated(true);
     }, []);
 
     return (
@@ -30,18 +30,26 @@ const Header = () => {
                     <div className="w-[10%]">Hackathons</div>
                     <div className="w-[10%]">Team</div>
                     <div className="w-[10%]">
-                        {token !== '' ? (
-                            <div>Hi</div>
-                        ) : (
-                            <>
-                                <Button />
-                            </>
-                        )}
+                        {isAuthenticated ? '' : <Button />}
                     </div>
                 </div>
             </div>
         </>
     );
 };
+
+// export async function getServerSideProps(context: GetServerSidePropsContext) {
+//     const token = getCookie('token');
+
+//     if (token) {
+//         return {
+//             props: { isAuthenticated: true },
+//         };
+//     } else {
+//         return {
+//             props: { isAuthenticated: false },
+//         };
+//     }
+// }
 
 export default Header;

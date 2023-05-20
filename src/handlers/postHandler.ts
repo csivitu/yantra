@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Cookies from 'js-cookie';
+import { getCookie } from 'cookies-next';
 
 const postHandler = async (
     URL: string,
@@ -11,7 +11,7 @@ const postHandler = async (
         'Content-Type': type,
         Authorization: '',
     };
-    if (protect) headers.Authorization = `Bearer ${Cookies.get('token')}`;
+    if (protect) headers.Authorization = `Bearer ${getCookie('token')}`;
     const response: any = {
         status: 0,
         data: {},
