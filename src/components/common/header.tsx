@@ -31,7 +31,7 @@ const Header = () => {
                     <div className="w-[10%]">Team</div>
                     <div className="w-[10%]">
                         {token !== '' ? (
-                            <div>Hi {name.split(' ')[0]}</div>
+                            <div>Hi</div>
                         ) : (
                             <>
                                 <Button />

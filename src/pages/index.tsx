@@ -12,22 +12,21 @@ import { GetServerSidePropsContext } from 'next';
 
 export default function Home({ redirect }) {
     useEffect(() => {
-        console.log(redirect);
-        if (redirect) {
-            getHandler(
-                `https://a167-157-51-41-253.ngrok-free.app/auth/user/${Cookies.get(
-                    'token'
-                )}`,
-                true
-            )
-                .then((res) => {
-                    console.log(res);
-                    Cookies.set('name', res.data.user.name);
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        }
+        // if (redirect) {
+        //     getHandler(
+        //         `https://a167-157-51-41-253.ngrok-free.app/auth/user/${Cookies.get(
+        //             'token'
+        //         )}`,
+        //         true
+        //     )
+        //         .then((res) => {
+        //             console.log(res);
+        //             Cookies.set('name', res.data.user.name);
+        //         })
+        //         .catch((err) => {
+        //             console.log(err);
+        //         });
+        // }
     }, []);
 
     return (
