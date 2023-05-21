@@ -1,42 +1,47 @@
-import AppError from '@/managers/AppError';
 import { connectToDB, disconnectFromDB } from '@/managers/DB';
-import catchAsync from '@/managers/catchAsync';
-import Event from '@/models/eventModel';
+import Event, { EventDocument } from '@/models/eventModel';
+import APIFeatures from '@/utils/APIFeatures';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const getAllEvents = catchAsync(
-    async (req: NextApiRequest, res: NextApiResponse) => {
-        await connectToDB();
-        const events = await Event.find();
-        await disconnectFromDB();
+const getAllEvents = async (req: NextApiRequest, res: NextApiResponse) => {
+    await connectToDB();
 
-        res.status(201).json({
-            status: 'success',
-            events,
-        });
-    }
-);
+    const totalNumberofEvents = await Event.find({
+        type: req.query.type,
+    }).countDocuments();
 
-const addEvent = catchAsync(
-    async (req: NextApiRequest, res: NextApiResponse) => {
-        await connectToDB();
-        const event = await Event.create(req.body);
-        await disconnectFromDB();
+    const eventsQuery = new APIFeatures<EventDocument>(Event.find(), req.query);
+    eventsQuery.filter().paginator();
 
-        res.status(201).json({
-            status: 'success',
-            event,
-        });
-    }
-);
+    const events = await eventsQuery.query;
+
+    // await disconnectFromDB();
+
+    res.status(201).json({
+        status: 'success',
+        events,
+        totalNumberofEvents,
+    });
+};
+
+const addEvent = async (req: NextApiRequest, res: NextApiResponse) => {
+    await connectToDB();
+    const event = await Event.create(req.body);
+    await disconnectFromDB();
+
+    res.status(201).json({
+        status: 'success',
+        event,
+    });
+};
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     switch (req.method) {
         case 'GET':
-            getAllEvents(req, res);
+            await getAllEvents(req, res);
             break;
         case 'POST':
-            addEvent(req, res);
+            await addEvent(req, res);
             break;
     }
 };
