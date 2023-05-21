@@ -14,7 +14,7 @@ const Header = () => {
 
     return (
         <>
-            <div className="flex justify-around items-center w-full h-[7.5vh] fixed top-0">
+            <div className="flex justify-around items-center w-full h-[7.5vh] ">
                 <div className="w-[20%] h-full p-1">
                     <Image
                         src="/assets/vit-logo.png"
