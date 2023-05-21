@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Button from './button';
 import { getCookie } from 'cookies-next';
 import { GetServerSidePropsContext } from 'next';
-
+import ReactGA from 'react-ga';
 const Header = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
