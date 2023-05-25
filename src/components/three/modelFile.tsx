@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import Loader from '../common/loader';
 
 const ComputerModel: React.FC = () => {
     const refBody = useRef<HTMLDivElement>(null);
@@ -137,8 +138,11 @@ const ComputerModel: React.FC = () => {
 
     return (
         <>
-            <div className="h-full w-full" ref={refBody}>
-                {loading && <p>loading...</p>}
+            <div
+                className="h-full w-full flex justify-around items-center"
+                ref={refBody}
+            >
+                {loading && <Loader />}
             </div>
         </>
     );
