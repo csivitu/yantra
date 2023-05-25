@@ -1,6 +1,7 @@
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import ReactGA from 'react-ga';
+import { SessionProvider } from 'next-auth/react';
 
 const trackingID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID;
 
@@ -11,6 +12,10 @@ if (trackingID) {
     console.error('Google Analytics tracking ID is not defined.');
 }
 
-export default function App({ Component, pageProps }: AppProps) {
-    return <Component {...pageProps} />;
+export default function App({ Component, pageProps, session }: AppProps) {
+    return (
+        <SessionProvider session={session}>
+            <Component {...pageProps} />
+        </SessionProvider>
+    );
 }

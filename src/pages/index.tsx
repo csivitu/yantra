@@ -5,6 +5,7 @@ import PatronsSection from '@/components/sections/landing-page-sections/patronsS
 import TimelineSection from '@/components/sections/landing-page-sections/timelineSection';
 import ReactGA from 'react-ga';
 import { useEffect, useState } from 'react';
+
 export default function Home() {
     useEffect(() => {
         ReactGA.pageview(window.location.pathname);
