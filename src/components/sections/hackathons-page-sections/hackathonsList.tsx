@@ -3,6 +3,7 @@ import EventsCard from '@/components/uncommon/landing-page-cards/eventsCard';
 import { EventDocument } from '@/models/eventModel';
 import getHandler from '@/handlers/getHandler';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Loader from '@/components/common/loader';
 
 const HackathonsList = () => {
     const [hackathons, setHackathons] = useState<EventDocument[]>([]);
@@ -51,14 +52,16 @@ const HackathonsList = () => {
                     </div>
                 </div>
                 {loading ? (
-                    <div>Loading...........</div>
+                    <div className="flex justify-around items-center">
+                        <Loader />
+                    </div>
                 ) : (
                     <InfiniteScroll
                         dataLength={count}
                         next={getHackathons}
                         hasMore={hackathons.length !== count}
-                        loader={<div>Loading...........</div>}
-                        className="flex justify-around items-center flex-col py-10 gap-5"
+                        loader={<Loader />}
+                        className="flex justify-around items-center flex-col py-5 gap-5"
                     >
                         {hackathons.map((hackathon: EventDocument) => {
                             return <EventsCard key={hackathon.id} />;
