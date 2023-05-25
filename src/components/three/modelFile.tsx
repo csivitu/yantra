@@ -1,14 +1,14 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 const ComputerModel: React.FC = () => {
     const refBody = useRef<HTMLDivElement>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [renderer, setRenderer] = useState<THREE.WebGLRenderer | null>(null);
     const [camera, setCamera] = useState<THREE.PerspectiveCamera | null>(null);
-    const [target] = useState(new THREE.Vector3(0, 0, 0));
+    const [target] = useState<THREE.Vector3>(new THREE.Vector3(0, 0, 0));
     const [scene] = useState<THREE.Scene>(new THREE.Scene());
     const [controls, setControls] = useState<OrbitControls | null>(null);
 
@@ -16,8 +16,10 @@ const ComputerModel: React.FC = () => {
         if (refBody.current && renderer) {
             const { clientWidth, clientHeight } = refBody.current;
             renderer.setSize(clientWidth, clientHeight);
-            camera.aspect = clientWidth / clientHeight;
-            camera.updateProjectionMatrix();
+            if (camera) {
+                camera.aspect = clientWidth / clientHeight;
+                camera.updateProjectionMatrix();
+            }
         }
     }, [renderer, camera]);
 
@@ -58,42 +60,46 @@ const ComputerModel: React.FC = () => {
             const controls = new OrbitControls(camera, renderer.domElement);
             controls.autoRotate = true;
             controls.target = target;
-            controls.enableZoom = false; // Disable zooming
-            controls.enableRotate = false; // Disable click and drag rotation
-            controls.enablePan = false; // Disable click and drag panning
+            controls.enableZoom = false;
+            controls.enableRotate = false;
+            controls.enablePan = false;
             setControls(controls);
 
             const loader = new GLTFLoader();
             loader.load(
                 '/computer/scene.gltf',
-                (gltf) => {
+                (gltf: GLTF) => {
                     const model = gltf.scene;
 
                     // Load textures and assign them to materials
                     const textureLoader = new THREE.TextureLoader();
                     const texturePath = 'computer/';
-                    model.traverse((child) => {
-                        if (child.isMesh) {
-                            const materials = Array.isArray(child.material)
-                                ? child.material
-                                : [child.material];
+                    model.traverse((child: THREE.Object3D) => {
+                        if (child instanceof THREE.Mesh) {
+                            // Type guard to check if it's a Mesh
+                            const mesh = child;
 
-                            materials.forEach((material) => {
-                                if (material.map) {
+                            const materials = Array.isArray(mesh.material)
+                                ? mesh.material
+                                : [mesh.material];
+
+                            materials.forEach((material: THREE.Material) => {
+                                if ('map' in material) {
                                     // const texture = textureLoader.load(
                                     //     texturePath + material.map.name
                                     // );
                                     // material.map = texture;
-                                    material.side = THREE.FrontSide; // Render only on the front side
-                                    material.transparent = true; // Enable transparency if needed
-                                    material.alphaTest = 0.5; // Adjust transparency threshold if needed
-                                    material.needsUpdate = true; // Update material after changes
+                                    material.side = THREE.FrontSide;
+                                    material.transparent = true;
+                                    material.alphaTest = 0.5;
+                                    material.needsUpdate = true;
                                 }
                             });
                         }
                     });
 
-                    scene.add(model);
+                    scene.add(model); // Add the model to the scene
+
                     setLoading(false);
                 },
                 undefined,
@@ -103,15 +109,21 @@ const ComputerModel: React.FC = () => {
             );
 
             const animate = () => {
-                controls.update();
-                renderer.render(scene, camera);
+                if (controls) {
+                    controls.update();
+                }
+                if (renderer && camera) {
+                    renderer.render(scene, camera);
+                }
                 requestAnimationFrame(animate);
             };
             animate();
 
             return () => {
                 console.log('unmount');
-                renderer.dispose();
+                if (renderer) {
+                    renderer.dispose();
+                }
             };
         }
     }, []);
