@@ -13,8 +13,8 @@ export default function Home() {
 
     return (
         <>
-            <Header />
-            <EventsSection />
+            {/* <Header />
+            <EventsSection /> */}
             <TimelineSection />
             <PatronsSection />
             <Footer />

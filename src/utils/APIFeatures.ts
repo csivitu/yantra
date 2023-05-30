@@ -53,7 +53,9 @@ class APIFeatures<T> {
     }
 
     filter(): this {
-        const queryObj = { ...this.queryStr };
+        const queryObj: { [key: string]: string | number } = {
+            ...this.queryStr,
+        };
         const excludeFields = ['page', 'sort', 'limit', 'fields'];
         excludeFields.forEach((item) => delete queryObj[item]);
 
