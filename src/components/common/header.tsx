@@ -4,10 +4,7 @@ import Button from './button';
 import { GetServerSidePropsContext } from 'next';
 import ReactGA from 'react-ga';
 
-import { useSession, signOut } from 'next-auth/react';
-
 const Header = () => {
-    const { data: session } = useSession();
     return (
         <>
             <div className="flex justify-around items-center w-full h-[7.5vh] ">
@@ -26,19 +23,7 @@ const Header = () => {
                     <div className="w-[10%]">Hackathons</div>
                     <div className="w-[10%]">Team</div>
                     <div className="w-[10%]">
-                        {session ? (
-                            <>
-                                <div>{session.user?.name}</div>
-                                <div
-                                    className="cursor-pointer"
-                                    onClick={() => signOut()}
-                                >
-                                    Sign Out
-                                </div>
-                            </>
-                        ) : (
-                            <Button />
-                        )}
+                        <Button />
                     </div>
                 </div>
             </div>

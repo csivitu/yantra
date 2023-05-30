@@ -4,18 +4,14 @@ import APIFeatures from '@/utils/APIFeatures';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 const getAllEvents = async (req: NextApiRequest, res: NextApiResponse) => {
-    await connectToDB();
-
     const totalNumberofEvents = await Event.find({
         type: req.query.type,
     }).countDocuments();
 
     const eventsQuery = new APIFeatures<EventDocument>(Event.find(), req.query);
-    eventsQuery.filter().paginator();
+    eventsQuery.filter().search().paginator();
 
     const events = await eventsQuery.query;
-
-    // await disconnectFromDB();
 
     res.status(201).json({
         status: 'success',
@@ -25,9 +21,7 @@ const getAllEvents = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 const addEvent = async (req: NextApiRequest, res: NextApiResponse) => {
-    await connectToDB();
     const event = await Event.create(req.body);
-    await disconnectFromDB();
 
     res.status(201).json({
         status: 'success',
@@ -36,6 +30,7 @@ const addEvent = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+    await connectToDB();
     switch (req.method) {
         case 'GET':
             await getAllEvents(req, res);

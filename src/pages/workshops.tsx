@@ -1,16 +1,16 @@
-import Footer from "@/components/common/footer";
-import Header from "@/components/common/header";
-import WorkshopsList from "@/components/sections/workshops-page-sections/workshopsList";
-import React from "react";
+import Footer from '@/components/common/footer';
+import Header from '@/components/common/header';
+import WorkshopsList from '@/sections/workshops-page-sections/workshopsList';
+import React from 'react';
 
 const workshops = () => {
-  return (
-    <>
-      <Header />
-      <WorkshopsList />
-      <Footer />
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <WorkshopsList />
+            <Footer />
+        </>
+    );
 };
 
 export default workshops;

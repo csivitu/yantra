@@ -31,7 +31,22 @@ class APIFeatures<T> {
         regexArry.push(new RegExp(searchStr, 'i'));
         regexArry.push(new RegExp(searchStr.replace(' ', ''), 'i'));
 
-        const search = this.queryStr.search ? {} : {};
+        const search = this.queryStr.search
+            ? {
+                  $or: [
+                      {
+                          title: {
+                              $in: regexArry,
+                          },
+                      },
+                      {
+                          description: {
+                              $in: regexArry,
+                          },
+                      },
+                  ],
+              }
+            : {};
 
         this.query = this.query.find(search);
         return this;

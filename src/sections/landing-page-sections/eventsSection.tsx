@@ -1,7 +1,7 @@
 import EventsCard from '@/components/uncommon/landing-page-cards/eventsCard';
 import React from 'react';
 import { useEffect, useState } from 'react';
-import getHandler from '../../../handlers/getHandler';
+import getHandler from '@/handlers/getHandler';
 import envHandler from '@/managers/envHandler';
 const EventsSection = () => {
     const [eventData, setEventData] = useState([]);

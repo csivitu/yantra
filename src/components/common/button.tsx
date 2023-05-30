@@ -3,8 +3,6 @@ import { useRouter } from 'next/router';
 import ReactGA from 'react-ga';
 import envHandler from '@/managers/envHandler';
 
-import { signIn } from 'next-auth/react';
-
 const Button = () => {
     const onClickHandler = () => {
         ReactGA.event({
@@ -13,7 +11,6 @@ const Button = () => {
             label: 'test label',
             value: 1234,
         });
-        signIn();
     };
     return (
         <div
