@@ -12,6 +12,10 @@ const ComputerModel: React.FC = () => {
     const [target] = useState<THREE.Vector3>(new THREE.Vector3(0, 0, 0));
     const [scene] = useState<THREE.Scene>(new THREE.Scene());
     const [controls, setControls] = useState<OrbitControls | null>(null);
+    const [rotation, setRotation] = useState<number>(0);
+    const [animationFrameId, setAnimationFrameId] = useState<number | null>(
+        null
+    );
 
     const handleWindowResize = useCallback(() => {
         if (refBody.current && renderer) {
@@ -59,7 +63,6 @@ const ComputerModel: React.FC = () => {
             scene.add(directionalLight2);
 
             const controls = new OrbitControls(camera, renderer.domElement);
-            controls.autoRotate = true;
             controls.target = target;
             controls.enableZoom = false;
             controls.enableRotate = false;
@@ -77,7 +80,6 @@ const ComputerModel: React.FC = () => {
                     const texturePath = 'computer/';
                     model.traverse((child: THREE.Object3D) => {
                         if (child instanceof THREE.Mesh) {
-                            // Type guard to check if it's a Mesh
                             const mesh = child;
 
                             const materials = Array.isArray(mesh.material)
@@ -86,10 +88,6 @@ const ComputerModel: React.FC = () => {
 
                             materials.forEach((material: THREE.Material) => {
                                 if ('map' in material) {
-                                    // const texture = textureLoader.load(
-                                    //     texturePath + material.map.name
-                                    // );
-                                    // material.map = texture;
                                     material.side = THREE.FrontSide;
                                     material.transparent = true;
                                     material.alphaTest = 0.5;
@@ -114,14 +112,31 @@ const ComputerModel: React.FC = () => {
                     controls.update();
                 }
                 if (renderer && camera) {
+                    const radius = 2; // Adjust the radius of the camera orbit
+                    const angle = rotation; // Use rotation as the angle of rotation
+
+                    // Calculate the new camera position
+                    const cameraX = radius * Math.sin(angle);
+                    const cameraZ = radius * Math.cos(angle);
+                    camera.position.set(cameraX, 0, cameraZ);
+                    camera.lookAt(target);
+
                     renderer.render(scene, camera);
+
+                    setRotation((rotation) => rotation + 0.01); // Update the rotation state
+
+                    setAnimationFrameId(requestAnimationFrame(animate));
                 }
-                requestAnimationFrame(animate);
             };
-            animate();
+
+            // Start the animation loop
+            const animationId = requestAnimationFrame(animate);
+            setAnimationFrameId(animationId);
 
             return () => {
-                console.log('unmount');
+                if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                }
                 if (renderer) {
                     renderer.dispose();
                 }
