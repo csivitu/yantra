@@ -20,9 +20,9 @@ const EventsSection = () => {
         <>
             <div
                 id="events-section"
-                className="h-[20vh] flex justify-around bg-transparent items-center text-4xl"
+                className="w-fit font-spaceGrotesk uppercase text-8xl font-extrabold m-auto pt-24 pb-8"
             >
-                EVENTS
+                Events
             </div>
 
             <div className="flex justify-around items-center flex-col py-10 gap-5">
