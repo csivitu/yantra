@@ -1,11 +1,13 @@
-import React from "react";
+import React from 'react';
 
 const PatronsCard = () => {
-  return (
-    <>
-      <div className="h-[50vh] w-[25%] bg-lime-200"></div>
-    </>
-  );
+    return (
+        <>
+            <div className="h-[57.5vh] w-[27.5vw] bg-lime-200 rounded-xl">
+                asd
+            </div>
+        </>
+    );
 };
 
 export default PatronsCard;
