@@ -19,11 +19,8 @@ const EventsSection = () => {
     }, []);
     return (
         <>
-            <div
-                id="events-section"
-                className="h-[10vh] lg:h-[20vh] bg-transparent text-4xl text-center flex justify-around items-center"
-            >
-                EVENTS
+            <div className="w-fit font-spaceGrotesk uppercase text-8xl font-extrabold m-auto pt-40 pb-20">
+                Events
             </div>
 
             <div className="flex justify-around items-center flex-col py-10 gap-5">

@@ -3,11 +3,8 @@ import React from 'react';
 const SponsorsSection = () => {
     return (
         <>
-            <div
-                id="sponsors-section"
-                className="h-[10vh] lg:h-[20vh] bg-transparent text-4xl text-center flex justify-around items-center"
-            >
-                SPONSORS
+            <div className="w-fit font-spaceGrotesk uppercase text-8xl font-extrabold m-auto pt-40 pb-20">
+                Sponsors
             </div>
             <div className="h-[70vh] mb-20">
                 <div className="h-1/3 flex justify-around items-center">

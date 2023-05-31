@@ -4,13 +4,10 @@ import React from 'react';
 const PatronsSection = () => {
     return (
         <>
-            <div
-                id="patrons-section"
-                className="h-[20vh] bg-transparent text-4xl text-center flex justify-around items-center"
-            >
-                PATRONS
+            <div className="w-fit font-spaceGrotesk uppercase text-8xl font-extrabold m-auto pt-40 pb-20">
+                Patrons
             </div>
-            <div className="h-max  py-10 flex justify-evenly gap-x-10 gap-y-10 px-20 items-center flex-wrap">
+            <div className="h-max flex justify-evenly gap-x-10 gap-y-10 px-20 items-center flex-wrap">
                 <PatronsCard />
                 <PatronsCard />
                 <PatronsCard />

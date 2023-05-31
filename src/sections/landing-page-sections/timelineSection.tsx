@@ -10,11 +10,8 @@ const TimelineSection = () => {
 
     return (
         <>
-            <div
-                id="timeline-section"
-                className="h-[10vh] lg:h-[20vh] bg-transparent text-4xl text-center flex justify-around items-center"
-            >
-                TIMELINE
+            <div className="w-fit font-spaceGrotesk uppercase text-8xl font-extrabold m-auto pt-32 pb-20">
+                Time Line
             </div>
             <div id="timeline-section" className="w-full flex flex-col">
                 <VerticalTimeline lineColor="black">
