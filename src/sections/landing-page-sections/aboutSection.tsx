@@ -3,7 +3,7 @@ import Image from 'next/image';
 const AboutSection = () => {
     return (
         <>
-            <div className="h-max">
+            <div id="about-section" className="h-max">
                 <div className="flex h-[20vh] text-4xl justify-around items-center w-full">
                     ABOUT YANTRA
                 </div>
