@@ -6,6 +6,8 @@ import TimelineSection from '@/sections/landing-page-sections/timelineSection';
 import ReactGA from 'react-ga';
 import { useEffect, useState } from 'react';
 import HeroSection from '@/sections/landing-page-sections/heroSection';
+import AboutSection from '@/sections/landing-page-sections/aboutSection';
+import SponsorsSection from '@/sections/landing-page-sections/sponsorsSection';
 
 export default function Home() {
     useEffect(() => {
@@ -14,12 +16,16 @@ export default function Home() {
 
     return (
         <>
-            <Header />
-            <HeroSection />
-            <EventsSection />
-            <TimelineSection />
-            <PatronsSection />
-            <Footer />
+            <div className="h-max bg-gradient-bg bg-repeat-y bg-cover">
+                <Header />
+                <HeroSection />
+                <AboutSection />
+                <EventsSection />
+                <TimelineSection />
+                <PatronsSection />
+                <SponsorsSection />
+                <Footer />
+            </div>
         </>
     );
 }

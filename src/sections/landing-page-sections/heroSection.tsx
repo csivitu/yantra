@@ -9,7 +9,7 @@ const HeroSection = () => {
                     <div className="text-6xl">YANTRA</div>
                     <div className="text-xl">
                         VIT&apos;&nbsp;
-                        <span className="bg-[#F8924F] px-4 py-1 rounded-lg border-[1px] border-black">
+                        <span className="bg-[#F8924F] px-4 pb-2 pt-1 rounded-lg border-[1px] border-black">
                             biggest
                         </span>
                         &nbsp;internal

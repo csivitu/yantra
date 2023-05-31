@@ -18,30 +18,41 @@ const EventsSection = () => {
     }, []);
     return (
         <>
-            <div className="h-[10vh] flex justify-around items-center text-4xl">
+            <div className="h-[20vh] flex justify-around bg-transparent items-center text-4xl">
                 EVENTS
             </div>
-            <div className="w-full h-max bg-slate-500 ">
-                <div>
-                    <div className="text-2xl h-[10vh] flex justify-around items-center">
-                        EVENTs
-                    </div>
-                    <div className="flex justify-around items-center flex-col py-10 gap-5">
-                        <EventsCard />
-                        <EventsCard />
-                        <EventsCard />
-                    </div>
-                </div>
-                <div>
-                    <div className="text-2xl   h-[10vh] flex justify-around items-center">
-                        Hacks
-                    </div>
-                    <div className="flex justify-around items-center flex-col py-10 gap-5">
-                        <EventsCard />
-                        <EventsCard />
-                        <EventsCard />
-                    </div>
-                </div>
+
+            <div className="flex justify-around items-center flex-col py-10 gap-5">
+                <EventsCard />
+                <EventsCard />
+                <EventsCard />
+            </div>
+            <div className="w-full flex justify-around items-center">
+                <button className="bg-[#3A3646] hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center">
+                    <p className="text-xl">See all events</p>
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M11.667 28.3333L27 13.0003"
+                            stroke="white"
+                            stroke-width="3.41667"
+                            stroke-linecap="square"
+                            stroke-linejoin="round"
+                        />
+                        <path
+                            d="M12 12H28.6667V28.6667"
+                            stroke="white"
+                            stroke-width="3.41667"
+                            stroke-linecap="square"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </button>
             </div>
         </>
     );
