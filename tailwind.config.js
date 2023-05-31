@@ -6,6 +6,7 @@ module.exports = {
             fontFamily: {
                 spaceGrotesk: ['Space Grotesk'],
                 bronson: ['Bronson'],
+                ibmMono: ['IBM Plex Mono'],
             },
             backgroundColor: {
                 transparent: 'transparent',

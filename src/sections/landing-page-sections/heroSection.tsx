@@ -18,8 +18,8 @@ const HeroSection = () => {
             <div className="h-[70vh] flex justify-around flex-col-reverse sm:flex-row items-end sm:px-28 text-white">
                 <div className="sm:w-[40%] w-[100%] sm:h-[100%] h-[50%] flex justify-center sm:items-start items-center flex-col gap-4">
                     <div className="text-6xl font-bronson">YANTRA</div>
-                    <div className="text-4xl font-bronson tracking-widest leading-10">
-                        <span className="text-2xl">A WEEK OF</span>
+                    <div className="text-5xl font-ibmMono font-semibold tracking-widest leading-[3.5rem]">
+                        A WEEK OF
                         <br />
                         <span className="text-[#244EE4]">TECHNICAL</span>
                         <br /> INNOVATION

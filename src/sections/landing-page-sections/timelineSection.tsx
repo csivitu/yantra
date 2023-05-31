@@ -10,7 +10,7 @@ const TimelineSection = () => {
 
     return (
         <>
-            <div className="w-fit text-white font-bronson uppercase text-8xl font-extrabold m-auto pt-32 pb-20">
+            <div className="w-fit  text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-32 pb-20">
                 Time Line
             </div>
             <div id="timeline-section" className="w-full flex flex-col">
