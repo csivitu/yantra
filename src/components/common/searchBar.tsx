@@ -8,7 +8,7 @@ const SearchBar = () => {
     const submitHandler = (el: FormEvent<HTMLFormElement>) => {
         el.preventDefault();
         if (search === '') router.push('/explore');
-        else router.push(`/explore/search?search=${search}`);
+        else router.push(`/events/search?search=${search}`);
     };
     return (
         <div className="w-5/6 h-12 sticky top-2 z-50 glassMorphism flex items-center justify-between rounded-[3rem] py-2 my-2 max-md:w-3/4">

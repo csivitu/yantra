@@ -16,7 +16,7 @@ const HackathonsList = () => {
         getHandler(
             `${
                 process.env.NEXT_PUBLIC_BASE_URL
-            }/api/events?page=${page}&limit=${2}&type=1`,
+            }/api/events?page=${page}&limit=${3}&type=1`,
             false
         )
             .then((res) => {
