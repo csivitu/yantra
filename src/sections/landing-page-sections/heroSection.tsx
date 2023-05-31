@@ -7,9 +7,9 @@ const HeroSection = () => {
             <div className="h-[70vh] flex justify-around flex-col-reverse lg:flex-row items-end lg:px-28 text-white">
                 <div className="lg:w-[50%] w-[100%] lg:h-[100%] h-[50%] flex justify-center lg:items-start items-center flex-col gap-4">
                     <div className="text-8xl">YANTRA</div>
-                    <div className="lg:text-left text-center text-2xl lg:text-3xl font-spaceGrotesk tracking-widest leading-10">
+                    <div className="lg:text-left text-center text-2xl lg:text-3xl font-spaceGrotesk tracking-widest leading-10 py-3">
                         VIT&apos;&nbsp;
-                        <span className="bg-[#F8924F] px-4 pb-2 pt-1 rounded-lg border-[1px] border-black">
+                        <span className="bg-[#F8924F] px-4 py-1 pt-1 rounded-lg border-[1px] border-black">
                             biggest
                         </span>
                         &nbsp;internal

@@ -34,7 +34,7 @@ const EventsSection = () => {
             <div className="w-full flex justify-around items-center">
                 <Link
                     href={'/events'}
-                    className="bg-[#3A3646] hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center"
+                    className="bg-[#3A3646] hover:bg-[#565263] text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center"
                 >
                     <p className="text-xl font-spaceGrotesk">See all events</p>
                     <svg

@@ -36,7 +36,13 @@ const TimelineSection = () => {
                                             : ''
                                     } h-full items-center justify-between uppercase max-md:flex-row max-md:mt-4`}
                                 >
-                                    <div className="w-2/3 text-6xl font-semibold max-md:text-4xl">
+                                    <div
+                                        className={`w-2/3 ${
+                                            index % 2 === 0
+                                                ? 'text-right'
+                                                : 'text-left'
+                                        } text-4xl font-semibold max-md:text-4xl`}
+                                    >
                                         Opening Ceremony
                                     </div>
                                     <div

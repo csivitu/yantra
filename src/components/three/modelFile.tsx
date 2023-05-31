@@ -58,8 +58,8 @@ const ComputerModel: React.FC = () => {
             directionalLight2.position.set(-1, -1, -1);
             scene.add(directionalLight2);
 
-            const axesHelper = new THREE.AxesHelper(2); // Length of axes can be adjusted as needed
-            scene.add(axesHelper);
+            // const axesHelper = new THREE.AxesHelper(2); // Length of axes can be adjusted as needed
+            // scene.add(axesHelper);
 
             const controls = new OrbitControls(camera, renderer.domElement);
             controls.autoRotate = true; // Enable auto rotation
