@@ -5,6 +5,7 @@ import PatronsSection from '@/sections/landing-page-sections/patronsSection';
 import TimelineSection from '@/sections/landing-page-sections/timelineSection';
 import ReactGA from 'react-ga';
 import { useEffect, useState } from 'react';
+import HeroSection from '@/sections/landing-page-sections/heroSection';
 
 export default function Home() {
     useEffect(() => {
@@ -13,8 +14,9 @@ export default function Home() {
 
     return (
         <>
-            {/* <Header />
-            <EventsSection /> */}
+            <Header />
+            <HeroSection />
+            <EventsSection />
             <TimelineSection />
             <PatronsSection />
             <Footer />

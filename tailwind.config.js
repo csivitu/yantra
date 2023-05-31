@@ -6,7 +6,11 @@ module.exports = {
             fontFamily: {
                 spaceGrotesk: ['Space Grotesk'],
             },
+            backgroundColor: {
+                transparent: 'transparent',
+                glassmorphic: 'rgba(255, 255, 255, 0.8)', // Example glassmorphic transparent color
+            },
         },
+        plugins: [],
     },
-    plugins: [],
 };
