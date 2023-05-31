@@ -9,7 +9,7 @@ const hackathons = () => {
             <div className="h-max bg-grid-bg bg-repeat-y bg-contain">
                 <Header />
                 <HackathonsList />
-                <Footer />
+                {/* <Footer /> */}
             </div>
         </>
     );
