@@ -2,7 +2,15 @@ import React from 'react';
 import ComputerModel from '@/components/three/modelFile';
 import HeroSectionLinks from '@/components/uncommon/heroSectionLinks';
 import Link from 'next/link';
+import Spline from '@splinetool/react-spline';
 
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            'spline-viewer': any;
+        }
+    }
+}
 const HeroSection = () => {
     return (
         <>
@@ -48,8 +56,22 @@ const HeroSection = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="lg:w-[50%] w-[100%] lg:h-[100%] h-[50%]">
-                    <ComputerModel />
+                <div className="lg:w-[50%] w-[100%] lg:h-[100%] h-[50%] bg-transparent">
+                    <div className="h-full w-full bg-transparent">
+                        {/* <script
+                            type="module"
+                            src="https://unpkg.com/@splinetool/viewer@0.9.349/build/spline-viewer.js"
+                            async
+                        ></script>
+                        <spline-viewer
+                            loading-anim
+                            url="https://prod.spline.design/QMu8-BXQ5KgKUF5l/scene.splinecode"
+                        ></spline-viewer> */}
+                        <Spline
+                            style={{ height: '100%', width: '100%' }}
+                            scene="https://draft.spline.design/0CdOcLjzwlFCznkZ/scene.splinecode"
+                        />
+                    </div>
                 </div>
             </div>
             <HeroSectionLinks />
