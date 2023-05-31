@@ -39,7 +39,7 @@ const TimelineSection = () => {
                                     <div
                                         className={`w-2/3 ${
                                             index % 2 === 0
-                                                ? 'text-right'
+                                                ? 'sm:text-right'
                                                 : 'text-left'
                                         } text-4xl font-semibold max-md:text-4xl`}
                                     >

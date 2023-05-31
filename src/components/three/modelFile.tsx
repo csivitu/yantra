@@ -66,7 +66,7 @@ const ComputerModel: React.FC = () => {
             controls.autoRotateSpeed = 2; // Adjust the speed of auto rotation
             controls.target = target;
             controls.enableZoom = false; // Disable zooming
-            controls.enableRotate = false; // Disable click and drag rotation
+            controls.enableRotate = true; // Disable click and drag rotation
 
             controls.enablePan = false; // Disable click and drag panning
             setControls(controls);

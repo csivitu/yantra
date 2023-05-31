@@ -7,7 +7,7 @@ const AboutSection = () => {
                 <div className="flex h-[10vh] lg:h-[20vh] text-4xl justify-around items-center w-full">
                     ABOUT YANTRA
                 </div>
-                <div className="flex lg:h-[70vh] flex-col lg:flex-row justify-around items-center lg:px-20">
+                <div className="flex h-[70vh] flex-col lg:flex-row justify-around items-center lg:px-20">
                     <div className="lg:w-[50%] py-12 px-8 h-[60%] lg:h-full">
                         <Image
                             src="/vit.png"
