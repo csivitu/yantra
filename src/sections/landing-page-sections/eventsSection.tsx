@@ -41,15 +41,15 @@ const EventsSection = () => {
                             d="M11.667 28.3333L27 13.0003"
                             stroke="white"
                             stroke-width="3.41667"
-                            stroke-linecap="square"
-                            stroke-linejoin="round"
+                            strokeLinecap="square"
+                            strokeLinejoin="round"
                         />
                         <path
                             d="M12 12H28.6667V28.6667"
                             stroke="white"
                             stroke-width="3.41667"
-                            stroke-linecap="square"
-                            stroke-linejoin="round"
+                            strokeLinecap="square"
+                            strokeLinejoin="round"
                         />
                     </svg>
                 </button>
