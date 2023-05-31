@@ -20,8 +20,8 @@ export default function Home() {
                 <Header />
                 <HeroSection />
                 <AboutSection />
-                <EventsSection />
                 <TimelineSection />
+                <EventsSection />
                 <PatronsSection />
                 <SponsorsSection />
                 <Footer />

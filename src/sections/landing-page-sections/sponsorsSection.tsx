@@ -3,7 +3,10 @@ import React from 'react';
 const SponsorsSection = () => {
     return (
         <>
-            <div className="h-[20vh] bg-transparent text-4xl text-center flex justify-around items-center">
+            <div
+                id="sponsors-section"
+                className="h-[10vh] lg:h-[20vh] bg-transparent text-4xl text-center flex justify-around items-center"
+            >
                 SPONSORS
             </div>
             <div className="h-[70vh] mb-20">

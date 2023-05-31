@@ -3,6 +3,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import getHandler from '@/handlers/getHandler';
 import envHandler from '@/managers/envHandler';
+import Link from 'next/link';
 const EventsSection = () => {
     const [eventData, setEventData] = useState([]);
     const eventsController = async () => {
@@ -20,9 +21,9 @@ const EventsSection = () => {
         <>
             <div
                 id="events-section"
-                className="w-fit font-spaceGrotesk uppercase text-8xl font-extrabold m-auto pt-24 pb-8"
+                className="h-[10vh] lg:h-[20vh] bg-transparent text-4xl text-center flex justify-around items-center"
             >
-                Events
+                EVENTS
             </div>
 
             <div className="flex justify-around items-center flex-col py-10 gap-5">
@@ -31,7 +32,10 @@ const EventsSection = () => {
                 <EventsCard />
             </div>
             <div className="w-full flex justify-around items-center">
-                <button className="bg-[#3A3646] hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center">
+                <Link
+                    href={'/events'}
+                    className="bg-[#3A3646] hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center"
+                >
                     <p className="text-xl font-spaceGrotesk">See all events</p>
                     <svg
                         width="20"
@@ -55,7 +59,7 @@ const EventsSection = () => {
                             strokeLinejoin="round"
                         />
                     </svg>
-                </button>
+                </Link>
             </div>
         </>
     );

@@ -1,21 +1,25 @@
 import React from 'react';
 import ComputerModel from '@/components/three/modelFile';
+import Link from 'next/link';
 const HeroSection = () => {
     return (
         <>
-            <div className="h-[70vh] flex justify-around flex-col-reverse sm:flex-row items-end sm:px-28 text-white">
-                <div className="sm:w-[40%] w-[100%] sm:h-[100%] h-[50%] flex justify-center sm:items-start items-center flex-col gap-4">
-                    <div className="text-6xl">YANTRA</div>
-                    <div className="text-xl font-spaceGrotesk tracking-widest leading-10">
+            <div className="h-[70vh] flex justify-around flex-col-reverse lg:flex-row items-end lg:px-28 text-white">
+                <div className="lg:w-[50%] w-[100%] lg:h-[100%] h-[50%] flex justify-center lg:items-start items-center flex-col gap-4">
+                    <div className="text-8xl">YANTRA</div>
+                    <div className="lg:text-left text-center text-2xl lg:text-3xl font-spaceGrotesk tracking-widest leading-10">
                         VIT&apos;&nbsp;
                         <span className="bg-[#F8924F] px-4 pb-2 pt-1 rounded-lg border-[1px] border-black">
                             biggest
                         </span>
                         &nbsp;internal
-                        <br className="hidden sm:block" /> techfest
+                        <br className="hidden lg:block" /> techfest
                     </div>
                     <div>
-                        <button className="bg-[#3A3646] font-spaceGrotesk hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center">
+                        <Link
+                            href={'https://vtop.vit.ac.in/'}
+                            className="bg-[#3A3646] font-spaceGrotesk hover:bg-[#565263] text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center"
+                        >
                             <p>Register Now</p>
                             <svg
                                 width="23"
@@ -39,14 +43,14 @@ const HeroSection = () => {
                                     strokeLinejoin="round"
                                 />
                             </svg>
-                        </button>
+                        </Link>
                     </div>
                 </div>
-                <div className="sm:w-[60%] w-[100%] sm:h-[100%] h-[50%]">
+                <div className="lg:w-[50%] w-[100%] lg:h-[100%] h-[50%]">
                     <ComputerModel />
                 </div>
             </div>
-            <div className="h-[10vh] flex justify-center gap-3 sm:gap-24 items-center">
+            <div className="h-[10vh] flex justify-center gap-3 lg:gap-24 items-center">
                 <div>
                     <svg
                         width="40"
