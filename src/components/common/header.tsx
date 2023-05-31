@@ -23,7 +23,7 @@ const Header = () => {
     const handleMenuClick = (targetId: string) => {
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
-            const yOffset = -100; // Adjust the yOffset value as per your requirement
+            const yOffset = 0; // Adjust the yOffset value as per your requirement
             const y =
                 targetElement.getBoundingClientRect().top +
                 window.pageYOffset +
@@ -33,7 +33,7 @@ const Header = () => {
     };
 
     const headerClass =
-        scrollPosition > useWindowHeight()
+        scrollPosition > useWindowHeight() - 100
             ? 'glassMorphism sticky top-0'
             : scrollPosition > 50 //navbar length
             ? 'opacity-0'

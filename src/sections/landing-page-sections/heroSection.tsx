@@ -8,8 +8,8 @@ const HeroSection = () => {
         <>
             <div className="h-[70vh] flex justify-around flex-col-reverse sm:flex-row items-end sm:px-28 text-white">
                 <div className="sm:w-[40%] w-[100%] sm:h-[100%] h-[50%] flex justify-center sm:items-start items-center flex-col gap-4">
-                    <div className="text-6xl">YANTRA</div>
-                    <div className="text-xl font-spaceGrotesk tracking-widest leading-10">
+                    <div className="text-9xl font-semibold">YANTRA</div>
+                    <div className="text-3xl pl-4 font-spaceGrotesk tracking-widest leading-10">
                         VIT&apos;s{' '}
                         <span className="bg-[#F8924F] px-4 pb-2 pt-1 rounded-lg border-[1px] border-black">
                             biggest
@@ -20,7 +20,7 @@ const HeroSection = () => {
                     <div>
                         <Link
                             href={'https://vtop.vit.ac.in/'}
-                            className="bg-[#3A3646] font-spaceGrotesk hover:bg-[#565263] text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center"
+                            className="bg-[#3A3646] font-spaceGrotesk ml-4 hover:bg-[#565263] text-white font-bold mt-10 py-4 px-6 rounded-lg flex justify-center gap-2 items-center"
                         >
                             <p>Register Now</p>
                             <svg

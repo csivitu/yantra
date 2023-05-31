@@ -19,7 +19,10 @@ const EventsSection = () => {
     }, []);
     return (
         <>
-            <div className="w-fit font-spaceGrotesk uppercase text-8xl font-extrabold m-auto pt-40 pb-20">
+            <div
+                id="events-section"
+                className="w-fit font-spaceGrotesk uppercase text-8xl font-extrabold m-auto pt-40 pb-20"
+            >
                 Events
             </div>
 

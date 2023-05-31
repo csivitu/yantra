@@ -10,10 +10,13 @@ const TimelineSection = () => {
 
     return (
         <>
-            <div className="w-fit font-spaceGrotesk uppercase text-8xl font-extrabold m-auto pt-32 pb-20">
+            <div
+                id="timeline-section"
+                className="w-fit font-spaceGrotesk uppercase text-8xl font-extrabold m-auto pt-32 pb-20"
+            >
                 Time Line
             </div>
-            <div id="timeline-section" className="w-full flex flex-col">
+            <div className="w-full flex flex-col">
                 <VerticalTimeline lineColor="black">
                     {arr.map((index) => {
                         return (

@@ -4,6 +4,7 @@ import { EventDocument } from '@/models/eventModel';
 import getHandler from '@/handlers/getHandler';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Loader from '@/components/common/loader';
+import SearchBar from '@/components/common/searchBar';
 
 const HackathonsList = () => {
     const [hackathons, setHackathons] = useState<EventDocument[]>([]);
@@ -36,22 +37,14 @@ const HackathonsList = () => {
 
     return (
         <>
-            <div className="h-[7.5vh]"></div>
-            <div className="w-full h-max  ">
-                <div className="text-4xl text-white font-bold h-[15vh] flex justify-start px-28 items-center">
-                    EVENTS
-                </div>
-                {/* <div className="flex justify-center gap-3 items-center">
-                    <div className="w-[20%] flex justify-around items-center">
-                        Technical Workshops
-                    </div>
-                    <div className="w-[20%] flex justify-around items-center">
-                        Non- technical Workshops
-                    </div>
-                    <div className="w-[20%] flex justify-around items-center">
+            <div className="w-full h-max px-32">
+                <div className="w-full px-32 flex items-center">
+                    <div className="w-full font-spaceGrotesk uppercase text-6xl font-extrabold py-8 text-white">
                         Events
                     </div>
-                </div> */}
+                    <SearchBar />
+                </div>
+
                 {loading ? (
                     <div className="flex justify-around items-center">
                         <Loader />
@@ -62,7 +55,7 @@ const HackathonsList = () => {
                         next={getHackathons}
                         hasMore={hackathons.length !== count}
                         loader={<Loader />}
-                        className="flex justify-around items-center flex-col py-5 gap-5"
+                        className="w-full flex justify-around items-center flex-col py-5 gap-5"
                     >
                         {hackathons.map((hackathon: EventDocument) => {
                             return <EventsCard key={hackathon.id} />;
