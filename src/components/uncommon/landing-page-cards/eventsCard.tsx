@@ -26,7 +26,7 @@ const EventsCard = () => {
                         </div>
                     </div>
 
-                    <div className="text-lg">
+                    <div className="text-lg line-clamp-2">
                         Lorem ipsum dolor sit amet consectetur, adipisicing
                         elit. Consequatur earum inventore maiores velit, dolor
                         deleniti laudantium iste omnis ipsum odit facilis

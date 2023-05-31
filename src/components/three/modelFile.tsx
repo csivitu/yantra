@@ -61,7 +61,7 @@ const ComputerModel: React.FC = () => {
             scene.add(axesHelper);
 
             const controls = new OrbitControls(camera, renderer.domElement);
-            controls.autoRotate = false; // Enable auto rotation
+            controls.autoRotate = true; // Enable auto rotation
             controls.autoRotateSpeed = 2; // Adjust the speed of auto rotation
             controls.target = target;
             controls.enableZoom = false; // Disable zooming

@@ -3,9 +3,8 @@ import ComputerModel from '@/components/three/modelFile';
 const HeroSection = () => {
     return (
         <>
-            <div className="h-[7.5vh]"></div>
-            <div className="h-[80vh] flex justify-around flex-col-reverse sm:flex-row items-end sm:px-28 text-white">
-                <div className="sm:w-[50%] w-[100%] sm:h-[100%] h-[50%] flex justify-center sm:items-start items-center flex-col gap-4">
+            <div className="h-[70vh] flex justify-around flex-col-reverse sm:flex-row items-end sm:px-28 text-white">
+                <div className="sm:w-[40%] w-[100%] sm:h-[100%] h-[50%] flex justify-center sm:items-start items-center flex-col gap-4">
                     <div className="text-6xl">YANTRA</div>
                     <div className="text-xl font-spaceGrotesk tracking-widest leading-10">
                         VIT&apos;&nbsp;
@@ -43,7 +42,7 @@ const HeroSection = () => {
                         </button>
                     </div>
                 </div>
-                <div className="sm:w-[50%] w-[100%] sm:h-[100%] h-[50%]">
+                <div className="sm:w-[60%] w-[100%] sm:h-[100%] h-[50%]">
                     <ComputerModel />
                 </div>
             </div>

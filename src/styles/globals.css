@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: 'bronson';
-    src: url('/public/BRONSON-Black.ttf');
-}
-
 .slideInner___2mfX9 {
     /* display: flex;
     justify-items: center;
