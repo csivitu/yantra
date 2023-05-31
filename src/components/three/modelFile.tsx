@@ -154,7 +154,7 @@ const ComputerModel: React.FC = () => {
     return (
         <>
             <div
-                className="h-full w-full flex justify-around items-center"
+                className="h-full w-full flex justify-around items-center bg-transparent"
                 ref={refBody}
             >
                 {loading && <Loader />}
