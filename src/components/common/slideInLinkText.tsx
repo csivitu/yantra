@@ -1,10 +1,17 @@
 import React from 'react';
 import { animated, useSpring } from '@react-spring/web';
 
-const SlideInLinkText = ({ isVisible, children, xIndex }) => {
+interface Props {
+    isVisible: number;
+    children: React.ReactNode;
+    xIndex: number;
+    elIndex: number;
+}
+
+const SlideInLinkText = ({ isVisible, children, xIndex, elIndex }: Props) => {
     const styles = useSpring({
-        opacity: isVisible ? 1 : 0,
-        x: isVisible ? xIndex : -24,
+        opacity: isVisible === elIndex ? 1 : 0,
+        x: isVisible === elIndex ? xIndex : -24,
     });
 
     return (
