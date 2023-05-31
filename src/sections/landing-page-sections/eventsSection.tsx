@@ -18,8 +18,8 @@ const EventsSection = () => {
     }, []);
     return (
         <>
-            <div className="h-[20vh] flex justify-around bg-transparent items-center text-4xl">
-                EVENTS
+            <div className="w-fit font-spaceGrotesk uppercase text-8xl font-extrabold m-auto pt-24 pb-8">
+                Events
             </div>
 
             <div className="flex justify-around items-center flex-col py-10 gap-5">
