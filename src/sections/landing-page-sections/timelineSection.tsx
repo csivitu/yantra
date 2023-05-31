@@ -13,7 +13,7 @@ const TimelineSection = () => {
             <div className="w-fit  text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-32 pb-20">
                 Time Line
             </div>
-            <div id="timeline-section" className="w-full flex flex-col">
+            <div className="w-full flex flex-col">
                 <VerticalTimeline lineColor="black">
                     {arr.map((index) => {
                         return (

@@ -11,7 +11,7 @@ interface Props {
 const SlideInLinkText = ({ isVisible, children, xIndex, elIndex }: Props) => {
     const styles = useSpring({
         opacity: isVisible === elIndex ? 1 : 0,
-        x: isVisible === elIndex ? xIndex : -24,
+        x: isVisible === elIndex ? xIndex : 24,
     });
 
     return (

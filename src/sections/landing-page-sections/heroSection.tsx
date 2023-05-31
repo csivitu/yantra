@@ -1,6 +1,4 @@
 import React from 'react';
-import ComputerModel from '@/components/three/modelFile';
-
 import SocialMediaLinks from '@/components/uncommon/social-media-links/socialMediaLinks';
 import Link from 'next/link';
 import Spline from '@splinetool/react-spline';
@@ -74,8 +72,8 @@ const HeroSection = () => {
                         />
                     </div>
                 </div>
+                <SocialMediaLinks />
             </div>
-            <SocialMediaLinks />
         </>
     );
 };
