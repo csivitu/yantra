@@ -10,10 +10,7 @@ const TimelineSection = () => {
 
     return (
         <>
-            <div
-                id="timeline-section"
-                className="w-fit font-spaceGrotesk uppercase text-8xl font-extrabold m-auto pt-32 pb-20"
-            >
+            <div className="w-fit  text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-32 pb-20">
                 Time Line
             </div>
             <div className="w-full flex flex-col">
@@ -25,12 +22,12 @@ const TimelineSection = () => {
                                 className="vertical-timeline-element--work font-spaceGrotesk"
                                 icon={
                                     <div className="w-full h-full flex items-center justify-center">
-                                        <div className="w-8 h-8 bg-black rounded-full"></div>
+                                        <div className="w-5 h-5 bg-white rounded-full"></div>
                                     </div>
                                 }
                             >
                                 <div
-                                    className={`w-full flex ${
+                                    className={`w-full flex text-orange-500 ${
                                         index % 2 === 0
                                             ? 'flex-row-reverse'
                                             : ''
@@ -39,7 +36,7 @@ const TimelineSection = () => {
                                     <div
                                         className={`w-2/3 ${
                                             index % 2 === 0
-                                                ? 'text-right'
+                                                ? 'sm:text-right'
                                                 : 'text-left'
                                         } text-4xl font-semibold max-md:text-4xl`}
                                     >

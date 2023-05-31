@@ -2,10 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.slideInner___2mfX9 {
-    /* display: flex;
-    justify-items: center;
-    align-items: center; */
+@font-face {
+    font-family: 'Bronson';
+    src: url('../../public/BronsonBlack.ttf');
+}
+
+html {
+    background-color: #101010;
 }
 
 .carousel__dot {
@@ -31,8 +34,8 @@
 .vertical-timeline::before {
     background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0) -2%,
-        rgba(0, 0, 0, 1) 120%
+        rgba(255, 255, 255, 0) -2%,
+        rgb(255, 255, 255) 120%
     ) !important;
 }
 
@@ -43,7 +46,7 @@
     /* width: 50px !important;
     height: 50px !important; */
     border-width: 2px;
-    border-color: black;
+    border-color: white;
 }
 
 .vertical-timeline-element-content {

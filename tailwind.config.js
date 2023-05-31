@@ -5,13 +5,15 @@ module.exports = {
         extend: {
             fontFamily: {
                 spaceGrotesk: ['Space Grotesk'],
-                bronson: ['bronson'],
+                bronson: ['Bronson'],
+                ibmMono: ['IBM Plex Mono'],
             },
             backgroundColor: {
                 transparent: 'transparent',
             },
             backgroundImage: {
-                'gradient-bg': "url('/background.svg')",
+                // 'gradient-bg': "url('/background.svg')",
+                'grid-bg': 'url(/grid.svg)',
             },
         },
         plugins: [require('@tailwindcss/line-clamp')],

@@ -7,7 +7,7 @@ const EventsCard = () => {
             <div
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
-                className={`lg:h-[32.5vh] lg:w-[80%] w-[90%] flex-col lg:flex-row font-spaceGrotesk bg-white bg-opacity-60 flex justify-around py-5 px-4 gap-3 items-center rounded-lg transition-all duration-300 ease-in-out ${
+                className={`lg:h-[32.5vh] text-white lg:w-[80%] w-[90%] flex-col lg:flex-row font-spaceGrotesk bg-white bg-opacity-60 flex justify-around py-5 px-4 gap-3 items-center rounded-lg transition-all duration-300 ease-in-out ${
                     hover ? 'glassMorphism' : 'glassMorphism2'
                 }`}
             >

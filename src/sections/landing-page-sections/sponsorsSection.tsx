@@ -7,6 +7,7 @@ const SponsorsSection = () => {
                 id="sponsors-section"
                 className="w-fit font-spaceGrotesk uppercase text-8xl font-extrabold m-auto pt-40 pb-20"
             >
+            <div className="w-fit text-white font-bronson uppercase sm:text-8xl font-extrabold m-auto pt-40 pb-20">
                 Sponsors
             </div>
             <div className="mb-20">
