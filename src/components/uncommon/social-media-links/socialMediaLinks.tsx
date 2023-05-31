@@ -1,9 +1,9 @@
 /* eslint-disable react/no-children-prop */
 import React, { useState } from 'react';
 import Image from 'next/image';
-import SlideInLinkText from '../common/slideInLinkText';
+import SlideInLinkText from '../../common/slideInLinkText';
 
-const HeroSectionLinks = () => {
+const SocialMediaLinks = () => {
     const [toggle, setToggle] = useState(-1);
     const handles = ['youtube', 'twitter', 'instagram', 'linkedIn'];
 
@@ -42,4 +42,4 @@ const HeroSectionLinks = () => {
     );
 };
 
-export default HeroSectionLinks;
+export default SocialMediaLinks;

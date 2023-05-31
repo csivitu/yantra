@@ -2,10 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.slideInner___2mfX9 {
-    /* display: flex;
-    justify-items: center;
-    align-items: center; */
+@font-face {
+    font-family: 'Bronson';
+    src: url('../../public/BronsonBlack.ttf');
+}
+
+html {
+    background-color: #101010;
 }
 
 .carousel__dot {

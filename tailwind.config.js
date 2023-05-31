@@ -5,7 +5,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 spaceGrotesk: ['Space Grotesk'],
-                bronson: ['bronson'],
+                bronson: ['Bronson'],
             },
             backgroundColor: {
                 transparent: 'transparent',

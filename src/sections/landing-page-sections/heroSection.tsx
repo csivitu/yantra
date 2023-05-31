@@ -1,6 +1,7 @@
 import React from 'react';
 import ComputerModel from '@/components/three/modelFile';
-import HeroSectionLinks from '@/components/uncommon/heroSectionLinks';
+
+import SocialMediaLinks from '@/components/uncommon/social-media-links/socialMediaLinks';
 import Link from 'next/link';
 import Spline from '@splinetool/react-spline';
 
@@ -16,7 +17,7 @@ const HeroSection = () => {
         <>
             <div className="h-[70vh] flex justify-around flex-col-reverse sm:flex-row items-end sm:px-28 text-white">
                 <div className="sm:w-[40%] w-[100%] sm:h-[100%] h-[50%] flex justify-center sm:items-start items-center flex-col gap-4">
-                    <div className="text-6xl">YANTRA</div>
+                    <div className="text-6xl font-bronson">YANTRA</div>
                     <div className="text-xl font-spaceGrotesk tracking-widest leading-10">
                         VIT&apos;s{' '}
                         <span className="bg-[#F8924F] px-4 pb-2 pt-1 rounded-lg border-[1px] border-black">
@@ -67,14 +68,15 @@ const HeroSection = () => {
                             loading-anim
                             url="https://prod.spline.design/QMu8-BXQ5KgKUF5l/scene.splinecode"
                         ></spline-viewer> */}
+                        {/* <ComputerModel /> */}
                         <Spline
                             style={{ height: '100%', width: '100%' }}
-                            scene="https://draft.spline.design/0CdOcLjzwlFCznkZ/scene.splinecode"
+                            scene="https://draft.spline.design/ie79MbJaoOFXQIn6/scene.splinecode"
                         />
                     </div>
                 </div>
             </div>
-            <HeroSectionLinks />
+            <SocialMediaLinks />
         </>
     );
 };
