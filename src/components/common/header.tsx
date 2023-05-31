@@ -42,7 +42,7 @@ const Header = () => {
     return (
         <>
             <div
-                className={`hidden sm:flex justify-between items-center w-full h-28 px-16 text-white z-50 transition-all duration-300 ease-in-out ${headerClass}`}
+                className={`hidden lg:flex justify-between items-center w-full h-28 px-16 text-white z-50 transition-all duration-300 ease-in-out ${headerClass}`}
             >
                 <Image
                     src="/assets/vit-logo.png"
@@ -52,29 +52,48 @@ const Header = () => {
                     className="w-40 h-20 object-contain"
                 />
                 <div className="w-fit h-full flex gap-10 items-center font-spaceGrotesk font-semibold text-lg">
-                    <div onClick={() => handleMenuClick('about-section')}>
+                    <div
+                        className="cursor-pointer hover:text-black"
+                        onClick={() => handleMenuClick('about-section')}
+                    >
                         About Us
                     </div>
-                    <div onClick={() => handleMenuClick('events-section')}>
-                        Events
-                    </div>
-                    <div onClick={() => handleMenuClick('timeline-section')}>
+
+                    <div
+                        className="cursor-pointer hover:text-black"
+                        onClick={() => handleMenuClick('timeline-section')}
+                    >
                         Timeline
                     </div>
-                    <div onClick={() => handleMenuClick('patrons-section')}>
+                    <div
+                        className="cursor-pointer hover:text-black"
+                        onClick={() => handleMenuClick('events-section')}
+                    >
+                        Events
+                    </div>
+                    <div
+                        className="cursor-pointer hover:text-black"
+                        onClick={() => handleMenuClick('patrons-section')}
+                    >
                         Patrons
                     </div>
-                    <div onClick={() => handleMenuClick('sponsors-section')}>
+                    <div
+                        className="cursor-pointer hover:text-black"
+                        onClick={() => handleMenuClick('sponsors-section')}
+                    >
                         Sponsors
                     </div>
-                    <div onClick={() => handleMenuClick('contact-section')}>
+                    <div
+                        className="cursor-pointer hover:text-black"
+                        onClick={() => handleMenuClick('contact-section')}
+                    >
                         Contact Us
                     </div>
                 </div>
             </div>
 
             <div
-                className={`flex sm:hidden static justify-around items-center w-full h-[7.5vh] text-white ${headerClass}`}
+                className={`z-30 flex lg:hidden static justify-around items-center w-full h-[7.5vh] text-white ${headerClass}`}
             >
                 <div className="w-[20%] h-full flex justify-around items-center">
                     <svg

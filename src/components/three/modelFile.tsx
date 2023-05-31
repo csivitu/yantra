@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import Loader from '../common/loader';
 
 const ComputerModel: React.FC = () => {
     const refBody = useRef<HTMLDivElement>(null);
@@ -57,15 +58,16 @@ const ComputerModel: React.FC = () => {
             directionalLight2.position.set(-1, -1, -1);
             scene.add(directionalLight2);
 
-            const axesHelper = new THREE.AxesHelper(2); // Length of axes can be adjusted as needed
-            scene.add(axesHelper);
+            // const axesHelper = new THREE.AxesHelper(2); // Length of axes can be adjusted as needed
+            // scene.add(axesHelper);
 
             const controls = new OrbitControls(camera, renderer.domElement);
             controls.autoRotate = true; // Enable auto rotation
             controls.autoRotateSpeed = 2; // Adjust the speed of auto rotation
             controls.target = target;
             controls.enableZoom = false; // Disable zooming
-            controls.enableRotate = true; // Disable click and drag rotation
+            controls.enableRotate = false; // Disable click and drag rotation
+
             controls.enablePan = false; // Disable click and drag panning
             setControls(controls);
 
@@ -74,7 +76,8 @@ const ComputerModel: React.FC = () => {
                 '/computer/scene.gltf',
                 (gltf) => {
                     const model = gltf.scene;
-                    model.position.x = -0.1;
+                    model.position.x = -0.06;
+                    model.position.z = 0.14;
                     // Load textures and assign them to materials
                     const textureLoader = new THREE.TextureLoader();
                     const texturePath = 'computer/';
@@ -129,7 +132,11 @@ const ComputerModel: React.FC = () => {
     return (
         <>
             <div className="h-full w-full" ref={refBody}>
-                {loading && <p>loading...</p>}
+                {loading && (
+                    <div className="w-full h-full flex justify-center items-center">
+                        <Loader />
+                    </div>
+                )}
             </div>
         </>
     );

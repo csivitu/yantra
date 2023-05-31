@@ -1,6 +1,7 @@
 import React from 'react';
 import ComputerModel from '@/components/three/modelFile';
 import HeroSectionLinks from '@/components/uncommon/heroSectionLinks';
+import Link from 'next/link';
 
 const HeroSection = () => {
     return (
@@ -14,10 +15,13 @@ const HeroSection = () => {
                             biggest
                         </span>
                         &nbsp;internal
-                        <br className="hidden sm:block" /> techfest
+                        <br className="hidden lg:block" /> techfest
                     </div>
                     <div>
-                        <button className="bg-[#3A3646] font-spaceGrotesk hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center">
+                        <Link
+                            href={'https://vtop.vit.ac.in/'}
+                            className="bg-[#3A3646] font-spaceGrotesk hover:bg-[#565263] text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center"
+                        >
                             <p>Register Now</p>
                             <svg
                                 width="23"
@@ -41,10 +45,10 @@ const HeroSection = () => {
                                     strokeLinejoin="round"
                                 />
                             </svg>
-                        </button>
+                        </Link>
                     </div>
                 </div>
-                <div className="sm:w-[60%] w-[100%] sm:h-[100%] h-[50%]">
+                <div className="lg:w-[50%] w-[100%] lg:h-[100%] h-[50%]">
                     <ComputerModel />
                 </div>
             </div>
