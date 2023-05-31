@@ -42,16 +42,18 @@ const Header = () => {
     return (
         <>
             <div
-                className={`hidden lg:flex justify-between items-center w-full h-28 px-16 text-white z-50 transition-all duration-300 ease-in-out ${headerClass}`}
+                className={`hidden lg:flex justify-between items-center w-full h-[4rem] px-16 text-white z-50 transition-all duration-300 ease-in-out ${headerClass}`}
             >
-                <Image
-                    src="/assets/vit-logo.png"
-                    alt="logo"
-                    height={10000}
-                    width={10000}
-                    className="w-40 h-20 object-contain"
-                />
-                <div className="w-fit h-full flex gap-10 items-center font-spaceGrotesk font-semibold text-lg">
+                <div className="w-[20%] h-full">
+                    <Image
+                        src="/white-vit-logo.png"
+                        alt="logo"
+                        height={10000}
+                        width={10000}
+                        className="w-full h-full  object-cover"
+                    />
+                </div>
+                <div className="w-[80%] h-full flex gap-10 items-center justify-end font-spaceGrotesk font-semibold text-lg">
                     <div
                         className="cursor-pointer hover:text-black"
                         onClick={() => handleMenuClick('about-section')}

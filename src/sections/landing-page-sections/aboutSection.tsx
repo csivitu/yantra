@@ -4,7 +4,7 @@ const AboutSection = () => {
     return (
         <>
             <div id="about-section" className="h-max">
-                <div className="w-fit font-spaceGrotesk uppercase text-6xl font-extrabold m-auto pt-40 pb-16">
+                <div className="w-fit text-white font-bronson uppercase text-6xl font-extrabold m-auto pt-40 pb-16">
                     About Yantra
                 </div>
                 <div className="flex h-[70vh] flex-col lg:flex-row justify-around items-center lg:px-20">
@@ -17,7 +17,7 @@ const AboutSection = () => {
                             className="w-full h-full object-cover  rounded-md"
                         />
                     </div>
-                    <div className="lg:w-[50%] w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center lg:text-left text-center">
+                    <div className="lg:w-[50%] text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center lg:text-left text-center">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Eligendi sunt, fuga porro maxime laudantium tempore
                         tempora sapiente assumenda minus! Maiores repellendus
@@ -27,7 +27,7 @@ const AboutSection = () => {
                         odit. Nobis placeat at repudiandae autem in consectetur.
                     </div>
                 </div>
-                <div className="w-fit font-spaceGrotesk uppercase text-6xl font-extrabold m-auto pt-28 pb-12">
+                <div className="w-fit text-white font-bronson uppercase text-6xl font-extrabold m-auto pt-28 pb-12">
                     About VIT
                 </div>
                 <div className="flex h-[70vh] flex-col lg:flex-row justify-around items-center lg:px-20">
@@ -40,7 +40,7 @@ const AboutSection = () => {
                             className="w-full h-full object-cover  rounded-md"
                         />
                     </div>
-                    <div className="lg:w-[50%] w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center lg:text-left text-center">
+                    <div className="lg:w-[50%] text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center lg:text-left text-center">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Eligendi sunt, fuga porro maxime laudantium tempore
                         tempora sapiente assumenda minus! Maiores repellendus

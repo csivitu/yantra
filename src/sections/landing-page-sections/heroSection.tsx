@@ -18,18 +18,17 @@ const HeroSection = () => {
             <div className="h-[70vh] flex justify-around flex-col-reverse sm:flex-row items-end sm:px-28 text-white">
                 <div className="sm:w-[40%] w-[100%] sm:h-[100%] h-[50%] flex justify-center sm:items-start items-center flex-col gap-4">
                     <div className="text-6xl font-bronson">YANTRA</div>
-                    <div className="text-xl font-spaceGrotesk tracking-widest leading-10">
-                        VIT&apos;s{' '}
-                        <span className="bg-[#F8924F] px-4 pb-2 pt-1 rounded-lg border-[1px] border-black">
-                            biggest
-                        </span>
-                        &nbsp;internal
-                        <br className="hidden lg:block" /> techfest
+                    <div className="text-4xl font-bronson tracking-widest leading-10">
+                        <span className="text-2xl">A WEEK OF</span>
+                        <br />
+                        <span className="text-[#244EE4]">TECHNICAL</span>
+                        <br /> INNOVATION
                     </div>
+
                     <div>
                         <Link
                             href={'https://vtop.vit.ac.in/'}
-                            className="bg-[#3A3646] font-spaceGrotesk hover:bg-[#565263] text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center"
+                            className="bg-[#FFA412] font-spaceGrotesk hover:bg-[#ffb744] text-white font-bold  py-2 px-2 rounded-lg flex justify-center gap-2 items-center"
                         >
                             <p>Register Now</p>
                             <svg
@@ -71,7 +70,7 @@ const HeroSection = () => {
                         {/* <ComputerModel /> */}
                         <Spline
                             style={{ height: '100%', width: '100%' }}
-                            scene="https://draft.spline.design/ie79MbJaoOFXQIn6/scene.splinecode"
+                            scene="https://draft.spline.design/Pzbv7e0pKtGMjYCq/scene.splinecode"
                         />
                     </div>
                 </div>

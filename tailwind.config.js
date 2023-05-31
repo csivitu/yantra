@@ -11,7 +11,8 @@ module.exports = {
                 transparent: 'transparent',
             },
             backgroundImage: {
-                'gradient-bg': "url('/background.svg')",
+                // 'gradient-bg': "url('/background.svg')",
+                'grid-bg': 'url(/grid.svg)',
             },
         },
         plugins: [require('@tailwindcss/line-clamp')],
