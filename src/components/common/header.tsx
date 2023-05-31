@@ -24,7 +24,7 @@ const Header = () => {
     return (
         <>
             <div
-                className={`hidden sm:flex justify-around items-center w-full h-[7.5vh] fixed text-white ${headerClass}`}
+                className={`z-30 hidden font-spaceGrotesk sm:flex justify-around items-center w-full h-[7.5vh] fixed text-white ${headerClass}`}
             >
                 <div className="flex justify-around items-center w-full h-[7.5vh] fixed text-white">
                     <div className="w-[20%] h-full p-1">
@@ -46,7 +46,7 @@ const Header = () => {
                 </div>
             </div>
             <div
-                className={`flex sm:hidden justify-around items-center w-full h-[7.5vh] fixed text-white ${headerClass}`}
+                className={` z-30 flex sm:hidden justify-around items-center w-full h-[7.5vh] fixed text-white ${headerClass}`}
             >
                 <div className="w-[20%] h-full flex justify-around items-center">
                     <svg
@@ -86,7 +86,7 @@ const Header = () => {
                         />
                     </svg>
                 </div>
-                <div className="w-[80%]"></div>
+                <div className="w-[80%] "></div>
             </div>
         </>
     );

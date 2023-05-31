@@ -17,7 +17,7 @@ const AboutSection = () => {
                             className="w-full h-full object-cover rounded-md"
                         />
                     </div>
-                    <div className="w-[50%] h-full">
+                    <div className="w-[50%] h-full font-spaceGrotesk flex justify-around items-center">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Eligendi sunt, fuga porro maxime laudantium tempore
                         tempora sapiente assumenda minus! Maiores repellendus
@@ -40,7 +40,7 @@ const AboutSection = () => {
                             className="w-full h-full object-cover rounded-md"
                         />
                     </div>
-                    <div className="w-[50%] h-full">
+                    <div className="w-[50%] h-full font-spaceGrotesk flex justify-around items-center">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Eligendi sunt, fuga porro maxime laudantium tempore
                         tempora sapiente assumenda minus! Maiores repellendus

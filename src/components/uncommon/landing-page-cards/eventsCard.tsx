@@ -3,7 +3,7 @@ import Image from 'next/image';
 const EventsCard = () => {
     return (
         <>
-            <div className="h-[32.5vh] w-[80%] bg-white bg-opacity-60 flex justify-around py-5 px-4 gap-3 items-center rounded-lg">
+            <div className="h-[32.5vh] w-[80%] font-spaceGrotesk bg-white bg-opacity-60 flex justify-around py-5 px-4 gap-3 items-center rounded-lg">
                 <div className="w-[20%] h-full ">
                     <Image
                         src="/vit.png"

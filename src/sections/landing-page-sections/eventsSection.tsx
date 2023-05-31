@@ -29,7 +29,7 @@ const EventsSection = () => {
             </div>
             <div className="w-full flex justify-around items-center">
                 <button className="bg-[#3A3646] hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center">
-                    <p className="text-xl">See all events</p>
+                    <p className="text-xl font-spaceGrotesk">See all events</p>
                     <svg
                         width="20"
                         height="20"

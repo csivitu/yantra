@@ -36,11 +36,12 @@ const HackathonsList = () => {
 
     return (
         <>
-            <div className="w-full h-max bg-slate-200 ">
-                <div className="text-4xl font-bold h-[15vh] flex justify-around items-center">
-                    Workshops / Technical Workshops
+            <div className="h-[7.5vh]"></div>
+            <div className="w-full h-max  ">
+                <div className="text-4xl text-white font-bold h-[15vh] flex justify-start px-28 items-center">
+                    EVENTS
                 </div>
-                <div className="flex justify-center gap-3 items-center">
+                {/* <div className="flex justify-center gap-3 items-center">
                     <div className="w-[20%] flex justify-around items-center">
                         Technical Workshops
                     </div>
@@ -50,7 +51,7 @@ const HackathonsList = () => {
                     <div className="w-[20%] flex justify-around items-center">
                         Events
                     </div>
-                </div>
+                </div> */}
                 {loading ? (
                     <div className="flex justify-around items-center">
                         <Loader />

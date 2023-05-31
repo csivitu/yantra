@@ -7,7 +7,7 @@ const HeroSection = () => {
             <div className="h-[80vh] flex justify-around flex-col-reverse sm:flex-row items-end sm:px-28 text-white">
                 <div className="sm:w-[50%] w-[100%] sm:h-[100%] h-[50%] flex justify-center sm:items-start items-center flex-col gap-4">
                     <div className="text-6xl">YANTRA</div>
-                    <div className="text-xl">
+                    <div className="text-xl font-spaceGrotesk tracking-widest leading-10">
                         VIT&apos;&nbsp;
                         <span className="bg-[#F8924F] px-4 pb-2 pt-1 rounded-lg border-[1px] border-black">
                             biggest
@@ -16,11 +16,11 @@ const HeroSection = () => {
                         <br className="hidden sm:block" /> techfest
                     </div>
                     <div>
-                        <button className="bg-[#3A3646] hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center">
+                        <button className="bg-[#3A3646] font-spaceGrotesk hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center">
                             <p>Register Now</p>
                             <svg
-                                width="20"
-                                height="20"
+                                width="23"
+                                height="23"
                                 viewBox="0 0 40 40"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"

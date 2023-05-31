@@ -1,21 +1,16 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import Loader from '../common/loader';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 const ComputerModel: React.FC = () => {
     const refBody = useRef<HTMLDivElement>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [renderer, setRenderer] = useState<THREE.WebGLRenderer | null>(null);
     const [camera, setCamera] = useState<THREE.PerspectiveCamera | null>(null);
-    const [target] = useState<THREE.Vector3>(new THREE.Vector3(0, 0, 0));
+    const [target] = useState(new THREE.Vector3(0, 0, 0));
     const [scene] = useState<THREE.Scene>(new THREE.Scene());
     const [controls, setControls] = useState<OrbitControls | null>(null);
-    const [rotation, setRotation] = useState<number>(0);
-    const [animationFrameId, setAnimationFrameId] = useState<number | null>(
-        null
-    );
 
     const handleWindowResize = useCallback(() => {
         if (refBody.current && renderer) {
@@ -43,12 +38,12 @@ const ComputerModel: React.FC = () => {
             setRenderer(renderer);
 
             const camera = new THREE.PerspectiveCamera(
-                45,
+                20,
                 clientWidth / clientHeight,
                 0.1,
                 1000
             );
-            camera.position.set(0, 0, 2);
+            camera.position.set(0, 0, 3);
             setCamera(camera);
 
             const ambientLight = new THREE.AmbientLight(0xffffff, 1);
@@ -62,19 +57,24 @@ const ComputerModel: React.FC = () => {
             directionalLight2.position.set(-1, -1, -1);
             scene.add(directionalLight2);
 
+            const axesHelper = new THREE.AxesHelper(2); // Length of axes can be adjusted as needed
+            scene.add(axesHelper);
+
             const controls = new OrbitControls(camera, renderer.domElement);
+            controls.autoRotate = false; // Enable auto rotation
+            controls.autoRotateSpeed = 2; // Adjust the speed of auto rotation
             controls.target = target;
-            controls.enableZoom = false;
-            controls.enableRotate = false;
-            controls.enablePan = false;
+            controls.enableZoom = false; // Disable zooming
+            controls.enableRotate = true; // Disable click and drag rotation
+            controls.enablePan = false; // Disable click and drag panning
             setControls(controls);
 
             const loader = new GLTFLoader();
             loader.load(
                 '/computer/scene.gltf',
-                (gltf: GLTF) => {
+                (gltf) => {
                     const model = gltf.scene;
-
+                    model.position.x = -0.1;
                     // Load textures and assign them to materials
                     const textureLoader = new THREE.TextureLoader();
                     const texturePath = 'computer/';
@@ -96,9 +96,7 @@ const ComputerModel: React.FC = () => {
                             });
                         }
                     });
-
-                    scene.add(model); // Add the model to the scene
-
+                    scene.add(model);
                     setLoading(false);
                 },
                 undefined,
@@ -108,38 +106,15 @@ const ComputerModel: React.FC = () => {
             );
 
             const animate = () => {
-                if (controls) {
-                    controls.update();
-                }
-                if (renderer && camera) {
-                    const radius = 2; // Adjust the radius of the camera orbit
-                    const angle = rotation; // Use rotation as the angle of rotation
-
-                    // Calculate the new camera position
-                    const cameraX = radius * Math.sin(angle);
-                    const cameraZ = radius * Math.cos(angle);
-                    camera.position.set(cameraX, 0, cameraZ);
-                    camera.lookAt(target);
-
-                    renderer.render(scene, camera);
-
-                    setRotation((rotation) => rotation + 0.01); // Update the rotation state
-
-                    setAnimationFrameId(requestAnimationFrame(animate));
-                }
+                controls.update();
+                renderer.render(scene, camera);
+                requestAnimationFrame(animate);
             };
-
-            // Start the animation loop
-            const animationId = requestAnimationFrame(animate);
-            setAnimationFrameId(animationId);
+            animate();
 
             return () => {
-                if (animationFrameId) {
-                    cancelAnimationFrame(animationFrameId);
-                }
-                if (renderer) {
-                    renderer.dispose();
-                }
+                console.log('unmount');
+                renderer.dispose();
             };
         }
     }, []);
@@ -153,11 +128,8 @@ const ComputerModel: React.FC = () => {
 
     return (
         <>
-            <div
-                className="h-full w-full flex justify-around items-center bg-transparent"
-                ref={refBody}
-            >
-                {loading && <Loader />}
+            <div className="h-full w-full" ref={refBody}>
+                {loading && <p>loading...</p>}
             </div>
         </>
     );

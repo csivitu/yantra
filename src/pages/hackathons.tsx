@@ -6,9 +6,11 @@ import React from 'react';
 const hackathons = () => {
     return (
         <>
-            <Header />
-            <HackathonsList />
-            <Footer />
+            <div className="h-max bg-gradient-bg bg-repeat-y bg-cover">
+                <Header />
+                <HackathonsList />
+                <Footer />
+            </div>
         </>
     );
 };
