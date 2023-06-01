@@ -59,13 +59,13 @@ const Header = () => {
             <div
                 className={`hidden lg:flex justify-between items-center w-full h-[4rem] px-16 text-white z-50 transition-all duration-300 ease-in-out ${headerClass}`}
             >
-                <div className="w-[20%] h-full">
+                <div className="w-[20%] h-full flex justify-around items-center">
                     <Image
                         src="/white-vit-logo.png"
                         alt="logo"
                         height={10000}
                         width={10000}
-                        className="w-full h-full object-contain"
+                        className="w-[15vw] h-auto object-cover"
                     />
                 </div>
                 <div className="w-[80%] h-full flex gap-10 items-center justify-end font-spaceGrotesk font-semibold text-lg">
@@ -94,12 +94,7 @@ const Header = () => {
                     >
                         Patrons
                     </div>
-                    <div
-                        className="cursor-pointer hover:text-black"
-                        onClick={() => handleMenuClick('sponsors-section')}
-                    >
-                        Sponsors
-                    </div>
+
                     <div
                         className="cursor-pointer hover:text-black"
                         onClick={() => handleMenuClick('contact-section')}
@@ -159,7 +154,6 @@ const Header = () => {
                 <NavModal
                     modalVisibility={setModalVisibility}
                     visible={true}
-
                     // setModalDataFunc={() => {
                     //     setModalData();
                     // }}

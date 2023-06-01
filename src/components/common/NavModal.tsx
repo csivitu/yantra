@@ -65,12 +65,7 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
                     >
                         Patrons
                     </div>
-                    <div
-                        className="cursor-pointer hover:text-black text-white"
-                        onClick={() => handleMenuClick('sponsors-section')}
-                    >
-                        Sponsors
-                    </div>
+
                     <div
                         className="cursor-pointer hover:text-black text-white"
                         onClick={() => handleMenuClick('contact-section')}
