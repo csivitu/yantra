@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+
 const EventsCard = ({ event }) => {
     const [hover, setHover] = useState(false);
     return (
         <>
-            <div
+            <Link
+                href={`/events/${event._id}`}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
                 className={`lg:h-[32.5vh] text-white lg:w-[80%] w-[90%] flex-col lg:flex-row font-spaceGrotesk bg-white bg-opacity-60 flex justify-around py-5 px-4 gap-3 items-center rounded-lg transition-all duration-300 ease-in-out ${
@@ -37,7 +40,7 @@ const EventsCard = ({ event }) => {
                         ut obcaecati.
                     </div>
                 </div>
-            </div>
+            </Link>
         </>
     );
 };

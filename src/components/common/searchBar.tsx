@@ -13,7 +13,7 @@ const SearchBar = ({ initialSearch }: Props) => {
     const submitHandler = (el: FormEvent<HTMLFormElement>) => {
         el.preventDefault();
         if (search === '') router.push('/events');
-        else router.push(`/events/search?search=${search}`);
+        else router.push(`/events/search?key=${search}`);
     };
 
     const [modalVisibility, setModalVisibility] = useState(false);

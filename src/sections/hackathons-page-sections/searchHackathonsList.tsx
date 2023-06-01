@@ -55,7 +55,7 @@ const SearchHackathonsList = ({ search, type }: Props) => {
                         <div>Events</div>
                     </div>
                     <div className="w-[90%] sm:w-[60%]">
-                        <SearchBar initialSearch="" />
+                        <SearchBar initialSearch={search} />
                     </div>
                 </div>
 
@@ -78,7 +78,7 @@ const SearchHackathonsList = ({ search, type }: Props) => {
                             </>
                         ) : (
                             <div className="text-white text-4xl font-spaceGrotesk pt-32">
-                                No Results for this Search :)
+                                No Results found :)
                             </div>
                         )}
                     </div>

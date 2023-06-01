@@ -2,8 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 import Back from '@/components/common/back';
 import { useRouter } from 'next/router';
-const EventSection = () => {
+import Loader from '@/components/common/loader';
+import moment from 'moment';
+
+const EventSection = ({ event }) => {
     const router = useRouter();
+
+    console.log(event);
+
     return (
         <>
             <div className="h-max flex lg:flex-row flex-col-reverse text-white font-spaceGrotesk justify-around items-center px-20 py-4">
@@ -37,27 +43,39 @@ const EventSection = () => {
                         </div>
                     </div>{' '}
                     <div className="h-[7.5vh] text-5xl text-white font-bronson">
-                        HACKSTORY
+                        {event.title}
                     </div>
                     <div className="h-[5vh] text-sm  font-spaceGrotesk text-[#FFA412]">
-                        COMPUTER SOCIETY OF INDIA | BULLS AND BEARS | DEBSOC
+                        {event.organisedBy > 1 ? (
+                            <>
+                                {event.organisedBy.map((club, i) => {
+                                    if (event.organisedBy.length - 1 == i)
+                                        return <>{club}</>;
+                                    else return <>{club} | </>;
+                                })}
+                            </>
+                        ) : (
+                            <>{event.organisedBy[0]}</>
+                        )}
                     </div>
                     <div className="h-max">
                         <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
                             FROM
                         </div>
                         <div className="text-xl font-spaceGrotesk">
-                            12 June <span className="text-[#FFA412]">|</span> 12
-                            PM
+                            {moment(event.startDate, 'DDMMYYYY').format(
+                                'DD MMMM'
+                            )}
                         </div>
                     </div>
                     <div className="h-max">
                         <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
-                            FROM
+                            TO
                         </div>
                         <div className="font-spaceGrotesk text-xl">
-                            12 June <span className="text-[#FFA412]">|</span> 12
-                            PM
+                            {moment(event.endDate, 'DDMMYYYY').format(
+                                'DD MMMM'
+                            )}
                         </div>
                     </div>
                     <div className="h-max">
@@ -65,7 +83,7 @@ const EventSection = () => {
                             VENUE
                         </div>
                         <div className="font-spaceGrotesk text-xl">
-                            Anna Auditorium
+                            {event.venue}
                         </div>
                         <br />
                     </div>
