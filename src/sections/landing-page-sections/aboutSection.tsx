@@ -33,7 +33,7 @@ const AboutSection = () => {
                         technical brilliance and personal development.
                     </div>
                 </div>
-                <div className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-28 pb-12">
+                <div className="w-full mt-20 max-md:text-4xl h-[20vh] flex justify-around items-center text-white font-bronson text-center uppercase text-5xl font-extrabold m-auto ">
                     About VIT
                 </div>
                 <div className="flex flex-col  lg:flex-row-reverse justify-around items-center lg:px-20">

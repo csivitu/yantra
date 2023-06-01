@@ -37,11 +37,16 @@ const HeroSection = () => {
                             className="w-[100%] h-[100%] object-contain"
                         />
                     </div>
-                    <div className="text-5xl font-bronson font-bold tracking-[0.2em] leading-[3.5rem] max-md:text-center">
-                        A WEEK OF
+                    <div className="text-4xl lg:text-5xl font-bronson font-bold tracking-normal sm:tracking-[1.5rem] lg:tracking-[0.4em] leading-[3rem] text-center lg:text-start">
+                        {/* A WEEK OF
                         <br />
-                        <span className="text-[#244EE4]">TECHNICAL</span>
-                        <br /> INNOVATION
+                        <span className="text-[#244EE4] w-full text-center">
+                            TECHNICAL
+                        </span>
+                        <br /> INNOVATION */}
+                        <p>A WEEK OF</p>
+                        <p className="text-[#244EE4] w-full ">TECHNICAL</p>
+                        <p>INNOVATION</p>
                     </div>
 
                     <a
@@ -64,7 +69,7 @@ const HeroSection = () => {
                             <Loader />
                         </div>
                         <Spline
-                            className={`max-md:my-12 max-md:pr-4 ${
+                            className={`max-md:my-12 ${
                                 isLoading ? 'hidden' : ''
                             }`}
                             style={{ height: '100%', width: '100%' }}

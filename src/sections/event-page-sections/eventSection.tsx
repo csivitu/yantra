@@ -14,7 +14,7 @@ const EventSection = ({ event }: Props) => {
     return (
         <>
             <div className=" flex lg:flex-row flex-col-reverse text-white font-spaceGrotesk justify-around items-center px-20 py-4">
-                <div className="h-full lg:w-1/2 ">
+                <div className="h-full  lg:w-1/2 ">
                     <div className=" h-[7.5vh] flex justify-start gap-2 items-center  ">
                         <div
                             onClick={() => router.push('/events')}

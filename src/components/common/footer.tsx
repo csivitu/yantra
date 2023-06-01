@@ -3,6 +3,7 @@ import SocialMediaLinks from '../uncommon/social-media-links/socialMediaLinks';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+
 const Footer = () => {
     const router = useRouter();
     const handles = [
@@ -17,34 +18,32 @@ const Footer = () => {
             link: 'https://www.linkedin.com/school/vellore-institute-of-technology',
         },
     ];
+
     return (
         <>
             <div
                 id="contact-section"
-                className="font-spaceGrotesk text-right w-full bg-[#6C6C6C] text-white bg-opacity-[0.16] h-[30vh] flex justify-around items-center"
+                className="font-spaceGrotesk text-right w-full bg-[#6C6C6C] text-white bg-opacity-[0.16]  max-lg:[h-10vh] lg:h-[30vh] flex justify-around items-center"
             >
-                <div className="w-1/3 h-full gap-y-3 p-3">
+                <div className="w-[30%] sm:w-1/3 h-full gap-y-3 p-3">
                     <div className="text-2xl">LINKS</div>
-                    <div className="flex w-full mt-2 justify-end items-center gap-4">
-                        {handles.map((handle) => {
-                            return (
-                                <>
-                                    <Image
-                                        width={10000}
-                                        height={10000}
-                                        src={`/${handle.name}.png`}
-                                        alt="/"
-                                        onClick={() => {
-                                            router.push(`${handle.link}`);
-                                        }}
-                                        className="w-8 h-8 object-contain z-50 cursor-pointer"
-                                    />
-                                </>
-                            );
-                        })}
+                    <div className="flex  w-full sm:flex-row flex-row flex-wrap mt-2 justify-end items-center gap-4">
+                        {handles.map((handle, index) => (
+                            <Image
+                                key={index}
+                                width={10000}
+                                height={10000}
+                                src={`/${handle.name}.png`}
+                                alt="/"
+                                onClick={() => {
+                                    router.push(`${handle.link}`);
+                                }}
+                                className="w-8 h-8 object-contain z-50 cursor-pointer"
+                            />
+                        ))}
                     </div>
                 </div>
-                <div className="w-1/3 h-full flex justify-around items-center">
+                <div className="w-1/3 h-full sm:px-3 justify-around hidden sm:flex items-center sm:items-start lg:items-center">
                     <Image
                         src="/logoYantra.png"
                         alt="Logo"
@@ -53,9 +52,9 @@ const Footer = () => {
                         className="lg:w-[20vw] lg:h-[20vh] object-contain"
                     />
                 </div>
-                <div className="w-1/3 h-full gap-y-3 p-3 text-left">
-                    <div className="text-2xl w-full">CONTACT US </div>
-                    <div className="gap-2 flex flex-col mt-2">
+                <div className="w-[40%] sm:w-1/3 h-full  sm:gap-y-3 sm:p-3 text-left">
+                    <div className="text-2xl w-full ">CONTACT US </div>
+                    <div className="gap-2 flex text-sm flex-col sm:mt-2">
                         <p>+91 91555 94196</p>
                         <p>+91 81253 51715</p>
                         <p>+91 76748 05872</p>
