@@ -9,6 +9,7 @@ import HeroSection from '@/sections/landing-page-sections/heroSection';
 import AboutSection from '@/sections/landing-page-sections/aboutSection';
 import SponsorsSection from '@/sections/landing-page-sections/sponsorsSection';
 import OCSection from '@/sections/team-page-sections/ocSection';
+import AdvisorySection from '@/sections/landing-page-sections/advisorySection';
 export default function Home() {
     useEffect(() => {}, []);
 
@@ -21,7 +22,7 @@ export default function Home() {
                 <TimelineSection />
                 <EventsSection />
                 <PatronsSection />
-                <OCSection />
+                <AdvisorySection />
 
                 <Footer />
             </div>

@@ -49,7 +49,7 @@ const HeroSection = () => {
                         <p>INNOVATION</p>
                     </div>
 
-                    <a
+                    <Link
                         href="https://vtop.vit.ac.in/"
                         className="rounded-md px-10 py-3 mt-3 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#9207FF] text-[#9207FF] "
                     >
@@ -57,7 +57,7 @@ const HeroSection = () => {
                         <span className="relative text-[#9207FF] transition duration-300 group-hover:text-white ease font-spaceGrotesk text-xl tracking-wider">
                             REGISTER NOW
                         </span>
-                    </a>
+                    </Link>
                 </div>
                 <div className="lg:w-[50%] w-[100%] lg:h-[100%] h-[50%] bg-transparent">
                     <div className="h-full w-full bg-transparent">

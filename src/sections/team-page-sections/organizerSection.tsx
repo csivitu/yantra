@@ -28,7 +28,7 @@ const OrganizersSection = () => {
                 id="patrons-section"
                 className="w-fit mt-10 text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20"
             >
-                ADVISORY COMMITTEE
+                ORGANIZERS
             </div>
             <div className="h-max py-10 pb-32 flex justify-evenly gap-y-10 items-center flex-wrap">
                 {patronItems.map((patron, index) => (

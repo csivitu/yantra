@@ -1,6 +1,6 @@
 import PatronsCard from '@/components/uncommon/landing-page-cards/patronsCard';
 import React from 'react';
-
+import Link from 'next/link';
 const OCSection = () => {
     const organizingCommittee = {
         1: {
@@ -38,7 +38,7 @@ const OCSection = () => {
                         photo={el.photo}
                     />
                 ))}
-            </div>
+            </div>{' '}
         </>
     );
 };

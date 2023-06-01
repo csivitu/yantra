@@ -20,7 +20,7 @@ const EventsSection = () => {
     return (
         <>
             <div
-                id="patrons-section"
+                id="events-section"
                 className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20"
             >
                 EVENTS
