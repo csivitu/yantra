@@ -2,9 +2,21 @@ import React from 'react';
 import SocialMediaLinks from '../uncommon/social-media-links/socialMediaLinks';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 const Footer = () => {
-    const handles = ['youtube', 'twitter', 'instagram', 'linkedIn'];
-
+    const router = useRouter();
+    const handles = [
+        {
+            name: 'youtube',
+            link: 'https://www.youtube.com/@VITUniversityVellore',
+        },
+        { name: 'twitter', link: 'https://twitter.com/VIT_univ' },
+        { name: 'instagram', link: 'https://www.instagram.com/vellore_vit' },
+        {
+            name: 'linkedIn',
+            link: 'https://www.linkedin.com/school/vellore-institute-of-technology',
+        },
+    ];
     return (
         <>
             <div
@@ -20,8 +32,11 @@ const Footer = () => {
                                     <Image
                                         width={10000}
                                         height={10000}
-                                        src={`/${handle}.png`}
+                                        src={`/${handle.name}.png`}
                                         alt="/"
+                                        onClick={() => {
+                                            router.push(`${handle.link}`);
+                                        }}
                                         className="w-8 h-8 object-contain z-50 cursor-pointer"
                                     />
                                 </>
