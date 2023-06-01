@@ -10,7 +10,6 @@ import Back from '@/components/common/back';
 const HackathonsList = () => {
     const [hackathons, setHackathons] = useState<EventDocument[]>([]);
     const [page, setPage] = useState(1);
-    const [count, setCount] = useState(0);
     const [loading, setLoading] = useState(true);
 
     const getHackathons = () => {

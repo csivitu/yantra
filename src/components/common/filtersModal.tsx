@@ -3,9 +3,14 @@ import CheckBox from './checkBox';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-const FiltersModal = ({ modalVisibility, visible }) => {
+interface Props {
+    modalVisibility: (visible: boolean) => void;
+    visible: boolean;
+}
+
+const FiltersModal = ({ modalVisibility, visible }: Props) => {
     // check boxes
-    const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
+    const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>([]);
 
     const router = useRouter();
 
@@ -17,7 +22,9 @@ const FiltersModal = ({ modalVisibility, visible }) => {
         setSelectedCheckboxes(types);
     }, []);
 
-    const handleCheckboxChange = (event) => {
+    const handleCheckboxChange = (event: {
+        target: { value: any; checked: any };
+    }) => {
         const { value, checked } = event.target;
 
         if (checked) {
@@ -30,8 +37,8 @@ const FiltersModal = ({ modalVisibility, visible }) => {
     };
 
     // modal logic
-    const handleOnClose = (el) => {
-        if (el.target.id === 'modalcontainer') modalVisibility(false);
+    const handleOnClose = () => {
+        modalVisibility(false);
     };
 
     const handleSubmit = () => {
