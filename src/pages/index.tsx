@@ -10,9 +10,7 @@ import AboutSection from '@/sections/landing-page-sections/aboutSection';
 import SponsorsSection from '@/sections/landing-page-sections/sponsorsSection';
 
 export default function Home() {
-    useEffect(() => {
-        ReactGA.pageview(window.location.pathname);
-    }, []);
+    useEffect(() => {}, []);
 
     return (
         <>

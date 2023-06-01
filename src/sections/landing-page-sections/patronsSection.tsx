@@ -1,4 +1,3 @@
-import Button from '@/components/common/button';
 import PatronsCard from '@/components/uncommon/landing-page-cards/patronsCard';
 import React from 'react';
 
