@@ -2,20 +2,17 @@ import EventsCard from '@/components/uncommon/landing-page-cards/eventsCard';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import getHandler from '@/handlers/getHandler';
-import envHandler from '@/managers/envHandler';
 import Link from 'next/link';
 import { EventDocument } from '@/models/eventModel';
+
 const EventsSection = () => {
     const [eventData, setEventData] = useState([]);
-    const [loading, setLoading] = useState(true);
     const eventsController = async () => {
         const res = await getHandler(
             `${process.env.NEXT_PUBLIC_BASE_URL}/api/events`,
             false
         );
         setEventData(res.data.events);
-        setLoading(false);
-        console.log(eventData);
     };
     useEffect(() => {
         eventsController();
