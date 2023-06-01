@@ -5,9 +5,11 @@ export interface EventDocument extends mongoose.Document {
     coverPic: string;
     description: string;
     type: string;
-    date: Date;
-    oraganisedBy: string; //club name
+    organisedBy: string[]; //club name
     numberOfParticipants: number;
+    venue: string;
+    startDate: string;
+    endDate: string;
 }
 
 const eventSchema = new mongoose.Schema({

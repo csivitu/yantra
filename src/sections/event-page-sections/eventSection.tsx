@@ -1,12 +1,19 @@
 import React from 'react';
 import Image from 'next/image';
-import Back from '@/components/common/back';
 import { useRouter } from 'next/router';
-const EventSection = () => {
+import moment from 'moment';
+import { EventDocument } from '@/models/eventModel';
+
+interface Props {
+    event: EventDocument;
+}
+
+const EventSection = ({ event }: Props) => {
     const router = useRouter();
+
     return (
         <>
-            <div className="h-max flex lg:flex-row flex-col-reverse text-white font-spaceGrotesk justify-around items-center px-20 py-4">
+            <div className=" flex lg:flex-row flex-col-reverse text-white font-spaceGrotesk justify-around items-center px-20 py-4">
                 <div className="h-full lg:w-1/2 ">
                     <div className=" h-[7.5vh] flex justify-start gap-2 items-center  ">
                         <div
@@ -36,28 +43,42 @@ const EventSection = () => {
                             Back
                         </div>
                     </div>{' '}
-                    <div className="h-[7.5vh] text-5xl text-white font-bronson">
-                        HACKSTORY
+                    <div className="h-fit text-5xl text-white font-bronson">
+                        {event.title}
                     </div>
                     <div className="h-[5vh] text-sm  font-spaceGrotesk text-[#FFA412]">
-                        COMPUTER SOCIETY OF INDIA | BULLS AND BEARS | DEBSOC
+                        {event.organisedBy.length > 1 ? (
+                            <>
+                                {event.organisedBy.map((club, i) => {
+                                    if (event.organisedBy.length - 1 == i)
+                                        return <>{club}</>;
+                                    else return <>{club} | </>;
+                                })}
+                            </>
+                        ) : (
+                            <>{event.organisedBy[0]}</>
+                        )}
                     </div>
-                    <div className="h-max">
-                        <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
-                            FROM
+                    <div className="max-md:flex max-md:w-full max-md:justify-between mb-6">
+                        <div className="h-max">
+                            <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
+                                FROM
+                            </div>
+                            <div className="text-xl font-spaceGrotesk">
+                                {moment(event.startDate, 'DDMMYYYY').format(
+                                    'DD MMMM'
+                                )}
+                            </div>
                         </div>
-                        <div className="text-xl font-spaceGrotesk">
-                            12 June <span className="text-[#FFA412]">|</span> 12
-                            PM
-                        </div>
-                    </div>
-                    <div className="h-max">
-                        <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
-                            FROM
-                        </div>
-                        <div className="font-spaceGrotesk text-xl">
-                            12 June <span className="text-[#FFA412]">|</span> 12
-                            PM
+                        <div className="h-max">
+                            <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
+                                TO
+                            </div>
+                            <div className="font-spaceGrotesk text-xl">
+                                {moment(event.endDate, 'DDMMYYYY').format(
+                                    'DD MMMM'
+                                )}
+                            </div>
                         </div>
                     </div>
                     <div className="h-max">
@@ -65,7 +86,7 @@ const EventSection = () => {
                             VENUE
                         </div>
                         <div className="font-spaceGrotesk text-xl">
-                            Anna Auditorium
+                            {event.venue}
                         </div>
                         <br />
                     </div>

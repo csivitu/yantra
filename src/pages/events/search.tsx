@@ -22,14 +22,14 @@ const EventsSearch = ({ search, type }: Props) => {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const { query } = context;
-    const search = query.search || '';
+    const key = query.key || '';
     let type = query['type[]'] || [0, 1, 2, 3];
 
     if (type.length === 1) type = [type];
 
     return {
         props: {
-            search,
+            search: key,
             type,
         },
     };

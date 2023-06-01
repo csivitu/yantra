@@ -55,7 +55,7 @@ const SearchHackathonsList = ({ search, type }: Props) => {
                         <div>Events</div>
                     </div>
                     <div className="w-[90%] sm:w-[60%]">
-                        <SearchBar initialSearch="" />
+                        <SearchBar initialSearch={search} />
                     </div>
                 </div>
 
@@ -82,8 +82,13 @@ const SearchHackathonsList = ({ search, type }: Props) => {
                                 )}
                             </>
                         ) : (
+<<<<<<< HEAD
                             <div className="text-white text-4xl font-spaceGrotesk px-20 pt-32">
                                 No Results for this Search :)
+=======
+                            <div className="text-white text-4xl font-spaceGrotesk pt-32">
+                                No Results found :)
+>>>>>>> 0f513f5d754a752a646df0511c0f8564f9a1066a
                             </div>
                         )}
                     </div>

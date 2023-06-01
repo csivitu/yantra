@@ -1,9 +1,9 @@
 import Footer from '@/components/common/footer';
 import HackathonsList from '@/sections/hackathons-page-sections/hackathonsList';
 import Header from '@/components/common/header';
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const hackathons = () => {
+const Hackathons = () => {
     return (
         <>
             <div className="h-max bg-events-bg  bg-cover">
@@ -14,4 +14,4 @@ const hackathons = () => {
     );
 };
 
-export default hackathons;
+export default Hackathons;
