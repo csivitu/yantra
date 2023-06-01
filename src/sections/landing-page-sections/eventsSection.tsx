@@ -21,7 +21,7 @@ const EventsSection = () => {
         <>
             <div
                 id="events-section"
-                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-40 pb-20"
+                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-40 pb-20 max-md:pt-20 max-md:pb-4"
             >
                 Events
             </div>
@@ -33,32 +33,15 @@ const EventsSection = () => {
             </div>
             <div className="w-full flex justify-around items-center">
                 <Link
-                    href={'/events'}
-                    className="bg-[#FFA412] hover:bg-[#ffb744] text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center"
+                    href="/events"
+                    className="relative w-48 h-16 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
                 >
-                    <p className="text-xl font-spaceGrotesk">See all events</p>
-                    <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M11.667 28.3333L27 13.0003"
-                            stroke="white"
-                            strokeWidth="3.41667"
-                            strokeLinecap="square"
-                            strokeLinejoin="round"
-                        />
-                        <path
-                            d="M12 12H28.6667V28.6667"
-                            stroke="white"
-                            strokeWidth="3.41667"
-                            strokeLinecap="square"
-                            strokeLinejoin="round"
-                        />
-                    </svg>
+                    <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
+                    <span className="absolute top-0 left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
+                    <span className="font-spaceGrotesk text-xl font-bold flex justify-center items-center  relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
+                        See all events
+                    </span>
+                    <span className="absolute inset-0 border-2 border-white rounded-full"></span>
                 </Link>
             </div>
         </>

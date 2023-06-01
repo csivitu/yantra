@@ -21,7 +21,7 @@ const SearchHackathonsList = ({ search, type }: Props) => {
     const getHackathons = () => {
         let URL = `${process.env.NEXT_PUBLIC_BASE_URL}/api/events/search`;
 
-        const pattern = /[^a-zA-Z0-9]/;
+        const pattern = /[^a-zA-Z0-9 ]/;
 
         if (pattern.test(search)) return router.push('/events');
 
@@ -54,7 +54,9 @@ const SearchHackathonsList = ({ search, type }: Props) => {
                         <Back />
                         <div>Events</div>
                     </div>
-                    <SearchBar initialSearch={search} />
+                    <div className="w-[90%] sm:w-[60%]">
+                        <SearchBar initialSearch="" />
+                    </div>
                 </div>
 
                 {loading ? (

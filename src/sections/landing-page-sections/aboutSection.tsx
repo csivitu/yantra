@@ -4,11 +4,11 @@ const AboutSection = () => {
     return (
         <>
             <div id="about-section" className="h-max">
-                <div className="w-full mt-20 h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold m-auto ">
+                <div className="w-full mt-20 max-md:text-4xl h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold m-auto ">
                     About Yantra
                 </div>
-                <div className="flex h-[70vh] flex-col lg:flex-row justify-around items-center lg:px-20">
-                    <div className="lg:w-[50%] py-24 px-16 h-[60%] lg:h-full">
+                <div className="flex flex-col lg:flex-row justify-around items-center lg:px-20">
+                    <div className="lg:w-[50%] py-8 px-16 h-[60%] lg:h-full max-md:pt-0 max-md:pb-8">
                         <Image
                             src="/vit.png"
                             alt="photo"
@@ -30,8 +30,8 @@ const AboutSection = () => {
                 <div className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-28 pb-12">
                     About VIT
                 </div>
-                <div className="flex h-[70vh] flex-col lg:flex-row justify-around items-center lg:px-20">
-                    <div className="lg:w-[50%]  py-24 px-16 h-[60%] lg:h-full">
+                <div className="flex flex-col lg:flex-row justify-around items-center lg:px-20">
+                    <div className="lg:w-[50%] py-8 px-16 h-[60%] lg:h-full max-md:pt-0 max-md:pb-8">
                         <Image
                             src="/vit.png"
                             alt="photo"
@@ -54,11 +54,11 @@ const AboutSection = () => {
                         look forward to your visit to VIT.
                     </div>
                 </div>
-                <div className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-28 pb-12">
+                <div className="w-fit max-md:text-4xl max-md:text-center text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-28 pb-12">
                     About Students&apos; Welfare
                 </div>
-                <div className="flex h-[70vh] flex-col lg:flex-row justify-around items-center lg:px-20">
-                    <div className="lg:w-[50%]  py-24 px-16 h-[60%] lg:h-full">
+                <div className="flex flex-col lg:flex-row justify-around items-center lg:px-20">
+                    <div className="lg:w-[50%] py-8 px-16 h-[60%] lg:h-full max-md:pt-0 max-md:pb-8">
                         <Image
                             src="/vit.png"
                             alt="photo"

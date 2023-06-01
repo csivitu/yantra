@@ -4,9 +4,12 @@ import { GetServerSidePropsContext } from 'next';
 import ReactGA from 'react-ga';
 import Image from 'next/image';
 import { useWindowHeight } from '@react-hook/window-size';
+import { useRouter } from 'next/router';
 
 const Header = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
+
+    const router = useRouter();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,6 +24,11 @@ const Header = () => {
     }, []);
 
     const handleMenuClick = (targetId: string) => {
+        if (
+            router.asPath.split('/')[1] === 'events' &&
+            targetId !== 'events-section'
+        )
+            router.push('/');
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
             const yOffset = 0; // Adjust the yOffset value as per your requirement
