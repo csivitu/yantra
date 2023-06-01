@@ -31,7 +31,13 @@ const EventPage = ({ id }: Props) => {
         <>
             <div className="h-max bg-events-bg  bg-cover">
                 <Header />
-                {loading ? <Loader /> : <EventSection event={event} />}
+                {loading ? (
+                    <div className="w-full h-64 flex justify-center items-center">
+                        <Loader />
+                    </div>
+                ) : (
+                    <EventSection event={event} />
+                )}
             </div>
         </>
     );

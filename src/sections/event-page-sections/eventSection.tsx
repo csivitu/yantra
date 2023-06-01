@@ -1,18 +1,19 @@
 import React from 'react';
 import Image from 'next/image';
-import Back from '@/components/common/back';
 import { useRouter } from 'next/router';
-import Loader from '@/components/common/loader';
 import moment from 'moment';
+import { EventDocument } from '@/models/eventModel';
 
-const EventSection = ({ event }) => {
+interface Props {
+    event: EventDocument;
+}
+
+const EventSection = ({ event }: Props) => {
     const router = useRouter();
-
-    console.log(event);
 
     return (
         <>
-            <div className="h-max flex lg:flex-row flex-col-reverse text-white font-spaceGrotesk justify-around items-center px-20 py-4">
+            <div className=" flex lg:flex-row flex-col-reverse text-white font-spaceGrotesk justify-around items-center px-20 py-4">
                 <div className="h-full lg:w-1/2 ">
                     <div className=" h-[7.5vh] flex justify-start gap-2 items-center  ">
                         <div
@@ -42,11 +43,11 @@ const EventSection = ({ event }) => {
                             Back
                         </div>
                     </div>{' '}
-                    <div className="h-[7.5vh] text-5xl text-white font-bronson">
+                    <div className="h-fit text-5xl text-white font-bronson">
                         {event.title}
                     </div>
                     <div className="h-[5vh] text-sm  font-spaceGrotesk text-[#FFA412]">
-                        {event.organisedBy > 1 ? (
+                        {event.organisedBy.length > 1 ? (
                             <>
                                 {event.organisedBy.map((club, i) => {
                                     if (event.organisedBy.length - 1 == i)
@@ -58,24 +59,26 @@ const EventSection = ({ event }) => {
                             <>{event.organisedBy[0]}</>
                         )}
                     </div>
-                    <div className="h-max">
-                        <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
-                            FROM
+                    <div className="max-md:flex max-md:w-full max-md:justify-between mb-6">
+                        <div className="h-max">
+                            <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
+                                FROM
+                            </div>
+                            <div className="text-xl font-spaceGrotesk">
+                                {moment(event.startDate, 'DDMMYYYY').format(
+                                    'DD MMMM'
+                                )}
+                            </div>
                         </div>
-                        <div className="text-xl font-spaceGrotesk">
-                            {moment(event.startDate, 'DDMMYYYY').format(
-                                'DD MMMM'
-                            )}
-                        </div>
-                    </div>
-                    <div className="h-max">
-                        <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
-                            TO
-                        </div>
-                        <div className="font-spaceGrotesk text-xl">
-                            {moment(event.endDate, 'DDMMYYYY').format(
-                                'DD MMMM'
-                            )}
+                        <div className="h-max">
+                            <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
+                                TO
+                            </div>
+                            <div className="font-spaceGrotesk text-xl">
+                                {moment(event.endDate, 'DDMMYYYY').format(
+                                    'DD MMMM'
+                                )}
+                            </div>
                         </div>
                     </div>
                     <div className="h-max">
