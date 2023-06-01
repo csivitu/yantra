@@ -6,7 +6,7 @@ import React from 'react';
 const hackathons = () => {
     return (
         <>
-            <div className="h-max bg-grid-bg bg-repeat-y bg-contain">
+            <div className="h-max bg-events-bg  bg-cover">
                 <Header />
                 <HackathonsList />
             </div>

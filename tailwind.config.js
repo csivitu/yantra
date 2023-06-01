@@ -13,7 +13,8 @@ module.exports = {
             },
             backgroundImage: {
                 // 'gradient-bg': "url('/background.svg')",
-                'grid-bg': 'url(/grid.svg)',
+                'landing-bg': 'url(/landing-background.png)',
+                'events-bg': 'url(/events-background.png)',
             },
         },
         plugins: [require('@tailwindcss/line-clamp')],

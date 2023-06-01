@@ -5,8 +5,10 @@ import React from 'react';
 const EventPage = () => {
     return (
         <>
-            <Header />
-            <EventSection />
+            <div className="h-max bg-events-bg  bg-cover">
+                <Header />
+                <EventSection />
+            </div>
         </>
     );
 };
