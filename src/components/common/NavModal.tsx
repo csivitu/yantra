@@ -37,9 +37,9 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
             <div
                 onClick={handleOnClose}
                 id="modalcontainer"
-                className="fixed inset-0 bg-black bg-opacity-[0.4] backdrop-blur-sm flex items-center justify-center z-50"
+                className="fixed inset-0 bg-black bg-opacity-[0.6] backdrop-blur-sm flex items-center justify-center z-50"
             >
-                <div className="h-[40vh] w-[90vw] font-spaceGrotesk sm:w-[30%] sm:pt-10 pt-10 glassMorphism3 rounded-lg p-10 flex justify-around items-center flex-col">
+                <div className="h-[70vh] w-[60vw] font-spaceGrotesk lg:w-[30%] sm:pt-10 pt-10 glassMorphism3 rounded-lg text-2xl lg:text-3xl flex justify-around items-center flex-col">
                     <div
                         className="cursor-pointer hover:text-black text-white"
                         onClick={() => handleMenuClick('about-section')}
