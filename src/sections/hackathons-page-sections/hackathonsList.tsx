@@ -5,6 +5,7 @@ import getHandler from '@/handlers/getHandler';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Loader from '@/components/common/loader';
 import SearchBar from '@/components/common/searchBar';
+import Back from '@/components/common/back';
 
 const HackathonsList = () => {
     const [hackathons, setHackathons] = useState<EventDocument[]>([]);
@@ -38,8 +39,9 @@ const HackathonsList = () => {
         <>
             <div className="w-full h-max">
                 <div className="sm:w-[80%] m-auto flex flex-col sm:flex-row items-center ">
-                    <div className="sm:w-[40%]  font-spaceGrotesk uppercase text-6xl font-extrabold py-8 text-white">
-                        Events
+                    <div className="sm:w-[40%] flex items-center gap-2 font-spaceGrotesk uppercase text-6xl font-extrabold py-8 text-white">
+                        <Back />
+                        <div>Events</div>
                     </div>
                     <div className="w-[90%] sm:w-[60%]">
                         <SearchBar initialSearch="" />

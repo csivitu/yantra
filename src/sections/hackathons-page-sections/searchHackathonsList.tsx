@@ -4,6 +4,7 @@ import { EventDocument } from '@/models/eventModel';
 import getHandler from '@/handlers/getHandler';
 import Loader from '@/components/common/loader';
 import SearchBar from '@/components/common/searchBar';
+import Back from '@/components/common/back';
 
 interface Props {
     search: string;
@@ -36,8 +37,9 @@ const SearchHackathonsList = ({ search }: Props) => {
         <>
             <div className="w-full h-max ">
                 <div className="w-full px-32 flex items-center">
-                    <div className="w-full font-spaceGrotesk uppercase text-6xl font-extrabold py-8 text-white">
-                        Events
+                    <div className="sm:w-[40%] flex items-center gap-2 font-spaceGrotesk uppercase text-6xl font-extrabold py-8 text-white">
+                        <Back />
+                        <div>Events</div>
                     </div>
                     <SearchBar initialSearch={search} />
                 </div>
