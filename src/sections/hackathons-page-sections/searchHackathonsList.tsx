@@ -34,7 +34,7 @@ const SearchHackathonsList = ({ search }: Props) => {
 
     return (
         <>
-            <div className="w-full h-max px-32">
+            <div className="w-full h-max ">
                 <div className="w-full px-32 flex items-center">
                     <div className="w-full font-spaceGrotesk uppercase text-6xl font-extrabold py-8 text-white">
                         Events

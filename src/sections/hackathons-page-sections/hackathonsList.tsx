@@ -36,9 +36,9 @@ const HackathonsList = () => {
 
     return (
         <>
-            <div className="w-full h-max ">
-                <div className="w-full  flex flex-col sm:flex-row items-center sm:px-20">
-                    <div className="w-[40%]  font-spaceGrotesk uppercase text-6xl font-extrabold py-8 text-white">
+            <div className="w-full h-max">
+                <div className="sm:w-[80%] m-auto flex flex-col sm:flex-row items-center ">
+                    <div className="sm:w-[40%]  font-spaceGrotesk uppercase text-6xl font-extrabold py-8 text-white">
                         Events
                     </div>
                     <div className="w-[90%] sm:w-[60%]">

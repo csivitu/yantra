@@ -29,66 +29,35 @@ const FiltersModal = ({ modalVisibility, visible }) => {
                 id="modalcontainer"
                 className="fixed inset-0 bg-black bg-opacity-[0.4] backdrop-blur-sm flex items-center justify-center z-50"
             >
-                <div className="h-max font-spaceGrotesk w-[90%] glassMorphism3  ">
-                    <div className="h-[70%]  sm:py-24 py-10 w-full flex gap-3 flex-col sm:flex-row justify-around items-center p-10">
-                        <div className="h-full text-lg sm:w-[25%]">
+                <div className="h-max font-spaceGrotesk sm:w-[30%] sm:pt-10 pt-10 glassMorphism3 rounded-lg ">
+                    <div className="h-[70%]  sm:py-10 py-10 w-full flex gap-3 flex-col sm:flex-row justify-around items-center p-10">
+                        <div className="h-full text-lg sm:w-[100%]">
                             <p className="text-3xl">Event Type</p>
                             <CheckBox
                                 id="checkboxLabelOne"
-                                label="Checkbox 1"
-                                value="checkbox1"
+                                label="Workshops"
+                                value="0"
                                 onChange={handleCheckboxChange}
                                 selectedCheckboxes={selectedCheckboxes}
                             />
                             <CheckBox
                                 id="checkboxLabelTwo"
-                                label="Checkbox 2"
-                                value="checkbox2"
+                                label="Technical Events"
+                                value="1"
                                 onChange={handleCheckboxChange}
                                 selectedCheckboxes={selectedCheckboxes}
                             />
                             <CheckBox
                                 id="checkboxLabelThree"
-                                label="Checkbox 3"
-                                value="checkbox3"
+                                label="Hackathons"
+                                value="2"
                                 onChange={handleCheckboxChange}
                                 selectedCheckboxes={selectedCheckboxes}
                             />
                             <CheckBox
                                 id="checkboxLabelFour"
-                                label="Checkbox 4"
-                                value="checkbox4"
-                                onChange={handleCheckboxChange}
-                                selectedCheckboxes={selectedCheckboxes}
-                            />
-                        </div>
-                        <div className="h-full text-lg  sm:w-[25%]">
-                            <p className="text-3xl">Event Date</p>
-                            <CheckBox
-                                id="checkboxLabelOne"
-                                label="Checkbox 1"
-                                value="checkbox1"
-                                onChange={handleCheckboxChange}
-                                selectedCheckboxes={selectedCheckboxes}
-                            />
-                            <CheckBox
-                                id="checkboxLabelTwo"
-                                label="Checkbox 2"
-                                value="checkbox2"
-                                onChange={handleCheckboxChange}
-                                selectedCheckboxes={selectedCheckboxes}
-                            />
-                            <CheckBox
-                                id="checkboxLabelThree"
-                                label="Checkbox 3"
-                                value="checkbox3"
-                                onChange={handleCheckboxChange}
-                                selectedCheckboxes={selectedCheckboxes}
-                            />
-                            <CheckBox
-                                id="checkboxLabelFour"
-                                label="Checkbox 4"
-                                value="checkbox4"
+                                label="Ideathon"
+                                value="3"
                                 onChange={handleCheckboxChange}
                                 selectedCheckboxes={selectedCheckboxes}
                             />

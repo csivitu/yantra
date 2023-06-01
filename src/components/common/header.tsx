@@ -32,8 +32,12 @@ const Header = () => {
         }
     };
 
+    const windowHeight = useWindowHeight();
+
     const headerClass =
-        scrollPosition > useWindowHeight() - 100
+        scrollPosition === 0
+            ? 'opacity-100'
+            : scrollPosition > windowHeight - 100
             ? 'glassMorphism sticky top-0'
             : scrollPosition > 50 //navbar length
             ? 'opacity-0'
@@ -50,7 +54,7 @@ const Header = () => {
                         alt="logo"
                         height={10000}
                         width={10000}
-                        className="w-full h-full  object-cover"
+                        className="w-full h-full object-contain"
                     />
                 </div>
                 <div className="w-[80%] h-full flex gap-10 items-center justify-end font-spaceGrotesk font-semibold text-lg">
