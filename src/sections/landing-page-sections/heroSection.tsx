@@ -14,7 +14,7 @@ const HeroSection = () => {
     return (
         <>
             <div className="h-[70vh] flex justify-around flex-col-reverse sm:flex-row items-end sm:px-28 text-white">
-                <div className="sm:w-[40%] w-[100%] sm:h-[100%] h-[50%] flex justify-center sm:items-start items-center flex-col gap-4">
+                <div className="sm:w-[40%] w-[100%] sm:h-[100%] h-[60%] flex justify-center sm:items-start items-center flex-col gap-4">
                     <div className="text-6xl font-bronson w-[40%] h-[20%]">
                         <Image
                             src="/yantraLogo.png"
