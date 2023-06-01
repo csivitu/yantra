@@ -3,9 +3,10 @@ import Event, { EventDocument } from '@/models/eventModel';
 import APIFeatures from '@/utils/APIFeatures';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const getAllEvents = async (req: NextApiRequest, res: NextApiResponse) => {
+const getSearchEvents = async (req: NextApiRequest, res: NextApiResponse) => {
     const eventsQuery = new APIFeatures<EventDocument>(Event.find(), req.query);
-    eventsQuery.filter().search().paginator();
+
+    eventsQuery.search();
 
     const events = await eventsQuery.query;
 
@@ -15,23 +16,11 @@ const getAllEvents = async (req: NextApiRequest, res: NextApiResponse) => {
     });
 };
 
-const addEvent = async (req: NextApiRequest, res: NextApiResponse) => {
-    const event = await Event.create(req.body);
-
-    res.status(201).json({
-        status: 'success',
-        event,
-    });
-};
-
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await connectToDB();
     switch (req.method) {
         case 'GET':
-            await getAllEvents(req, res);
-            break;
-        case 'POST':
-            await addEvent(req, res);
+            await getSearchEvents(req, res);
             break;
     }
 };

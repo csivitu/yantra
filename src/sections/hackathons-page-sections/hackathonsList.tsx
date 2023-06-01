@@ -16,13 +16,12 @@ const HackathonsList = () => {
         getHandler(
             `${
                 process.env.NEXT_PUBLIC_BASE_URL
-            }/api/events?page=${page}&limit=${3}&type=1`,
+            }/api/events?page=${page}&limit=${10}`,
             false
         )
             .then((res) => {
                 setHackathons([...hackathons, ...res.data.events]);
                 setPage((prev) => prev + 1);
-                setCount(res.data.totalNumberofEvents);
                 setLoading(false);
             })
             .catch((err) => {
@@ -51,14 +50,19 @@ const HackathonsList = () => {
                     </div>
                 ) : (
                     <InfiniteScroll
-                        dataLength={count}
+                        dataLength={hackathons.length}
                         next={getHackathons}
-                        hasMore={hackathons.length !== count}
+                        hasMore={hackathons.length !== 34}
                         loader={<Loader />}
                         className="w-full flex justify-around items-center flex-col py-5 gap-5"
                     >
                         {hackathons.map((hackathon: EventDocument) => {
-                            return <EventsCard key={hackathon.id} />;
+                            return (
+                                <EventsCard
+                                    key={hackathon.id}
+                                    event={hackathon}
+                                />
+                            );
                         })}
                     </InfiniteScroll>
                 )}

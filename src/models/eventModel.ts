@@ -17,27 +17,29 @@ const eventSchema = new mongoose.Schema({
     },
     coverPic: {
         type: String,
-        required: true,
+        // required: true,
     },
     description: {
         type: String,
-        required: true,
+        // required: true,
     },
     type: {
         type: String,
-        required: true,
+        required: true, // 0 for workshop, 1 for technical event, 2 for hackathon,
     },
-    date: {
-        type: Date,
-        required: true,
-    },
-    organisedBy: {
+    time: {
         type: String,
-        required: true,
+        // required: true,
     },
+    startDate: String,
+    endDate: String,
+    organisedBy: [String],
     numberOfParticipants: {
         type: Number,
-        required: true,
+        // required: true,
+    },
+    venue: {
+        type: String,
     },
 });
 

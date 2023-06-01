@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-const EventsCard = () => {
+const EventsCard = ({ event }) => {
     const [hover, setHover] = useState(false);
     return (
         <>
@@ -20,7 +20,9 @@ const EventsCard = () => {
                 />
                 <div className="w-4/5 h-full flex flex-col gap-4">
                     <div className="flex flex-col gap-2">
-                        <div className="text-3xl font-semibold">Event Name</div>
+                        <div className="text-3xl font-semibold">
+                            {event.title}
+                        </div>
                         <div className="text-xl font-semibold">
                             Date and Time
                         </div>

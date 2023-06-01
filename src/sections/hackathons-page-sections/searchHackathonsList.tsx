@@ -15,11 +15,11 @@ const SearchHackathonsList = ({ search }: Props) => {
 
     const getHackathons = () => {
         getHandler(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/events?type=1&search=${search}`,
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/events/search?search=${search}`,
             false
         )
             .then((res) => {
-                setHackathons([res.data.events]);
+                setHackathons(res.data.events);
                 setLoading(false);
             })
             .catch((err) => {
@@ -30,7 +30,7 @@ const SearchHackathonsList = ({ search }: Props) => {
 
     useEffect(() => {
         getHackathons();
-    }, []);
+    }, [search]);
 
     return (
         <>
@@ -48,9 +48,22 @@ const SearchHackathonsList = ({ search }: Props) => {
                     </div>
                 ) : (
                     <div className="w-full flex justify-around items-center flex-col py-5 gap-5">
-                        {hackathons.map((hackathon: EventDocument) => {
-                            return <EventsCard key={hackathon.id} />;
-                        })}
+                        {hackathons.length > 0 ? (
+                            <>
+                                {hackathons.map((hackathon: EventDocument) => {
+                                    return (
+                                        <EventsCard
+                                            key={hackathon.id}
+                                            event={hackathon}
+                                        />
+                                    );
+                                })}
+                            </>
+                        ) : (
+                            <div className="text-white text-4xl font-spaceGrotesk pt-32">
+                                No Results for this Search :)
+                            </div>
+                        )}
                     </div>
                 )}
             </div>

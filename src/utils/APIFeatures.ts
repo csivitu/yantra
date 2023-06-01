@@ -39,8 +39,16 @@ class APIFeatures<T> {
                               $in: regexArry,
                           },
                       },
+                      //   {
+                      //       organisedBy: {
+                      //           $elemMatch: {
+                      //               $in: regexArry,
+                      //               // $regex: searchStr
+                      //           },
+                      //       },
+                      //   },
                       {
-                          description: {
+                          venue: {
                               $in: regexArry,
                           },
                       },
