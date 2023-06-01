@@ -44,7 +44,10 @@ const TimelineSection = () => {
 
     return (
         <>
-            <div className="w-fit  text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-32 pb-20">
+            <div
+                id="timeline-section"
+                className="w-fit max-md:pb-4 text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-32 pb-20"
+            >
                 Time Line
             </div>
             <div className="w-full flex flex-col">
