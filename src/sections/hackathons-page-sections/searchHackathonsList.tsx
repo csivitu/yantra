@@ -5,20 +5,33 @@ import getHandler from '@/handlers/getHandler';
 import Loader from '@/components/common/loader';
 import SearchBar from '@/components/common/searchBar';
 import Back from '@/components/common/back';
+import { useRouter } from 'next/router';
 
 interface Props {
     search: string;
+    type: [string];
 }
 
-const SearchHackathonsList = ({ search }: Props) => {
+const SearchHackathonsList = ({ search, type }: Props) => {
     const [hackathons, setHackathons] = useState<EventDocument[]>([]);
     const [loading, setLoading] = useState(true);
 
+    const router = useRouter();
+
     const getHackathons = () => {
-        getHandler(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/events/search?search=${search}`,
-            false
-        )
+        let URL = `${process.env.NEXT_PUBLIC_BASE_URL}/api/events/search`;
+
+        const pattern = /[^a-zA-Z0-9]/;
+
+        if (pattern.test(search)) return router.push('/events');
+
+        type.forEach((el, index) => {
+            if (index === 0) URL += `?type=${el}`;
+            else URL += `&type=${el}`;
+        });
+        URL += `&search=${search}`;
+
+        getHandler(URL, false)
             .then((res) => {
                 setHackathons(res.data.events);
                 setLoading(false);
@@ -31,7 +44,7 @@ const SearchHackathonsList = ({ search }: Props) => {
 
     useEffect(() => {
         getHackathons();
-    }, [search]);
+    }, [search, type]);
 
     return (
         <>

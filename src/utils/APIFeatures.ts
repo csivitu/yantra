@@ -31,30 +31,25 @@ class APIFeatures<T> {
         regexArry.push(new RegExp(searchStr, 'i'));
         regexArry.push(new RegExp(searchStr.replace(' ', ''), 'i'));
 
+        const selectedEventTypes = this.queryStr.type || [1, 2, 3, 4];
+
         const search = this.queryStr.search
             ? {
-                  $or: [
+                  $and: [
                       {
-                          title: {
-                              $in: regexArry,
-                          },
+                          $or: [
+                              { title: { $in: regexArry } },
+                              { venue: { $in: regexArry } },
+                          ],
                       },
-                      //   {
-                      //       organisedBy: {
-                      //           $elemMatch: {
-                      //               $in: regexArry,
-                      //               // $regex: searchStr
-                      //           },
-                      //       },
-                      //   },
                       {
-                          venue: {
-                              $in: regexArry,
-                          },
+                          type: { $in: selectedEventTypes },
                       },
                   ],
               }
-            : {};
+            : {
+                  type: { $in: selectedEventTypes },
+              };
 
         this.query = this.query.find(search);
         return this;

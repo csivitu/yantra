@@ -8,6 +8,8 @@ const getSearchEvents = async (req: NextApiRequest, res: NextApiResponse) => {
 
     eventsQuery.search();
 
+    console.log(req.query);
+
     const events = await eventsQuery.query;
 
     res.status(201).json({
