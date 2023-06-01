@@ -60,7 +60,7 @@ const SearchHackathonsList = ({ search, type }: Props) => {
                 </div>
 
                 {loading ? (
-                    <div className="flex justify-around items-center">
+                    <div className="w-full h-48 flex justify-center items-center">
                         <Loader />
                     </div>
                 ) : (

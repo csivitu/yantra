@@ -5,7 +5,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 const getAllEvents = async (req: NextApiRequest, res: NextApiResponse) => {
     const eventsQuery = new APIFeatures<EventDocument>(Event.find(), req.query);
-    eventsQuery.filter().search().paginator();
+    eventsQuery.paginator();
 
     const events = await eventsQuery.query;
 
