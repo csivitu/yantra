@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import HeroSection from '@/sections/landing-page-sections/heroSection';
 import AboutSection from '@/sections/landing-page-sections/aboutSection';
 import SponsorsSection from '@/sections/landing-page-sections/sponsorsSection';
-
+import OCSection from '@/sections/team-page-sections/ocSection';
 export default function Home() {
     useEffect(() => {}, []);
 
@@ -21,7 +21,8 @@ export default function Home() {
                 <TimelineSection />
                 <EventsSection />
                 <PatronsSection />
-                {/* <SponsorsSection /> */}
+                <OCSection />
+
                 <Footer />
             </div>
         </>

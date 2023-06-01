@@ -27,7 +27,7 @@ const Footer = () => {
             >
                 <div className="w-[30%] sm:w-1/3 h-full gap-y-3 p-3">
                     <div className="text-2xl">LINKS</div>
-                    <div className="flex  w-full sm:flex-row flex-row flex-wrap mt-2 justify-end items-center gap-4">
+                    <div className="flex h-[80%] w-full sm:flex-row flex-row flex-wrap mt-1 justify-end items-center gap-4">
                         {handles.map((handle, index) => (
                             <Image
                                 key={index}
@@ -52,12 +52,12 @@ const Footer = () => {
                         className="lg:w-[20vw] lg:h-[20vh] object-contain"
                     />
                 </div>
-                <div className="w-[40%] sm:w-1/3 h-full  sm:gap-y-3 sm:p-3 text-left">
-                    <div className="text-2xl w-full ">CONTACT US </div>
-                    <div className="gap-2 flex text-sm flex-col sm:mt-2">
-                        <p>+91 91555 94196</p>
-                        <p>+91 81253 51715</p>
-                        <p>+91 76748 05872</p>
+                <div className="w-[70%] flex justify-around items-center flex-col sm:w-1/3 h-full sm:gap-y-3 sm:p-3 text-left">
+                    <div className="text-2xl w-full h-[20%]">CONTACT US </div>
+                    <div className="gap-2 flex w-full h-[80%] text-sm flex-col sm:mt-1">
+                        <p className="w-full">+91 91555 94196</p>
+                        <p className="w-full">+91 81253 51715</p>
+                        <p className="w-full">+91 76748 05872</p>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@ const Footer = () => {
                             clipRule="evenodd"
                         ></path>
                     </svg>{' '}
-                    <p>by CSI</p>
+                    <p>by CSI-VIT</p>
                 </span>
             </Link>
         </>

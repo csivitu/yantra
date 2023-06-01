@@ -20,10 +20,10 @@ const EventsSection = () => {
     return (
         <>
             <div
-                id="events-section"
-                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-40 pb-20 max-md:pt-20 max-md:pb-4"
+                id="patrons-section"
+                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20"
             >
-                Events
+                EVENTS
             </div>
 
             <div className="flex justify-around items-center flex-col py-10 gap-5">

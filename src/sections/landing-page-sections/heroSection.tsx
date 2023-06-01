@@ -51,10 +51,10 @@ const HeroSection = () => {
 
                     <a
                         href="https://vtop.vit.ac.in/"
-                        className="rounded-md px-10 py-3 mt-3 overflow-hidden relative group cursor-pointer border-2 font-medium border-indigo-600 text-indigo-600 "
+                        className="rounded-md px-10 py-3 mt-3 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#9207FF] text-[#9207FF] "
                     >
-                        <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-indigo-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                        <span className="relative text-indigo-600 transition duration-300 group-hover:text-white ease font-spaceGrotesk text-xl tracking-wider">
+                        <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#9207FF] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                        <span className="relative text-[#9207FF] transition duration-300 group-hover:text-white ease font-spaceGrotesk text-xl tracking-wider">
                             REGISTER NOW
                         </span>
                     </a>
@@ -81,7 +81,7 @@ const HeroSection = () => {
                 <SocialMediaLinks />
             </div>
 
-            <div className="bg-[#6C6C6C] bg-opacity-[0.12] flex justify-center gap-32 items-center w-full h-[15vh] max-lg:mt-8">
+            <div className="bg-[#6C6C6C] bg-opacity-[0.12] flex justify-center gap-32 items-center w-full h-[12vh] max-lg:mt-8">
                 <Image
                     src={`/g2.png`}
                     alt="g2"

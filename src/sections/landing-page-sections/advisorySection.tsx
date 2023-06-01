@@ -2,30 +2,25 @@ import PatronsCard from '@/components/uncommon/landing-page-cards/patronsCard';
 import React from 'react';
 
 const PatronsSection = () => {
-    const patrons = {
+    const organizingCommittee = {
         1: {
-            name: 'G VISWANATHAN',
-            position: 'CHANCELLOR',
-            photo: 'patron1.jpg',
+            name: 'PARTHA SHARATHI MALLICK',
+            position: 'PRO-VICE CHANCELLOR',
+            photo: 'oc2.jpg',
         },
         2: {
-            name: 'SANKAR VISWANATHAN',
-            position: 'VICE - PRESIDENT',
-            photo: 'patron3.jpg',
+            name: 'JAYABARATHI T',
+            position: 'REGISTRAR',
+            photo: 'oc1.jpg',
         },
         3: {
-            name: 'SEKAR VISWANATHAN',
-            position: 'VICE - PRESIDENT',
-            photo: 'patron4.png',
-        },
-        4: {
-            name: 'G V SELVAM',
-            position: 'VICE - PRESIDENT',
-            photo: 'patron2.png',
+            name: 'RAMBABU KODALI',
+            position: 'REGISTRAR',
+            photo: 'oc3.jpg',
         },
     };
 
-    const patronItems = Object.values(patrons);
+    const patronItems = Object.values(organizingCommittee);
 
     return (
         <>
@@ -33,9 +28,9 @@ const PatronsSection = () => {
                 id="patrons-section"
                 className="w-fit mt-10 text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20"
             >
-                Patrons
+                ADVISORY COMMITTEE
             </div>
-            <div className="h-max py-10 pb-32 text-white flex justify-evenly gap-y-10 items-center flex-wrap">
+            <div className="h-max py-10 pb-32 flex justify-evenly gap-y-10 items-center flex-wrap">
                 {patronItems.map((patron, index) => (
                     <PatronsCard
                         key={index}

@@ -1,16 +1,18 @@
 import React from 'react';
 import Footer from '@/components/common/footer';
 import Header from '@/components/common/header';
-import HeroSection from '@/sections/team-page-sections/heroSection';
-import CarouselSection from '@/sections/team-page-sections/carouselSection';
+import OCSection from '@/sections/team-page-sections/ocSection';
+import OrganizersSection from '@/sections/team-page-sections/organizerSection';
 
 const Team = () => {
     return (
         <>
-            <Header />
-            <HeroSection />
-            <CarouselSection />
-            <Footer />
+            <div className="h-max bg-events-bg bg-repeat-y bg-cover">
+                <Header />
+                <OCSection />
+                <OrganizersSection />
+                <Footer />
+            </div>
         </>
     );
 };
