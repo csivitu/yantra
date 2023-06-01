@@ -106,9 +106,3 @@ html {
     background-color: #282828;
     border: 1px solid #383838;
 }
-
-#shadow-image {
-    -webkit-box-shadow: 10px 9px 13px -3px rgba(255, 255, 255, 0.37);
-    -moz-box-shadow: 10px 9px 13px -3px rgba(255, 255, 255, 0.37);
-    box-shadow: 10px 9px 13px -3px rgba(255, 255, 255, 0.37);
-}

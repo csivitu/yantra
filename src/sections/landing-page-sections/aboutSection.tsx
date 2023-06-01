@@ -10,12 +10,11 @@ const AboutSection = () => {
                 <div className="flex flex-col lg:flex-row justify-around items-center lg:px-20">
                     <div className="lg:w-[50%] py-8 px-16 h-[60%] lg:h-full max-md:pt-0 max-md:pb-8">
                         <Image
-                            id="shadow-image"
                             src="/dsw.jpg"
                             alt="photo"
                             height={10000}
                             width={10000}
-                            className="lg:w-[50vw] lg:h-[50vh] h-[30vh] w-[100%] object-cover shadow-sm shadow-white rounded-md"
+                            className="lg:w-[50vw] lg:h-[50vh] h-[30vh] w-[100%] object-cover border-[2px] border-white rounded-md"
                         />
                     </div>
                     <div className="lg:w-[50%] text-xl text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center lg:text-left text-center">
@@ -37,15 +36,14 @@ const AboutSection = () => {
                 <div className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-28 pb-12">
                     About VIT
                 </div>
-                <div className="flex flex-col lg:flex-row lg:flex-row-reverse justify-around items-center lg:px-20">
+                <div className="flex flex-col  lg:flex-row-reverse justify-around items-center lg:px-20">
                     <div className="lg:w-[50%] py-8 px-16 h-[60%] lg:h-full max-md:pt-0 max-md:pb-8">
                         <Image
-                            id="shadow-image"
                             src="/vit-maingate.jpg"
                             alt="photo"
                             height={10000}
                             width={10000}
-                            className="lg:w-[50vw] lg:h-[50vh] h-[30vh] w-[100%] object-cover  rounded-md"
+                            className="lg:w-[50vw] lg:h-[50vh] h-[30vh] w-[100%] object-cover border-[2px] border-white rounded-md"
                         />
                     </div>
                     <div className="lg:w-[50%] text-xl text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center lg:text-left text-center">
@@ -68,12 +66,11 @@ const AboutSection = () => {
                 <div className="flex flex-col lg:flex-row justify-around items-center lg:px-20">
                     <div className="lg:w-[50%] py-8 px-16 h-[60%] lg:h-full max-md:pt-0 max-md:pb-8">
                         <Image
-                            id="shadow-image"
                             src="/dsw.jpg"
                             alt="photo"
                             height={10000}
                             width={10000}
-                            className="lg:w-[50vw] lg:h-[50vh] h-[30vh] w-[100%] object-cover  rounded-md"
+                            className="lg:w-[50vw] lg:h-[50vh] h-[30vh] w-[100%] object-cover border-[2px] border-white rounded-md"
                         />
                     </div>
                     <div className="lg:w-[50%] text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center text-xl lg:text-left text-center">

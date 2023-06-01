@@ -11,10 +11,9 @@ const PatronsCard: React.FC<PatronsCardProps> = ({ name, position, photo }) => {
     return (
         <div className="text-blue relative font-spaceGrotesk lg:h-[45vh] lg:w-[20vw] h-[25vh] w-[40%] rounded-xl">
             <Image
-                id="shadow-image"
                 src={`/${photo}`}
                 alt={name}
-                className="w-full h-full object-cover rounded-xl"
+                className="w-full h-full object-cover rounded-xl border-[2px] border-white"
                 width={10000}
                 height={10000}
             />
