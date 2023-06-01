@@ -12,7 +12,7 @@ const EventsSection = () => {
             `${process.env.NEXT_PUBLIC_BASE_URL}/api/events`,
             false
         );
-        setEventData(res.data.events);
+        if (res.status === 1) setEventData(res.data.events);
     };
     useEffect(() => {
         eventsController();

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SocialMediaLinks from '@/components/uncommon/social-media-links/socialMediaLinks';
 import Link from 'next/link';
 import Spline from '@splinetool/react-spline';
@@ -19,7 +19,7 @@ const HeroSection = () => {
     useEffect(() => {
         const loaderTimeout = setTimeout(() => {
             setIsLoading(false);
-        }, 2000); // Set a timeout to simulate loading time
+        }, 6000); // Set a timeout to simulate loading time
 
         return () => clearTimeout(loaderTimeout);
     }, []);
@@ -74,17 +74,20 @@ const HeroSection = () => {
                 </div>
                 <div className="lg:w-[50%] w-[100%] lg:h-[100%] h-[50%] bg-transparent">
                     <div className="h-full w-full bg-transparent">
-                        {isLoading ? (
-                            <div className="h-full w-full">
-                                <Loader />
-                            </div> // Render the loader while the scene is loading
-                        ) : (
-                            <Spline
-                                className="max-md:my-12 max-md:pr-4"
-                                style={{ height: '100%', width: '100%' }}
-                                scene="https://draft.spline.design/BtDxBI0l4IDDJacH/scene.splinecode"
-                            />
-                        )}
+                        <div
+                            className={`h-full w-full flex justify-center items-center ${
+                                !isLoading ? 'hidden' : ''
+                            }`}
+                        >
+                            <Loader />
+                        </div>
+                        <Spline
+                            className={`max-md:my-12 max-md:pr-4 ${
+                                isLoading ? 'hidden' : ''
+                            }`}
+                            style={{ height: '100%', width: '100%' }}
+                            scene="https://draft.spline.design/BtDxBI0l4IDDJacH/scene.splinecode"
+                        />
                     </div>
                 </div>
 
