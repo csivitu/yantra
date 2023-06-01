@@ -30,11 +30,11 @@ const HeroSection = () => {
                 <div className="lg:w-[40%] w-[100%] lg:h-[100%] h-[60%] flex justify-center lg:items-start items-center flex-col gap-3">
                     <div className="text-6xl flex justify-around items-center font-bronson w-[50%] h-[35%] lg:h-[20%]">
                         <Image
-                            src="/yantraLogo.png"
+                            src="/logoYantra.png"
                             alt="Logo"
                             height={1000000}
                             width={100000}
-                            className="w-[100%] h-[100%] object-cover"
+                            className="w-[100%] h-[100%] object-contain"
                         />
                     </div>
                     <div className="text-5xl font-ibmMono font-semibold tracking-widest leading-[3.5rem] max-md:text-center">

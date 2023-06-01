@@ -22,13 +22,13 @@ const SocialMediaLinks = () => {
                                     {handle}
                                 </div>
                             }
-                            xIndex={index === 0 ? -10 : 0}
+                            xIndex={index === 0 ? -5 : 0}
                             elIndex={index}
                         />
                         <Image
                             width={10000}
                             height={10000}
-                            src={`/${handle}.svg`}
+                            src={`/${handle}.png`}
                             alt="/"
                             className="w-8 h-8 object-contain z-50 cursor-pointer"
                             onMouseEnter={() => setToggle(index)}
