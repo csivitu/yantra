@@ -3,12 +3,16 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import FiltersModal from './filtersModal';
 
-const SearchBar = () => {
-    const [search, setSearch] = useState();
+interface Props {
+    initialSearch: string;
+}
+
+const SearchBar = ({ initialSearch }: Props) => {
+    const [search, setSearch] = useState(initialSearch);
     const router = useRouter();
     const submitHandler = (el: FormEvent<HTMLFormElement>) => {
         el.preventDefault();
-        if (search === '') router.push('/explore');
+        if (search === '') router.push('/events');
         else router.push(`/events/search?search=${search}`);
     };
 
