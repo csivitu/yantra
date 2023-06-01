@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Button from './button';
+
 import { GetServerSidePropsContext } from 'next';
 import ReactGA from 'react-ga';
 import Image from 'next/image';
