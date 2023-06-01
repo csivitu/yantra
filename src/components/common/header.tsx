@@ -65,7 +65,10 @@ const Header = () => {
                         alt="logo"
                         height={10000}
                         width={10000}
-                        className="w-[15vw] h-auto object-cover"
+                        className="w-[15vw] h-auto object-cover cursor-pointer"
+                        onClick={() => {
+                            router.push('/');
+                        }}
                     />
                 </div>
                 <div className="w-[80%] h-full flex gap-10 items-center justify-end font-spaceGrotesk font-semibold text-lg">

@@ -19,7 +19,7 @@ const HeroSection = () => {
     useEffect(() => {
         const loaderTimeout = setTimeout(() => {
             setIsLoading(false);
-        }, 3000); // Set a timeout to simulate loading time
+        }, 2000); // Set a timeout to simulate loading time
 
         return () => clearTimeout(loaderTimeout);
     }, []);
