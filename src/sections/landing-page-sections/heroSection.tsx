@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SocialMediaLinks from '@/components/uncommon/social-media-links/socialMediaLinks';
 import Link from 'next/link';
 import Spline from '@splinetool/react-spline';
 import Image from 'next/image';
+import Loader from '@/components/common/loader';
+
 declare global {
     namespace JSX {
         interface IntrinsicElements {
@@ -10,11 +12,22 @@ declare global {
         }
     }
 }
+
 const HeroSection = () => {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const loaderTimeout = setTimeout(() => {
+            setIsLoading(false);
+        }, 3000); // Set a timeout to simulate loading time
+
+        return () => clearTimeout(loaderTimeout);
+    }, []);
+
     return (
         <>
             <div className="h-[70vh] flex justify-around flex-col-reverse sm:flex-row items-end sm:px-28 text-white">
-                <div className="sm:w-[40%] w-[100%] sm:h-[100%] h-[50%] flex justify-center sm:items-start items-center flex-col gap-4">
+                <div className="sm:w-[40%] w-[100%] sm:h-[100%] h-[60%] flex justify-center sm:items-start items-center flex-col gap-4">
                     <div className="text-6xl font-bronson w-[40%] h-[20%]">
                         <Image
                             src="/yantraLogo.png"
@@ -64,20 +77,16 @@ const HeroSection = () => {
                 </div>
                 <div className="lg:w-[50%] w-[100%] lg:h-[100%] h-[50%] bg-transparent">
                     <div className="h-full w-full bg-transparent">
-                        {/* <script
-                            type="module"
-                            src="https://unpkg.com/@splinetool/viewer@0.9.349/build/spline-viewer.js"
-                            async
-                        ></script>
-                        <spline-viewer
-                            loading-anim
-                            url="https://prod.spline.design/QMu8-BXQ5KgKUF5l/scene.splinecode"
-                        ></spline-viewer> */}
-                        {/* <ComputerModel /> */}
-                        <Spline
-                            style={{ height: '100%', width: '100%' }}
-                            scene="https://draft.spline.design/Pzbv7e0pKtGMjYCq/scene.splinecode"
-                        />
+                        {isLoading ? (
+                            <div className="h-full w-full">
+                                <Loader />
+                            </div> // Render the loader while the scene is loading
+                        ) : (
+                            <Spline
+                                style={{ height: '100%', width: '100%' }}
+                                scene="https://draft.spline.design/BtDxBI0l4IDDJacH/scene.splinecode"
+                            />
+                        )}
                     </div>
                 </div>
 
