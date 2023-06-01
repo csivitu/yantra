@@ -27,7 +27,7 @@ html {
 }
 
 .vertical-timeline {
-    width: 85% !important;
+    width: 70% !important;
     max-width: none !important;
 }
 
@@ -50,8 +50,13 @@ html {
 }
 
 .vertical-timeline-element-content {
-    box-shadow: none !important;
-    -webkit-box-shadow: 0 !important;
+    background: rgba(255, 255, 255, 0.14) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(1px) !important;
+    -webkit-backdrop-filter: blur(1px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: white !important;
 }
 
 .glassMorphism {

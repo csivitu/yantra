@@ -7,7 +7,7 @@ const Back = () => {
         <svg
             viewBox="0 0 1024 1024"
             fill="#ffffff"
-            className="icon cursor-pointer"
+            className="icon cursor-pointer max-md:hidden"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
             stroke="#ffffff"

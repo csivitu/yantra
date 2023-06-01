@@ -6,7 +6,41 @@ import {
 import 'react-vertical-timeline-component/style.min.css';
 
 const TimelineSection = () => {
-    const arr = [1, 2, 3, 4, 5];
+    const arr = [
+        {
+            title: 'week inauguration',
+            date: '01 JUNE',
+            time: '08:15 AM to 09:00 AM',
+        },
+        {
+            title: 'EVENTS BEGIN',
+            date: '01 JUNE',
+            time: '08:15 AM to 09:00 AM',
+        },
+        ,
+        {
+            title: 'YANTRA HACK BEGINS',
+            date: '02 JUNE',
+            time: '08:15 AM to 09:00 AM',
+        },
+        ,
+        {
+            title: 'YANTRA HACK ENDS',
+            date: '06 JUNE',
+            time: '08:15 AM to 09:00 AM',
+        },
+        ,
+        {
+            title: 'EVENTS CONCLUDE',
+            date: '06 JUNE',
+            time: '08:15 AM to 09:00 AM',
+        },
+        {
+            title: 'CLOSING CEREMONY',
+            date: '06 JUNE',
+            time: '08:15 AM to 09:00 AM',
+        },
+    ];
 
     return (
         <>
@@ -15,19 +49,19 @@ const TimelineSection = () => {
             </div>
             <div className="w-full flex flex-col">
                 <VerticalTimeline lineColor="black">
-                    {arr.map((index) => {
+                    {arr.map((el, index) => {
                         return (
                             <VerticalTimelineElement
                                 key={index}
                                 className="vertical-timeline-element--work font-spaceGrotesk"
                                 icon={
                                     <div className="w-full h-full flex items-center justify-center">
-                                        <div className="w-5 h-5 bg-white rounded-full"></div>
+                                        <div className="w-6 h-6 bg-white rounded-full"></div>
                                     </div>
                                 }
                             >
                                 <div
-                                    className={`w-full flex text-orange-500 ${
+                                    className={`w-full flex ${
                                         index % 2 === 0
                                             ? 'flex-row-reverse'
                                             : ''
@@ -40,7 +74,7 @@ const TimelineSection = () => {
                                                 : 'text-left'
                                         } text-4xl font-semibold max-md:text-4xl`}
                                     >
-                                        Opening Ceremony
+                                        {el?.title}
                                     </div>
                                     <div
                                         className={`w-1/2 flex flex-col ${
@@ -50,10 +84,10 @@ const TimelineSection = () => {
                                         } max-md:items-end`}
                                     >
                                         <div className="text-4xl font-extrabold max-md:text-2xl">
-                                            02 June
+                                            {el?.date}
                                         </div>
                                         <div className="text-sm font-semibold tracking-widest capitalize max-md:text-xs max-md:text-right">
-                                            08:15AM to 09:00AM
+                                            {el?.time}
                                         </div>
                                     </div>
                                 </div>

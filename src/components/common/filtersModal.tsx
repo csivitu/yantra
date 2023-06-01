@@ -37,8 +37,8 @@ const FiltersModal = ({ modalVisibility, visible }: Props) => {
     };
 
     // modal logic
-    const handleOnClose = () => {
-        modalVisibility(false);
+    const handleOnClose = (el: { target: { id: string } }) => {
+        if (el.target.id === 'modalcontainer') modalVisibility(false);
     };
 
     const handleSubmit = () => {

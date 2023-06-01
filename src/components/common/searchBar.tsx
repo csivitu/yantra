@@ -16,16 +16,11 @@ const SearchBar = ({ initialSearch }: Props) => {
         else router.push(`/events/search?search=${search}`);
     };
 
-    // modal logic
     const [modalVisibility, setModalVisibility] = useState(false);
-    const [modalData, setModalData] = useState([]);
-    // const handleModalOnClose = () => {
-    //     setModalVisibility(false);
-    // };
 
     return (
         <>
-            <div className="flex flex-col  sm:flex-row justify-end gap-3 items-center w-full">
+            <div className="flex flex-row justify-end gap-3 items-center w-full">
                 <div className="sm:w-[75%] h-12 w-full  top-2 glassMorphism flex items-center justify-between rounded-[3rem] py-2 my-2  ">
                     <form onSubmit={submitHandler} className="w-full h-full">
                         <input
