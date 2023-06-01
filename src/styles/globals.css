@@ -57,6 +57,13 @@ html {
     -webkit-backdrop-filter: blur(1px) !important;
     border: 1px solid rgba(255, 255, 255, 0.22) !important;
     color: white !important;
+    width: 45% !important;
+}
+
+@media (max-width: 1024px) {
+    .vertical-timeline-element-content {
+        width: 90% !important;
+    }
 }
 
 .glassMorphism {

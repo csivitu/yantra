@@ -67,14 +67,19 @@ const SearchHackathonsList = ({ search, type }: Props) => {
                     <div className="w-full flex justify-around items-center flex-col py-5 gap-5">
                         {hackathons.length > 0 ? (
                             <>
-                                {hackathons.map((hackathon: EventDocument) => {
-                                    return (
-                                        <EventsCard
-                                            key={hackathon.id}
-                                            event={hackathon}
-                                        />
-                                    );
-                                })}
+                                {hackathons.map(
+                                    (
+                                        hackathon: EventDocument,
+                                        index: number
+                                    ) => {
+                                        return (
+                                            <EventsCard
+                                                key={`${hackathon.id}-${index}`}
+                                                event={hackathon}
+                                            />
+                                        );
+                                    }
+                                )}
                             </>
                         ) : (
                             <div className="text-white text-4xl font-spaceGrotesk pt-32">
