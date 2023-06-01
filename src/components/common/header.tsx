@@ -5,8 +5,11 @@ import ReactGA from 'react-ga';
 import Image from 'next/image';
 import { useWindowHeight } from '@react-hook/window-size';
 import { useRouter } from 'next/router';
+import NavModal from './NavModal';
 
 const Header = () => {
+    const [modalVisibility, setModalVisibility] = useState(false);
+
     const [scrollPosition, setScrollPosition] = useState(0);
 
     const router = useRouter();
@@ -108,6 +111,9 @@ const Header = () => {
 
             <div
                 className={`z-30 flex lg:hidden static justify-around items-center w-full h-[7.5vh] text-white ${headerClass}`}
+                onClick={() => {
+                    setModalVisibility(true);
+                }}
             >
                 <div className="w-[20%] h-full flex justify-around items-center">
                     <svg
@@ -149,6 +155,16 @@ const Header = () => {
                 </div>
                 <div className="w-[80%] "></div>
             </div>
+            {modalVisibility !== false && (
+                <NavModal
+                    modalVisibility={setModalVisibility}
+                    visible={true}
+
+                    // setModalDataFunc={() => {
+                    //     setModalData();
+                    // }}
+                />
+            )}
         </>
     );
 };

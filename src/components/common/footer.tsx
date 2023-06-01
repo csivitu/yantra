@@ -18,7 +18,7 @@ const Footer = () => {
                         alt="Logo"
                         height={1000000}
                         width={100000}
-                        className="w-[20vw] h-[20vh] object-cover"
+                        className="lg:w-[20vw] lg:h-[20vh] object-cover"
                     />
                 </div>
                 <div className="w-1/3 h-full gap-y-3 p-3 text-left">

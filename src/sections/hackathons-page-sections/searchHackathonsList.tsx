@@ -48,8 +48,8 @@ const SearchHackathonsList = ({ search, type }: Props) => {
 
     return (
         <>
-            <div className="w-full h-max ">
-                <div className="w-full px-32 flex items-center">
+            <div className="w-full h-max">
+                <div className="w-full lg:flex-row flex-col flex items-center">
                     <div className="sm:w-[40%] flex items-center gap-2 font-spaceGrotesk uppercase text-6xl font-extrabold py-8 text-white">
                         <Back />
                         <div>Events</div>
@@ -82,7 +82,7 @@ const SearchHackathonsList = ({ search, type }: Props) => {
                                 )}
                             </>
                         ) : (
-                            <div className="text-white text-4xl font-spaceGrotesk pt-32">
+                            <div className="text-white text-4xl font-spaceGrotesk px-20 pt-32">
                                 No Results for this Search :)
                             </div>
                         )}

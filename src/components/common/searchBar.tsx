@@ -24,7 +24,7 @@ const SearchBar = ({ initialSearch }: Props) => {
                 <div className="sm:w-[75%] h-12 w-full  top-2 glassMorphism flex items-center justify-between rounded-[3rem] py-2 my-2  ">
                     <form onSubmit={submitHandler} className="w-full h-full">
                         <input
-                            className="sm:mx-8 w-full h-full sm:text-2xl bg-[#e3e3e300] text-white font-spaceGrotesk focus:outline-none max-sm:text-base "
+                            className="sm:mx-8 text-center w-full h-full sm:text-2xl bg-[#e3e3e300] text-white font-spaceGrotesk focus:outline-none max-sm:text-base "
                             placeholder="looking for something?"
                             maxLength={45}
                             value={search}
