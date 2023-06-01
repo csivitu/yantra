@@ -13,7 +13,7 @@ const Back = () => {
             stroke="#ffffff"
             width="75"
             height="75"
-            onClick={() => router.back()}
+            onClick={() => router.push('/')}
         >
             <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g

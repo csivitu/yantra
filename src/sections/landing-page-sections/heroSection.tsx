@@ -37,7 +37,7 @@ const HeroSection = () => {
                             className="w-[100%] h-[100%] object-contain"
                         />
                     </div>
-                    <div className="text-5xl font-ibmMono font-semibold tracking-widest leading-[3.5rem] max-md:text-center">
+                    <div className="text-5xl font-bronson font-bold tracking-[0.2em] leading-[3.5rem] max-md:text-center">
                         A WEEK OF
                         <br />
                         <span className="text-[#244EE4]">TECHNICAL</span>
@@ -98,14 +98,14 @@ const HeroSection = () => {
                 <Image
                     src={`/g2.png`}
                     alt="g2"
-                    className="h-10  w-auto object-contain rounded-xl"
+                    className="h-12  w-auto object-contain  "
                     width={10000}
                     height={10000}
                 />
                 <Image
                     src={`/iic.png`}
                     alt="g2"
-                    className="h-10 w-auto object-contain rounded-xl"
+                    className="h-12 w-auto object-contain "
                     width={10000}
                     height={10000}
                 />
