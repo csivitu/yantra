@@ -11,7 +11,7 @@ interface Props {
 const EventsSearch = ({ search, type }: Props) => {
     return (
         <>
-            <div className="h-max bg-grid-bg bg-repeat-y bg-contain">
+            <div className="h-max ">
                 <Header />
                 <SearchHackathonsList search={search} type={type} />
                 {/* <Footer /> */}

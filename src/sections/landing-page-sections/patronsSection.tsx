@@ -5,24 +5,24 @@ import React from 'react';
 const PatronsSection = () => {
     const patrons = {
         1: {
-            name: 'G VISHWANATHAN',
+            name: 'G VISWANATHAN',
             position: 'CHANCELLOR',
             photo: 'patron1.jpg',
         },
         2: {
-            name: 'SEKAR VISHWANATHAN',
+            name: 'SEKAR VISWANATHAN',
             position: 'VICE - PRESIDENT',
-            photo: 'patron2.png',
+            photo: 'patron4.png',
         },
         3: {
             name: 'G V SELVAM',
             position: 'VICE - PRESIDENT',
-            photo: 'patron3.png',
+            photo: 'patron2.png',
         },
         4: {
-            name: 'SANKAR VISHWANATHAN',
+            name: 'SANKAR VISWANATHAN',
             position: 'VICE - PRESIDENT',
-            photo: 'patron4.png',
+            photo: 'patron3.png',
         },
     };
 

@@ -10,34 +10,40 @@ const AboutSection = () => {
                 <div className="flex flex-col lg:flex-row justify-around items-center lg:px-20">
                     <div className="lg:w-[50%] py-8 px-16 h-[60%] lg:h-full max-md:pt-0 max-md:pb-8">
                         <Image
-                            src="/vit.png"
+                            src="/dsw.jpg"
                             alt="photo"
                             height={10000}
                             width={10000}
-                            className="w-full h-full object-cover  rounded-md"
+                            className="lg:w-[50vw] lg:h-[50vh] h-[30vh] w-[100%] object-cover  rounded-md"
                         />
                     </div>
                     <div className="lg:w-[50%] text-xl text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center lg:text-left text-center">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Eligendi sunt, fuga porro maxime laudantium tempore
-                        tempora sapiente assumenda minus! Maiores repellendus
-                        earum tempore minima non labore temporibus tenetur
-                        praesentium distinctio quisquam nulla, fuga laudantium
-                        sequi laborum in reiciendis dolorum vel eaque architecto
-                        odit. Nobis placeat at repudiandae autem in consectetur.
+                        Yantra, VIT&apos;s prestigious student-led Technical
+                        festival, is presented by the Office of Student Welfare.
+                        It provides a unique opportunity for students to
+                        explore, learn, and flourish. With engaging talks,
+                        immersive workshops, and exhilarating hackathons, Yantra
+                        equips participants with the skills and resources to
+                        transform ideas into reality. It&apos;s a platform for
+                        personal growth and creative innovation. Join us for
+                        VIT&apos;s biggest student conference, where visionaries
+                        and professionals from diverse fields share expertise
+                        and experiences. Mark your calendars for an
+                        unforgettable experience at Yantra, the epitome of
+                        technical brilliance and personal development.
                     </div>
                 </div>
                 <div className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-28 pb-12">
                     About VIT
                 </div>
-                <div className="flex flex-col lg:flex-row justify-around items-center lg:px-20">
+                <div className="flex flex-col lg:flex-row lg:flex-row-reverse justify-around items-center lg:px-20">
                     <div className="lg:w-[50%] py-8 px-16 h-[60%] lg:h-full max-md:pt-0 max-md:pb-8">
                         <Image
-                            src="/vit.png"
+                            src="/vit-maingate.jpg"
                             alt="photo"
                             height={10000}
                             width={10000}
-                            className="w-full h-full object-cover  rounded-md"
+                            className="lg:w-[50vw] lg:h-[50vh] h-[30vh] w-[100%] object-cover  rounded-md"
                         />
                     </div>
                     <div className="lg:w-[50%] text-xl text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center lg:text-left text-center">
@@ -60,11 +66,11 @@ const AboutSection = () => {
                 <div className="flex flex-col lg:flex-row justify-around items-center lg:px-20">
                     <div className="lg:w-[50%] py-8 px-16 h-[60%] lg:h-full max-md:pt-0 max-md:pb-8">
                         <Image
-                            src="/vit.png"
+                            src="/dsw.jpg"
                             alt="photo"
                             height={10000}
                             width={10000}
-                            className="w-full h-full object-cover  rounded-md"
+                            className="lg:w-[50vw] lg:h-[50vh] h-[30vh] w-[100%] object-cover  rounded-md"
                         />
                     </div>
                     <div className="lg:w-[50%] text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center text-xl lg:text-left text-center">
