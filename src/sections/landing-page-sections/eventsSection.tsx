@@ -22,7 +22,10 @@ const EventsSection = () => {
     }, []);
     return (
         <>
-            <div className="w-fit text-white font-bronson uppercase text-8xl font-extrabold m-auto pt-40 pb-20">
+            <div
+                id="events-section"
+                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-40 pb-20"
+            >
                 Events
             </div>
 
@@ -34,7 +37,7 @@ const EventsSection = () => {
             <div className="w-full flex justify-around items-center">
                 <Link
                     href={'/events'}
-                    className="bg-[#3A3646] hover:bg-[#565263] text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center"
+                    className="bg-[#FFA412] hover:bg-[#ffb744] text-white font-bold py-4 px-6 rounded-lg flex justify-center gap-2 items-center"
                 >
                     <p className="text-xl font-spaceGrotesk">See all events</p>
                     <svg
@@ -47,14 +50,14 @@ const EventsSection = () => {
                         <path
                             d="M11.667 28.3333L27 13.0003"
                             stroke="white"
-                            stroke-width="3.41667"
+                            strokeWidth="3.41667"
                             strokeLinecap="square"
                             strokeLinejoin="round"
                         />
                         <path
                             d="M12 12H28.6667V28.6667"
                             stroke="white"
-                            stroke-width="3.41667"
+                            strokeWidth="3.41667"
                             strokeLinecap="square"
                             strokeLinejoin="round"
                         />
