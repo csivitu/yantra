@@ -4,14 +4,17 @@ import { useEffect, useState } from 'react';
 import getHandler from '@/handlers/getHandler';
 import envHandler from '@/managers/envHandler';
 import Link from 'next/link';
+import { EventDocument } from '@/models/eventModel';
 const EventsSection = () => {
     const [eventData, setEventData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const eventsController = async () => {
-        const events = await getHandler(
+        const res = await getHandler(
             `${process.env.NEXT_PUBLIC_BASE_URL}/api/events`,
             false
         );
-        setEventData(events);
+        setEventData(res.data.events);
+        setLoading(false);
         console.log(eventData);
     };
     useEffect(() => {
@@ -24,9 +27,9 @@ const EventsSection = () => {
             </div>
 
             <div className="flex justify-around items-center flex-col py-10 gap-5">
-                <EventsCard />
-                <EventsCard />
-                <EventsCard />
+                {eventData.slice(0, 3).map((event: EventDocument) => {
+                    return <EventsCard key={event.id} event={event} />;
+                })}
             </div>
             <div className="w-full flex justify-around items-center">
                 <Link
