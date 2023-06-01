@@ -23,7 +23,7 @@ export default function Home() {
                 <TimelineSection />
                 <EventsSection />
                 <PatronsSection />
-                <SponsorsSection />
+                {/* <SponsorsSection /> */}
                 <Footer />
             </div>
         </>

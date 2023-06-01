@@ -4,7 +4,7 @@ const AboutSection = () => {
     return (
         <>
             <div id="about-section" className="h-max">
-                <div className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-40 pb-16">
+                <div className="w-full mt-20 h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold m-auto ">
                     About Yantra
                 </div>
                 <div className="flex h-[70vh] flex-col lg:flex-row justify-around items-center lg:px-20">
@@ -17,7 +17,7 @@ const AboutSection = () => {
                             className="w-full h-full object-cover  rounded-md"
                         />
                     </div>
-                    <div className="lg:w-[50%] text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center lg:text-left text-center">
+                    <div className="lg:w-[50%] text-xl text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center lg:text-left text-center">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Eligendi sunt, fuga porro maxime laudantium tempore
                         tempora sapiente assumenda minus! Maiores repellendus
@@ -40,7 +40,7 @@ const AboutSection = () => {
                             className="w-full h-full object-cover  rounded-md"
                         />
                     </div>
-                    <div className="lg:w-[50%] text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center lg:text-left text-center">
+                    <div className="lg:w-[50%] text-xl text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center lg:text-left text-center">
                         VIT aims to provide high-quality education on par with
                         global standards. We constantly adopt innovative methods
                         to enhance education. The campus welcomes students from
@@ -67,24 +67,20 @@ const AboutSection = () => {
                             className="w-full h-full object-cover  rounded-md"
                         />
                     </div>
-                    <div className="lg:w-[50%] text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center lg:text-left text-center">
-                        The Office of Students&apos; Welfare at VIT is dedicated
-                        to uplifting students through small steps that lead to
-                        significant changes. The management collaborates with
-                        VIT&apos;s Clubs and Chapters to create a vibrant and
-                        supportive learning environment for all students.
-                        Recognizing the impact of these formative years on the
-                        students&apos; future and society, VIT promotes various
-                        initiatives to shape their minds. The well-organized
-                        structure allows for daily activities conducted by the
-                        Clubs and Chapters, ensuring student growth. External
-                        participants also have the opportunity to engage in our
-                        cultural and technical events. VIT believes in nurturing
-                        future leaders, offering multiple growth opportunities
-                        through the Student Council and the establishment of new
-                        Clubs or Chapters. Scholarships and funding support are
-                        provided to students, enabling their participation in
-                        national and international competitions.
+                    <div className="lg:w-[50%] text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center text-xl lg:text-left text-center">
+                        VIT&apos;s Office of Students&apos; Welfare uplifts
+                        students through small steps for significant changes.
+                        They collaborate with VIT&apos;s Clubs and Chapters,
+                        creating a supportive learning environment. VIT promotes
+                        initiatives to shape students&apos; minds, recognizing
+                        their impact on the future. The well-organized structure
+                        enables daily activities by Clubs and Chapters, ensuring
+                        student growth. External participants engage in cultural
+                        and technical events. VIT nurtures future leaders,
+                        offering growth opportunities through the Student
+                        Council and new Clubs or Chapters. Scholarships and
+                        funding support enable student participation in
+                        competitions.
                     </div>
                 </div>
             </div>

@@ -8,7 +8,7 @@ const SocialMediaLinks = () => {
     const handles = ['youtube', 'twitter', 'instagram', 'linkedIn'];
 
     return (
-        <div className="h-[75%] flex flex-col justify-around items-end m-auto max-md:flex-row max-md:w-full max-md:items-center max-md:justify-center">
+        <div className="h-[75%] sm:flex hidden  flex-col justify-around items-end m-auto max-md:flex-row max-md:w-full max-md:items-center max-md:justify-center">
             {handles.map((handle: string, index: number) => {
                 return (
                     <div
