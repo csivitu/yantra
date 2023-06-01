@@ -73,33 +73,33 @@ const Header = () => {
                 </div>
                 <div className="w-[80%] h-full flex gap-10 items-center justify-end font-spaceGrotesk font-semibold text-lg">
                     <div
-                        className="cursor-pointer hover:text-black"
+                        className="cursor-pointer hover:text-[#E8505B]"
                         onClick={() => handleMenuClick('about-section')}
                     >
                         About Us
                     </div>
 
                     <div
-                        className="cursor-pointer hover:text-black"
+                        className="cursor-pointer hover:text-[#E8505B]"
                         onClick={() => handleMenuClick('timeline-section')}
                     >
                         Timeline
                     </div>
                     <div
-                        className="cursor-pointer hover:text-black"
+                        className="cursor-pointer hover:text-[#E8505B]"
                         onClick={() => handleMenuClick('events-section')}
                     >
                         Events
                     </div>
                     <div
-                        className="cursor-pointer hover:text-black"
+                        className="cursor-pointer hover:text-[#E8505B]"
                         onClick={() => handleMenuClick('patrons-section')}
                     >
                         Patrons
                     </div>
 
                     <div
-                        className="cursor-pointer hover:text-black"
+                        className="cursor-pointer hover:text-[#E8505B]"
                         onClick={() => handleMenuClick('contact-section')}
                     >
                         Contact Us

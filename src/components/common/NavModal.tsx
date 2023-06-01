@@ -39,35 +39,35 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
                 id="modalcontainer"
                 className="fixed inset-0 bg-black bg-opacity-[0.6] backdrop-blur-sm flex items-center justify-center z-50"
             >
-                <div className="h-[70vh] w-[60vw] font-spaceGrotesk lg:w-[30%] sm:pt-10 pt-10 glassMorphism3 rounded-lg text-2xl lg:text-3xl flex justify-around items-center flex-col">
+                <div className="h-[70vh] w-[80vw] font-spaceGrotesk lg:w-[30%]  glassMorphism3 rounded-lg text-3xl lg:text-3xl flex justify-around items-center flex-col">
                     <div
-                        className="cursor-pointer hover:text-black text-white"
+                        className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
                         onClick={() => handleMenuClick('about-section')}
                     >
                         About Us
                     </div>
 
                     <div
-                        className="cursor-pointer hover:text-black text-white"
+                        className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
                         onClick={() => handleMenuClick('timeline-section')}
                     >
                         Timeline
                     </div>
                     <div
-                        className="cursor-pointer hover:text-black text-white"
+                        className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
                         onClick={() => handleMenuClick('events-section')}
                     >
                         Events
                     </div>
                     <div
-                        className="cursor-pointer hover:text-black text-white"
+                        className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
                         onClick={() => handleMenuClick('patrons-section')}
                     >
                         Patrons
                     </div>
 
                     <div
-                        className="cursor-pointer hover:text-black text-white"
+                        className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
                         onClick={() => handleMenuClick('contact-section')}
                     >
                         Contact Us
