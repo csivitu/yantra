@@ -7,8 +7,8 @@ interface Props {
 }
 const NavModal = ({ modalVisibility, visible }: Props) => {
     // modal logic
-    const handleOnClose = (el: { target: { id: string } }) => {
-        if (el.target.id === 'modalcontainer') modalVisibility(false);
+    const handleOnClose = (event: React.MouseEvent<HTMLDivElement>) => {
+        if (event.currentTarget.id === 'modalcontainer') modalVisibility(false);
     };
 
     const router = useRouter();
