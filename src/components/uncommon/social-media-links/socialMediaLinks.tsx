@@ -5,7 +5,7 @@ import SlideInLinkText from '../../common/slideInLinkText';
 
 const SocialMediaLinks = () => {
     const [toggle, setToggle] = useState(-1);
-    const handles = ['youtube', 'twitter', 'insta', 'linkedIn'];
+    const handles = ['youtube', 'twitter', 'instagram', 'linkedIn'];
 
     return (
         <div className="h-[75%] sm:flex hidden  flex-col justify-around items-end m-auto max-md:flex-row max-md:w-full max-md:items-center max-md:justify-center">
@@ -18,7 +18,7 @@ const SocialMediaLinks = () => {
                         <SlideInLinkText
                             isVisible={toggle}
                             children={
-                                <div className="text-lg uppercase font-spaceGrotesk text-white font-semibold max-md:hidden ">
+                                <div className="text-lg uppercase mr-2 font-spaceGrotesk text-white font-semibold max-md:hidden ">
                                     {handle}
                                 </div>
                             }

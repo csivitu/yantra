@@ -26,9 +26,9 @@ const HeroSection = () => {
 
     return (
         <>
-            <div className="h-[70vh] w-[95%] m-auto max-md:h-[100vh] flex justify-around flex-col-reverse sm:flex-row items-end sm:px-28 text-white">
-                <div className="sm:w-[40%] w-[100%] sm:h-[100%] h-[60%] flex justify-center sm:items-start items-center flex-col gap-4">
-                    <div className="text-6xl font-bronson w-[40%] h-[20%]">
+            <div className="h-[70vh] w-[95%] m-auto max-md:h-[100vh] flex justify-around flex-col-reverse sm:flex-row items-end sm:px-24 text-white">
+                <div className="sm:w-[40%] w-[100%] sm:h-[100%] h-[60%] flex justify-center sm:items-start items-center flex-col gap-3">
+                    <div className="text-6xl flex justify-around items-center font-bronson w-[50%] h-[20%]">
                         <Image
                             src="/yantraLogo.png"
                             alt="Logo"
@@ -46,7 +46,7 @@ const HeroSection = () => {
 
                     <Link
                         href="#_"
-                        className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group"
+                        className="relative mt-2 inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group"
                     >
                         <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-purple-500 group-hover:translate-x-0 ease">
                             <svg
@@ -91,7 +91,22 @@ const HeroSection = () => {
                 <SocialMediaLinks />
             </div>
 
-            <div className="bg-[#6C6C6C] opacity-[0.12] w-full h-[15vh] max-md:mt-8"></div>
+            <div className="bg-[#6C6C6C] bg-opacity-[0.12] flex justify-center gap-32 items-center w-full h-[15vh] max-md:mt-8">
+                <Image
+                    src={`/g2.png`}
+                    alt="g2"
+                    className="h-10  w-auto object-contain rounded-xl"
+                    width={10000}
+                    height={10000}
+                />
+                <Image
+                    src={`/iic.png`}
+                    alt="g2"
+                    className="h-10 w-auto object-contain rounded-xl"
+                    width={10000}
+                    height={10000}
+                />
+            </div>
         </>
     );
 };
