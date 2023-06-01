@@ -1,6 +1,20 @@
 import React from 'react';
 
-const CheckBox = ({ id, label, value, onChange, selectedCheckboxes }) => {
+interface Props {
+    id: string;
+    label: string;
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    selectedCheckboxes: string[];
+}
+
+const CheckBox = ({
+    id,
+    label,
+    value,
+    onChange,
+    selectedCheckboxes,
+}: Props) => {
     const isChecked = selectedCheckboxes.includes(value);
 
     return (

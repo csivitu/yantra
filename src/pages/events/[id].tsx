@@ -1,6 +1,7 @@
 import Header from '@/components/common/header';
 import Loader from '@/components/common/loader';
 import getHandler from '@/handlers/getHandler';
+import { EventType } from '@/models/eventModel';
 import EventSection from '@/sections/event-page-sections/eventSection';
 import { GetServerSidePropsContext } from 'next';
 import React, { useEffect, useState } from 'react';
@@ -9,8 +10,22 @@ interface Props {
     id: string;
 }
 
+const initialState: EventType = {
+    _id: '',
+    title: '',
+    coverPic: '',
+    description: '',
+    type: '',
+    organisedBy: [],
+    numberOfParticipants: 0,
+    venue: '',
+    startDate: '',
+    endDate: '',
+};
+
 const EventPage = ({ id }: Props) => {
-    const [event, setEvent] = useState({});
+    const [event, setEvent] = useState<EventType>(initialState);
+
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {

@@ -3,7 +3,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import getHandler from '@/handlers/getHandler';
 import Link from 'next/link';
-import { EventDocument } from '@/models/eventModel';
+import { EventType } from '@/models/eventModel';
 
 const EventsSection = () => {
     const [eventData, setEventData] = useState([]);
@@ -27,8 +27,8 @@ const EventsSection = () => {
             </div>
 
             <div className="flex justify-around items-center flex-col py-10 gap-5">
-                {eventData.slice(0, 3).map((event: EventDocument) => {
-                    return <EventsCard key={event.id} event={event} />;
+                {eventData.slice(0, 3).map((event: EventType) => {
+                    return <EventsCard key={event._id} event={event} />;
                 })}
             </div>
             <div className="w-full flex justify-around items-center">

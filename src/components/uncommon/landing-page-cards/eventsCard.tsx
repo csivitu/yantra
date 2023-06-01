@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { EventDocument } from '@/models/eventModel';
+import { EventType } from '@/models/eventModel';
 import moment from 'moment';
 
 interface Props {
-    event: EventDocument;
+    event: EventType;
 }
 
 const EventsCard = ({ event }: Props) => {

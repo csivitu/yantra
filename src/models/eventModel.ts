@@ -12,6 +12,19 @@ export interface EventDocument extends mongoose.Document {
     endDate: string;
 }
 
+export interface EventType {
+    _id: string;
+    title: string;
+    coverPic: string;
+    description: string;
+    type: string;
+    organisedBy: string[]; //club name
+    numberOfParticipants: number;
+    venue: string;
+    startDate: string;
+    endDate: string;
+}
+
 const eventSchema = new mongoose.Schema({
     title: {
         type: String,

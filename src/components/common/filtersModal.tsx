@@ -37,8 +37,9 @@ const FiltersModal = ({ modalVisibility, visible }: Props) => {
     };
 
     // modal logic
-    const handleOnClose = (el: { target: { id: string } }) => {
-        if (el.target.id === 'modalcontainer') modalVisibility(false);
+    const handleOnClose = (event: React.MouseEvent<HTMLDivElement>) => {
+        const target = event.target as HTMLDivElement;
+        if (target.id === 'modalcontainer') modalVisibility(false);
     };
 
     const handleSubmit = () => {
@@ -47,7 +48,7 @@ const FiltersModal = ({ modalVisibility, visible }: Props) => {
         URL = URL.replace(/&type\[\]=\d+/g, '');
 
         selectedCheckboxes.forEach((type) => {
-            if (URL.split('/')[2]?.startsWith('search'))
+            if (URL.split('/')[2]?.startsWith('search?'))
                 URL += `&type[]=${type}`;
             else URL += `/search?type[]=${type}`;
         });

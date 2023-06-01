@@ -6,6 +6,7 @@ interface QueryString {
     fields?: string;
     page?: number;
     limit?: number;
+    type?: number[];
 }
 
 class APIFeatures<T> {
@@ -56,7 +57,7 @@ class APIFeatures<T> {
     }
 
     filter(): this {
-        const queryObj: { [key: string]: string | number } = {
+        const queryObj: { [key: string]: string | number | number[] } = {
             ...this.queryStr,
         };
         const excludeFields = ['page', 'sort', 'limit', 'fields'];

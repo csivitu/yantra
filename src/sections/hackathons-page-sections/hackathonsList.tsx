@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import EventsCard from '@/components/uncommon/landing-page-cards/eventsCard';
-import { EventDocument } from '@/models/eventModel';
+import { EventType } from '@/models/eventModel';
 import getHandler from '@/handlers/getHandler';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Loader from '@/components/common/loader';
@@ -8,7 +8,7 @@ import SearchBar from '@/components/common/searchBar';
 import Back from '@/components/common/back';
 
 const HackathonsList = () => {
-    const [hackathons, setHackathons] = useState<EventDocument[]>([]);
+    const [hackathons, setHackathons] = useState<EventType[]>([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(true);
 
@@ -65,10 +65,10 @@ const HackathonsList = () => {
                         className="w-full flex justify-around items-center flex-col py-5 gap-5"
                     >
                         {hackathons.map(
-                            (hackathon: EventDocument, index: number) => {
+                            (hackathon: EventType, index: number) => {
                                 return (
                                     <EventsCard
-                                        key={`${hackathon.id}-${index}`}
+                                        key={`${hackathon._id}-${index}`}
                                         event={hackathon}
                                     />
                                 );
