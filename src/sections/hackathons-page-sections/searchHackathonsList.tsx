@@ -8,17 +8,23 @@ import Back from '@/components/common/back';
 
 interface Props {
     search: string;
+    type: [string];
 }
 
-const SearchHackathonsList = ({ search }: Props) => {
+const SearchHackathonsList = ({ search, type }: Props) => {
     const [hackathons, setHackathons] = useState<EventDocument[]>([]);
     const [loading, setLoading] = useState(true);
 
     const getHackathons = () => {
-        getHandler(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/events/search?search=${search}`,
-            false
-        )
+        let URL = `${process.env.NEXT_PUBLIC_BASE_URL}/api/events/search`;
+
+        type.forEach((el, index) => {
+            if (index === 0) URL += `?type=${el}`;
+            else URL += `&type=${el}`;
+        });
+        URL += URL + `&search=${search}`;
+
+        getHandler(URL, false)
             .then((res) => {
                 setHackathons(res.data.events);
                 setLoading(false);
@@ -31,7 +37,7 @@ const SearchHackathonsList = ({ search }: Props) => {
 
     useEffect(() => {
         getHackathons();
-    }, [search]);
+    }, [search, type]);
 
     return (
         <>

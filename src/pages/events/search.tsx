@@ -5,14 +5,15 @@ import { GetServerSidePropsContext } from 'next';
 
 interface Props {
     search: string;
+    type: [string];
 }
 
-const EventsSearch = ({ search }: Props) => {
+const EventsSearch = ({ search, type }: Props) => {
     return (
         <>
             <div className="h-max bg-grid-bg bg-repeat-y bg-contain">
                 <Header />
-                <SearchHackathonsList search={search} />
+                <SearchHackathonsList search={search} type={type} />
                 {/* <Footer /> */}
             </div>
         </>
@@ -21,10 +22,15 @@ const EventsSearch = ({ search }: Props) => {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const { query } = context;
-    const search = query.search;
+    const search = query.search || '';
+    let type = query['type[]'] || [0, 1, 2, 3];
+
+    if (type.length === 1) type = [type];
+
     return {
         props: {
             search,
+            type,
         },
     };
 }
