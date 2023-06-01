@@ -98,6 +98,7 @@ const EventSection = ({ event }: Props) => {
                     <div className="h-[30vh]">{event.description}</div>
                     <div className="h-[5vh]  flex justify-start gap-2">
                         <Image
+                            id="shadow-image"
                             src={'/link.svg'}
                             alt="photo"
                             height={10000}
@@ -109,7 +110,8 @@ const EventSection = ({ event }: Props) => {
                 </div>
                 <div className="h-full lg:w-1/2 flex justify-around items-center">
                     <Image
-                        src={'/vit.png'}
+                        id="shadow-image"
+                        src={'/vit-maingate.jpg'}
                         alt="photo"
                         height={10000}
                         width={10000}

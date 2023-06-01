@@ -61,11 +61,11 @@ const Header = () => {
             >
                 <div className="w-[20%] h-full flex justify-around items-center">
                     <Image
-                        src="/white-vit-logo.png"
+                        src="/vitLogo.png"
                         alt="logo"
                         height={10000}
                         width={10000}
-                        className="w-[15vw] h-auto object-cover cursor-pointer"
+                        className="w-[15vw] px-5 h-auto object-cover cursor-pointer"
                         onClick={() => {
                             router.push('/');
                         }}
