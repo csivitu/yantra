@@ -37,12 +37,12 @@ const HackathonsList = () => {
     return (
         <>
             <div className="w-full h-max">
-                <div className="w-full px-32 flex items-center max-md:flex-col">
-                    <div className="sm:w-[40%] flex items-center gap-2 font-spaceGrotesk uppercase text-6xl font-extrabold py-8 text-white">
+                <div className="w-full lg:px-32 flex items-center max-md:flex-col">
+                    <div className="lg:w-[40%] flex items-center gap-2 font-spaceGrotesk uppercase text-6xl font-extrabold py-8 text-white">
                         <Back />
                         <div>Events</div>
                     </div>
-                    <div className="w-[90%] sm:w-[60%]">
+                    <div className="w-[90%] lg:w-[60%]">
                         <SearchBar initialSearch="" />
                     </div>
                 </div>
@@ -59,14 +59,16 @@ const HackathonsList = () => {
                         loader={<Loader />}
                         className="w-full flex justify-around items-center flex-col py-5 gap-5"
                     >
-                        {hackathons.map((hackathon: EventDocument) => {
-                            return (
-                                <EventsCard
-                                    key={hackathon.id}
-                                    event={hackathon}
-                                />
-                            );
-                        })}
+                        {hackathons.map(
+                            (hackathon: EventDocument, index: number) => {
+                                return (
+                                    <EventsCard
+                                        key={`${hackathon.id}-${index}`}
+                                        event={hackathon}
+                                    />
+                                );
+                            }
+                        )}
                     </InfiniteScroll>
                 )}
             </div>

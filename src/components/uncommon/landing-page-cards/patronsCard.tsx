@@ -9,7 +9,7 @@ type PatronsCardProps = {
 
 const PatronsCard: React.FC<PatronsCardProps> = ({ name, position, photo }) => {
     return (
-        <div className="text-blue relative font-spaceGrotesk lg:h-[45vh] lg:w-[20vw] h-[25vh] w-[40%] sm:h-[25vh] sm:w-[25vw] rounded-xl">
+        <div className="text-blue relative font-spaceGrotesk lg:h-[45vh] lg:w-[20vw] h-[25vh] w-[40%] rounded-xl">
             <Image
                 src={`/${photo}`}
                 alt={name}

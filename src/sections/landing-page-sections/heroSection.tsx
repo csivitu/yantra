@@ -26,9 +26,9 @@ const HeroSection = () => {
 
     return (
         <>
-            <div className="h-[70vh] w-[95%] m-auto max-md:h-[100vh] flex justify-around flex-col-reverse sm:flex-row items-end sm:px-24 text-white">
-                <div className="sm:w-[40%] w-[100%] sm:h-[100%] h-[60%] flex justify-center sm:items-start items-center flex-col gap-3">
-                    <div className="text-6xl flex justify-around items-center font-bronson w-[50%] h-[20%]">
+            <div className="h-[70vh] w-[95%] m-auto max-md:h-[100vh] flex justify-around flex-col-reverse lg:flex-row items-end lg:px-24 text-white">
+                <div className="lg:w-[40%] w-[100%] lg:h-[100%] h-[60%] flex justify-center lg:items-start items-center flex-col gap-3">
+                    <div className="text-6xl flex justify-around items-center font-bronson w-[50%] h-[35%] lg:h-[20%]">
                         <Image
                             src="/yantraLogo.png"
                             alt="Logo"
@@ -57,9 +57,9 @@ const HeroSection = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                             >
                                 <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
                                     d="M14 5l7 7m0 0l-7 7m7-7H3"
                                 ></path>
                             </svg>
@@ -91,7 +91,7 @@ const HeroSection = () => {
                 <SocialMediaLinks />
             </div>
 
-            <div className="bg-[#6C6C6C] bg-opacity-[0.12] flex justify-center gap-32 items-center w-full h-[15vh] max-md:mt-8">
+            <div className="bg-[#6C6C6C] bg-opacity-[0.12] flex justify-center gap-32 items-center w-full h-[15vh] max-lg:mt-8">
                 <Image
                     src={`/g2.png`}
                     alt="g2"
