@@ -40,23 +40,22 @@ const EventsCard = ({ event }: Props) => {
                         </div>
                         <div className="text-base sm:text-xl font-semibold">
                             From{' '}
-                            {moment(event.startDate, 'DDMMYYYY').format(
-                                'DD MMMM'
-                            )}{' '}
+                            {moment(event.startDate, 'DDMMYYYY').isValid()
+                                ? moment(event.startDate, 'DDMMYYYY').format(
+                                      'DD MMMM'
+                                  )
+                                : '-'}{' '}
                             To{' '}
-                            {moment(event.endDate, 'DDMMYYYY').format(
-                                'DD MMMM'
-                            )}
+                            {moment(event.endDate, 'DDMMYYYY').isValid()
+                                ? moment(event.endDate, 'DDMMYYYY').format(
+                                      'DD MMMM'
+                                  )
+                                : '-'}
                         </div>
                     </div>
 
                     <div className="text-lg line-clamp-2">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Consequatur earum inventore maiores velit, dolor
-                        deleniti laudantium iste omnis ipsum odit facilis
-                        blanditiis fuga, laborum totam temporibus. Rem animi,
-                        totam velit doloribus, blanditiis esse officia deserunt
-                        ut obcaecati.
+                        {event.description}
                     </div>
                 </div>
             </div>

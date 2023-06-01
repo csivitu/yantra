@@ -65,9 +65,12 @@ const EventSection = ({ event }: Props) => {
                                 FROM
                             </div>
                             <div className="text-xl font-spaceGrotesk">
-                                {moment(event.startDate, 'DDMMYYYY').format(
-                                    'DD MMMM'
-                                )}
+                                {moment(event.startDate, 'DDMMYYYY').isValid()
+                                    ? moment(
+                                          event.startDate,
+                                          'DDMMYYYY'
+                                      ).format('DD MMMM')
+                                    : '-'}
                             </div>
                         </div>
                         <div className="h-max">
@@ -75,9 +78,11 @@ const EventSection = ({ event }: Props) => {
                                 TO
                             </div>
                             <div className="font-spaceGrotesk text-xl">
-                                {moment(event.endDate, 'DDMMYYYY').format(
-                                    'DD MMMM'
-                                )}
+                                {moment(event.endDate, 'DDMMYYYY').isValid()
+                                    ? moment(event.endDate, 'DDMMYYYY').format(
+                                          'DD MMMM'
+                                      )
+                                    : '-'}
                             </div>
                         </div>
                     </div>
@@ -90,13 +95,7 @@ const EventSection = ({ event }: Props) => {
                         </div>
                         <br />
                     </div>
-                    <div className="h-[30vh]">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Enim nesciunt doloremque quo labore asperiores
-                        ratione ipsum! Qui perferendis et eum, mollitia
-                        asperiores impedit, voluptatum, exercitationem
-                        reiciendis laboriosam recusandae maxime omnis.
-                    </div>
+                    <div className="h-[30vh]">{event.description}</div>
                     <div className="h-[5vh]  flex justify-start gap-2">
                         <Image
                             src={'/link.svg'}
