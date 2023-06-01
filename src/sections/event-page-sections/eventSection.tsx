@@ -13,9 +13,9 @@ const EventSection = ({ event }: Props) => {
 
     return (
         <>
-            <div className=" flex lg:flex-row flex-col-reverse text-white font-spaceGrotesk justify-around items-center px-20 py-4">
-                <div className="h-full lg:w-1/2 ">
-                    <div className=" h-[7.5vh] flex justify-start gap-2 items-center  ">
+            <div className=" flex lg:flex-row flex-col-reverse text-white font-spaceGrotesk justify-around items-center px-20 py-4 max-md:px-8">
+                <div className="lg:w-1/2 ">
+                    <div className=" h-[7.5vh] flex justify-start gap-2 items-center max-md:hidden">
                         <div
                             onClick={() => router.push('/events')}
                             className="flex justify-start gap-2 items-center cursor-pointer"
@@ -43,10 +43,10 @@ const EventSection = ({ event }: Props) => {
                             Back
                         </div>
                     </div>{' '}
-                    <div className="h-fit text-5xl text-white font-bronson">
+                    <div className="h-fit text-5xl text-white font-bronson max-md:my-4 max-md:text-4xl">
                         {event.title}
                     </div>
-                    <div className="h-[5vh] text-sm  font-spaceGrotesk text-[#FFA412]">
+                    <div className="text-sm  font-spaceGrotesk text-[#FFA412] max-md:mb-4">
                         {event.organisedBy.length > 1 ? (
                             <>
                                 {event.organisedBy.map((club, i) => {
@@ -95,8 +95,8 @@ const EventSection = ({ event }: Props) => {
                         </div>
                         <br />
                     </div>
-                    <div className="h-[30vh]">{event.description}</div>
-                    <div className="h-[5vh]  flex justify-start gap-2">
+                    <div className="">{event.description}</div>
+                    <div className="flex justify-start gap-2 max-md:my-6">
                         <Image
                             id="shadow-image"
                             src={'/link.svg'}
@@ -115,7 +115,7 @@ const EventSection = ({ event }: Props) => {
                         alt="photo"
                         height={10000}
                         width={10000}
-                        className="lg:w-[60vh] lg:h-[60vh]  object-cover rounded-xl"
+                        className="lg:w-[60vh] lg:h-[50vh] object-cover rounded-xl"
                     />
                 </div>
             </div>
