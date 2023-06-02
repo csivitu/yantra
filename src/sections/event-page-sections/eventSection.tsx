@@ -65,7 +65,13 @@ const EventSection = ({ event }: Props) => {
                                 FROM
                             </div>
                             <div className="text-xl font-spaceGrotesk">
-                                {moment(event.startDate).format('DD MMMM')}
+                                {moment(event.startDate, 'MMDDYYYY').format(
+                                    'DD MMMM'
+                                )}
+                                {' | '}
+                                {moment(event.startTime, 'HH:mm:ss A').format(
+                                    'hh:mm A'
+                                )}
                             </div>
                         </div>
                         <div className="h-max">
@@ -73,7 +79,13 @@ const EventSection = ({ event }: Props) => {
                                 TO
                             </div>
                             <div className="font-spaceGrotesk text-xl">
-                                {moment(event.endDate).format('DD MMMM')}
+                                {moment(event.endDate, 'MMDDYYYY').format(
+                                    'DD MMMM'
+                                )}
+                                {' | '}
+                                {moment(event.endTime, 'HH:mm:ss A').format(
+                                    'hh:mm A'
+                                )}
                             </div>
                         </div>
                     </div>

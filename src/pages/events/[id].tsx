@@ -22,6 +22,8 @@ const initialState: EventType = {
     venue: '',
     startDate: '',
     endDate: '',
+    startTime: '',
+    endTime: '',
 };
 
 const EventPage = ({ id }: Props) => {

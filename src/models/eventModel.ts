@@ -23,6 +23,8 @@ export interface EventType {
     venue: string;
     startDate: string;
     endDate: string;
+    startTime: string;
+    endTime: string;
 }
 
 const eventSchema = new mongoose.Schema({
