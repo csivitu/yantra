@@ -71,7 +71,7 @@ html {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8.2px);
     -webkit-backdrop-filter: blur(8.2px);
-    border: 1px solid rgba(255, 255, 255, 0.31);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.31);
 }
 
 .glassMorphism2 {
@@ -80,7 +80,6 @@ html {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     /* backdrop-filter: blur(6.6px);
     -webkit-backdrop-filter: blur(6.6px); */
-    border: 1px solid rgba(255, 255, 255, 1);
 }
 
 .glassMorphism3 {
