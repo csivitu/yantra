@@ -26,7 +26,7 @@ const EventsSection = () => {
                 EVENTS
             </div>
 
-            <div className="flex justify-around bg-transparent items-center flex-col py-10 gap-5">
+            <div className="flex justify-around bg-transparent items-center flex-col py-10 gap-5 max-md:px-6">
                 {eventData.slice(0, 3).map((event: EventType) => {
                     return <EventsCard key={event._id} event={event} />;
                 })}

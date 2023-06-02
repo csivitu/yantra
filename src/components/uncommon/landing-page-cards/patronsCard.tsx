@@ -17,7 +17,7 @@ const PatronsCard: React.FC<PatronsCardProps> = ({ name, position, photo }) => {
                 width={10000}
                 height={10000}
             />
-            <div className="absolute p-2 bottom-0 ">
+            <div className="absolute p-2 bottom-0 text-white">
                 <div className="text-lg font-semibold">{name}</div>
                 <div className="text-xs">{position}</div>
             </div>

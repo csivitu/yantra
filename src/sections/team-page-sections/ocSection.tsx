@@ -25,7 +25,7 @@ const OCSection = () => {
         <>
             <div
                 id="organizing-committee-section"
-                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20"
+                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20 max-md:text-4xl text-center"
             >
                 ORGANIZING COMMITTEE
             </div>

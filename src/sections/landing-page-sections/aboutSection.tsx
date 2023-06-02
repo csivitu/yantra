@@ -4,7 +4,7 @@ const AboutSection = () => {
     return (
         <>
             <div id="about-section" className="h-max">
-                <div className="w-full mt-20 max-md:text-4xl h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold m-auto ">
+                <div className="w-full mt-20 max-md:text-4xl h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold m-auto text-center">
                     About Yantra
                 </div>
                 <div className="flex flex-col lg:flex-row justify-around items-center lg:px-20">
