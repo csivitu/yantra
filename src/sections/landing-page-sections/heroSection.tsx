@@ -61,7 +61,7 @@ const HeroSection = () => {
                         </span>
                     </Link> */}
                     <Link
-                        href="/events"
+                        href="https://vtop.vit.ac.in/"
                         className="relative w-48 h-16 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
                     >
                         <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
