@@ -37,19 +37,21 @@ const HeroSection = () => {
                             className="w-[100%] h-[100%] object-contain"
                         />
                     </div>
-                    <div className="text-4xl lg:text-5xl font-bronson font-bold tracking-normal sm:tracking-[1.5rem] lg:tracking-[0.4em] leading-[3rem] text-center lg:text-start">
+                    <div className="text-4xl lg:text-5xl font-sans font-bold tracking-normal leading-[3rem] text-center lg:text-start">
                         {/* A WEEK OF
                         <br />
                         <span className="text-[#244EE4] w-full text-center">
                             TECHNICAL
                         </span>
                         <br /> INNOVATION */}
-                        <p>A WEEK OF</p>
-                        <p className="text-[#244EE4] w-full ">TECHNICAL</p>
-                        <p>INNOVATION</p>
+                        <p className="">A WEEK OF</p>
+                        <p className="text-[#244EE4] w-full text-7xl">
+                            TECHNICAL
+                        </p>
+                        <p className="tracking-wider">INNOVATION</p>
                     </div>
 
-                    <Link
+                    {/* <Link
                         href="https://vtop.vit.ac.in/"
                         className="rounded-md px-10 py-3 mt-3 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#9207FF] text-[#9207FF] "
                     >
@@ -57,6 +59,17 @@ const HeroSection = () => {
                         <span className="relative text-[#9207FF] transition duration-300 group-hover:text-white ease font-spaceGrotesk text-xl tracking-wider">
                             REGISTER NOW
                         </span>
+                    </Link> */}
+                    <Link
+                        href="/events"
+                        className="relative w-48 h-16 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
+                    >
+                        <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
+                        <span className="absolute top-0 left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
+                        <span className="font-spaceGrotesk text-xl font-bold flex justify-center items-center  relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
+                            REGISTER NOW
+                        </span>
+                        <span className="absolute inset-0 border-2 border-white rounded-full"></span>
                     </Link>
                 </div>
                 <div className="lg:w-[50%] w-[100%] lg:h-[100%] h-[50%] bg-transparent">
