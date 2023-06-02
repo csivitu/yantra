@@ -15,7 +15,7 @@ const SocialMediaLinks = () => {
         { name: 'twitter', link: 'https://twitter.com/VIT_univ' },
         { name: 'instagram', link: 'https://www.instagram.com/vellore_vit' },
         {
-            name: 'linkedIn',
+            name: 'linkedin',
             link: 'https://www.linkedin.com/school/vellore-institute-of-technology',
         },
     ];
