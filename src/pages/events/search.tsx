@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '@/components/common/header';
 import SearchHackathonsList from '@/sections/hackathons-page-sections/searchHackathonsList';
 import { GetServerSidePropsContext } from 'next';
+import Head from 'next/head';
 
 interface Props {
     search: string;
@@ -12,6 +13,9 @@ const EventsSearch = ({ search, type }: Props) => {
     return (
         <>
             <div className="h-max ">
+                <Head>
+                    <title>Yantra | Search</title>
+                </Head>
                 <Header />
                 <SearchHackathonsList search={search} type={type} />
                 {/* <Footer /> */}

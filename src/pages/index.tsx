@@ -10,12 +10,17 @@ import AboutSection from '@/sections/landing-page-sections/aboutSection';
 import SponsorsSection from '@/sections/landing-page-sections/sponsorsSection';
 import OCSection from '@/sections/team-page-sections/ocSection';
 import AdvisorySection from '@/sections/landing-page-sections/advisorySection';
+import Head from 'next/head';
+
 export default function Home() {
     useEffect(() => {}, []);
 
     return (
         <>
             <div className="h-max bg-landing-bg  bg-cover">
+                <Head>
+                    <title>Yantra</title>
+                </Head>
                 <Header />
                 <HeroSection />
                 <AboutSection />
