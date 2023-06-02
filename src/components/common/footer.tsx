@@ -52,7 +52,7 @@ const Footer = () => {
                         className="lg:w-[20vw] lg:h-[20vh] object-contain"
                     />
                 </div>
-                <div className="w-[70%] flex justify-around items-center flex-col sm:w-1/3 h-full sm:gap-y-3 sm:p-3 text-left">
+                <div className="w-fit flex justify-around items-center flex-col sm:w-1/3 h-full sm:gap-y-3 sm:p-3 text-left">
                     <div className="text-2xl w-full h-[20%]">CONTACT US </div>
                     <div className="gap-2 flex w-full h-[80%] text-sm flex-col sm:mt-1">
                         <p className="w-full">+91 91555 94196</p>

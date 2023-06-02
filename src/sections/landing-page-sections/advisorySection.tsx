@@ -4,17 +4,17 @@ import Link from 'next/link';
 const AdvisorySection = () => {
     const organizingCommittee = {
         1: {
-            name: 'Mr. RAMBABU KODALI',
+            name: 'Dr. RAMBABU KODALI',
             position: 'VICE CHANCELLOR',
             photo: 'oc3.jpg',
         },
         2: {
-            name: 'Mr. P. S. MALLICK',
+            name: 'DR. PARTHA SHARATHI MALLICK',
             position: 'PRO-VICE CHANCELLOR',
             photo: 'oc2.jpg',
         },
         3: {
-            name: 'Mr. JAYABARATHI T',
+            name: 'Dr. JAYABARATHI T',
             position: 'REGISTRAR',
             photo: 'oc1.jpg',
         },
