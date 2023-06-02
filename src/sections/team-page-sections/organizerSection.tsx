@@ -26,7 +26,7 @@ const OrganizersSection = () => {
         <>
             <div
                 id="organizing-team"
-                className="w-fit mt-10 text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20"
+                className="w-fit mt-10 max-md:mt-0 max-md:text-3xl text-white font-bronson uppercase text-5xl font-extrabold m-auto "
             >
                 ORGANIZERS
             </div>

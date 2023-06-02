@@ -26,7 +26,7 @@ const AdvisorySection = () => {
         <>
             <div
                 id="advisory-section"
-                className="w-fit mt-10 text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20"
+                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto max-md:text-4xl text-center mt-40 md:mb-10 max-md:mt-20"
             >
                 ADVISORY COMMITTEE
             </div>

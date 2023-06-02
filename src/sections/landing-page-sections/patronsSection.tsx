@@ -31,11 +31,11 @@ const PatronsSection = () => {
         <>
             <div
                 id="patrons-section"
-                className="w-fit mt-10 text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20"
+                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto mt-40 md:mb-10 max-md:mt-20"
             >
                 Patrons
             </div>
-            <div className="h-max py-10 pb-32 text-white flex justify-evenly gap-y-10 items-center flex-wrap">
+            <div className="h-max py-10 pb-10 text-white flex justify-evenly gap-y-10 items-center flex-wrap">
                 {patronItems.map((patron, index) => (
                     <PatronsCard
                         key={index}
