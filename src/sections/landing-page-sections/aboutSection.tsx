@@ -10,7 +10,7 @@ const AboutSection = () => {
                 <div className="flex flex-col lg:flex-row justify-around items-center lg:px-20">
                     <div className="lg:w-[50%] py-8 px-16 h-[60%] lg:h-full max-md:pt-0 max-md:pb-8">
                         <Image
-                            src="/dsw.jpg"
+                            src="/devspace.JPG"
                             alt="photo"
                             height={10000}
                             width={10000}

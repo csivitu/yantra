@@ -22,8 +22,8 @@ const EventsCard = ({ event }: Props) => {
                 onClick={handleClick}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
-                className={`lg:h-[32.5vh] text-white lg:w-[80%] w-[90%] flex-row lg:flex-row font-spaceGrotesk bg-white bg-opacity-60 flex justify-around py-5 px-4 gap-3 items-center rounded-lg transition-all duration-300 ease-in-out cursor-pointer ${
-                    hover ? 'glassMorphism' : 'glassMorphism2'
+                className={`lg:h-[32.5vh] text-white lg:w-[80%] w-[90%] flex-row lg:flex-row font-spaceGrotesk  bg-opacity-40 bg-no-repeat bg-cover border-2 flex justify-around py-5 px-4 gap-3 items-center rounded-lg transition-all duration-300 ease-in-out cursor-pointer  ${
+                    hover ? 'glassMorphism2' : ''
                 }`}
             >
                 <Image
@@ -31,10 +31,10 @@ const EventsCard = ({ event }: Props) => {
                     alt="photo"
                     height={10000}
                     width={10000}
-                    className="w-[15vh] max-md:h-[15vh] lg:w-1/5 object-cover rounded-md"
+                    className="h-[25vh] max-md:h-[15vh] lg:w-1/5 object-cover rounded-md"
                 />
-                <div className="w-4/5 h-full flex flex-col gap-4">
-                    <div className="flex flex-col gap-2">
+                <div className="w-4/5 h-full flex flex-col justify-center gap-4">
+                    <div className="flex flex-col  gap-2">
                         <div className="text-xl sm:text-3xl font-semibold">
                             {event.title}
                         </div>

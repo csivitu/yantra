@@ -21,12 +21,12 @@ const EventsSection = () => {
         <>
             <div
                 id="events-section"
-                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20"
+                className="w-fit text-white bg-transparent font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20"
             >
                 EVENTS
             </div>
 
-            <div className="flex justify-around items-center flex-col py-10 gap-5">
+            <div className="flex justify-around bg-transparent items-center flex-col py-10 gap-5">
                 {eventData.slice(0, 3).map((event: EventType) => {
                     return <EventsCard key={event._id} event={event} />;
                 })}

@@ -25,7 +25,7 @@ const OrganizersSection = () => {
     return (
         <>
             <div
-                id="patrons-section"
+                id="organizing-team"
                 className="w-fit mt-10 text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20"
             >
                 ORGANIZERS

@@ -25,7 +25,7 @@ const AdvisorySection = () => {
     return (
         <>
             <div
-                id="patrons-section"
+                id="advisory-section"
                 className="w-fit mt-10 text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20"
             >
                 ADVISORY COMMITTEE

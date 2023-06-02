@@ -15,6 +15,7 @@ module.exports = {
                 // 'gradient-bg': "url('/background.svg')",
                 'landing-bg': 'url(/landing-background.png)',
                 'events-bg': 'url(/events-background.png)',
+                'gradient-bg': 'url(/gradient.jpeg)',
             },
         },
         plugins: [require('@tailwindcss/line-clamp')],

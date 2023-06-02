@@ -97,6 +97,12 @@ const Header = () => {
                     >
                         Patrons
                     </div>
+                    <div
+                        className="cursor-pointer hover:text-[#E8505B]"
+                        onClick={() => router.push('/team#organizing-team')}
+                    >
+                        Team
+                    </div>
 
                     <div
                         className="cursor-pointer hover:text-[#E8505B]"
