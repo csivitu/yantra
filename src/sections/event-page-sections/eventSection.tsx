@@ -102,11 +102,11 @@ const EventSection = ({ event }: Props) => {
                 <div className="h-full lg:w-1/2 flex justify-around items-center">
                     <Image
                         id="shadow-image"
-                        src={'/vit-maingate.jpg'}
+                        src={`/events/${event.coverPic}`}
                         alt="photo"
                         height={10000}
                         width={10000}
-                        className="lg:w-[60vh] lg:h-[50vh] object-cover rounded-xl"
+                        className="lg:w-[60vh] lg:h-[60vh] rounded-xl"
                     />
                 </div>
             </div>

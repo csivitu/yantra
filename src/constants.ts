@@ -1,1 +1,1 @@
-export const NO_OF_EVENTS = 34;
+export const NO_OF_EVENTS = 35;
