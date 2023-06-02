@@ -46,7 +46,7 @@ const EventSection = ({ event }: Props) => {
                     <div className="h-fit text-5xl text-white font-bronson max-md:my-4 max-md:text-4xl">
                         {event.title}
                     </div>
-                    <div className="text-sm  font-spaceGrotesk text-[#FFA412] max-md:mb-4">
+                    <div className="text-sm mb-8 font-spaceGrotesk text-[#FFA412] max-md:mb-4">
                         {event.organisedBy.length > 1 ? (
                             <>
                                 {event.organisedBy.map((club, i) => {
@@ -59,18 +59,13 @@ const EventSection = ({ event }: Props) => {
                             <>{event.organisedBy[0]}</>
                         )}
                     </div>
-                    <div className="max-md:flex max-md:w-full max-md:justify-between mb-6">
+                    <div className="flex md:flex-col gap-4 max-md:w-full max-md:justify-between mb-6">
                         <div className="h-max">
                             <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
                                 FROM
                             </div>
                             <div className="text-xl font-spaceGrotesk">
-                                {moment(event.startDate, 'DDMMYYYY').isValid()
-                                    ? moment(
-                                          event.startDate,
-                                          'DDMMYYYY'
-                                      ).format('DD MMMM')
-                                    : '-'}
+                                {moment(event.startDate).format('DD MMMM')}
                             </div>
                         </div>
                         <div className="h-max">
@@ -78,11 +73,7 @@ const EventSection = ({ event }: Props) => {
                                 TO
                             </div>
                             <div className="font-spaceGrotesk text-xl">
-                                {moment(event.endDate, 'DDMMYYYY').isValid()
-                                    ? moment(event.endDate, 'DDMMYYYY').format(
-                                          'DD MMMM'
-                                      )
-                                    : '-'}
+                                {moment(event.endDate).format('DD MMMM')}
                             </div>
                         </div>
                     </div>
@@ -96,7 +87,7 @@ const EventSection = ({ event }: Props) => {
                         <br />
                     </div>
                     <div className="">{event.description}</div>
-                    <div className="flex justify-start gap-2 max-md:my-6">
+                    <div className="flex justify-start gap-2 max-md:my-6 my-8">
                         <Image
                             id="shadow-image"
                             src={'/link.svg'}
