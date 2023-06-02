@@ -38,7 +38,7 @@ const Footer = () => {
                                 onClick={() => {
                                     router.push(`${handle.link}`);
                                 }}
-                                className="w-8 h-8 object-contain z-50 cursor-pointer"
+                                className="w-8 h-8 object-contain  cursor-pointer"
                             />
                         ))}
                     </div>

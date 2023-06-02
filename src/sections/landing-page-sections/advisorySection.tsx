@@ -4,19 +4,19 @@ import Link from 'next/link';
 const AdvisorySection = () => {
     const organizingCommittee = {
         1: {
-            name: 'PARTHA SHARATHI MALLICK',
+            name: 'RAMBABU KODALI',
+            position: 'VICE CHANCELLOR',
+            photo: 'oc3.jpg',
+        },
+        2: {
+            name: 'P. S. MALLICK',
             position: 'PRO-VICE CHANCELLOR',
             photo: 'oc2.jpg',
         },
-        2: {
+        3: {
             name: 'JAYABARATHI T',
             position: 'REGISTRAR',
             photo: 'oc1.jpg',
-        },
-        3: {
-            name: 'RAMBABU KODALI',
-            position: 'REGISTRAR',
-            photo: 'oc3.jpg',
         },
     };
 
@@ -26,7 +26,7 @@ const AdvisorySection = () => {
         <>
             <div
                 id="advisory-section"
-                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto max-md:text-4xl text-center mt-40 md:mb-10 max-md:mt-20"
+                className="w-full mt-20 max-md:text-4xl h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold m-auto text-center"
             >
                 ADVISORY COMMITTEE
             </div>
@@ -40,7 +40,7 @@ const AdvisorySection = () => {
                     />
                 ))}
             </div>{' '}
-            <div className="w-full flex justify-around items-center py-10">
+            {/* <div className="w-full flex justify-around items-center py-10">
                 <Link
                     href="/team"
                     className="relative w-48 h-16 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
@@ -52,7 +52,7 @@ const AdvisorySection = () => {
                     </span>
                     <span className="absolute inset-0 border-2 border-white rounded-full"></span>
                 </Link>
-            </div>
+            </div> */}
         </>
     );
 };
