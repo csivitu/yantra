@@ -28,10 +28,13 @@ const Header = () => {
 
     const handleMenuClick = (targetId: string) => {
         if (
-            router.asPath.split('/')[1] === 'events' &&
+            router.asPath.split('/')[1].startsWith('event') &&
             targetId !== 'events-section'
         )
-            router.push('/');
+            router.push(`/#${targetId}`);
+
+        if (router.asPath.split('/')[1].startsWith('team'))
+            router.push(`/#${targetId}`);
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
             const yOffset = 0; // Adjust the yOffset value as per your requirement
@@ -97,12 +100,12 @@ const Header = () => {
                     >
                         Patrons
                     </div>
-                    {/* <div
+                    <div
                         className="cursor-pointer hover:text-[#E8505B]"
                         onClick={() => router.push('/team#organizing-team')}
                     >
                         Team
-                    </div> */}
+                    </div>
 
                     <div
                         className="cursor-pointer hover:text-[#E8505B]"
