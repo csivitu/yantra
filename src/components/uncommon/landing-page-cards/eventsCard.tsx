@@ -39,18 +39,8 @@ const EventsCard = ({ event }: Props) => {
                             {event.title}
                         </div>
                         <div className="text-base sm:text-xl font-semibold">
-                            From{' '}
-                            {moment(event.startDate, 'DDMMYYYY').isValid()
-                                ? moment(event.startDate, 'DDMMYYYY').format(
-                                      'DD MMMM'
-                                  )
-                                : '-'}{' '}
-                            To{' '}
-                            {moment(event.endDate, 'DDMMYYYY').isValid()
-                                ? moment(event.endDate, 'DDMMYYYY').format(
-                                      'DD MMMM'
-                                  )
-                                : '-'}
+                            From {moment(event.startDate).format('DD MMMM')} To{' '}
+                            {moment(event.endDate).format('DD MMMM')}
                         </div>
                     </div>
 

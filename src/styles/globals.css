@@ -40,7 +40,7 @@ html {
 }
 
 .vertical-timeline-element-icon {
-    top: 50px !important;
+    top: 2px !important;
     box-shadow: none !important;
     -webkit-box-shadow: 0 !important;
     /* width: 50px !important;
