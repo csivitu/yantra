@@ -27,7 +27,7 @@ const EventsCard = ({ event }: Props) => {
                 }`}
             >
                 <Image
-                    src="/vit.png"
+                    src={`/events/${event.coverPic}`}
                     alt="photo"
                     height={10000}
                     width={10000}

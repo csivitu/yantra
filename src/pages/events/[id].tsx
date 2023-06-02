@@ -5,6 +5,7 @@ import { EventType } from '@/models/eventModel';
 import EventSection from '@/sections/event-page-sections/eventSection';
 import { GetServerSidePropsContext } from 'next';
 import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
 
 interface Props {
     id: string;
@@ -45,6 +46,9 @@ const EventPage = ({ id }: Props) => {
     return (
         <>
             <div className="h-max bg-events-bg  bg-cover">
+                <Head>
+                    <title>Yantra | {event.title}</title>
+                </Head>
                 <Header />
                 {loading ? (
                     <div className="w-full h-64 flex justify-center items-center">
