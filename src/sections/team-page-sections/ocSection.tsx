@@ -57,44 +57,6 @@ const OCSection = () => {
             photo: 'IMG_0020.jpg',
         },
     ];
-    const organizingCommitteePhone = [
-        {
-            name: 'Dr. NAIJU C D',
-            position: 'DIRECTOR OF STUDENT WELFARE',
-            photo: 'IMG_0025.jpg',
-        },
-
-        {
-            name: 'Dr. AARTHY SL',
-            position: 'ASST. DIRECTOR OF STUDENT WELFARE',
-            photo: 'IMG_0001.jpg',
-        },
-        {
-            name: 'Dr. SHARMILA N',
-            position: 'ASST. DIRECTOR OF STUDENT WELFARE',
-            photo: 'IMG_0005.jpg',
-        },
-        {
-            name: 'Dr. SUJATHA R',
-            position: 'ASST. DIRECTOR OF STUDENT WELFARE',
-            photo: 'IMG_0009.jpg',
-        },
-        {
-            name: 'Dr. SUDHAKAR N',
-            position: 'ASST. DIRECTOR OF STUDENT WELFARE',
-            photo: 'IMG_0013.jpg',
-        },
-        {
-            name: 'Dr. SHANKAR GANESH S',
-            position: 'ASST. DIRECTOR OF STUDENT WELFARE',
-            photo: 'IMG_0014.jpg',
-        },
-        {
-            name: 'Dr. SENTHIL KUMAR M',
-            position: 'ASST. DIRECTOR OF STUDENT WELFARE',
-            photo: 'IMG_0020.jpg',
-        },
-    ];
 
     const [width, height] = useWindowSize({
         wait: 1,
@@ -216,7 +178,7 @@ const OCSection = () => {
                     />
                 </ButtonBack>
                 <Slider className="w-full  overflow-x-hidden overflow-y-hidden ">
-                    {organizingCommitteePhone.map((el, index) => {
+                    {organizingCommittee.map((el, index) => {
                         return (
                             <>
                                 <Slide
