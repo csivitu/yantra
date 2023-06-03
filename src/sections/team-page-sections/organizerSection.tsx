@@ -55,7 +55,7 @@ const OCSection = () => {
                 ORGANIZERS
             </div>
 
-            <CarouselProvider
+            {/* <CarouselProvider
                 naturalSlideHeight={slightHeight}
                 naturalSlideWidth={1000}
                 totalSlides={organizingCommittee.length}
@@ -111,8 +111,8 @@ const OCSection = () => {
                         className="w-8"
                     />
                 </ButtonNext>
-            </CarouselProvider>
-
+            </CarouselProvider> */}
+            {/* 
             <CarouselProvider
                 naturalSlideHeight={slightHeight * 0.16}
                 naturalSlideWidth={1000}
@@ -169,7 +169,19 @@ const OCSection = () => {
                         className="w-8"
                     />
                 </ButtonNext>
-            </CarouselProvider>
+            </CarouselProvider> */}
+            <div className="w-5/6 px-6 m-auto flex gap-6 ">
+                {organizingCommittee.map((el, index) => {
+                    return (
+                        <PatronsCard
+                            key={index}
+                            name={el.name}
+                            position=""
+                            photo={el.photo}
+                        />
+                    );
+                })}
+            </div>
         </div>
     );
 };
