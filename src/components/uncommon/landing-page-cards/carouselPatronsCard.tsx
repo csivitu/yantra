@@ -9,7 +9,7 @@ type PatronsCardProps = {
 
 const CarouselPatronsCard: React.FC<PatronsCardProps> = ({
     name,
-    position,
+    position = '',
     photo,
 }) => {
     return (

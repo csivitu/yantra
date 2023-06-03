@@ -86,7 +86,7 @@ const HeroSection = () => {
                                 isLoading ? 'hidden' : ''
                             }`}
                             style={{ height: '100%', width: '100%' }}
-                            scene="https://draft.spline.design/BtDxBI0l4IDDJacH/scene.splinecode"
+                            scene="https://draft.spline.design/JeGDe1G-sAwNd9dT/scene.splinecode"
                         />
                     </div>
                 </div>
@@ -94,7 +94,7 @@ const HeroSection = () => {
                 <SocialMediaLinks />
             </div>
 
-            <div className="bg-[#6C6C6C] bg-opacity-[0.12] flex justify-center gap-32 items-center w-full h-[12vh] max-lg:mt-8">
+            <div className="bg-[#6C6C6C] bg-opacity-[0.05] flex justify-center gap-32 items-center w-full h-[12vh] max-lg:mt-8">
                 <Image
                     src={`/g2.png`}
                     alt="g2"

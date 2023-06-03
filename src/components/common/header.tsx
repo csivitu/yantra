@@ -64,7 +64,7 @@ const Header = () => {
             >
                 <div className="w-[20%] h-full flex justify-around items-center">
                     <Image
-                        src="/vitLogo.png"
+                        src="/vitLogo2.png"
                         alt="logo"
                         height={10000}
                         width={10000}
