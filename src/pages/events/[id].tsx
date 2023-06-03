@@ -40,7 +40,6 @@ const EventPage = ({ id }: Props) => {
             .then((res) => {
                 setEvent(res.data.event);
                 setLoading(false);
-                console.log(res);
             })
             .catch((err) => {
                 console.log(err);
