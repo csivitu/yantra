@@ -37,18 +37,18 @@ const HeroSection = () => {
                             className="w-[100%] h-[100%] object-contain"
                         />
                     </div>
-                    <div className="text-4xl lg:text-5xl font-sans font-bold tracking-normal leading-[3rem] text-center lg:text-start">
+                    <div className="text-4xl lg:text-5xl font-sans font-bold tracking-normal text-center lg:text-start">
                         {/* A WEEK OF
                         <br />
                         <span className="text-[#244EE4] w-full text-center">
                             TECHNICAL
                         </span>
                         <br /> INNOVATION */}
-                        <p className="font-bronson">A WEEK OF</p>
-                        <p className="text-[#244EE4] w-full text-7xl max-md:text-6xl">
+                        <p className="font-bronson text-3xl">A WEEK OF</p>
+                        <p className="text-[#244EE4] w-full text-7xl max-md:text-6xl font-ibmMono font-bold">
                             TECHNICAL
                         </p>
-                        <p className="tracking-wider">INNOVATION</p>
+                        <p className="font-bronson">INNOVATION</p>
                     </div>
 
                     {/* <Link
