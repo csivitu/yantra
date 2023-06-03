@@ -6,6 +6,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import Loader from '@/components/common/loader';
 import SearchBar from '@/components/common/searchBar';
 import Back from '@/components/common/back';
+import { NO_OF_EVENTS } from '@/constants';
 
 const HackathonsList = () => {
     const [hackathons, setHackathons] = useState<EventType[]>([]);
@@ -60,7 +61,7 @@ const HackathonsList = () => {
                     <InfiniteScroll
                         dataLength={hackathons.length}
                         next={getHackathons}
-                        hasMore={hackathons.length !== 34}
+                        hasMore={hackathons.length !== NO_OF_EVENTS}
                         loader={<Loader />}
                         className="w-full flex justify-around items-center flex-col py-5 gap-5"
                     >
