@@ -118,11 +118,31 @@ const Header = () => {
 
             <div
                 className={`z-30 flex lg:hidden static justify-around items-center w-full h-[7.5vh] text-white ${headerClass}`}
-                onClick={() => {
-                    setModalVisibility(true);
-                }}
             >
-                <div className="w-[20%] h-full flex justify-around items-center">
+                <div
+                    onClick={() => {
+                        router.push('/');
+                    }}
+                    className="w-[20%] h-full flex justify-around items-center"
+                >
+                    <Image
+                        src="/vitLogoCircle.png"
+                        alt="logo"
+                        height={10000}
+                        width={10000}
+                        className="w-[15vw] p-3 h-auto object-cover cursor-pointer"
+                        onClick={() => {
+                            router.push('/');
+                        }}
+                    />
+                </div>
+                <div className="w-[60%] "></div>
+                <div
+                    onClick={() => {
+                        setModalVisibility(true);
+                    }}
+                    className="w-[20%] h-full flex justify-around items-center"
+                >
                     <svg
                         width="32"
                         height="32"
@@ -160,7 +180,6 @@ const Header = () => {
                         />
                     </svg>
                 </div>
-                <div className="w-[80%] "></div>
             </div>
             {modalVisibility !== false && (
                 <NavModal
