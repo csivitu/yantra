@@ -112,6 +112,7 @@ const EventSection = ({ event }: Props) => {
                     <div className="">{event.description}</div>
                     <Link
                         href={event.link}
+                        target="_blank"
                         className={`flex w-fit justify-start gap-2 max-md:my-6 my-8 hover:underline underline-offset-4 ${
                             event.link === '' ? 'hidden' : ''
                         }`}
