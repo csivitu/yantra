@@ -44,11 +44,11 @@ const HeroSection = () => {
                             TECHNICAL
                         </span>
                         <br /> INNOVATION */}
-                        <p className="font-bronson text-3xl">A WEEK OF</p>
+                        <p className="font-bronson text-3xl">Page</p>
                         <p className="text-[#244EE4] w-full text-7xl max-md:text-6xl font-bold">
-                            TECHNICAL
+                            Under
                         </p>
-                        <p className="font-bronson">INNOVATION</p>
+                        <p className="font-bronson">Construction</p>
                     </div>
 
                     {/* <Link
@@ -90,11 +90,17 @@ const HeroSection = () => {
                         />
                     </div>
                 </div>
-
                 <SocialMediaLinks />
             </div>
 
             <div className="bg-[#6C6C6C] bg-opacity-[0.05] flex justify-center gap-32 items-center w-full h-[12vh] max-lg:mt-8">
+                <Image
+                    src={`/SDGLogo.png`}
+                    alt="g2"
+                    className="h-12  w-auto object-contain  "
+                    width={10000}
+                    height={10000}
+                />
                 <Image
                     src={`/g2.png`}
                     alt="g2"
@@ -104,6 +110,13 @@ const HeroSection = () => {
                 />
                 <Image
                     src={`/iic.png`}
+                    alt="g2"
+                    className="h-12 w-auto object-contain "
+                    width={10000}
+                    height={10000}
+                />
+                <Image
+                    src={`/logoYantra.png`}
                     alt="g2"
                     className="h-12 w-auto object-contain "
                     width={10000}
