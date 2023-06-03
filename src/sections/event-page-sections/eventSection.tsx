@@ -14,8 +14,8 @@ const EventSection = ({ event }: Props) => {
 
     return (
         <>
-            <div className=" flex h-[90vh] lg:flex-row flex-col-reverse text-white font-spaceGrotesk justify-around items-center px-20 py-4 max-md:px-8">
-                <div className="lg:w-1/2 ">
+            <div className=" flex h-max gap-3 lg:flex-row flex-col-reverse text-white font-spaceGrotesk justify-around items-center px-16 max-md:px-8">
+                <div className="lg:w-[60%] ">
                     <div className=" h-[7.5vh] flex justify-start gap-2 items-center max-md:hidden">
                         <div
                             onClick={() => router.back()}
@@ -127,7 +127,7 @@ const EventSection = ({ event }: Props) => {
                         <div>{event.link}</div>
                     </Link>
                 </div>
-                <div className="h-full lg:w-1/2 flex justify-around items-center">
+                <div className="h-full lg:w-[40%] flex justify-around items-center">
                     <Image
                         id="shadow-image"
                         src={`/events/${event.coverPic}`}

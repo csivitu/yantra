@@ -68,12 +68,12 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
                     >
                         Patrons
                     </div>
-                    {/* <div
+                    <div
                         className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
-                        onClick={() => router.push('/team#organizing-team')}
+                        onClick={() => router.push('/team')}
                     >
                         Team
-                    </div> */}
+                    </div>
 
                     <div
                         className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"

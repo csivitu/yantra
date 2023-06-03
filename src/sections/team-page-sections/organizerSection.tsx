@@ -19,13 +19,16 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import CarouselPatronsCard from '@/components/uncommon/landing-page-cards/carouselPatronsCard';
 import Loader from '@/components/common/loader';
 import { useEffect } from 'react';
+
 const OCSection = () => {
     const organizingCommittee = [
         {
             name: 'PRATHAM MISHRA',
+            photo: 'pratham.jpg',
         },
         {
             name: 'SHREYAS NIMKAR',
+            photo: 'shreyas.JPG',
         },
     ];
 
@@ -44,14 +47,14 @@ const OCSection = () => {
     }, []);
 
     return (
-        <div className="w-full flex flex-col items-center">
+        <div className="w-full flex h-max mb-20 flex-col items-center">
             <div
                 id="organizing-team"
-                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 max-md:text-4xl text-center"
+                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-10 max-md:text-4xl text-center"
             >
                 ORGANIZERS
             </div>
-            {/* {width ?  */}(
+
             <CarouselProvider
                 naturalSlideHeight={slightHeight}
                 naturalSlideWidth={1000}
@@ -60,7 +63,7 @@ const OCSection = () => {
                 infinite={true}
                 dragEnabled={true}
                 isPlaying={false}
-                className="w-5/6 relative hidden items-center justify-center rounded-2xl py-3 lg:flex"
+                className="w-5/6 relative hidden items-center justify-center rounded-2xl py-3  lg:flex"
             >
                 <ButtonBack
                     role="button"
@@ -79,20 +82,18 @@ const OCSection = () => {
                 <Slider className="w-full  overflow-x-hidden overflow-y-hidden ">
                     {organizingCommittee.map((el, index) => {
                         return (
-                            <>
-                                <Slide
-                                    index={index}
+                            <Slide
+                                index={index}
+                                key={index}
+                                className="w-full h-full text-center flex items-center justify-center flex-wrap"
+                            >
+                                <CarouselPatronsCard
                                     key={index}
-                                    className="w-full h-full text-center flex items-center justify-center flex-wrap"
-                                >
-                                    <CarouselPatronsCard
-                                        key={index}
-                                        name={el.name}
-                                        position=""
-                                        photo={''}
-                                    />
-                                </Slide>
-                            </>
+                                    name={el.name}
+                                    position=""
+                                    photo={el.photo}
+                                />
+                            </Slide>
                         );
                     })}
                 </Slider>
@@ -110,20 +111,8 @@ const OCSection = () => {
                         className="w-8"
                     />
                 </ButtonNext>
-
-                {/* <div className="absolute bottom-5">
-                    {organizingCommittee.map((_, i) => {
-                        return (
-                            <Dot
-                                key={i}
-                                slide={i}
-                                onClick={() => setCurrIndex(i)}
-                                className="max-md:scale-75"
-                            />
-                        );
-                    })}
-                </div> */}
             </CarouselProvider>
+
             <CarouselProvider
                 naturalSlideHeight={slightHeight * 0.16}
                 naturalSlideWidth={1000}
@@ -151,26 +140,18 @@ const OCSection = () => {
                 <Slider className="w-full  overflow-x-hidden overflow-y-hidden ">
                     {organizingCommittee.map((el, index) => {
                         return (
-                            <>
-                                <Slide
-                                    index={index}
-                                    key={index}
-                                    className="w-full h-full text-center flex  items-center justify-center flex-wrap"
-                                >
-                                    <CarouselPatronsCard
-                                        key={index}
-                                        position=""
-                                        name={el.name}
-                                        photo={''}
-                                    />
-                                    {/* <CarouselPatronsCard
-                                        key={index + 1}
-                                        name={el.name}
-                                        position={el.position}
-                                        photo={'dsw/' + el.photo}
-                                    /> */}
-                                </Slide>
-                            </>
+                            <Slide
+                                index={index}
+                                key={`small-carousel-${index}`} // Unique key for the second CarouselProvider
+                                className="w-full h-full text-center flex  items-center justify-center flex-wrap"
+                            >
+                                <CarouselPatronsCard
+                                    key={`small-carousel-${index}`} // Unique key for the second CarouselProvider
+                                    position=""
+                                    name={el.name}
+                                    photo={el.photo}
+                                />
+                            </Slide>
                         );
                     })}
                 </Slider>
@@ -188,36 +169,7 @@ const OCSection = () => {
                         className="w-8"
                     />
                 </ButtonNext>
-
-                {/* <div className="absolute bottom-5">
-                    {organizingCommittee.map((_, i) => {
-                        return (
-                            <Dot
-                                key={i}
-                                slide={i}
-                                onClick={() => setCurrIndex(i)}
-                                className="max-md:scale-75"
-                            />
-                        );
-                    })}
-                </div> */}
             </CarouselProvider>
-            )
-            {/* : (
-                <div className="w-full flex justify-center items-center">
-                    <Loader />
-                </div>
-            )} */}
-            {/* <div className="h-max py-10 pb-32 flex justify-evenly text-black gap-y-10 items-center flex-wrap">
-                {organizingCommitteeItems.map((el, index) => (
-                    <PatronsCard
-                        key={index}
-                        name={el.name}
-                        position={el.position}
-                        photo={el.photo}
-                    />
-                ))}
-            </div>{' '} */}
         </div>
     );
 };

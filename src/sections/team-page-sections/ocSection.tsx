@@ -19,6 +19,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import CarouselPatronsCard from '@/components/uncommon/landing-page-cards/carouselPatronsCard';
 import Loader from '@/components/common/loader';
 import { useEffect } from 'react';
+
 const OCSection = () => {
     const organizingCommittee = [
         {
@@ -76,11 +77,11 @@ const OCSection = () => {
         <div className="w-full flex flex-col items-center">
             <div
                 id="organizing-committee-section"
-                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 max-md:text-4xl text-center"
+                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto  pt-14 sm:pt-20 pb-10 max-md:text-4xl text-center"
             >
                 ORGANIZING COMMITTEE
             </div>
-            {/* {width ?  */}(
+
             <CarouselProvider
                 naturalSlideHeight={slightHeight}
                 naturalSlideWidth={1000}
@@ -107,21 +108,19 @@ const OCSection = () => {
                 </ButtonBack>
                 <Slider className="w-full  overflow-x-hidden overflow-y-hidden ">
                     {organizingCommittee.map((el, index) => {
+                        const uniqueKey = `${index}-${el.name}-${el.position}`;
                         return (
-                            <>
-                                <Slide
-                                    index={index}
-                                    key={index}
-                                    className="w-full h-full text-center flex items-center justify-center flex-wrap"
-                                >
-                                    <CarouselPatronsCard
-                                        key={index}
-                                        name={el.name}
-                                        position={el.position}
-                                        photo={'dsw/' + el.photo}
-                                    />
-                                </Slide>
-                            </>
+                            <Slide
+                                index={index}
+                                key={uniqueKey}
+                                className="w-full h-full text-center flex items-center justify-center flex-wrap"
+                            >
+                                <CarouselPatronsCard
+                                    name={el.name}
+                                    position={el.position}
+                                    photo={'dsw/' + el.photo}
+                                />
+                            </Slide>
                         );
                     })}
                 </Slider>
@@ -139,20 +138,8 @@ const OCSection = () => {
                         className="w-8"
                     />
                 </ButtonNext>
-
-                {/* <div className="absolute bottom-5">
-                    {organizingCommittee.map((_, i) => {
-                        return (
-                            <Dot
-                                key={i}
-                                slide={i}
-                                onClick={() => setCurrIndex(i)}
-                                className="max-md:scale-75"
-                            />
-                        );
-                    })}
-                </div> */}
             </CarouselProvider>
+
             <CarouselProvider
                 naturalSlideHeight={slightHeight * 0.16}
                 naturalSlideWidth={1000}
@@ -179,27 +166,19 @@ const OCSection = () => {
                 </ButtonBack>
                 <Slider className="w-full  overflow-x-hidden overflow-y-hidden ">
                     {organizingCommittee.map((el, index) => {
+                        const uniqueKey = `${index}-${el.name}-${el.position}-23`;
                         return (
-                            <>
-                                <Slide
-                                    index={index}
-                                    key={index}
-                                    className="w-full h-full text-center flex  items-center justify-center flex-wrap"
-                                >
-                                    <CarouselPatronsCard
-                                        key={index}
-                                        name={el.name}
-                                        position={el.position}
-                                        photo={'dsw/' + el.photo}
-                                    />
-                                    {/* <CarouselPatronsCard
-                                        key={index + 1}
-                                        name={el.name}
-                                        position={el.position}
-                                        photo={'dsw/' + el.photo}
-                                    /> */}
-                                </Slide>
-                            </>
+                            <Slide
+                                index={index}
+                                key={uniqueKey}
+                                className="w-full h-full text-center flex  items-center justify-center flex-wrap"
+                            >
+                                <CarouselPatronsCard
+                                    name={el.name}
+                                    position={el.position}
+                                    photo={'dsw/' + el.photo}
+                                />
+                            </Slide>
                         );
                     })}
                 </Slider>
@@ -217,36 +196,11 @@ const OCSection = () => {
                         className="w-8"
                     />
                 </ButtonNext>
-
-                {/* <div className="absolute bottom-5">
-                    {organizingCommittee.map((_, i) => {
-                        return (
-                            <Dot
-                                key={i}
-                                slide={i}
-                                onClick={() => setCurrIndex(i)}
-                                className="max-md:scale-75"
-                            />
-                        );
-                    })}
-                </div> */}
             </CarouselProvider>
-            )
-            {/* : (
-                <div className="w-full flex justify-center items-center">
-                    <Loader />
-                </div>
-            )} */}
-            {/* <div className="h-max py-10 pb-32 flex justify-evenly text-black gap-y-10 items-center flex-wrap">
-                {organizingCommitteeItems.map((el, index) => (
-                    <PatronsCard
-                        key={index}
-                        name={el.name}
-                        position={el.position}
-                        photo={el.photo}
-                    />
-                ))}
-            </div>{' '} */}
+
+            {/* <div className="w-full flex justify-center items-center">
+                <Loader />
+            </div> */}
         </div>
     );
 };
