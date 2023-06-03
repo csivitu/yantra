@@ -13,7 +13,7 @@ const CarouselPatronsCard: React.FC<PatronsCardProps> = ({
     photo,
 }) => {
     return (
-        <div className=" relative font-spaceGrotesk lg:h-[45vh] w-[90%] h-[25vh] rounded-xl">
+        <div className=" relative font-spaceGrotesk lg:h-[45vh] w-[90%] h-[30vh] rounded-xl">
             <div className="absolute top-0 w-full h-full overlay z-10 rounded-xl"></div>
             <Image
                 src={`/${photo}`}

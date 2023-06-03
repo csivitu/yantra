@@ -130,7 +130,7 @@ const Header = () => {
                         alt="logo"
                         height={10000}
                         width={10000}
-                        className="w-[15vw] p-3 h-auto object-cover cursor-pointer"
+                        className="w-16 p-3 object-cover cursor-pointer"
                         onClick={() => {
                             router.push('/');
                         }}

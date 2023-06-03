@@ -66,7 +66,7 @@ const OCSection = () => {
     const [slightHeight, setSlightHeight] = useState(230);
     const onlyWidth = useWindowWidth();
     useEffect(() => {
-        if (onlyWidth < 640) {
+        if (onlyWidth < 840) {
             setSlightHeight(7200);
         } else {
             setSlightHeight(1200);
@@ -77,7 +77,7 @@ const OCSection = () => {
         <div className="w-full flex flex-col items-center">
             <div
                 id="organizing-committee-section"
-                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto  pt-14 sm:pt-20 pb-10 max-md:text-4xl text-center"
+                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto  pt-14 lg:pt-20 pb-10 max-md:text-4xl text-center"
             >
                 ORGANIZING COMMITTEE
             </div>
@@ -148,7 +148,7 @@ const OCSection = () => {
                 infinite={true}
                 dragEnabled={true}
                 isPlaying={false}
-                className="w-5/6 relative flex items-center justify-center rounded-2xl py-3 sm:hidden"
+                className="w-5/6 relative flex items-center justify-center rounded-2xl py-3 lg:hidden"
             >
                 <ButtonBack
                     role="button"
