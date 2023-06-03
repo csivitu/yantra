@@ -21,7 +21,7 @@ const EventsSection = () => {
         <>
             <div
                 id="events-section"
-                className="w-fit text-white bg-transparent font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20"
+                className="w-fit text-white bg-transparent font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20 max-md:pb-0"
             >
                 EVENTS
             </div>

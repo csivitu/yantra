@@ -9,7 +9,7 @@ const AdvisorySection = () => {
             photo: 'oc3.jpg',
         },
         2: {
-            name: 'DR. PARTHA SHARATHI MALLICK',
+            name: 'Dr. PARTHA SHARATHI MALLICK',
             position: 'PRO-VICE CHANCELLOR',
             photo: 'oc2.jpg',
         },

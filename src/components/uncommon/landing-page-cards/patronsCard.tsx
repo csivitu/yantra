@@ -20,7 +20,15 @@ const PatronsCard: React.FC<PatronsCardProps> = ({ name, position, photo }) => {
             />
 
             <div className="absolute p-2 bottom-0 text-white z-50">
-                <div className="text-lg font-semibold">{name}</div>
+                <div
+                    className={`font-semibold ${
+                        position === ''
+                            ? 'text-2xl max-md:text-xl max-sm:text-lg'
+                            : 'text-lg'
+                    }`}
+                >
+                    {name}
+                </div>
                 <div className="text-xs">{position}</div>
             </div>
         </div>

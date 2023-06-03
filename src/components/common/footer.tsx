@@ -1,11 +1,8 @@
 import React from 'react';
-import SocialMediaLinks from '../uncommon/social-media-links/socialMediaLinks';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 const Footer = () => {
-    const router = useRouter();
     const handles = [
         {
             name: 'youtube',
@@ -29,17 +26,19 @@ const Footer = () => {
                     <div className="text-2xl">LINKS</div>
                     <div className="flex h-[80%] w-full sm:flex-row flex-row flex-wrap mt-1 justify-end items-center gap-4">
                         {handles.map((handle, index) => (
-                            <Image
+                            <Link
+                                href={handle.link}
+                                target="_blank"
                                 key={index}
-                                width={10000}
-                                height={10000}
-                                src={`/${handle.name}.png`}
-                                alt="/"
-                                onClick={() => {
-                                    router.push(`${handle.link}`);
-                                }}
-                                className="w-8 h-8 object-contain  cursor-pointer"
-                            />
+                            >
+                                <Image
+                                    width={10000}
+                                    height={10000}
+                                    src={`/${handle.name}.png`}
+                                    alt="/"
+                                    className="w-8 h-8 object-contain  cursor-pointer"
+                                />
+                            </Link>
                         ))}
                     </div>
                 </div>
@@ -63,6 +62,7 @@ const Footer = () => {
             </div>
             <Link
                 href={'https://csivit.com/'}
+                target="_blank"
                 className="h-[10vh] group cursor-pointer bg-[#6C6C6C] text-white bg-opacity-[0.16] text-center flex justify-center gap-2 items-center"
             >
                 <span className="group-hover:text-[#FFA412] flex justify-center gap-2 items-center">
