@@ -18,7 +18,9 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
             targetId !== 'events-section'
         )
             router.push('/');
-        modalVisibility(false);
+
+        if (router.asPath.split('/')[1].startsWith('team'))
+            router.push(`/#${targetId}`);
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
             const yOffset = 0; // Adjust the yOffset value as per your requirement
@@ -29,6 +31,7 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
             window.scrollTo({ top: y, behavior: 'smooth' });
             modalVisibility(false);
         }
+        modalVisibility(false);
     };
 
     if (!visible) return null;

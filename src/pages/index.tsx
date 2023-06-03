@@ -15,7 +15,13 @@ import Image from 'next/image';
 import Link from 'next/dist/client/link';
 
 export default function Home() {
-    useEffect(() => {}, []);
+    useEffect(() => {
+        const scrollPosition = Number(sessionStorage.getItem('scrollPosition'));
+        if (scrollPosition) {
+            window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+            sessionStorage.removeItem('scrollPosition');
+        }
+    });
 
     return (
         <>

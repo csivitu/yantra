@@ -17,7 +17,7 @@ const HackathonsList = () => {
         getHandler(
             `${
                 process.env.NEXT_PUBLIC_BASE_URL
-            }/api/events?page=${page}&limit=${10}`,
+            }/api/events?page=${page}&limit=${40}`,
             false
         )
             .then((res) => {
@@ -32,13 +32,20 @@ const HackathonsList = () => {
     };
 
     useEffect(() => {
-        const scrollPosition = sessionStorage.getItem('scrollPosition');
-        if (scrollPosition) {
-            window.scrollTo(0, parseInt(scrollPosition, 10));
-            sessionStorage.removeItem('scrollPosition');
-        }
         getHackathons();
     }, []);
+
+    useEffect(() => {
+        if (!loading) {
+            const scrollPosition = Number(
+                sessionStorage.getItem('scrollPosition')
+            );
+            if (scrollPosition) {
+                window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+                sessionStorage.removeItem('scrollPosition');
+            }
+        }
+    }, [loading]);
 
     return (
         <>
@@ -58,13 +65,7 @@ const HackathonsList = () => {
                         <Loader />
                     </div>
                 ) : (
-                    <InfiniteScroll
-                        dataLength={hackathons.length}
-                        next={getHackathons}
-                        hasMore={hackathons.length !== NO_OF_EVENTS}
-                        loader={<Loader />}
-                        className="w-full flex justify-around items-center flex-col py-5 gap-5"
-                    >
+                    <div className="w-full flex justify-around items-center flex-col py-5 gap-5">
                         {hackathons.map(
                             (hackathon: EventType, index: number) => {
                                 return (
@@ -75,7 +76,25 @@ const HackathonsList = () => {
                                 );
                             }
                         )}
-                    </InfiniteScroll>
+                    </div>
+                    // <InfiniteScroll
+                    //     dataLength={hackathons.length}
+                    //     next={getHackathons}
+                    //     hasMore={hackathons.length !== NO_OF_EVENTS}
+                    //     loader={<Loader />}
+                    //     className="w-full flex justify-around items-center flex-col py-5 gap-5"
+                    // >
+                    //     {hackathons.map(
+                    //         (hackathon: EventType, index: number) => {
+                    //             return (
+                    //                 <EventsCard
+                    //                     key={`${hackathon._id}-${index}`}
+                    //                     event={hackathon}
+                    //                 />
+                    //             );
+                    //         }
+                    //     )}
+                    // </InfiniteScroll>
                 )}
             </div>
         </>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '@/components/common/header';
 import SearchHackathonsList from '@/sections/hackathons-page-sections/searchHackathonsList';
 import { GetServerSidePropsContext } from 'next';

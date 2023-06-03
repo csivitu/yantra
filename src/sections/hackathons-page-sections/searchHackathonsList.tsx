@@ -46,6 +46,18 @@ const SearchHackathonsList = ({ search, type }: Props) => {
         getHackathons();
     }, [search, type]);
 
+    useEffect(() => {
+        if (!loading) {
+            const scrollPosition = Number(
+                sessionStorage.getItem('scrollPosition')
+            );
+            if (scrollPosition) {
+                window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+                sessionStorage.removeItem('scrollPosition');
+            }
+        }
+    }, [loading]);
+
     return (
         <>
             <div className="w-full h-max">
