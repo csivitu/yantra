@@ -13,7 +13,7 @@ const Team = () => {
                     <title>Yantra | Team</title>
                 </Head>
                 <Header />
-                {/* <OCSection /> */}
+                <OCSection />
                 <OrganizersSection />
                 <Footer />
             </div>

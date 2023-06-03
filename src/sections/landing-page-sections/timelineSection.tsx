@@ -9,36 +9,28 @@ const TimelineSection = () => {
     const arr = [
         {
             title: 'week inauguration',
-            date: '01 JUNE',
-            time: '08:15 AM to 09:00 AM',
+            date: '02 JUNE',
         },
         {
             title: 'EVENTS BEGIN',
-            date: '01 JUNE',
-            time: '08:15 AM to 09:00 AM',
+            date: '02 JUNE',
         },
         ,
         {
             title: 'YANTRA HACK BEGINS',
-            date: '02 JUNE',
-            time: '08:15 AM to 09:00 AM',
-        },
-        ,
-        {
-            title: 'YANTRA HACK ENDS',
             date: '06 JUNE',
-            time: '08:15 AM to 09:00 AM',
         },
-        ,
         {
             title: 'EVENTS CONCLUDE',
             date: '06 JUNE',
-            time: '08:15 AM to 09:00 AM',
+        },
+        {
+            title: 'YANTRA HACK ENDS',
+            date: '08 JUNE',
         },
         {
             title: 'CLOSING CEREMONY',
-            date: '06 JUNE',
-            time: '08:15 AM to 09:00 AM',
+            date: '08 JUNE',
         },
     ];
 
@@ -89,9 +81,9 @@ const TimelineSection = () => {
                                         <div className="text-4xl font-extrabold max-md:text-2xl max-md:text-right">
                                             {el?.date}
                                         </div>
-                                        <div className="text-sm font-semibold tracking-widest capitalize max-md:text-xs max-md:text-right">
+                                        {/* <div className="text-sm font-semibold tracking-widest capitalize max-md:text-xs max-md:text-right">
                                             {el?.time}
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </VerticalTimelineElement>
