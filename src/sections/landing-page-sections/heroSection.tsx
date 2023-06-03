@@ -45,7 +45,7 @@ const HeroSection = () => {
                         </span>
                         <br /> INNOVATION */}
                         <p className="font-bronson text-3xl">A WEEK OF</p>
-                        <p className="text-[#244EE4] w-full text-7xl max-md:text-6xl font-ibmMono font-bold">
+                        <p className="text-[#244EE4] w-full text-7xl max-md:text-6xl font-bold">
                             TECHNICAL
                         </p>
                         <p className="font-bronson">INNOVATION</p>
