@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import moment from 'moment';
 import { EventType } from '@/models/eventModel';
+import Link from 'next/link';
 
 interface Props {
     event: EventType;
@@ -13,7 +14,7 @@ const EventSection = ({ event }: Props) => {
 
     return (
         <>
-            <div className=" flex lg:flex-row flex-col-reverse text-white font-spaceGrotesk justify-around items-center px-20 py-4 max-md:px-8">
+            <div className=" flex h-[90vh] lg:flex-row flex-col-reverse text-white font-spaceGrotesk justify-around items-center px-20 py-4 max-md:px-8">
                 <div className="lg:w-1/2 ">
                     <div className=" h-[7.5vh] flex justify-start gap-2 items-center max-md:hidden">
                         <div
@@ -89,27 +90,46 @@ const EventSection = ({ event }: Props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="h-max">
-                        <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
-                            VENUE
+                    <div className="w-full flex justify-start gap-12">
+                        <div className="h-max">
+                            <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
+                                VENUE
+                            </div>
+                            <div className="font-spaceGrotesk text-xl">
+                                {event.venue}
+                            </div>
+                            <br />
                         </div>
-                        <div className="font-spaceGrotesk text-xl">
-                            {event.venue}
+                        <div className="h-max">
+                            <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
+                                STUDENT COORDINATOR
+                            </div>
+                            <div className="font-spaceGrotesk text-xl flex gap-2 items-center">
+                                <div>{event.studentCoordName}</div>
+                                <div className="text-sm">
+                                    ({event.studentCordNumber})
+                                </div>
+                            </div>
+                            <br />
                         </div>
-                        <br />
                     </div>
                     <div className="">{event.description}</div>
-                    <div className="flex justify-start gap-2 max-md:my-6 my-8">
+                    <Link
+                        href={event.link}
+                        className={`flex w-fit justify-start gap-2 max-md:my-6 my-8 hover:underline underline-offset-4 ${
+                            event.link === '' ? 'hidden' : ''
+                        }`}
+                    >
                         <Image
                             id="shadow-image"
-                            src={'/link.svg'}
+                            src={'/globe.png'}
                             alt="photo"
                             height={10000}
                             width={10000}
                             className="w-6 h-6 object-contain"
                         />
-                        <div>Link here</div>
-                    </div>
+                        <div>{event.link}</div>
+                    </Link>
                 </div>
                 <div className="h-full lg:w-1/2 flex justify-around items-center">
                     <Image

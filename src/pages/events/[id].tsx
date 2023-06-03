@@ -24,6 +24,9 @@ const initialState: EventType = {
     endDate: '',
     startTime: '',
     endTime: '',
+    link: '',
+    studentCoordName: '',
+    studentCordNumber: '',
 };
 
 const EventPage = ({ id }: Props) => {
