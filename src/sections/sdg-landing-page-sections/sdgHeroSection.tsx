@@ -13,7 +13,7 @@ declare global {
     }
 }
 
-const HeroSection = () => {
+const SDGHeroSection = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -81,13 +81,13 @@ const HeroSection = () => {
                         >
                             <Loader />
                         </div>
-                        <Spline
+                        {/* <Spline
                             className={`max-md:my-12 ${
                                 isLoading ? 'hidden' : ''
                             }`}
                             style={{ height: '100%', width: '100%' }}
                             scene="https://draft.spline.design/JeGDe1G-sAwNd9dT/scene.splinecode"
-                        />
+                        /> */}
                     </div>
                 </div>
                 <SocialMediaLinks />
@@ -127,4 +127,4 @@ const HeroSection = () => {
     );
 };
 
-export default HeroSection;
+export default SDGHeroSection;
