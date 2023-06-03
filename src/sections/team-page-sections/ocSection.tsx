@@ -59,16 +59,15 @@ const OCSection = () => {
     ];
     const organizingCommitteePhone = [
         {
-            0: {
-                name: 'Dr. NAIJU C D',
-                position: 'DIRECTOR OF STUDENT WELFARE',
-                photo: 'IMG_0025.jpg',
-            },
-            1: {
-                name: 'Dr. AARTHY SL',
-                position: 'ASST. DIRECTOR OF STUDENT WELFARE',
-                photo: 'IMG_0001.jpg',
-            },
+            name: 'Dr. NAIJU C D',
+            position: 'DIRECTOR OF STUDENT WELFARE',
+            photo: 'IMG_0025.jpg',
+        },
+
+        {
+            name: 'Dr. AARTHY SL',
+            position: 'ASST. DIRECTOR OF STUDENT WELFARE',
+            photo: 'IMG_0001.jpg',
         },
         {
             name: 'Dr. SHARMILA N',
@@ -115,7 +114,7 @@ const OCSection = () => {
         <div className="w-full flex flex-col items-center">
             <div
                 id="organizing-committee-section"
-                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-20 max-md:text-4xl text-center"
+                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 max-md:text-4xl text-center"
             >
                 ORGANIZING COMMITTEE
             </div>
@@ -128,12 +127,12 @@ const OCSection = () => {
                 infinite={true}
                 dragEnabled={true}
                 isPlaying={false}
-                className="w-5/6 relative hidden items-center border-2 justify-center rounded-2xl py-3 lg:flex"
+                className="w-5/6 relative hidden items-center justify-center rounded-2xl py-3 lg:flex"
             >
                 <ButtonBack
                     role="button"
                     aria-label="slide backward"
-                    className="absolute top-5 z-30 opacity-30 left-8 focus:outline-none rounded-full focus:opacity-100 cursor-pointer"
+                    className="absolute top-10 z-30 opacity-30 left-8 focus:outline-none rounded-full focus:opacity-100 cursor-pointer"
                     id="prev"
                 >
                     <Image
@@ -167,7 +166,7 @@ const OCSection = () => {
                 <ButtonNext
                     role="button"
                     aria-label="slide forward"
-                    className="absolute z-30 top-5 opacity-30 right-8 focus:outline-none rounded-full focus:opacity-100 cursor-pointer"
+                    className="absolute z-30 top-10 opacity-30 right-8 focus:outline-none rounded-full focus:opacity-100 cursor-pointer"
                     id="next"
                 >
                     <Image
@@ -193,14 +192,14 @@ const OCSection = () => {
                 </div> */}
             </CarouselProvider>
             <CarouselProvider
-                naturalSlideHeight={slightHeight * 0.39}
+                naturalSlideHeight={slightHeight * 0.16}
                 naturalSlideWidth={1000}
                 totalSlides={organizingCommittee.length}
                 visibleSlides={2}
                 infinite={true}
                 dragEnabled={true}
                 isPlaying={false}
-                className="w-5/6 relative flex items-center border-2 justify-center rounded-2xl py-3 sm:hidden"
+                className="w-5/6 relative flex items-center justify-center rounded-2xl py-3 sm:hidden"
             >
                 <ButtonBack
                     role="button"
@@ -231,12 +230,12 @@ const OCSection = () => {
                                         position={el.position}
                                         photo={'dsw/' + el.photo}
                                     />
-                                    <CarouselPatronsCard
+                                    {/* <CarouselPatronsCard
                                         key={index + 1}
                                         name={el.name}
                                         position={el.position}
                                         photo={'dsw/' + el.photo}
-                                    />
+                                    /> */}
                                 </Slide>
                             </>
                         );
