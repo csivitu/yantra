@@ -60,7 +60,7 @@ const Header = () => {
     return (
         <>
             <div
-                className={`hidden lg:flex justify-between items-center w-full h-[4rem] px-16 text-white z-50 transition-all duration-300 ease-in-out ${headerClass}`}
+                className={`hidden lg:flex justify-between items-center w-full h-[4rem] px-16 text-white z-[100] transition-all duration-300 ease-in-out ${headerClass}`}
             >
                 <div className="w-[20%] h-full flex justify-around items-center">
                     <Image
@@ -102,7 +102,7 @@ const Header = () => {
                     </div>
                     <div
                         className="cursor-pointer hover-underline-animation"
-                        onClick={() => router.push('/team#organizing-team')}
+                        onClick={() => router.push('/team')}
                     >
                         Team
                     </div>

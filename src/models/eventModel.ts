@@ -10,6 +10,8 @@ export interface EventDocument extends mongoose.Document {
     venue: string;
     startDate: string;
     endDate: string;
+    studentCoordName: string;
+    studentCordNumber: string;
 }
 
 export interface EventType {
@@ -25,6 +27,9 @@ export interface EventType {
     endDate: string;
     startTime: string;
     endTime: string;
+    link: string;
+    studentCoordName: string;
+    studentCordNumber: string;
 }
 
 const eventSchema = new mongoose.Schema({
@@ -58,6 +63,9 @@ const eventSchema = new mongoose.Schema({
     venue: {
         type: String,
     },
+    link: String,
+    studentCoordName: String,
+    studentCordNumber: String,
 });
 
 const Event =
