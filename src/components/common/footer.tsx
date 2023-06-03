@@ -7,15 +7,24 @@ const Footer = () => {
         {
             name: 'youtube',
             link: 'https://www.youtube.com/@VITUniversityVellore',
+            photo: 'youtube.png',
         },
-        { name: 'twitter', link: 'https://twitter.com/VIT_univ' },
-        { name: 'instagram', link: 'https://www.instagram.com/vellore_vit' },
+        {
+            name: 'twitter',
+            link: 'https://twitter.com/VIT_univ',
+            photo: 'twitter.png',
+        },
+        {
+            name: 'instagram',
+            link: 'https://www.instagram.com/vellore_vit',
+            photo: 'instagram.png',
+        },
         {
             name: 'linkedIn',
             link: 'https://www.linkedin.com/school/vellore-institute-of-technology',
+            photo: 'linkedinLogo.png',
         },
     ];
-
     return (
         <>
             <div
@@ -34,7 +43,7 @@ const Footer = () => {
                                 <Image
                                     width={10000}
                                     height={10000}
-                                    src={`/${handle.name}.png`}
+                                    src={`/${handle.photo}`}
                                     alt="/"
                                     className="w-8 h-8 object-contain  cursor-pointer"
                                 />

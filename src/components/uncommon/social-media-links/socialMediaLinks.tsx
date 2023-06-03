@@ -10,19 +10,29 @@ const SocialMediaLinks = () => {
         {
             name: 'youtube',
             link: 'https://www.youtube.com/@VITUniversityVellore',
+            photo: 'youtube.png',
         },
-        { name: 'twitter', link: 'https://twitter.com/VIT_univ' },
-        { name: 'instagram', link: 'https://www.instagram.com/vellore_vit' },
+        {
+            name: 'twitter',
+            link: 'https://twitter.com/VIT_univ',
+            photo: 'twitter.png',
+        },
+        {
+            name: 'instagram',
+            link: 'https://www.instagram.com/vellore_vit',
+            photo: 'instagram.png',
+        },
         {
             name: 'linkedIn',
             link: 'https://www.linkedin.com/school/vellore-institute-of-technology',
+            photo: 'linkedinLogo.png',
         },
     ];
 
     return (
         <div className="h-[75%] lg:flex hidden flex-col justify-around items-end m-auto max-md:flex-row max-md:w-full max-md:items-center max-md:justify-center">
             {handles.map((handle, index) => {
-                const { name, link } = handle;
+                const { name, link, photo } = handle;
                 return (
                     <Link
                         href={link}
@@ -33,7 +43,7 @@ const SocialMediaLinks = () => {
                         <SlideInLinkText
                             isVisible={toggle}
                             children={
-                                <div className="text-lg uppercase mr-2 font-spaceGrotesk text-white font-semibold max-md:hidden">
+                                <div className="text-lg uppercase mr-2 flex justify-around items-center font-spaceGrotesk text-white font-semibold max-md:hidden">
                                     {name}
                                 </div>
                             }
@@ -43,7 +53,7 @@ const SocialMediaLinks = () => {
                         <Image
                             width={10000}
                             height={10000}
-                            src={`/${name}.png`}
+                            src={`/${photo}`}
                             alt="/"
                             className="w-8 h-8 object-contain z-50 cursor-pointer"
                             onMouseEnter={() => setToggle(index)}
