@@ -4,19 +4,12 @@ import React from 'react';
 const OrganizersSection = () => {
     const organizingCommittee = {
         1: {
-            name: 'PARTHA SHARATHI MALLICK',
-            position: 'PRO-VICE CHANCELLOR',
-            photo: 'oc2.jpg',
+            name: 'PRATHAM MISHRA',
+            photo: 'pratham.jpg',
         },
         2: {
-            name: 'JAYABARATHI T',
-            position: 'REGISTRAR',
+            name: 'SHREYAS NIMKAR',
             photo: 'oc1.jpg',
-        },
-        3: {
-            name: 'RAMBABU KODALI',
-            position: 'REGISTRAR',
-            photo: 'oc3.jpg',
         },
     };
 
@@ -36,8 +29,8 @@ const OrganizersSection = () => {
                         <PatronsCard
                             key={index}
                             name={patron.name}
-                            position={patron.position}
-                            photo={patron.photo}
+                            position={''}
+                            photo={`studentOC/${patron.photo}`}
                         />
                     </>
                 ))}

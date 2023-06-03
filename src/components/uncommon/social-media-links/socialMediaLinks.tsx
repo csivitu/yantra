@@ -2,10 +2,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import SlideInLinkText from '../../common/slideInLinkText';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const SocialMediaLinks = () => {
-    const router = useRouter();
     const [toggle, setToggle] = useState(-1);
     const handles = [
         {
@@ -20,21 +19,16 @@ const SocialMediaLinks = () => {
         },
     ];
 
-    const handleLinkClick = (link: string) => {
-        if (link) {
-            router.push(link);
-        }
-    };
-
     return (
         <div className="h-[75%] lg:flex hidden flex-col justify-around items-end m-auto max-md:flex-row max-md:w-full max-md:items-center max-md:justify-center">
             {handles.map((handle, index) => {
                 const { name, link } = handle;
                 return (
-                    <div
+                    <Link
+                        href={link}
+                        target="_blank"
                         key={index}
                         className="flex justify-end items-center w-full"
-                        onClick={() => handleLinkClick(link)}
                     >
                         <SlideInLinkText
                             isVisible={toggle}
@@ -55,7 +49,7 @@ const SocialMediaLinks = () => {
                             onMouseEnter={() => setToggle(index)}
                             onMouseLeave={() => setToggle(-1)}
                         />
-                    </div>
+                    </Link>
                 );
             })}
         </div>

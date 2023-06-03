@@ -7,9 +7,13 @@ type PatronsCardProps = {
     photo: string;
 };
 
-const PatronsCard: React.FC<PatronsCardProps> = ({ name, position, photo }) => {
+const CarouselPatronsCard: React.FC<PatronsCardProps> = ({
+    name,
+    position,
+    photo,
+}) => {
     return (
-        <div className=" relative font-spaceGrotesk lg:h-[45vh] lg:w-[20vw] h-[25vh] w-[40%] rounded-xl">
+        <div className=" relative font-spaceGrotesk lg:h-[45vh] w-[90%] h-[25vh] rounded-xl">
             <div className="absolute top-0 w-full h-full overlay z-10 rounded-xl"></div>
             <Image
                 src={`/${photo}`}
@@ -19,7 +23,7 @@ const PatronsCard: React.FC<PatronsCardProps> = ({ name, position, photo }) => {
                 height={10000}
             />
 
-            <div className="absolute p-2 bottom-0 text-white z-50">
+            <div className="absolute p-2 bottom-0 text-white z-50 text-left">
                 <div
                     className={`font-semibold ${
                         position === ''
@@ -35,4 +39,4 @@ const PatronsCard: React.FC<PatronsCardProps> = ({ name, position, photo }) => {
     );
 };
 
-export default PatronsCard;
+export default CarouselPatronsCard;

@@ -28,10 +28,13 @@ const Header = () => {
 
     const handleMenuClick = (targetId: string) => {
         if (
-            router.asPath.split('/')[1] === 'events' &&
+            router.asPath.split('/')[1].startsWith('event') &&
             targetId !== 'events-section'
         )
-            router.push('/');
+            router.push(`/#${targetId}`);
+
+        if (router.asPath.split('/')[1].startsWith('team'))
+            router.push(`/#${targetId}`);
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
             const yOffset = 0; // Adjust the yOffset value as per your requirement
@@ -73,39 +76,39 @@ const Header = () => {
                 </div>
                 <div className="w-[80%] h-full flex gap-10 items-center justify-end font-spaceGrotesk font-semibold text-lg">
                     <div
-                        className="cursor-pointer hover:text-[#E8505B]"
+                        className="cursor-pointer relative hover-underline-animation"
                         onClick={() => handleMenuClick('about-section')}
                     >
-                        About Us
+                        <div>About Us</div>
                     </div>
 
                     <div
-                        className="cursor-pointer hover:text-[#E8505B]"
+                        className="cursor-pointer hover-underline-animation"
                         onClick={() => handleMenuClick('timeline-section')}
                     >
                         Timeline
                     </div>
                     <div
-                        className="cursor-pointer hover:text-[#E8505B]"
+                        className="cursor-pointer hover-underline-animation"
                         onClick={() => handleMenuClick('events-section')}
                     >
                         Events
                     </div>
                     <div
-                        className="cursor-pointer hover:text-[#E8505B]"
+                        className="cursor-pointer hover-underline-animation"
                         onClick={() => handleMenuClick('patrons-section')}
                     >
                         Patrons
                     </div>
-                    {/* <div
-                        className="cursor-pointer hover:text-[#E8505B]"
+                    <div
+                        className="cursor-pointer hover-underline-animation"
                         onClick={() => router.push('/team#organizing-team')}
                     >
                         Team
-                    </div> */}
+                    </div>
 
                     <div
-                        className="cursor-pointer hover:text-[#E8505B]"
+                        className="cursor-pointer hover-underline-animation"
                         onClick={() => handleMenuClick('contact-section')}
                     >
                         Contact Us
