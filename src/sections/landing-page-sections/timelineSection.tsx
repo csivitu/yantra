@@ -8,7 +8,7 @@ import 'react-vertical-timeline-component/style.min.css';
 const TimelineSection = () => {
     const arr = [
         {
-            title: 'week inauguration',
+            title: 'WEEK INAUGuRATION',
             date: '02 JUNE',
         },
         {
@@ -17,11 +17,11 @@ const TimelineSection = () => {
         },
         ,
         {
-            title: 'YANTRA HACK BEGINS',
+            title: 'EVENTS CONCLUDE',
             date: '06 JUNE',
         },
         {
-            title: 'EVENTS CONCLUDE',
+            title: 'YANTRA HACK BEGINS',
             date: '06 JUNE',
         },
         {
@@ -55,37 +55,53 @@ const TimelineSection = () => {
                                     </div>
                                 }
                             >
-                                <div
-                                    className={`w-full flex ${
-                                        index % 2 === 0
-                                            ? 'flex-row-reverse'
-                                            : ''
-                                    } h-full items-center justify-between gap-4 uppercase max-md:flex-row max-md:mt-4`}
-                                >
+                                {index === 0 ? (
                                     <div
-                                        className={`w-2/3 ${
-                                            index % 2 === 0
-                                                ? 'sm:text-right'
-                                                : 'text-left'
-                                        } text-4xl font-semibold max-md:text-xl`}
+                                        className={`w-full flex h-full items-center justify-between gap-4 uppercase max-md:flex-row max-md:mt-4`}
                                     >
-                                        {el?.title}
-                                    </div>
-                                    <div
-                                        className={`w-1/2 flex flex-col ${
-                                            index % 2 === 0
-                                                ? 'items-start'
-                                                : 'items-end'
-                                        } max-md:items-end`}
-                                    >
-                                        <div className="text-4xl font-extrabold max-md:text-2xl max-md:text-right">
-                                            {el?.date}
+                                        <div
+                                            className={`w-2/3 text-4xl font-semibold max-md:text-xl`}
+                                        >
+                                            {el?.title}
                                         </div>
-                                        {/* <div className="text-sm font-semibold tracking-widest capitalize max-md:text-xs max-md:text-right">
-                                            {el?.time}
-                                        </div> */}
+                                        <div
+                                            className={`w-1/2 flex flex-col max-md:items-end`}
+                                        >
+                                            <div className="text-4xl font-extrabold max-md:text-2xl max-md:text-right">
+                                                {el?.date}
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                ) : (
+                                    <div
+                                        className={`w-full flex ${
+                                            index === 1 || index % 2 === 0
+                                                ? 'flex-row-reverse'
+                                                : ''
+                                        } h-full items-center justify-between gap-4 uppercase max-md:flex-row max-md:mt-4`}
+                                    >
+                                        <div
+                                            className={`w-2/3 ${
+                                                index === 1 || index % 2 === 0
+                                                    ? 'sm:text-right'
+                                                    : 'text-left'
+                                            } text-4xl font-semibold max-md:text-xl`}
+                                        >
+                                            {el?.title}
+                                        </div>
+                                        <div
+                                            className={`w-1/2 flex flex-col ${
+                                                index === 1 || index % 2 === 0
+                                                    ? 'items-start'
+                                                    : 'items-end'
+                                            } max-md:items-end`}
+                                        >
+                                            <div className="text-4xl font-extrabold max-md:text-2xl max-md:text-right">
+                                                {el?.date}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </VerticalTimelineElement>
                         );
                     })}
