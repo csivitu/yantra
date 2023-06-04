@@ -77,7 +77,7 @@ const OCSection = () => {
         <div className="w-full flex flex-col items-center">
             <div
                 id="organizing-committee-section"
-                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto  pt-14 lg:pt-20 pb-10 max-md:text-4xl text-center"
+                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto  pt-14 lg:pt-20 pb-10 max-md:text-4xl text-center max-lg:pb-0"
             >
                 ORGANIZING COMMITTEE
             </div>
@@ -141,7 +141,7 @@ const OCSection = () => {
             </CarouselProvider>
 
             <CarouselProvider
-                naturalSlideHeight={slightHeight * 0.16}
+                naturalSlideHeight={slightHeight * 0.25}
                 naturalSlideWidth={1000}
                 totalSlides={organizingCommittee.length}
                 visibleSlides={2}

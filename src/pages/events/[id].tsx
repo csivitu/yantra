@@ -49,7 +49,7 @@ const EventPage = ({ id }: Props) => {
 
     return (
         <>
-            <div className="h-max bg-events-bg  bg-cover">
+            <div className="h-screen bg-events-bg  bg-cover">
                 <Head>
                     <title>Yantra | {event.title}</title>
                 </Head>

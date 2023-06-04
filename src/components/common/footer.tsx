@@ -26,29 +26,36 @@ const Footer = () => {
         },
     ];
     return (
-        <>
+        <div className="w-full bg-[#6C6C6C]  bg-opacity-[0.16]">
             <div
                 id="contact-section"
-                className="font-spaceGrotesk text-right w-full bg-[#6C6C6C] text-white bg-opacity-[0.16]  max-lg:[h-10vh] lg:h-[30vh] flex justify-around items-center"
+                className="font-spaceGrotesk text-right w-2/3 m-auto  text-white  max-lg:[h-10vh] lg:h-[30vh] flex justify-around items-center"
             >
-                <div className="w-[30%] sm:w-1/3 h-full gap-y-3 p-3">
-                    <div className="text-2xl">LINKS</div>
-                    <div className="flex h-[80%] w-full sm:flex-row flex-row flex-wrap mt-1 justify-end items-center gap-4">
-                        {handles.map((handle, index) => (
-                            <Link
-                                href={handle.link}
-                                target="_blank"
-                                key={index}
-                            >
-                                <Image
-                                    width={10000}
-                                    height={10000}
-                                    src={`/${handle.photo}`}
-                                    alt="/"
-                                    className="w-8 h-8 object-contain  cursor-pointer"
-                                />
-                            </Link>
-                        ))}
+                <div className="w-fit flex justify-around items-center max-lg:items-start flex-col sm:w-1/3 h-full sm:gap-y-3 sm:p-3 text-left">
+                    <div className="text-2xl w-full h-[20%] max-lg:py-4">
+                        LINKS
+                    </div>
+                    <div className="gap-2 flex w-full h-[80%] max-lg:flex-row max-lg:w-1/2 max-lg:flex-wrap text-sm flex-col sm:mt-1">
+                        {handles.map((handle, index) => {
+                            return (
+                                <Link
+                                    key={index}
+                                    href={handle.link}
+                                    className="flex items-center gap-2 capitalize text-base w-fit"
+                                >
+                                    <Image
+                                        className="w-8 h-8 object-contain"
+                                        width={10000}
+                                        height={10000}
+                                        alt="/"
+                                        src={`/${handle.photo}`}
+                                    />
+                                    <div className="max-lg:hidden">
+                                        {handle.name}
+                                    </div>
+                                </Link>
+                            );
+                        })}
                     </div>
                 </div>
                 <div className="w-1/3 h-full sm:px-3 justify-around hidden sm:flex items-center sm:items-start lg:items-center">
@@ -60,19 +67,21 @@ const Footer = () => {
                         className="lg:w-[20vw] lg:h-[20vh] object-contain"
                     />
                 </div>
-                <div className="w-fit flex justify-around items-center flex-col sm:w-1/3 h-full sm:gap-y-3 sm:p-3 text-left">
-                    <div className="text-2xl w-full h-[20%]">CONTACT US </div>
-                    <div className="gap-2 flex w-full h-[80%] text-sm flex-col sm:mt-1">
-                        <p className="w-full">+91 91555 94196</p>
-                        <p className="w-full">+91 81253 51715</p>
-                        <p className="w-full">+91 76748 05872</p>
+                <div className="w-fit flex justify-around items-end flex-col sm:w-1/3 h-full sm:gap-y-3 sm:p-3 text-left">
+                    <div className="text-2xl w-fit h-[20%]  max-lg:py-4">
+                        CONTACT US{' '}
+                    </div>
+                    <div className="gap-2 flex w-fit h-[80%] text-sm flex-col sm:mt-1">
+                        <p className="">+91 91555 94196</p>
+                        <p className="">+91 81253 51715</p>
+                        <p className="">+91 76748 05872</p>
                     </div>
                 </div>
             </div>
             <Link
                 href={'https://csivit.com/'}
                 target="_blank"
-                className="h-[10vh] group cursor-pointer bg-[#6C6C6C] text-white bg-opacity-[0.16] text-center flex justify-center gap-2 items-center"
+                className="w-fit m-auto h-[10vh] group cursor-pointer  text-white bg-opacity-[0.16] text-center flex justify-center gap-2 items-center"
             >
                 <span className="group-hover:text-[#FFA412] flex justify-center gap-2 items-center">
                     <p>Made with </p>
@@ -94,7 +103,7 @@ const Footer = () => {
                     <p>by CSI-VIT</p>
                 </span>
             </Link>
-        </>
+        </div>
     );
 };
 
