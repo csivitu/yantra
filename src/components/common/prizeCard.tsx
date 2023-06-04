@@ -3,17 +3,26 @@ import Image from 'next/image';
 const PrizeCard = () => {
     return (
         <>
-            <div className=" relative bg-[#252525] bg-opacity-40 text-white font-spaceGrotesk lg:h-[35vh] lg:w-[20vw] h-[25vh] w-[40%] rounded-xl">
+            <div className=" relative font-spaceGrotesk bg-[#252525] bg-opacity-40 text-white  lg:h-[35vh] lg:w-[20vw] h-[25vh] w-[40%] rounded-xl">
                 <div className="flex h-full w-full flex-col justify-center items-center gap-3">
-                    <div className="text-xl w-full text-center">
+                    <div className="text-3xl w-full text-center">
                         First prize
                     </div>
-                    <div className="text-2xl w-full text-center">
-                        First prize
+                    <div className="text-3xl w-full text-center drop-shadow-prize-text">
+                        Sec :)
                     </div>
-                    <div className="text-xs px-10 w-full text-center">
+                    <div className="text-sm px-8 w-full text-center">
                         Lorem ipsum dolor sit amet consectetur
                     </div>
+                </div>
+                <div className="absolute -top-[3.725rem]  -left-[3.6125rem]">
+                    <Image
+                        src="/gold-trophy.png"
+                        alt="photo"
+                        height={1000000}
+                        width={1000000}
+                        className="h-[7.25rem] w-[7.25rem] object-contain "
+                    />
                 </div>
             </div>
         </>

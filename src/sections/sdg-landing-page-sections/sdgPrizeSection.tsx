@@ -17,8 +17,15 @@ const SDGPriceSection = () => {
                     className="lg:w-[60vw] lg:h-[50vh] h-[30vh] w-[100%] object-contain "
                 />
             </div>
-            <div className="w-full  py-10 px-32">
-                <div>
+            <div className="w-full lg:py-10 lg:px-28">
+                <div className="w-full flex justify-around items-center flex-wrap gap-y-5 gap-x-3">
+                    <PrizeCard />
+                    <PrizeCard />
+                    <PrizeCard />
+                    <PrizeCard />
+                    <PrizeCard />
+                    <PrizeCard />
+                    <PrizeCard />
                     <PrizeCard />
                 </div>
                 <div>asd</div>
