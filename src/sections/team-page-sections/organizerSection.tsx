@@ -38,6 +38,10 @@ const OCSection = () => {
             name: 'DEVABATHINI CHINMAY',
             photo: 'devabathiniChinmay.jpeg',
         },
+        {
+            name: 'SOHA JAGTAP',
+            photo: 'soha.jpeg',
+        },
     ];
 
     const [width, height] = useWindowSize({

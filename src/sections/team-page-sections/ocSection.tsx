@@ -153,7 +153,7 @@ const OCSection = () => {
                 <ButtonBack
                     role="button"
                     aria-label="slide backward"
-                    className="absolute hidden z-30 opacity-30 left-8 focus:outline-none rounded-full focus:opacity-100 cursor-pointer"
+                    className="absolute  z-30 opacity-30 left-2 focus:outline-none rounded-full focus:opacity-100 cursor-pointer"
                     id="prev"
                 >
                     <Image
@@ -185,7 +185,7 @@ const OCSection = () => {
                 <ButtonNext
                     role="button"
                     aria-label="slide forward"
-                    className="absolute z-30 top-12 hidden opacity-30 right-8 focus:outline-none rounded-full focus:opacity-100 cursor-pointer"
+                    className="absolute z-30   opacity-30 right-2 focus:outline-none rounded-full focus:opacity-100 cursor-pointer"
                     id="next"
                 >
                     <Image

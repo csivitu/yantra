@@ -15,7 +15,6 @@ declare global {
 
 const HeroSection = () => {
     const [isLoading, setIsLoading] = useState(true);
-
     return (
         <>
             <div className="h-[70vh] w-[95%] m-auto max-md:h-[100vh] flex justify-around flex-col-reverse lg:flex-row items-end lg:px-24 text-white">
@@ -29,7 +28,7 @@ const HeroSection = () => {
                             className="w-[100%] h-[100%] object-contain"
                         />
                     </div>
-                    <div className="text-4xl lg:text-5xl font-sans font-bold tracking-normal text-center lg:text-start">
+                    <div className="text-4xl lg:text-5xl font-sans flex justify-center max-lg:items-center flex-col font-bold tracking-normal text-center lg:text-start">
                         {/* A WEEK OF
                         <br />
                         <span className="text-[#244EE4] w-full text-center">
@@ -37,9 +36,15 @@ const HeroSection = () => {
                         </span>
                         <br /> INNOVATION */}
                         <p className="font-bronson text-3xl">A WEEK OF</p>
-                        <p className="text-[#244EE4] w-full text-7xl max-md:text-6xl font-bold">
-                            TECHNICAL
-                        </p>
+                        <div className="text-[#244EE4] w-[80%] text-7xl max-md:text-6xl font-bold">
+                            <Image
+                                src="/technical.gif"
+                                alt="logo"
+                                height={10000}
+                                width={10000}
+                                className="w-full h-auto object-cover cursor-pointer"
+                            />
+                        </div>
                         <p className="font-bronson">INNOVATION</p>
                     </div>
 
