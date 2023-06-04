@@ -50,7 +50,7 @@ const OCSection = () => {
         <div className="w-full flex h-max mb-20 flex-col items-center">
             <div
                 id="organizing-team"
-                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-10 max-md:text-4xl text-center"
+                className="w-fit text-white font-bronson uppercase text-5xl font-extrabold m-auto pt-20 pb-10 max-md:text-4xl text-center max-lg:pt-0"
             >
                 ORGANIZERS
             </div>

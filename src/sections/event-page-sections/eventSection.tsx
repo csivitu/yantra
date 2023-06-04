@@ -100,16 +100,28 @@ const EventSection = ({ event }: Props) => {
                             <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
                                 STUDENT COORDINATOR
                             </div>
-                            <div className="font-spaceGrotesk text-xl flex gap-2 items-center">
-                                <div>{event.studentCoordName}</div>
-                                <div className="text-sm">
-                                    ({event.studentCordNumber})
-                                </div>
-                            </div>
+                            {event.studentCoordName?.map(
+                                (studentCord, index) => {
+                                    return (
+                                        <div
+                                            key={index}
+                                            className="font-spaceGrotesk text-xl flex gap-2 items-center"
+                                        >
+                                            <div>{studentCord}</div>
+                                            <div className="text-sm">
+                                                (
+                                                {event.studentCordNumber[index]}
+                                                )
+                                            </div>
+                                        </div>
+                                    );
+                                }
+                            )}
+
                             <br />
                         </div>
                     </div>
-                    <div className="">{event.description}</div>
+                    <div className="pb-4">{event.description}</div>
                     <Link
                         href={event.link}
                         target="_blank"

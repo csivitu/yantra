@@ -64,6 +64,12 @@ html {
     .vertical-timeline-element-content {
         width: 90% !important;
     }
+    .vertical-timeline {
+        width: 80% !important;
+    }
+    .vertical-timeline-element-content {
+        width: 80% !important;
+    }
 }
 
 .glassMorphism {
