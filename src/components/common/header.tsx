@@ -57,6 +57,8 @@ const Header = () => {
             ? 'opacity-0'
             : 'opacity-100';
 
+    // add active tab opacity
+
     return (
         <>
             <div
@@ -90,16 +92,22 @@ const Header = () => {
                     </div>
                     <div
                         className="cursor-pointer hover-underline-animation"
+                        onClick={() => router.push('/sdg')}
+                    >
+                        YANTRA Hackathon
+                    </div>
+                    <div
+                        className="cursor-pointer hover-underline-animation"
                         onClick={() => handleMenuClick('events-section')}
                     >
                         Events
                     </div>
-                    <div
+                    {/* <div
                         className="cursor-pointer hover-underline-animation"
                         onClick={() => handleMenuClick('patrons-section')}
                     >
                         Patrons
-                    </div>
+                    </div> */}
                     <div
                         className="cursor-pointer hover-underline-animation"
                         onClick={() => router.push('/team')}

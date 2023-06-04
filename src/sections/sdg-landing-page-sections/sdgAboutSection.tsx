@@ -7,16 +7,15 @@ const SDGAboutSection = () => {
                 <div className="w-full mt-20 max-md:text-4xl h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold m-auto text-center">
                     ABOUT HACKATHON
                 </div>
-                <div className="flex flex-col lg:flex-row justify-around items-center lg:px-20">
-                    <div className="lg:w-[50%] py-8 px-16 h-[60%] lg:h-full max-md:pt-0 max-md:pb-8">
-                        <Image
-                            src="/SDGLogo.png"
-                            alt="photo"
-                            height={10000}
-                            width={10000}
-                            className="lg:w-[50vw] lg:h-[50vh] h-[30vh] w-[100%] object-contain  rounded-md"
-                        />
-                    </div>
+                <div className="flex max-lg:flex-col justify-around items-center lg:px-36 gap-12">
+                    <Image
+                        src="/SDGLogo.png"
+                        alt="photo"
+                        height={10000}
+                        width={10000}
+                        className="lg:w-[36vw] lg:h-[50vh] h-[30vh] w-[100%] object-contain  rounded-md"
+                    />
+
                     <div className="lg:w-[50%] text-xl text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center lg:text-left text-center flex-col">
                         <p className="text-2xl py-3 font-bold w-full">
                             WHAT IS SDG?
@@ -34,16 +33,15 @@ const SDGAboutSection = () => {
                         </p>
                     </div>
                 </div>
-                <div className="flex flex-col lg:flex-row-reverse justify-around items-center lg:px-20">
-                    <div className="lg:w-[50%] py-8 px-16 h-[60%] lg:h-full max-md:pt-0 max-md:pb-8">
-                        <Image
-                            src="/SDGLogo.png"
-                            alt="photo"
-                            height={10000}
-                            width={10000}
-                            className="lg:w-[50vw] lg:h-[50vh] h-[30vh] w-[100%] object-contain  rounded-md"
-                        />
-                    </div>
+                <div className="flex flex-col  lg:flex-row-reverse justify-around items-center lg:px-36 gap-12">
+                    <Image
+                        src="/SDGLogo.png"
+                        alt="photo"
+                        height={10000}
+                        width={10000}
+                        className="lg:w-[36vw] lg:h-[50vh] h-[30vh] w-[100%] object-contain  rounded-md"
+                    />
+
                     <div className="lg:w-[50%] text-xl text-white w-[90%] h-[60%] lg:h-full font-spaceGrotesk flex justify-around items-center lg:text-left text-center flex-col">
                         <p className="text-2xl py-3 font-bold w-full">
                             WHAT IS SDG?
