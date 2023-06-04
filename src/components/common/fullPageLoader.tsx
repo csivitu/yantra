@@ -32,7 +32,7 @@ const FullPageLoader = ({ loading }: Props) => {
                     {filled}%
                 </span>
             </div>
-            <div className="text-4xl">Loading assets...</div>
+            <div className="text-4xl max-lg:text-3xl">Loading assets...</div>
         </div>
     );
 };
