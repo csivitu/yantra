@@ -3,6 +3,26 @@ import Image from 'next/image';
 import PrizeCard from '@/components/common/prizeCard';
 
 const SDGPriceSection = () => {
+    const prizes = [
+        {
+            name: 'FIRST PRIZE',
+            amount: '1000',
+            text: 'text',
+            iconSource: '/gold-trophy.png',
+        },
+        {
+            name: 'FIRST PRIZE',
+            amount: '1000',
+            text: 'text',
+            iconSource: '/gold-trophy.png',
+        },
+        {
+            name: 'FIRST PRIZE',
+            amount: '1000',
+            text: 'text',
+            iconSource: '/gold-trophy.png',
+        },
+    ];
     return (
         <>
             <div className="w-full mt-20 max-md:text-4xl h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold m-auto text-center">
