@@ -1,4 +1,5 @@
-import React from 'react';
+import { useWindowWidth } from '@react-hook/window-size';
+import React, { useEffect, useState } from 'react';
 import {
     VerticalTimeline,
     VerticalTimelineElement,
@@ -52,6 +53,14 @@ const SDGTimelineSection = () => {
         },
     ];
 
+    const [animate, setAnimate] = useState(false);
+    const onlyWidth = useWindowWidth();
+    useEffect(() => {
+        if (onlyWidth > 840) {
+            setAnimate(true);
+        }
+    }, []);
+
     return (
         <>
             <div
@@ -61,7 +70,7 @@ const SDGTimelineSection = () => {
                 Time Line
             </div>
             <div className="w-full flex flex-col">
-                <VerticalTimeline lineColor="black">
+                <VerticalTimeline animate={animate} lineColor="black">
                     {arr.map((el, index) => {
                         return (
                             <VerticalTimelineElement

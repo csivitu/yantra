@@ -57,6 +57,12 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
                         Timeline
                     </div>
                     <div
+                        className="cursor-pointer w-[80%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
+                        onClick={() => router.push('/sdg')}
+                    >
+                        YANTRA Hackathon
+                    </div>
+                    <div
                         className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
                         onClick={() => handleMenuClick('events-section')}
                     >
