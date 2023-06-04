@@ -31,7 +31,7 @@ const OCSection = () => {
             photo: 'shreyas.JPG',
         },
         {
-            name: 'SANJEEV READY',
+            name: 'SANJEEV REDDY',
             photo: 'sanjeevReddy.jpeg',
         },
         {

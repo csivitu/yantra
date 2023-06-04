@@ -9,12 +9,14 @@ import React from 'react';
 const Index = () => {
     return (
         <>
-            <Header />
-            <SDGHeroSection />
-            <SDGAboutSection />
-            <SDGTimelineSection />
-            <SDGPriceSection />
-            <Footer />
+            <div className="h-max bg-landing-bg  bg-cover">
+                <Header />
+                <SDGHeroSection />
+                <SDGAboutSection />
+                <SDGTimelineSection />
+                <SDGPriceSection />
+                <Footer />
+            </div>
         </>
     );
 };

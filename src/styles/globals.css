@@ -159,6 +159,10 @@ html {
     flex-direction: column;
 }
 
+.drop-shadow-prize-text {
+    text-shadow: 0.125rem 0.125rem 0px rgba(35, 78, 228, 1);
+}
+
 .progressbar {
     position: relative;
     overflow: hidden;

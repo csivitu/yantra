@@ -83,13 +83,13 @@ const Footer = () => {
                                 transform="rotate(0)"
                                 className="w-7 h-7"
                             >
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                                 <g
                                     id="SVGRepo_tracerCarrier"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
                                     stroke="#CCCCCC"
-                                    stroke-width="0.096"
+                                    strokeWidth="0.096"
                                 ></g>
                                 <g id="SVGRepo_iconCarrier">
                                     {' '}
@@ -111,20 +111,20 @@ const Footer = () => {
                                 stroke="#ffffff"
                                 className="w-6 h-6"
                             >
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                                 <g
                                     id="SVGRepo_tracerCarrier"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
                                 ></g>
                                 <g id="SVGRepo_iconCarrier">
                                     {' '}
                                     <path
                                         d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7"
                                         stroke="#ffffff"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
                                     ></path>{' '}
                                     <rect
                                         x="3"
@@ -133,8 +133,8 @@ const Footer = () => {
                                         height="14"
                                         rx="2"
                                         stroke="#ffffff"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
                                     ></rect>{' '}
                                 </g>
                             </svg>
@@ -149,11 +149,11 @@ const Footer = () => {
                                 stroke="#ffffff"
                                 className="w-6 h-6"
                             >
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                                 <g
                                     id="SVGRepo_tracerCarrier"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
                                 ></g>
                                 <g id="SVGRepo_iconCarrier">
                                     {' '}

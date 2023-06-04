@@ -93,32 +93,32 @@ const SDGHeroSection = () => {
                 <SocialMediaLinks />
             </div>
 
-            <div className="bg-[#6C6C6C] bg-opacity-[0.05] flex justify-center gap-32 items-center w-full h-[12vh] max-lg:mt-8">
+            <div className="bg-[#6C6C6C] bg-opacity-[0.05] flex justify-center gap-10 lg:gap-32 items-center w-full h-[12vh] max-lg:mt-8">
                 <Image
                     src={`/SDGLogo.png`}
                     alt="g2"
-                    className="h-12  w-auto object-contain  "
+                    className="h-5 sm:h-12  w-auto object-contain  "
                     width={10000}
                     height={10000}
                 />
                 <Image
                     src={`/g2.png`}
                     alt="g2"
-                    className="h-12  w-auto object-contain  "
+                    className="h-5 sm:h-12  w-auto object-contain  "
                     width={10000}
                     height={10000}
                 />
                 <Image
                     src={`/iic.png`}
                     alt="g2"
-                    className="h-12 w-auto object-contain "
+                    className="h-5 sm:h-12 w-auto object-contain "
                     width={10000}
                     height={10000}
                 />
                 <Image
                     src={`/logoYantra.png`}
                     alt="g2"
-                    className="h-12 w-auto object-contain "
+                    className="h-5 sm:h-12 w-auto object-contain "
                     width={10000}
                     height={10000}
                 />
