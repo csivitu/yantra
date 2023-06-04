@@ -30,6 +30,14 @@ const OCSection = () => {
             name: 'SHREYAS NIMKAR',
             photo: 'shreyas.JPG',
         },
+        {
+            name: 'SANJEEV READY',
+            photo: 'sanjeevReddy.jpeg',
+        },
+        {
+            name: 'DEVABATHINI CHINMAY',
+            photo: 'devabathiniChinmay.jpeg',
+        },
     ];
 
     const [width, height] = useWindowSize({
@@ -170,14 +178,14 @@ const OCSection = () => {
                     />
                 </ButtonNext>
             </CarouselProvider> */}
-            <div className="w-5/6 px-6 m-auto flex gap-6 ">
+            <div className="w-[90%] m-auto flex gap-6 flex-wrap justify-center">
                 {organizingCommittee.map((el, index) => {
                     return (
                         <PatronsCard
                             key={index}
                             name={el.name}
                             position=""
-                            photo={el.photo}
+                            photo={`studentOC/${el.photo}`}
                         />
                     );
                 })}

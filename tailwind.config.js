@@ -17,6 +17,9 @@ module.exports = {
                 'events-bg': 'url(/events-background.png)',
                 'gradient-bg': 'url(/gradient.jpeg)',
             },
+            fontSize: {
+                xxs: '0.5rem',
+            },
         },
         plugins: [require('@tailwindcss/line-clamp')],
     },
