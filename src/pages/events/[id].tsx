@@ -6,6 +6,7 @@ import EventSection from '@/sections/event-page-sections/eventSection';
 import { GetServerSidePropsContext } from 'next';
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 interface Props {
     id: string;
@@ -34,11 +35,14 @@ const EventPage = ({ id }: Props) => {
 
     const [loading, setLoading] = useState(true);
 
+    const router = useRouter();
+
     useEffect(() => {
         const URL = `${process.env.NEXT_PUBLIC_BASE_URL}/api/events/${id}`;
         getHandler(URL, false)
             .then((res) => {
                 setEvent(res.data.event);
+                if (res.statusCode !== 200) router.push('/events');
                 setLoading(false);
             })
             .catch((err) => {
@@ -51,7 +55,7 @@ const EventPage = ({ id }: Props) => {
         <>
             <div className="h-screen bg-events-bg  bg-cover">
                 <Head>
-                    <title>Yantra | {event.title}</title>
+                    <title>Yantra | {event?.title}</title>
                 </Head>
                 <Header />
                 {loading ? (
@@ -59,7 +63,7 @@ const EventPage = ({ id }: Props) => {
                         <Loader />
                     </div>
                 ) : (
-                    <EventSection event={event} />
+                    <> {event && <EventSection event={event} />}</>
                 )}
             </div>
         </>

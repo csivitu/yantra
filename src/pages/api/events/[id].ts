@@ -13,7 +13,7 @@ const getEvent = async (req: NextApiRequest, res: NextApiResponse) => {
             message: 'No Event of this ID found.',
         });
     else
-        res.status(201).json({
+        res.status(200).json({
             status: 'success',
             event,
         });
