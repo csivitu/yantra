@@ -29,7 +29,7 @@ const Footer = () => {
         <div className="w-full bg-[#6C6C6C]  bg-opacity-[0.16]">
             <div
                 id="contact-section"
-                className="font-spaceGrotesk text-right w-2/3 m-auto  text-white  max-lg:[h-10vh] lg:h-[30vh] flex justify-around items-center"
+                className="font-spaceGrotesk text-right w-2/3 max-lg:w-5/6 m-auto  text-white  max-lg:[h-10vh] lg:h-[30vh] flex justify-around items-center"
             >
                 <div className="w-fit flex justify-around items-center max-lg:items-start flex-col sm:w-1/3 h-full sm:gap-y-3 sm:p-3 text-left">
                     <div className="text-2xl w-full h-[20%] max-lg:py-4">
