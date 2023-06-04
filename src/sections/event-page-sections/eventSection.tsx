@@ -105,7 +105,7 @@ const EventSection = ({ event }: Props) => {
                                     return (
                                         <div
                                             key={index}
-                                            className="font-spaceGrotesk text-xl flex gap-2 items-center"
+                                            className="font-spaceGrotesk text-xl flex gap-2 items-center capitalize "
                                         >
                                             <div>{studentCord}</div>
                                             <div className="text-sm">

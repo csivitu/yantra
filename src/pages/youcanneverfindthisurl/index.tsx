@@ -4,6 +4,7 @@ import SDGAboutSection from '@/sections/sdg-landing-page-sections/sdgAboutSectio
 import SDGHeroSection from '@/sections/sdg-landing-page-sections/sdgHeroSection';
 import SDGPriceSection from '@/sections/sdg-landing-page-sections/sdgPrizeSection';
 import SDGTimelineSection from '@/sections/sdg-landing-page-sections/sdgTimelineSection';
+import SDGTracksSection from '@/sections/sdg-landing-page-sections/sdgTracksSection';
 import React from 'react';
 
 const Index = () => {
@@ -14,6 +15,7 @@ const Index = () => {
                 <SDGHeroSection />
                 <SDGAboutSection />
                 <SDGTimelineSection />
+                <SDGTracksSection />
                 <SDGPriceSection />
                 <Footer />
             </div>
