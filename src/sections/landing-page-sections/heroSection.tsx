@@ -16,14 +16,6 @@ declare global {
 const HeroSection = () => {
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        const loaderTimeout = setTimeout(() => {
-            setIsLoading(false);
-        }, 6000); // Set a timeout to simulate loading time
-
-        return () => clearTimeout(loaderTimeout);
-    }, []);
-
     return (
         <>
             <div className="h-[70vh] w-[95%] m-auto max-md:h-[100vh] flex justify-around flex-col-reverse lg:flex-row items-end lg:px-24 text-white">
@@ -87,6 +79,7 @@ const HeroSection = () => {
                             }`}
                             style={{ height: '100%', width: '100%' }}
                             scene="https://draft.spline.design/JeGDe1G-sAwNd9dT/scene.splinecode"
+                            onLoad={() => setIsLoading(false)}
                         />
                     </div>
                 </div>

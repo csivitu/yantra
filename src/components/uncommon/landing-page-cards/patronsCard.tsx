@@ -9,7 +9,7 @@ type PatronsCardProps = {
 
 const PatronsCard: React.FC<PatronsCardProps> = ({ name, position, photo }) => {
     return (
-        <div className=" relative font-spaceGrotesk lg:h-[45vh] lg:w-[20vw] h-[25vh] w-[40%] rounded-xl">
+        <div className=" relative font-spaceGrotesk lg:h-[45vh] lg:w-[20vw] h-[30vh] w-[40%] rounded-xl">
             <div className="absolute top-0 w-full h-full overlay z-10 rounded-xl"></div>
             <Image
                 src={`/${photo}`}
@@ -24,12 +24,12 @@ const PatronsCard: React.FC<PatronsCardProps> = ({ name, position, photo }) => {
                     className={`font-semibold ${
                         position === ''
                             ? 'text-2xl max-md:text-xl max-sm:text-lg'
-                            : 'text-lg'
+                            : 'text-lg max-sm:text-base'
                     }`}
                 >
                     {name}
                 </div>
-                <div className="text-xs">{position}</div>
+                <div className="text-xs max-sm:text-xxs">{position}</div>
             </div>
         </div>
     );

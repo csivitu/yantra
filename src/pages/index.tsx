@@ -3,7 +3,6 @@ import Header from '@/components/common/header';
 import EventsSection from '@/sections/landing-page-sections/eventsSection';
 import PatronsSection from '@/sections/landing-page-sections/patronsSection';
 import TimelineSection from '@/sections/landing-page-sections/timelineSection';
-import ReactGA from 'react-ga';
 import { useEffect, useState } from 'react';
 import HeroSection from '@/sections/landing-page-sections/heroSection';
 import AboutSection from '@/sections/landing-page-sections/aboutSection';
@@ -15,7 +14,7 @@ import FullPageLoader from '@/components/common/fullPageLoader';
 export default function Home() {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        setTimeout(() => setLoading(false), 4000);
+        setTimeout(() => setLoading(false), 5000);
     });
 
     return (
