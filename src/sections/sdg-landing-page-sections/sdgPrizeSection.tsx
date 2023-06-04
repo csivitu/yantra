@@ -18,11 +18,7 @@ const SDGPriceSection = () => {
                 />
             </div>
             <div className="w-full lg:py-10 lg:px-28">
-                <div className="w-full flex justify-around items-center flex-wrap gap-y-5 gap-x-3">
-                    <PrizeCard />
-                    <PrizeCard />
-                    <PrizeCard />
-                    <PrizeCard />
+                <div className="w-full flex justify-center items-center flex-wrap gap-y-8 sm:gap-y-16 lg:gap-y-5 gap-x-8 lg:gap-x-3">
                     <PrizeCard />
                     <PrizeCard />
                     <PrizeCard />

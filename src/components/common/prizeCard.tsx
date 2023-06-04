@@ -9,19 +9,19 @@ const PrizeCard = () => {
                         First prize
                     </div>
                     <div className="text-3xl w-full text-center drop-shadow-prize-text">
-                        Sec :)
+                        Sect :)
                     </div>
                     <div className="text-sm px-8 w-full text-center">
                         Lorem ipsum dolor sit amet consectetur
                     </div>
                 </div>
-                <div className="absolute -top-[3.725rem]  -left-[3.6125rem]">
+                <div className="absolute sm:-top-[3.725rem] -top-[2.5rem] -left-[2.5rem]  sm:-left-[3.6125rem]">
                     <Image
                         src="/gold-trophy.png"
                         alt="photo"
                         height={1000000}
                         width={1000000}
-                        className="h-[7.25rem] w-[7.25rem] object-contain "
+                        className="h-[5rem] w-[5rem] sm:h-[7.25rem] sm:w-[7.25rem] object-contain "
                     />
                 </div>
             </div>
