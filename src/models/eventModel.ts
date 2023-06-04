@@ -28,8 +28,8 @@ export interface EventType {
     startTime: string;
     endTime: string;
     link: string;
-    studentCoordName: string;
-    studentCordNumber: string;
+    studentCoordName: [string];
+    studentCordNumber: [string];
 }
 
 const eventSchema = new mongoose.Schema({
@@ -64,8 +64,8 @@ const eventSchema = new mongoose.Schema({
         type: String,
     },
     link: String,
-    studentCoordName: String,
-    studentCordNumber: String,
+    studentCoordName: [String],
+    studentCordNumber: [String],
 });
 
 const Event =

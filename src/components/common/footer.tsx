@@ -71,7 +71,7 @@ const Footer = () => {
                     <div className="text-2xl w-fit h-[20%]  max-lg:py-4">
                         CONTACT US{' '}
                     </div>
-                    <div className="gap-2 flex w-fit h-[80%] text-sm flex-col sm:mt-1">
+                    <div className="gap-2 flex w-fit h-[80%] text-base max-lg:text-sm flex-col sm:mt-1">
                         <p className="">+91 91555 94196</p>
                         <p className="">+91 81253 51715</p>
                         <p className="">+91 76748 05872</p>
