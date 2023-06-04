@@ -29,13 +29,11 @@ const Footer = () => {
         <div className="w-full bg-[#6C6C6C]  bg-opacity-[0.16]">
             <div
                 id="contact-section"
-                className="font-spaceGrotesk text-right w-2/3 max-lg:w-5/6 m-auto  text-white  max-lg:[h-10vh] lg:h-[30vh] flex justify-around items-center"
+                className="font-spaceGrotesk pt-6 text-right w-2/3 max-lg:w-5/6 m-auto  text-white  max-lg:[h-10vh] lg:h-[30vh] flex justify-around max-lg:items-start items-center"
             >
-                <div className="w-fit flex justify-around items-center max-lg:items-start flex-col sm:w-1/3 h-full sm:gap-y-3 sm:p-3 text-left">
-                    <div className="text-2xl w-full h-[20%] max-lg:py-4">
-                        LINKS
-                    </div>
-                    <div className="gap-2 flex w-full h-[80%] max-lg:flex-row max-lg:w-1/2 max-lg:flex-wrap text-sm flex-col sm:mt-1">
+                <div className="w-fit flex justify-start items-center max-lg:items-start flex-col sm:w-1/3 h-full sm:gap-y-3 sm:p-3 text-left ">
+                    <div className="text-2xl w-full max-lg:py-4">LINKS</div>
+                    <div className="gap-2 flex w-full  max-lg:flex-row max-lg:w-1/2 max-lg:flex-wrap text-sm flex-col sm:mt-1">
                         {handles.map((handle, index) => {
                             return (
                                 <Link
@@ -67,11 +65,11 @@ const Footer = () => {
                         className="lg:w-[20vw] lg:h-[20vh] object-contain"
                     />
                 </div>
-                <div className="w-fit flex justify-around items-end flex-col sm:w-1/3 h-full sm:gap-y-3 sm:p-3 text-left">
-                    <div className="text-2xl w-fit h-[20%]  max-lg:py-4">
+                <div className="w-fit flex justify-start items-end flex-col sm:w-1/3 h-full sm:gap-y-3 sm:p-3 text-left">
+                    <div className="text-2xl w-fit max-lg:py-4">
                         CONTACT US{' '}
                     </div>
-                    <div className="gap-2 flex w-fit h-[80%] text-base max-lg:text-sm flex-col sm:mt-1">
+                    <div className="gap-2 flex w-fit text-base max-lg:text-sm flex-col sm:mt-1">
                         <div className="flex items-center gap-2 text-base w-full justify-end">
                             <div className="max-lg:text-sm">
                                 +91 81253 51715
