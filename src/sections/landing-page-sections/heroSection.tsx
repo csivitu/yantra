@@ -83,7 +83,7 @@ const HeroSection = () => {
                                 isLoading ? 'hidden' : ''
                             }`}
                             style={{ height: '100%', width: '100%' }}
-                            scene="https://draft.spline.design/JeGDe1G-sAwNd9dT/scene.splinecode"
+                            scene="https://draft.spline.design/9qE9I0UICCc8UAAL/scene.splinecode"
                             onLoad={() => setIsLoading(false)}
                         />
                     </div>

@@ -11,7 +11,7 @@ const SDGPriceSection = () => {
             iconSource: '/gold-trophy.png',
         },
         {
-            name: 'FIRST PRIZE',
+            name: 'SECOND PRIZE',
             amount: '1000',
             text: 'text',
             iconSource: '/gold-trophy.png',
