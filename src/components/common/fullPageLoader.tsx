@@ -24,7 +24,7 @@ const FullPageLoader = ({ loading }: Props) => {
                     style={{
                         height: '100%',
                         width: `${filled}%`,
-                        backgroundColor: '#a66cff',
+                        backgroundColor: '#7eff6a',
                         transition: 'width 0.5s',
                     }}
                 ></div>
