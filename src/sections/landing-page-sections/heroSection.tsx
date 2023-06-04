@@ -45,7 +45,7 @@ const HeroSection = () => {
                                 className="w-full h-auto object-cover cursor-pointer"
                             />
                         </div>
-                        <p className="font-bronson">INNOVATION</p>
+                        <p className="font-bronson max-lg:mt-2">INNOVATION</p>
                     </div>
 
                     {/* <Link

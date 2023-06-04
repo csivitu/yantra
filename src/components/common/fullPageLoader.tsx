@@ -9,7 +9,7 @@ const FullPageLoader = ({ loading }: Props) => {
     const [isRunning, setIsRunning] = useState(true);
     useEffect(() => {
         if (filled < 100 && isRunning) {
-            setTimeout(() => setFilled((prev) => (prev += 2)), 5);
+            setTimeout(() => setFilled((prev) => (prev += 2)), 8);
         }
     }, [filled, isRunning]);
 
