@@ -7,6 +7,7 @@ import InputField from '@/components/common/InputField';
 import TagsField from '@/components/common/TagsField';
 import Toaster from '@/utils/toaster';
 import Dropdown from '@/components/common/Dropdown';
+import postHandler from '@/handlers/postHandler';
 
 const ProjectSubmission = () => {
     const options = [
@@ -23,22 +24,31 @@ const ProjectSubmission = () => {
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         // Perform submission logic here
         // For demonstration purposes, we'll just log the form data
         event.preventDefault();
-        console.log({
-            projectName,
-            track,
-            projectDescription,
-            links,
-        });
-        // Reset form fields
-        setProjectName('');
-        setTrack(0);
-        setProjectDescription('');
 
-        setLinks([]);
+        const toaster = Toaster.startLoad();
+
+        const formData = {
+            title: projectName,
+            description: projectDescription,
+            track: track,
+            links: links,
+        };
+
+        const res = await postHandler(
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/submission`,
+            formData
+        );
+
+        if (res.status === 1) Toaster.stopLoad(toaster, 'Submitted', 1);
+        else {
+            Toaster.stopLoad(toaster, res.data, 0);
+        }
+
+        console.log(res);
     };
 
     return (

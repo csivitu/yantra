@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 export interface SubmissionInput {
     title: string;
     description: string;
+    track: number;
     links: string[];
     files: string[];
 }
@@ -20,6 +21,10 @@ export interface SubmissionDocument extends SubmissionType, mongoose.Document {
 const submissionSchema = new mongoose.Schema({
     title: String,
     description: String,
+    track: {
+        type: Number,
+        enum: [0, 1, 2, 3, 4, 5, 6],
+    },
     links: [String],
     status: {
         type: Number,
