@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import { SubmissionDocument } from './submissionModel';
 
 export interface TeamType {
+    id: mongoose.Schema.Types.ObjectId;
     title: string;
     members: mongoose.Schema.Types.ObjectId[];
     isNameChanged: boolean;

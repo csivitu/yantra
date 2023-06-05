@@ -4,7 +4,6 @@ import teamCheck from '@/middlewares/teamCheck';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 const getTeam = async (req: NextApiRequest, res: NextApiResponse) => {
-    // add req body validators
     res.status(200).json({
         status: 'success',
         message: '',
