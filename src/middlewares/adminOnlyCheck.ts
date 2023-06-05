@@ -1,7 +1,7 @@
 import User from '@/models/userModel';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const adminCheck =
+const adminOnlyCheck =
     (handler: (req: NextApiRequest, res: NextApiResponse) => Promise<void>) =>
     async (req: NextApiRequest, res: NextApiResponse) => {
         try {
@@ -21,4 +21,4 @@ const adminCheck =
         }
     };
 
-export default adminCheck;
+export default adminOnlyCheck;
