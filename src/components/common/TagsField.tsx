@@ -41,21 +41,12 @@ const TagsField = ({ label, tags, setTags }: Props) => {
                 <p className="font-spaceGrotesk text-white opacity-[0.4]">
                     {label}
                 </p>
-                <div>
-                    <Image
-                        src="/edit-button.svg"
-                        alt="Logo"
-                        height={1000000}
-                        width={100000}
-                        className="w-4 h-4 object-contain cursor-pointer"
-                    />
-                </div>
             </div>
             <div className="flex flex-wrap text-white  items-center font-Helvetica gap-2 py-2 rounded-md">
                 {tags.map((tag) => (
                     <div
                         key={tag}
-                        className="flex items-center justify-center px-2 py-1 border-[1px] rounded-md cursor-pointer"
+                        className="flex items-center justify-center py-1 border-[1px] rounded-md cursor-pointer"
                         onClick={() => handleTagRemove(tag)}
                     >
                         {tag}

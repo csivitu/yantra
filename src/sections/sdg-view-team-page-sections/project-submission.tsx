@@ -24,10 +24,9 @@ const ProjectSubmission = () => {
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async () => {
         // Perform submission logic here
-        // For demonstration purposes, we'll just log the form data
-        event.preventDefault();
+        // For demonstration purposes, we'll just log the form dat
 
         const toaster = Toaster.startLoad();
 
@@ -44,16 +43,28 @@ const ProjectSubmission = () => {
         );
 
         if (res.status === 1) {
-            const res = await postHandler(
-                `${process.env.NEXT_PUBLIC_BASE_URL}/api/submission/files`,
-                {
-                    files: inputFiles,
-                }
-            );
-            console.log(res);
-            if (res.status === 1) Toaster.stopLoad(toaster, 'Submitted', 1);
+            Toaster.stopLoad(toaster, 'Submitted', 1);
+            router.reload();
         } else {
             Toaster.stopLoad(toaster, res.data, 0);
+        }
+    };
+
+    const handleDropDownChange = (item: string) => {
+        if (item === 'item1') {
+            setTrack(1);
+        } else if (item === 'item2') {
+            setTrack(2);
+        } else if (item === 'item3') {
+            setTrack(3);
+        } else if (item === 'item4') {
+            setTrack(4);
+        } else if (item === 'item5') {
+            setTrack(5);
+        } else if (item === 'item6') {
+            setTrack(6);
+        } else if (item === 'item7') {
+            setTrack(7);
         }
     };
 
@@ -61,96 +72,46 @@ const ProjectSubmission = () => {
         <>
             <div className="h-full w-full flex justify-around items-center">
                 <div className="h-full w-full">
-                    <form onSubmit={handleSubmit}>
-                        <InputField
-                            type="text"
-                            name="project-name"
-                            label="Project Name"
-                            value={projectName}
-                            onChange={(event) =>
-                                setProjectName(event.target.value)
-                            }
-                        />
-                        <Dropdown label={'track'} options={options} />
+                    <InputField
+                        type="text"
+                        label="Title"
+                        value={projectName}
+                        onChange={setProjectName}
+                    />
+                    <Dropdown
+                        label="Track"
+                        items={[
+                            'item1',
+                            'item2',
+                            'item3',
+                            'item4',
+                            'item5',
+                            'item6',
+                            'item7',
+                        ]}
+                        onChange={handleDropDownChange}
+                    />
+                    <InputField
+                        type="text"
+                        label="Project Description"
+                        value={projectDescription}
+                        onChange={setProjectDescription}
+                    />
 
-                        <InputField
-                            type="text"
-                            name="project-description"
-                            label="Project Description"
-                            value={projectDescription}
-                            onChange={(event) =>
-                                setProjectDescription(event.target.value)
-                            }
-                        />
-
-                        <TagsField
-                            label="links"
-                            tags={links}
-                            setTags={setLinks}
-                        />
-                        <div className="flex flex-col gap-2">
-                            <input
-                                type="file"
-                                id="resume"
-                                className="hidden"
-                                multiple={false}
-                                onChange={({ target }) => {
-                                    if (target.files && target.files[0]) {
-                                        const file = target.files[0];
-                                        if (file.type.split('/')[1] == 'pdf') {
-                                            const names: string[] = [];
-                                            inputFiles?.forEach((file) =>
-                                                names.push(file.name)
-                                            );
-                                            if (!names.includes(file.name)) {
-                                                if (inputFiles) {
-                                                    const newFiles = [
-                                                        ...inputFiles,
-                                                        file,
-                                                    ];
-                                                    setInputFiles(newFiles);
-                                                } else {
-                                                    const newFiles = [file];
-                                                    setInputFiles(newFiles);
-                                                }
-                                            }
-                                        } else
-                                            Toaster.error(
-                                                'Only PDF Files can be selected'
-                                            );
-                                    }
-                                }}
-                            />
-
-                            <div
-                                className={`rounded-3xl relative py-2 px-2 w-32 flex flex-col items-center justify-center gap-1 font-Helvetica cursor-pointer border-[1px] border-black transition-all duration-300 ease-in-out`}
-                            >
-                                <label htmlFor="resume">
-                                    <Image
-                                        width={10000}
-                                        height={10000}
-                                        alt={'+'}
-                                        src={'/add.png'}
-                                        className={'w-5 h-5'}
-                                    />
-                                    <div className="text-white">add File</div>
-                                </label>
-                                <>
-                                    {inputFiles?.map((file) => {
-                                        return (
-                                            <div
-                                                key={file.name}
-                                                className="w-full text-center text-sm text-ellipsis overflow-hidden"
-                                            >
-                                                {file?.name}
-                                            </div>
-                                        );
-                                    })}
-                                </>
-                            </div>
+                    <TagsField label="Links" tags={links} setTags={setLinks} />
+                    <div className=" flex h-max py-0 gap-x-10 justify-start items-center flex-row gap-2">
+                        <div
+                            onClick={handleSubmit}
+                            className="cursor-pointer relative w-[30%] h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
+                        >
+                            <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
+                            <span className="absolute top-0 left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
+                            <span className="font-spaceGrotesk text-lg font-bold flex justify-center items-center  relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
+                                SUBMIT
+                            </span>
+                            <span className="absolute inset-0 border-2 border-white rounded-full"></span>
                         </div>
-                        <button type="submit">Submit</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </>

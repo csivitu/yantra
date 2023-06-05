@@ -29,7 +29,6 @@ const readFile = (
 
     options.maxTotalFileSize = 4000 * 1024 * 1024;
     const form = formidable(options);
-    console.log(files);
     return new Promise((resolve, reject) => {
         form.parse(req, (err, fields, files) => {
             if (err) reject(err);

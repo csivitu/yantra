@@ -29,9 +29,9 @@ const authOptions: NextAuthOptions = {
         session: async ({ session }) => {
             await connectToDB();
             const user = await User.findOne({ email: session.user.email });
-            const team = await Team.findOne({ members: user.id }).populate(
-                'members'
-            );
+            const team = await Team.findOne({ members: user.id })
+                .populate('members')
+                .populate('submission');
             return {
                 ...session,
                 user: {
