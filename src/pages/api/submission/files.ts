@@ -29,6 +29,7 @@ const readFile = (
 
     options.maxTotalFileSize = 4000 * 1024 * 1024;
     const form = formidable(options);
+    console.log(files);
     return new Promise((resolve, reject) => {
         form.parse(req, (err, fields, files) => {
             if (err) reject(err);
@@ -43,7 +44,7 @@ const readFile = (
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     if (LOCK_SUBMISSIONS)
-        res.status(201).json({
+        res.status(400).json({
             status: 'error',
             message: 'Submissions are now locked.',
         });

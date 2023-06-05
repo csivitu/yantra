@@ -43,12 +43,18 @@ const ProjectSubmission = () => {
             formData
         );
 
-        if (res.status === 1) Toaster.stopLoad(toaster, 'Submitted', 1);
-        else {
+        if (res.status === 1) {
+            const res = await postHandler(
+                `${process.env.NEXT_PUBLIC_BASE_URL}/api/submission/files`,
+                {
+                    files: inputFiles,
+                }
+            );
+            console.log(res);
+            if (res.status === 1) Toaster.stopLoad(toaster, 'Submitted', 1);
+        } else {
             Toaster.stopLoad(toaster, res.data, 0);
         }
-
-        console.log(res);
     };
 
     return (
