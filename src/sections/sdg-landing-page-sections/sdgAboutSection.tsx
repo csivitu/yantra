@@ -3,7 +3,7 @@ import Image from 'next/image';
 const SDGAboutSection = () => {
     return (
         <>
-            <div className="h-max">
+            <div className="h-max flex flex-col max-lg:gap-16">
                 <div className="w-full mt-20 max-md:text-4xl h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold m-auto text-center">
                     ABOUT HACKATHON
                 </div>
