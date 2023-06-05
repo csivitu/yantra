@@ -6,6 +6,7 @@ export interface UserDocument extends mongoose.Document {
     profilePic: string;
     phoneNo: string;
     admin: boolean;
+    regNo: string;
 }
 
 const userSchema = new mongoose.Schema({
@@ -24,6 +25,7 @@ const userSchema = new mongoose.Schema({
         default: 'default.jpg',
     },
     phoneNo: Number,
+    regNo: String,
     admin: {
         type: Boolean,
         default: false,

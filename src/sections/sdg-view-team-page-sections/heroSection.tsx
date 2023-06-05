@@ -26,6 +26,7 @@ const HeroSection = () => {
 
     useEffect(() => {
         if (session?.user) setTeamDetails(session?.user.team);
+        console.log(session?.user.team);
     }, [session]);
     return (
         <>
@@ -56,7 +57,7 @@ const HeroSection = () => {
                         </div>
                     </div>{' '}
                     <div className="h-fit flex justify-start items-center gap-x-3 text-5xl text-white font-bronson max-md:my-4 max-md:text-4xl">
-                        <div>TEAM NAME</div>
+                        <div>{teamDetails.title}</div>
                         <div>
                             <Image
                                 src="/edit-button.svg"

@@ -20,19 +20,13 @@ const authOptions: NextAuthOptions = {
             try {
                 await connectToDB();
                 const dbUser = await User.findOne({ email: user.email });
-                if (!dbUser)
-                    await User.create({
-                        name: user.name,
-                        email: user.email,
-                        profilePic: user.image,
-                    });
+                if (!dbUser) return false;
                 return true;
             } catch {
                 return false;
             }
         },
         session: async ({ session }) => {
-            // if this runs before signIn then shift this into sessionCheck middleware
             await connectToDB();
             const user = await User.findOne({ email: session.user.email });
             const team = await Team.findOne({ members: user.id }).populate(
