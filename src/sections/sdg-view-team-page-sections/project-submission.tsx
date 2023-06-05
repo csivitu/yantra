@@ -6,21 +6,22 @@ import Link from 'next/link';
 import InputField from '@/components/common/InputField';
 import TagsField from '@/components/common/TagsField';
 import Toaster from '@/utils/toaster';
+import SelectField from '@/components/common/SelectField';
 
 const ProjectSubmission = () => {
     const [projectName, setProjectName] = useState('');
-    const [track, setTrack] = useState('');
+    const [track, setTrack] = useState<number>(0);
     const [projectDescription, setProjectDescription] = useState('');
-    const [link, setLink] = useState('');
+
     const [links, setLinks] = useState<string[]>([]);
     const [inputFiles, setInputFiles] = useState<File[]>();
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
         // Perform submission logic here
         // For demonstration purposes, we'll just log the form data
+        event.preventDefault();
         console.log({
             projectName,
             track,
@@ -29,9 +30,9 @@ const ProjectSubmission = () => {
         });
         // Reset form fields
         setProjectName('');
-        setTrack('');
+        setTrack(0);
         setProjectDescription('');
-        setLink('');
+
         setLinks([]);
     };
 
@@ -49,13 +50,29 @@ const ProjectSubmission = () => {
                                 setProjectName(event.target.value)
                             }
                         />
-                        <InputField
-                            type="text"
-                            name="track"
-                            label="Track"
+                        <SelectField
+                            label="tracks"
+                            options={['Option 1', 'Option 2', 'Option 3']}
+                            name="tracks"
                             value={track}
-                            onChange={(event) => setTrack(event.target.value)}
+                            onChange={(event) => {
+                                switch (event.target.value) {
+                                    case 'Option 1':
+                                        setTrack(1);
+                                        break;
+                                    case 'Option 2':
+                                        setTrack(2);
+                                        break;
+                                    case 'Option 3':
+                                        setTrack(3);
+                                        break;
+                                    default:
+                                        setTrack(0);
+                                        break;
+                                }
+                            }}
                         />
+
                         <InputField
                             type="text"
                             name="project-description"
@@ -65,14 +82,12 @@ const ProjectSubmission = () => {
                                 setProjectDescription(event.target.value)
                             }
                         />
-                        <InputField
-                            type="text"
-                            name="link"
-                            label="Link"
-                            value={link}
-                            onChange={(event) => setLink(event.target.value)}
+
+                        <TagsField
+                            label="links"
+                            tags={links}
+                            setTags={setLinks}
                         />
-                        <TagsField tags={links} setTags={setLinks} />
                         <div className="flex flex-col gap-2">
                             <input
                                 type="file"
@@ -83,15 +98,21 @@ const ProjectSubmission = () => {
                                     if (target.files && target.files[0]) {
                                         const file = target.files[0];
                                         if (file.type.split('/')[1] == 'pdf') {
-                                            if (inputFiles) {
-                                                const newFiles = [
-                                                    ...inputFiles,
-                                                    file,
-                                                ];
-                                                setInputFiles(newFiles);
-                                            } else {
-                                                const newFiles = [file];
-                                                setInputFiles(newFiles);
+                                            const names: string[] = [];
+                                            inputFiles?.forEach((file) =>
+                                                names.push(file.name)
+                                            );
+                                            if (!names.includes(file.name)) {
+                                                if (inputFiles) {
+                                                    const newFiles = [
+                                                        ...inputFiles,
+                                                        file,
+                                                    ];
+                                                    setInputFiles(newFiles);
+                                                } else {
+                                                    const newFiles = [file];
+                                                    setInputFiles(newFiles);
+                                                }
                                             }
                                         } else
                                             Toaster.error(
@@ -101,40 +122,32 @@ const ProjectSubmission = () => {
                                 }}
                             />
 
-                            <label htmlFor="resume">
-                                <div
-                                    className={`rounded-3xl relative py-2 px-2 w-32 flex flex-col items-center justify-center gap-1 font-Helvetica cursor-pointer border-[1px] border-black transition-all duration-300 ease-in-out hover:scale-105`}
-                                >
-                                    {inputFiles?.name == '' ? (
-                                        <>
-                                            <Image
-                                                width={10000}
-                                                height={10000}
-                                                alt={'+'}
-                                                src={'/add.png'}
-                                                className={'w-5 h-5'}
-                                            />
-                                            <div className="">add File</div>
-                                            <div className="absolute top-0 right-0 translate-y-[-50%] text-xs bg-[#3a3a3a] rounded-lg text-white py-1 px-2">
-                                                optional
+                            <div
+                                className={`rounded-3xl relative py-2 px-2 w-32 flex flex-col items-center justify-center gap-1 font-Helvetica cursor-pointer border-[1px] border-black transition-all duration-300 ease-in-out`}
+                            >
+                                <label htmlFor="resume">
+                                    <Image
+                                        width={10000}
+                                        height={10000}
+                                        alt={'+'}
+                                        src={'/add.png'}
+                                        className={'w-5 h-5'}
+                                    />
+                                    <div className="text-white">add File</div>
+                                </label>
+                                <>
+                                    {inputFiles?.map((file) => {
+                                        return (
+                                            <div
+                                                key={file.name}
+                                                className="w-full text-center text-sm text-ellipsis overflow-hidden"
+                                            >
+                                                {file?.name}
                                             </div>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Image
-                                                width={10000}
-                                                height={10000}
-                                                alt={'+'}
-                                                src={'/checkmark.png'}
-                                                className={'w-8 h-8'}
-                                            />
-                                            <div className="w-full text-center text-sm text-ellipsis overflow-hidden">
-                                                {inputFiles?.name}
-                                            </div>
-                                        </>
-                                    )}
-                                </div>
-                            </label>
+                                        );
+                                    })}
+                                </>
+                            </div>
                         </div>
                         <button type="submit">Submit</button>
                     </form>
