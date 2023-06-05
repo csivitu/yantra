@@ -163,6 +163,13 @@ html {
     text-shadow: 0.125rem 0.125rem 0px rgba(35, 78, 228, 1);
 }
 
+.text-stroke-track-rank {
+    background: -webkit-linear-gradient(#ff9d00, #eef85b);
+
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 4px transparent;
+    color: #232d2d;
+}
 .progressbar {
     position: relative;
     overflow: hidden;

@@ -1,37 +1,35 @@
 import React from 'react';
 import Image from 'next/image';
-const TrackCard = () => {
+
+interface Props {
+    name: string;
+    amount: string;
+    text: string;
+    iconSource: string;
+}
+const TrackCard = ({ name, amount, text, iconSource }: Props) => {
     return (
         <>
             <div className=" relative py-6 font-spaceGrotesk bg-[#252525] bg-opacity-40 text-white  lg:min-h-[48vh] lg:w-[20vw] min-h-[25vh] w-[70%] rounded-xl">
                 <div className="flex h-full w-full flex-col gap-1 sm:gap-3 px-6">
                     <Image
-                        src="/goodHealthAndWellBeing.png"
+                        src={`${iconSource}`}
                         alt="photo"
                         height={1000000}
                         width={1000000}
                         className="w-[3.5rem] sm:w-[7.25rem] object-contain "
                     />
                     <div className="text-3xl uppercase w-full text-[#279B48]">
-                        Good Health and well being
+                        {name}
                     </div>
                     <div className="text-sm w-full">
                         Lorem, ipsum dolor sit amet consectetur adipisicing
                         elit. Ducimus inventore rerum tenetur consequuntur in
-                        nihil debitis labore accusantium modi mollitia
-                        reprehenderit, voluptate obcaecati dignissimos ut iste
-                        id veritatis quas? Harum, exercitationem nesciunt
-                        laboriosam eos
+                        nihil deb
                     </div>
                 </div>
-                <div className="absolute sm:-top-[3.725rem] -top-[1.5rem] -left-[1.5rem]  sm:-left-[3.6125rem]">
-                    <Image
-                        src="/gold-trophy.png"
-                        alt="photo"
-                        height={1000000}
-                        width={1000000}
-                        className="h-[3.5rem] w-[3.5rem] sm:h-[7.25rem] sm:w-[7.25rem] object-contain "
-                    />
+                <div className="text-stroke-track-rank absolute sm:-top-[1.5rem] -top-[1.5rem] -left-[1.5rem] -rotate-[20deg] sm:-left-[1.5rem] text-5xl">
+                    #2
                 </div>
             </div>
         </>

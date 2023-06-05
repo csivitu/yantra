@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import PrizeCard from '@/components/common/prizeCard';
+import PrizeCard from '@/components/uncommon/sdg-page-cards/prizeCard';
 interface Props {
     name: string;
     amount: string;
@@ -31,19 +31,19 @@ const SDGPriceSection = () => {
     const prizesRow2 = [
         {
             name: 'TRACK WINNERS',
-            amount: '1,20,000 / 7',
+            amount: '35,000',
             text: 'text',
             iconSource: '/medal.png',
         },
         {
             name: 'BEST UI/UX',
-            amount: '80,000',
+            amount: '15,000',
             text: 'text',
             iconSource: '/medal.png',
         },
         {
             name: 'BEST IMPLEMENTATION',
-            amount: '60,000',
+            amount: '15,000',
             text: 'text',
             iconSource: '/medal.png',
         },
@@ -53,7 +53,7 @@ const SDGPriceSection = () => {
             <div className="w-full mt-20 max-md:text-4xl h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold m-auto text-center">
                 WIN CASH PRIZES WORTH
             </div>
-            <div className="w-full flex justify-around items-center pb-10 px-32 max-lg:px-8">
+            <div className="w-full flex justify-around items-center sm:pb-24 lg:pb-10 px-32 max-lg:px-8">
                 <Image
                     src="/slotmachine.png"
                     alt="photo"
@@ -62,7 +62,7 @@ const SDGPriceSection = () => {
                     className="lg:w-[60vw] lg:h-[50vh] h-[30vh] w-[100%] object-contain "
                 />
             </div>
-            <div className="w-full lg:py-10 lg:px-24 gap-y-10 lg:gap-y-14 flex flex-col justify-center items-center">
+            <div className="w-full py-10 lg:py-10 lg:px-24 gap-y-12 lg:gap-y-14 flex flex-col justify-center items-center">
                 <div className="w-full flex justify-center items-center flex-wrap gap-y-8 sm:gap-y-16 lg:gap-y-20 gap-x-8 lg:gap-x-20">
                     {prizesRow1 &&
                         prizesRow1.map((el, index) => {
