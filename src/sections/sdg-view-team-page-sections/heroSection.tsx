@@ -165,7 +165,9 @@ const HeroSection = () => {
                             </div>
                         </div>
                         <div className="w-full sm:w-[50%] h-full">
-                            {isSubmission ? <></> : <ProjectSubmission />}
+                            {/* {isSubmission ? <></> :  */}
+                            <ProjectSubmission />
+                            {/* // } */}
                         </div>
                     </>
                 )}

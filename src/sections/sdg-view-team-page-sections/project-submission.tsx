@@ -37,8 +37,26 @@ const ProjectSubmission = () => {
         setProjectName('');
         setTrack(0);
         setProjectDescription('');
-
         setLinks([]);
+    };
+    const [selectedItem, setSelectedItem] = useState<string | null>(null);
+
+    const handleDropDownChange = (item: string) => {
+        if (item === 'item1') {
+            setTrack(1);
+        } else if (item === 'item2') {
+            setTrack(2);
+        } else if (item === 'item3') {
+            setTrack(3);
+        } else if (item === 'item4') {
+            setTrack(4);
+        } else if (item === 'item5') {
+            setTrack(5);
+        } else if (item === 'item6') {
+            setTrack(6);
+        } else if (item === 'item7') {
+            setTrack(7);
+        }
     };
 
     return (
@@ -55,7 +73,19 @@ const ProjectSubmission = () => {
                                 setProjectName(event.target.value)
                             }
                         />
-                        <Dropdown label={'track'} options={options} />
+                        <Dropdown
+                            label="Track"
+                            items={[
+                                'item1',
+                                'item2',
+                                'item3',
+                                'item4',
+                                'item5',
+                                'item6',
+                                'item7',
+                            ]}
+                            onChange={handleDropDownChange}
+                        />
 
                         <InputField
                             type="text"
@@ -68,71 +98,11 @@ const ProjectSubmission = () => {
                         />
 
                         <TagsField
-                            label="links"
+                            label="Links"
                             tags={links}
                             setTags={setLinks}
                         />
-                        <div className="flex flex-col gap-2">
-                            <input
-                                type="file"
-                                id="resume"
-                                className="hidden"
-                                multiple={false}
-                                onChange={({ target }) => {
-                                    if (target.files && target.files[0]) {
-                                        const file = target.files[0];
-                                        if (file.type.split('/')[1] == 'pdf') {
-                                            const names: string[] = [];
-                                            inputFiles?.forEach((file) =>
-                                                names.push(file.name)
-                                            );
-                                            if (!names.includes(file.name)) {
-                                                if (inputFiles) {
-                                                    const newFiles = [
-                                                        ...inputFiles,
-                                                        file,
-                                                    ];
-                                                    setInputFiles(newFiles);
-                                                } else {
-                                                    const newFiles = [file];
-                                                    setInputFiles(newFiles);
-                                                }
-                                            }
-                                        } else
-                                            Toaster.error(
-                                                'Only PDF Files can be selected'
-                                            );
-                                    }
-                                }}
-                            />
-
-                            <div
-                                className={`rounded-3xl relative py-2 px-2 w-32 flex flex-col items-center justify-center gap-1 font-Helvetica cursor-pointer border-[1px] border-black transition-all duration-300 ease-in-out`}
-                            >
-                                <label htmlFor="resume">
-                                    <Image
-                                        width={10000}
-                                        height={10000}
-                                        alt={'+'}
-                                        src={'/add.png'}
-                                        className={'w-5 h-5'}
-                                    />
-                                    <div className="text-white">add File</div>
-                                </label>
-                                <>
-                                    {inputFiles?.map((file) => {
-                                        return (
-                                            <div
-                                                key={file.name}
-                                                className="w-full text-center text-sm text-ellipsis overflow-hidden"
-                                            >
-                                                {file?.name}
-                                            </div>
-                                        );
-                                    })}
-                                </>
-                            </div>
-                        </div>
+                        {/* ... Rest of the code ... */}
                         <button type="submit">Submit</button>
                     </form>
                 </div>

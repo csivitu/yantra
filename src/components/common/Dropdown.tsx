@@ -1,21 +1,22 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-type Option = {
-    value: string;
-    label: string;
-};
-
 type DropdownProps = {
-    options: Option[];
+    items: string[];
+    onChange: (selectedItem: string) => void;
     label: string;
 };
 
-const Dropdown: React.FC<DropdownProps> = ({ options, label }) => {
-    const [selectedOption, setSelectedOption] = useState<Option | null>(null);
+const Dropdown: React.FC<DropdownProps> = ({ items, onChange, label }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
-    const handleOptionClick = (option: Option) => {
-        setSelectedOption(option);
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const handleItemClick = (item: string) => {
+        onChange(item);
+        setSelectedItem(item);
         setIsOpen(false);
     };
 
@@ -35,44 +36,24 @@ const Dropdown: React.FC<DropdownProps> = ({ options, label }) => {
                     />
                 </div>
             </div>
-            <div className="relative">
-                <button
-                    type="button"
-                    className="relative z-10 block w-full py-2 pl-3 pr-10 text-left bg-transparent border-b-2 border-gray-300  shadow-sm cursor-pointer focus:outline-none focus:ring-1  sm:text-sm"
-                    onClick={() => setIsOpen(!isOpen)}
+            <div className="relative w-full font-spaceGrotesk cursor-pointer inline-block">
+                <div
+                    className="w-full py-2 text-sm font-medium text-white bg-transparent border-b-2 border-white  shadow-sm focus:outline-none "
+                    onClick={toggleDropdown}
                 >
-                    {selectedOption ? selectedOption.label : 'Select a Track'}
-                    <svg
-                        className={`${
-                            isOpen ? '-rotate-180' : 'rotate-0'
-                        } absolute inset-y-0 right-0 w-5 h-5 mt-1 mr-3 transition duration-200 ease-in-out text-gray-400`}
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                        />
-                    </svg>
-                </button>
-
+                    {selectedItem || 'Select an option'}
+                </div>
                 {isOpen && (
-                    <div className="absolute z-20 mt-2 w-full bg-black border border-gray-300  shadow-lg">
-                        <ul className="py-1">
-                            {options.map((option) => (
-                                <li
-                                    key={option.value}
-                                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                                    onClick={() => handleOptionClick(option)}
-                                >
-                                    {option.label}
-                                </li>
-                            ))}
-                        </ul>
+                    <div className="absolute w-full bg-black right-0 z-10 mt-2 overflow-auto  border border-gray-300 rounded-md shadow-lg max-h-60">
+                        {items.map((item) => (
+                            <button
+                                key={item}
+                                className="block w-full px-4 py-2 text-sm text-white hover:bg-gray-100 "
+                                onClick={() => handleItemClick(item)}
+                            >
+                                {item}
+                            </button>
+                        ))}
                     </div>
                 )}
             </div>
