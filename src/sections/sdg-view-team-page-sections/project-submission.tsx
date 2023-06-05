@@ -5,18 +5,18 @@ import Loader from '@/components/common/loader';
 import Link from 'next/link';
 import InputField from '@/components/common/InputField';
 import TagsField from '@/components/common/TagsField';
+import SelectField from '@/components/common/SelectField';
 
 const ProjectSubmission = () => {
     const [projectName, setProjectName] = useState('');
-    const [track, setTrack] = useState('');
+    const [track, setTrack] = useState<number>(0);
     const [projectDescription, setProjectDescription] = useState('');
-    const [link, setLink] = useState('');
+
     const [links, setLinks] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
         // Perform submission logic here
         // For demonstration purposes, we'll just log the form data
         console.log({
@@ -27,9 +27,9 @@ const ProjectSubmission = () => {
         });
         // Reset form fields
         setProjectName('');
-        setTrack('');
+        setTrack(0);
         setProjectDescription('');
-        setLink('');
+
         setLinks([]);
     };
 
@@ -47,13 +47,29 @@ const ProjectSubmission = () => {
                                 setProjectName(event.target.value)
                             }
                         />
-                        <InputField
-                            type="text"
-                            name="track"
-                            label="Track"
+                        <SelectField
+                            label="tracks"
+                            options={['Option 1', 'Option 2', 'Option 3']}
+                            name="tracks"
                             value={track}
-                            onChange={(event) => setTrack(event.target.value)}
+                            onChange={(event) => {
+                                switch (event.target.value) {
+                                    case 'Option 1':
+                                        setTrack(1);
+                                        break;
+                                    case 'Option 2':
+                                        setTrack(2);
+                                        break;
+                                    case 'Option 3':
+                                        setTrack(3);
+                                        break;
+                                    default:
+                                        setTrack(0);
+                                        break;
+                                }
+                            }}
                         />
+
                         <InputField
                             type="text"
                             name="project-description"
@@ -63,14 +79,12 @@ const ProjectSubmission = () => {
                                 setProjectDescription(event.target.value)
                             }
                         />
-                        <InputField
-                            type="text"
-                            name="link"
-                            label="Link"
-                            value={link}
-                            onChange={(event) => setLink(event.target.value)}
+
+                        <TagsField
+                            label="links"
+                            tags={links}
+                            setTags={setLinks}
                         />
-                        <TagsField tags={links} setTags={setLinks} />
                         {/* iske neeche */}
                         {/* tereko jo karna hai iske beech kar */}
                         {/* iske upar */}
