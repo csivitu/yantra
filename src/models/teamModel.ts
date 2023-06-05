@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
 import { SubmissionDocument } from './submissionModel';
+import { UserDocument } from './userModel';
 
 export interface TeamType {
     id: mongoose.Schema.Types.ObjectId;
     title: string;
-    members: mongoose.Schema.Types.ObjectId[];
+    members: UserDocument[];
     isNameChanged: boolean;
     submission: mongoose.Schema.Types.ObjectId | SubmissionDocument;
 }

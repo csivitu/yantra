@@ -6,13 +6,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 const HeroSection = () => {
-    const team = [
-        { name: 'Shreyas Nimkar', regNo: '21BBS0085' },
-        { name: 'Shreyas Nimkar', regNo: '21BBS0085' },
-        { name: 'Shreyas Nimkar', regNo: '21BBS0085' },
-        { name: 'Shreyas Nimkar', regNo: '21BBS0085' },
-    ];
-
     const router = useRouter();
     const [teamDetails, setTeamDetails] = useState<TeamType>({
         id: new mongoose.Schema.Types.ObjectId(''),
@@ -26,7 +19,6 @@ const HeroSection = () => {
 
     useEffect(() => {
         if (session?.user) setTeamDetails(session?.user.team);
-        console.log(session?.user.team);
     }, [session]);
     return (
         <>
@@ -73,8 +65,8 @@ const HeroSection = () => {
                             <div className="text-sm font-spaceGrotesk text-white opacity-[0.4]">
                                 MEMBERS
                             </div>
-                            {team &&
-                                team.map((el, index) => {
+                            {teamDetails.members &&
+                                teamDetails.members.map((el, index) => {
                                     return (
                                         <>
                                             <div
