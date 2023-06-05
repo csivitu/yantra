@@ -26,13 +26,9 @@ const TrackCard = ({ name, rank, text, colour, iconSource }: Props) => {
                     >
                         {name}
                     </div>
-                    <div className="text-sm w-full">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Ducimus inventore rerum tenetur consequuntur in
-                        nihil deb
-                    </div>
+                    <div className="text-sm w-full">{text}</div>
                 </div>
-                <div className="text-stroke-track-rank absolute sm:-top-[1.5rem] -top-[1.5rem] -left-[1.5rem] -rotate-[20deg] sm:-left-[1.5rem] text-5xl">
+                <div className="text-stroke-track-rank font-monumentReg absolute sm:-top-[1.5rem] -top-[1.5rem] -left-[1.5rem] -rotate-[25deg] sm:-left-[1.5rem] text-4xl">
                     #{rank}
                 </div>
             </div>

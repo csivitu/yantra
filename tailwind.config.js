@@ -7,6 +7,8 @@ module.exports = {
                 spaceGrotesk: ['Space Grotesk'],
                 bronson: ['Bronson'],
                 ibmMono: ['IBM Plex Mono'],
+                monumentReg: ['Monument-Reg'],
+                monumentUltra: ['Monument-Ultra'],
             },
             backgroundColor: {
                 transparent: 'transparent',

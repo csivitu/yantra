@@ -7,6 +7,15 @@
     src: url('../../public/BronsonBlack.ttf');
 }
 
+@font-face {
+    font-family: 'Monument-Reg';
+    src: url('../../public/MonumentExtended-Regular.otf');
+}
+@font-face {
+    font-family: 'Monument-Ultra';
+    src: url('../../public/MonumentExtended-Ultrabold.otf');
+}
+
 html {
     background-color: #101010;
 }
