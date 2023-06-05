@@ -11,7 +11,7 @@ import React from 'react';
 const Index = () => {
     return (
         <>
-            {/* <div className="h-max bg-landing-bg  bg-cover">
+            <div className="h-max bg-landing-bg  bg-cover">
                 <Header />
                 <SDGHeroSection />
                 <SDGAboutSection />
@@ -19,8 +19,7 @@ const Index = () => {
                 <SDGTracksSection />
                 <SDGPriceSection />
                 <Footer />
-            </div> */}
-            <Error statusCode={503} title="Page under construction :) " />
+            </div>
         </>
     );
 };
