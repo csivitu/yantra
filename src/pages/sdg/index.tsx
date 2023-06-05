@@ -6,11 +6,11 @@ import SDGPriceSection from '@/sections/sdg-landing-page-sections/sdgPrizeSectio
 import SDGTimelineSection from '@/sections/sdg-landing-page-sections/sdgTimelineSection';
 import SDGTracksSection from '@/sections/sdg-landing-page-sections/sdgTracksSection';
 import React from 'react';
-import Error from 'next/error';
+
 const Index = () => {
     return (
         <>
-            {/* <div className="h-max bg-landing-bg  bg-cover">
+            <div className="h-max bg-landing-bg  bg-cover">
                 <Header />
                 <SDGHeroSection />
                 <SDGAboutSection />
