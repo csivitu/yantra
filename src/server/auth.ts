@@ -2,6 +2,7 @@ import { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import envHandler from '@/managers/envHandler';
 import User from '@/models/userModel';
+import Team from '@/models/teamModel';
 
 const authOptions: NextAuthOptions = {
     providers: [
@@ -31,11 +32,13 @@ const authOptions: NextAuthOptions = {
         session: async ({ session }) => {
             // if this runs before signIn then shift this into sessionCheck middleware
             const user = await User.findOne({ email: session.user.email });
+            const team = await Team.findOne({ members: user.id });
             return {
                 ...session,
                 user: {
                     ...session.user,
                     id: user.id,
+                    team: team,
                 },
             };
         },

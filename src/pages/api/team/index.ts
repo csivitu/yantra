@@ -1,4 +1,6 @@
 import { connectToDB } from '@/managers/DB';
+import adminOnlyCheck from '@/middlewares/adminOnlyCheck';
+import sessionCheck from '@/middlewares/sessionCheck';
 import Team from '@/models/teamModel';
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -19,4 +21,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 };
 
-export default handler;
+export default sessionCheck(adminOnlyCheck(handler));
