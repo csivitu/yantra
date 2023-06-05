@@ -9,7 +9,8 @@ import Loader from '@/components/common/loader';
 import Toaster from '@/utils/toaster';
 import patchHandler from '@/handlers/patchHandler';
 import ProjectSubmission from '@/sections/sdg-view-team-page-sections/project-submission';
-
+import ViewSubmission from './view-submission';
+import { SubmissionType } from '@/models/submissionModel';
 const HeroSection = () => {
     const router = useRouter();
     const [teamDetails, setTeamDetails] = useState<TeamType>({
@@ -23,8 +24,8 @@ const HeroSection = () => {
     const [changeTitle, setChangeTitle] = useState(false);
     const [newTitle, setNewTitle] = useState('');
     const [isSubmission, setIsSubmission] = useState(false);
-    const { data: session } = useSession();
 
+    const { data: session } = useSession();
     useEffect(() => {
         if (session?.user) {
             if (!session.user.team) {
@@ -164,10 +165,12 @@ const HeroSection = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-full sm:w-[50%] h-full">
-                            {/* {isSubmission ? <></> :  */}
-                            <ProjectSubmission />
-                            {/* // } */}
+                        <div className="w-full lg:w-[50%] h-full">
+                            {isSubmission ? (
+                                <ViewSubmission />
+                            ) : (
+                                <ProjectSubmission />
+                            )}
                         </div>
                     </>
                 )}

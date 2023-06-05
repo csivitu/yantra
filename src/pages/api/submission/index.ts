@@ -12,12 +12,19 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 const getSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-        const submission = await Submission.findById(req.team.submission);
+        if ((await Team.findById(req.team.id)).submission) {
+            res.status(400).json({
+                status: 'error',
+                message: 'Can only have one submission.',
+            });
+        } else {
+            const submission = await Submission.findById(req.team.submission);
 
-        res.status(201).json({
-            status: 'success',
-            submission,
-        });
+            res.status(201).json({
+                status: 'success',
+                submission,
+            });
+        }
     } catch {
         res.status(500).json({
             status: 'error',
