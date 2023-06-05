@@ -42,7 +42,7 @@ const SDGTracksSection = () => {
         {
             name: 'responsible consumption and production',
             rank: '6',
-            text: 'tep onto the green stage! This track delves into the delicate balance of consumption and production, examining how technology can contribute to a sustainable economy. Are you ready to compute for the planet?',
+            text: 'Step onto the green stage! This track delves into the delicate balance of consumption and production, examining how technology can contribute to a sustainable economy. Are you ready to compute for the planet?',
             colour: '#E48E16',
             iconSource: '/sdg-cards/RCAP.svg',
         },
