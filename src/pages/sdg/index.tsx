@@ -5,12 +5,13 @@ import SDGHeroSection from '@/sections/sdg-landing-page-sections/sdgHeroSection'
 import SDGPriceSection from '@/sections/sdg-landing-page-sections/sdgPrizeSection';
 import SDGTimelineSection from '@/sections/sdg-landing-page-sections/sdgTimelineSection';
 import SDGTracksSection from '@/sections/sdg-landing-page-sections/sdgTracksSection';
+import Error from 'next/error';
 import React from 'react';
 
 const Index = () => {
     return (
         <>
-            <div className="h-max bg-landing-bg  bg-cover">
+            {/* <div className="h-max bg-landing-bg  bg-cover">
                 <Header />
                 <SDGHeroSection />
                 <SDGAboutSection />
@@ -18,7 +19,8 @@ const Index = () => {
                 <SDGTracksSection />
                 <SDGPriceSection />
                 <Footer />
-            </div>
+            </div> */}
+            <Error statusCode={503} title="Page under construction :) " />
         </>
     );
 };
