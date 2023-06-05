@@ -23,9 +23,9 @@ const readFile = (
         `/public/submissions/${req.team.id}`
     );
     options.filename = (name, ext, path, form) => {
-        return path.originalFilename + '_' + Date.now().toString();
+        return Date.now().toString() + ' ' + path.originalFilename;
     };
-    options.keepExtensions = true;
+    // options.keepExtensions = true;
 
     options.maxTotalFileSize = 4000 * 1024 * 1024;
     const form = formidable(options);
@@ -33,7 +33,7 @@ const readFile = (
         form.parse(req, (err, fields, files) => {
             if (err) reject(err);
             resolve({ fields, files });
-            console.log('1.' + files);
+            console.log(err, fields, files);
             // Submission.findById(req.team.submission).then(submission=>{
             //     submission.files = submission.files.push()
             // })

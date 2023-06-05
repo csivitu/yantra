@@ -50,14 +50,21 @@ const addSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
                     message: 'Submissions are now locked.',
                 });
             else {
-                const submission = await Submission.create(req.body);
-                const team = await Team.findById(req.team.id);
-                team.submission = submission.id;
-                await team.save();
+                if ((await Team.findById(req.team.id)).submission)
+                    res.status(400).json({
+                        status: 'error',
+                        message: 'Cannot have multiple submissions.',
+                    });
+                else {
+                    const submission = await Submission.create(req.body);
+                    const team = await Team.findById(req.team.id);
+                    team.submission = submission.id;
+                    await team.save();
 
-                res.status(201).json({
-                    status: 'success',
-                });
+                    res.status(201).json({
+                        status: 'success',
+                    });
+                }
             }
         }
     } catch {

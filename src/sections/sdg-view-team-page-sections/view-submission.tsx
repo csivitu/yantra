@@ -2,15 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Loader from '@/components/common/loader';
-import Link from 'next/link';
 import InputField from '@/components/common/InputField';
 import TagsField from '@/components/common/TagsField';
 import Toaster from '@/utils/toaster';
-import Dropdown from '@/components/common/Dropdown';
 import postHandler from '@/handlers/postHandler';
 import { useSession } from 'next-auth/react';
 import { SubmissionType } from '@/models/submissionModel';
-import mongoose from 'mongoose';
 
 const ViewSubmission = () => {
     const [submission, setSubmission] = useState<SubmissionType>();
