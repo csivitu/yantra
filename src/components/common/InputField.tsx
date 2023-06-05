@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import Image from 'next/image';
+
 interface InputProps {
     label: string;
     name: string;
     type?: string;
+    value: string;
+    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
-const Input = ({ label, name, type = 'text', ...rest }: InputProps) => {
+
+const InputField = ({
+    label,
+    name,
+    type = 'text',
+    value,
+    onChange,
+}: InputProps) => {
     return (
         <>
-            <div className="text-sm flex justify-start gap-2 items-center pt-4 ">
+            <div className="text-sm flex justify-start gap-2 items-center pt-4">
                 <p className="font-spaceGrotesk text-white opacity-[0.4]">
                     {label}
                 </p>
@@ -24,8 +34,11 @@ const Input = ({ label, name, type = 'text', ...rest }: InputProps) => {
             </div>
             <div className="flex items-center border-b-2 border-white py-2">
                 <input
-                    className="appearance-none bg-transparent border-none w-full text-white   px-2 leading-tight focus:outline-none"
+                    className="appearance-none bg-transparent border-none w-full text-white px-2 leading-tight focus:outline-none"
                     type={type}
+                    name={name}
+                    value={value}
+                    onChange={onChange}
                     placeholder=""
                 />
             </div>
@@ -33,4 +46,4 @@ const Input = ({ label, name, type = 'text', ...rest }: InputProps) => {
     );
 };
 
-export default Input;
+export default InputField;
