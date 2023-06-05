@@ -17,7 +17,7 @@ const changeName = async (req: NextApiRequest, res: NextApiResponse) => {
             message: 'Team name changed.',
         });
     } catch {
-        res.status(201).json({
+        res.status(500).json({
             status: 'success',
             message: 'Internal Server Error',
         });

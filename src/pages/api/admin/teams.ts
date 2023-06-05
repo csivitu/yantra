@@ -4,12 +4,13 @@ import sessionCheck from '@/middlewares/sessionCheck';
 import Team from '@/models/teamModel';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const createTeam = async (req: NextApiRequest, res: NextApiResponse) => {
+const getTeams = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-        const team = await Team.create(req.body);
-        res.status(201).json({
+        const teams = await Team.find();
+        res.status(200).json({
             status: 'success',
-            team,
+            message: '',
+            teams,
         });
     } catch {
         res.status(500).json({
@@ -22,8 +23,8 @@ const createTeam = async (req: NextApiRequest, res: NextApiResponse) => {
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await connectToDB();
     switch (req.method) {
-        case 'POST':
-            await createTeam(req, res);
+        case 'GET':
+            await getTeams(req, res);
             break;
     }
 };

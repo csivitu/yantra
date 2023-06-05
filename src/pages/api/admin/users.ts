@@ -1,15 +1,16 @@
 import { connectToDB } from '@/managers/DB';
 import adminOnlyCheck from '@/middlewares/adminOnlyCheck';
 import sessionCheck from '@/middlewares/sessionCheck';
-import Team from '@/models/teamModel';
+import User from '@/models/userModel';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const createTeam = async (req: NextApiRequest, res: NextApiResponse) => {
+const getTeams = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-        const team = await Team.create(req.body);
-        res.status(201).json({
+        const users = await User.find();
+        res.status(200).json({
             status: 'success',
-            team,
+            message: '',
+            users,
         });
     } catch {
         res.status(500).json({
@@ -22,8 +23,8 @@ const createTeam = async (req: NextApiRequest, res: NextApiResponse) => {
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await connectToDB();
     switch (req.method) {
-        case 'POST':
-            await createTeam(req, res);
+        case 'GET':
+            await getTeams(req, res);
             break;
     }
 };
