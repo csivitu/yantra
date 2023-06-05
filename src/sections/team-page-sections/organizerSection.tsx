@@ -31,6 +31,14 @@ const OCSection = () => {
             photo: 'shreyas.JPG',
         },
         {
+            name: 'JATIN JAKHAR',
+            photo: 'jatin.png',
+        },
+        {
+            name: 'SHUBHI SHYAMSUKHA',
+            photo: 'shubhi.png',
+        },
+        {
             name: 'SANJEEV REDDY',
             photo: 'sanjeevReddy.jpeg',
         },
@@ -39,8 +47,45 @@ const OCSection = () => {
             photo: 'devabathiniChinmay.jpeg',
         },
         {
+            name: 'ANUBHAV ARYAN',
+            photo: 'anubhav.png',
+        },
+        {
+            name: 'SOURISH GUPTA',
+            photo: 'sourish.jpeg',
+        },
+        {
+            name: 'ARUSHI BAWA',
+            photo: 'arushi.png',
+        },
+        {
             name: 'SOHA JAGTAP',
             photo: 'soha.jpeg',
+        },
+        {
+            name: 'ADYA SAWHNEY',
+            photo: 'adya.png',
+        },
+        {
+            name: 'KHUSHI KAUNTIA',
+            photo: 'khushi.png',
+        },
+        {
+            name: 'BHAVYA AMBARDAR',
+            photo: 'bhavya.png',
+        },
+        {
+            name: 'ALISHA BANDYOPADHYAY',
+            photo: 'alisha.png',
+        },
+
+        {
+            name: 'VAISHNAVI RATHOD',
+            photo: 'vaishnavi.png',
+        },
+        {
+            name: 'DIVIJA KEJRIWAL',
+            photo: 'divija.png',
         },
     ];
 
