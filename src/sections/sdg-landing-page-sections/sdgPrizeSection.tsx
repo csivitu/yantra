@@ -12,19 +12,19 @@ const SDGPriceSection = () => {
         {
             name: 'FIRST PRIZE',
             amount: '1,20,000',
-            text: 'text',
+            text: 'A jackpot for the coding maestros! Strum the strings of innovation and step up on the podium.',
             iconSource: '/gold-trophy.png',
         },
         {
             name: 'SECOND PRIZE',
             amount: '80,000',
-            text: 'text',
+            text: 'The silver lining in the cloud of code! Unleash your creativity and rise to the occasion.',
             iconSource: '/silver-trophy.png',
         },
         {
             name: 'THIRD PRIZE',
             amount: '60,000',
-            text: 'text',
+            text: 'Bronze but brilliant! Fuel your coding journey and claim your spot on the podium.',
             iconSource: '/bronze-trophy.png',
         },
     ];
@@ -32,19 +32,19 @@ const SDGPriceSection = () => {
         {
             name: 'TRACK WINNERS',
             amount: '35,000',
-            text: 'text',
+            text: 'Master of your track! Conquer the challenges and shine in your chosen SDG Goal.',
             iconSource: '/medal.png',
         },
         {
             name: 'BEST UI/UX',
             amount: '15,000',
-            text: 'text',
+            text: 'A feast for the eyes! Craft the slickest user journey and dazzle the competition.',
             iconSource: '/medal.png',
         },
         {
             name: 'BEST IMPLEMENTATION',
             amount: '15,000',
-            text: 'text',
+            text: 'Make it work, make it wow! Perfect your code execution and stand out from the crowd.',
             iconSource: '/medal.png',
         },
     ];

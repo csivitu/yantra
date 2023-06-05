@@ -19,9 +19,9 @@ const PrizeCard = ({ name, amount, text, iconSource }: Props) => {
                     <div className="sm:text-3xl w-full text-center drop-shadow-prize-text">
                         ₹{amount}
                     </div>
-                    {/* <div className="text-sm px-8 w-full text-center">
+                    <div className="text-sm px-8 w-full text-center">
                         {text}
-                    </div> */}
+                    </div>
                 </div>
                 <div className="absolute sm:-top-[3.725rem] -top-[1.5rem] -left-[1.5rem]  sm:-left-[3.6125rem]">
                     <Image
