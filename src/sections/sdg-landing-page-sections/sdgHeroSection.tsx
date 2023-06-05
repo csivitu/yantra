@@ -80,14 +80,14 @@ const SDGHeroSection = () => {
                         >
                             <Loader />
                         </div>
-                        {/* <Spline
+                        <Spline
                             className={`max-md:my-12 ${
                                 isLoading ? 'hidden' : ''
                             }`}
                             style={{ height: '100%', width: '100%' }}
-                            scene="https://draft.spline.design/JeGDe1G-sAwNd9dT/scene.splinecode"
+                            scene="https://draft.spline.design/y6CkX-J9CjG69qmL/scene.splinecode"
                             onLoad={() => setIsLoading(false)}
-                        /> */}
+                        />
                     </div>
                 </div>
                 <SocialMediaLinks />
