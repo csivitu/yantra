@@ -1,24 +1,24 @@
 import { connectToDB } from '@/managers/DB';
-import adminOnlyCheck from '@/middlewares/adminOnlyCheck';
 import sessionCheck from '@/middlewares/sessionCheck';
-import Team from '@/models/teamModel';
+import teamCheck from '@/middlewares/teamCheck';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const createTeam = async (req: NextApiRequest, res: NextApiResponse) => {
-    const team = await Team.create(req.body);
-    res.status(201).json({
+const getTeam = async (req: NextApiRequest, res: NextApiResponse) => {
+    // add req body validators
+    res.status(200).json({
         status: 'success',
-        team,
+        message: '',
+        team: req.team,
     });
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await connectToDB();
     switch (req.method) {
-        case 'POST':
-            await createTeam(req, res);
+        case 'GET':
+            await getTeam(req, res);
             break;
     }
 };
 
-export default sessionCheck(adminOnlyCheck(handler));
+export default sessionCheck(teamCheck(handler));

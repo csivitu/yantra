@@ -1,18 +1,8 @@
 import { connectToDB } from '@/managers/DB';
 import sessionCheck from '@/middlewares/sessionCheck';
 import teamCheck from '@/middlewares/teamCheck';
-import teamMemberCheck from '@/middlewares/teamMemberCheck';
 import Team from '@/models/teamModel';
 import { NextApiRequest, NextApiResponse } from 'next';
-
-const getTeam = async (req: NextApiRequest, res: NextApiResponse) => {
-    // add req body validators
-    res.status(200).json({
-        status: 'success',
-        message: '',
-        team: req.team,
-    });
-};
 
 const changeName = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
@@ -37,13 +27,10 @@ const changeName = async (req: NextApiRequest, res: NextApiResponse) => {
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await connectToDB();
     switch (req.method) {
-        case 'GET':
-            await getTeam(req, res);
-            break;
         case 'PATCH':
             await changeName(req, res);
             break;
     }
 };
 
-export default sessionCheck(teamCheck(teamMemberCheck(handler)));
+export default sessionCheck(teamCheck(handler));

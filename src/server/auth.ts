@@ -38,7 +38,7 @@ const authOptions: NextAuthOptions = {
                 user: {
                     ...session.user,
                     id: user.id,
-                    team: team,
+                    team: team, // for users to get team details only, not for making post request, that will be handled by middlewares
                 },
             };
         },

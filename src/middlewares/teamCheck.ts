@@ -6,12 +6,13 @@ const teamCheck =
     (handler: (req: NextApiRequest, res: NextApiResponse) => Promise<void>) =>
     async (req: NextApiRequest, res: NextApiResponse) => {
         try {
-            const teamID = req.body.teamID;
-            const team: TeamDocument | null = await Team.findById(teamID);
+            const team: TeamDocument | null =
+                req.session.user.team ||
+                (await Team.findOne({ members: req.session.user.id }));
             if (!team)
                 return res.status(400).json({
                     status: 'success',
-                    message: 'No Team with this ID found.',
+                    message: 'You are not a part of any team.',
                 });
             else {
                 req.team = team;
