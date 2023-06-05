@@ -19,7 +19,7 @@ const Index = () => {
                 <SDGPriceSection />
                 <Footer />
             </div> */}
-            <Error statusCode={404} />
+            <Error statusCode={503} title="Page Under Construction :)" />
         </>
     );
 };
