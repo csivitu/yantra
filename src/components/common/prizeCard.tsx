@@ -1,23 +1,29 @@
 import React from 'react';
 import Image from 'next/image';
-const PrizeCard = () => {
+
+interface Props {
+    name: string;
+    amount: string;
+    text: string;
+    iconSource: string;
+}
+const PrizeCard = ({ name, amount, text, iconSource }: Props) => {
+    // const { name, amount, text, iconSource } = el;
     return (
         <>
             <div className=" relative font-spaceGrotesk bg-[#252525] bg-opacity-40 text-white  lg:h-[35vh] lg:w-[20vw] h-[25vh] w-[40%] rounded-xl">
                 <div className="flex h-full w-full flex-col justify-center items-center gap-1 sm:gap-3">
-                    <div className="text-3xl w-full text-center">
-                        First prize
-                    </div>
+                    <div className="text-3xl w-full text-center">{name}</div>
                     <div className="text-3xl w-full text-center drop-shadow-prize-text">
-                        Sect :)
+                        {amount}
                     </div>
                     <div className="text-sm px-8 w-full text-center">
-                        Lorem ipsum dolor sit
+                        {text}
                     </div>
                 </div>
                 <div className="absolute sm:-top-[3.725rem] -top-[1.5rem] -left-[1.5rem]  sm:-left-[3.6125rem]">
                     <Image
-                        src="/gold-trophy.png"
+                        src={`${iconSource}`}
                         alt="photo"
                         height={1000000}
                         width={1000000}
