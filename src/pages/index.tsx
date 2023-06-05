@@ -15,6 +15,9 @@ export default function Home() {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         setTimeout(() => setLoading(false), 5000);
+        return () => {
+            sessionStorage.removeItem('scrollPosition');
+        };
     });
 
     return (
