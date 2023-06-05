@@ -6,8 +6,6 @@ import { getSession } from 'next-auth/react';
 import React from 'react';
 
 const ViewTeam = () => {
-    {
-    }
     return (
         <>
             <div className="h-max bg-events-bg  bg-cover">
@@ -23,7 +21,6 @@ export const getServerSideProps = async (
     context: GetServerSidePropsContext
 ) => {
     const session = await getSession(context);
-    console.log(session);
     if (!session) {
         return {
             redirect: {
