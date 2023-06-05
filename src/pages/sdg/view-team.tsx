@@ -6,9 +6,11 @@ import React from 'react';
 const ViewTeam = () => {
     return (
         <>
-            <Header />
-            <HeroSection />
-            <Footer />
+            <div className="h-max bg-events-bg  bg-cover">
+                <Header />
+                <HeroSection />
+                <Footer />
+            </div>
         </>
     );
 };
