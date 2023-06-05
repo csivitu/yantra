@@ -1,7 +1,10 @@
-import { NextApiHandler, NextApiRequest } from 'next';
+import { NextApiRequest, NextApiResponse } from 'next';
 import formidable from 'formidable';
 import path from 'path';
 import fs from 'fs/promises';
+import sessionCheck from '@/middlewares/sessionCheck';
+import teamCheck from '@/middlewares/teamCheck';
+import Submission from '@/models/submissionModel';
 
 export const config = {
     api: {
@@ -14,9 +17,12 @@ const readFile = (
 ): Promise<{ fields: formidable.Fields; files: formidable.Files }> => {
     const options: formidable.Options = {};
 
-    options.uploadDir = path.join(process.cwd(), '/public/submissions');
+    options.uploadDir = path.join(
+        process.cwd(),
+        `/public/submissions/${req.team.id}`
+    );
     options.filename = (name, ext, path, form) => {
-        return Date.now().toString() + '_' + path.originalFilename;
+        return path.originalFilename + '_' + Date.now().toString();
     };
     options.keepExtensions = true;
 
@@ -26,15 +32,31 @@ const readFile = (
         form.parse(req, (err, fields, files) => {
             if (err) reject(err);
             resolve({ fields, files });
+            console.log('1.' + files);
+            // Submission.findById(req.team.submission).then(submission=>{
+            //     submission.files = submission.files.push()
+            // })
         });
     });
 };
 
-const handler: NextApiHandler = async (req, res) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-        await fs.readdir(path.join(process.cwd() + '/public', '/submissions'));
+        await fs.readdir(
+            path.join(
+                process.cwd() + '/public',
+                '/submissions',
+                `/${req.team.id}`
+            )
+        );
     } catch (error) {
-        await fs.mkdir(path.join(process.cwd() + '/public', '/submissions'));
+        await fs.mkdir(
+            path.join(
+                process.cwd() + '/public',
+                '/submissions',
+                `/${req.team.id}`
+            )
+        );
     }
     await readFile(req);
     res.status(200).json({
@@ -43,4 +65,4 @@ const handler: NextApiHandler = async (req, res) => {
     });
 };
 
-export default handler;
+export default sessionCheck(teamCheck(handler));
