@@ -19,13 +19,9 @@ const SDGHeroSection = () => {
 
     const { data: session } = useSession();
 
-    useEffect(() => {
-        const loaderTimeout = setTimeout(() => {
-            setIsLoading(false);
-        }, 6000); // Set a timeout to simulate loading time
-
-        return () => clearTimeout(loaderTimeout);
-    }, []);
+    const handleClick = () => {
+        if (!session) signIn('google');
+    };
 
     return (
         <>
@@ -64,7 +60,7 @@ const SDGHeroSection = () => {
                         </span>
                     </Link> */}
                     <div
-                        onClick={() => signIn('google')}
+                        onClick={handleClick}
                         className="relative w-42 h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
                     >
                         <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
@@ -90,6 +86,7 @@ const SDGHeroSection = () => {
                             }`}
                             style={{ height: '100%', width: '100%' }}
                             scene="https://draft.spline.design/JeGDe1G-sAwNd9dT/scene.splinecode"
+                            onLoad={() => setIsLoading(false)}
                         /> */}
                     </div>
                 </div>
