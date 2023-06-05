@@ -4,6 +4,7 @@ export interface SubmissionInput {
     title: string;
     description: string;
     links: string[];
+    files: string[];
 }
 
 export interface SubmissionType extends SubmissionInput {
@@ -29,6 +30,7 @@ const submissionSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    files: [String],
 });
 
 const Submission =
