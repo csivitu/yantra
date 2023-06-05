@@ -1,26 +1,51 @@
 import React from 'react';
 import Image from 'next/image';
 import PrizeCard from '@/components/common/prizeCard';
-
+interface Props {
+    name: string;
+    amount: string;
+    text: string;
+    iconSource: string;
+}
 const SDGPriceSection = () => {
-    const prizes = [
+    const prizesRow1 = [
         {
             name: 'FIRST PRIZE',
-            amount: '1000',
+            amount: '1,20,000',
             text: 'text',
             iconSource: '/gold-trophy.png',
         },
         {
             name: 'SECOND PRIZE',
-            amount: '1000',
+            amount: '80,000',
             text: 'text',
-            iconSource: '/gold-trophy.png',
+            iconSource: '/silver-trophy.png',
         },
         {
-            name: 'FIRST PRIZE',
-            amount: '1000',
+            name: 'THIRD PRIZE',
+            amount: '60,000',
             text: 'text',
-            iconSource: '/gold-trophy.png',
+            iconSource: '/bronze-trophy.png',
+        },
+    ];
+    const prizesRow2 = [
+        {
+            name: 'TRACK WINNERS',
+            amount: '1,20,000 / 7',
+            text: 'text',
+            iconSource: '/medal.png',
+        },
+        {
+            name: 'BEST UI/UX',
+            amount: '80,000',
+            text: 'text',
+            iconSource: '/medal.png',
+        },
+        {
+            name: 'BEST IMPLEMENTATION',
+            amount: '60,000',
+            text: 'text',
+            iconSource: '/medal.png',
         },
     ];
     return (
@@ -37,14 +62,35 @@ const SDGPriceSection = () => {
                     className="lg:w-[60vw] lg:h-[50vh] h-[30vh] w-[100%] object-contain "
                 />
             </div>
-            <div className="w-full lg:py-10 lg:px-24">
+            <div className="w-full lg:py-10 lg:px-24 gap-y-10 lg:gap-y-14 flex flex-col justify-center items-center">
                 <div className="w-full flex justify-center items-center flex-wrap gap-y-8 sm:gap-y-16 lg:gap-y-20 gap-x-8 lg:gap-x-20">
-                    <PrizeCard />
-                    <PrizeCard />
-                    <PrizeCard />
-                    <PrizeCard />
+                    {prizesRow1 &&
+                        prizesRow1.map((el, index) => {
+                            return (
+                                <PrizeCard
+                                    key={index}
+                                    name={el.name}
+                                    amount={el.amount}
+                                    text={el.text}
+                                    iconSource={el.iconSource}
+                                />
+                            );
+                        })}
                 </div>
-                <div>asd</div>
+                <div className="w-full flex justify-center items-center flex-wrap gap-y-8 sm:gap-y-16 lg:gap-y-20 gap-x-8 lg:gap-x-20">
+                    {prizesRow2 &&
+                        prizesRow2.map((el, index) => {
+                            return (
+                                <PrizeCard
+                                    key={index}
+                                    name={el.name}
+                                    amount={el.amount}
+                                    text={el.text}
+                                    iconSource={el.iconSource}
+                                />
+                            );
+                        })}
+                </div>
             </div>
         </>
     );
