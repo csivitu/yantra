@@ -18,8 +18,7 @@ const Index = () => {
                 <SDGTracksSection />
                 <SDGPriceSection />
                 <Footer />
-            </div> */}
-            <Error statusCode={503} title="Page Under Construction :)" />
+            </div>
         </>
     );
 };
