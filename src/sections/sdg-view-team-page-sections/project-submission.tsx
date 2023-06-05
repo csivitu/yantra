@@ -5,9 +5,14 @@ import Loader from '@/components/common/loader';
 import Link from 'next/link';
 import InputField from '@/components/common/InputField';
 import TagsField from '@/components/common/TagsField';
-import SelectField from '@/components/common/SelectField';
+import Dropdown from '@/components/common/Dropdown';
 
 const ProjectSubmission = () => {
+    const options = [
+        { value: 'option1', label: 'Option 1' },
+        { value: 'option2', label: 'Option 2' },
+        { value: 'option3', label: 'Option 3' },
+    ];
     const [projectName, setProjectName] = useState('');
     const [track, setTrack] = useState<number>(0);
     const [projectDescription, setProjectDescription] = useState('');
@@ -47,28 +52,7 @@ const ProjectSubmission = () => {
                                 setProjectName(event.target.value)
                             }
                         />
-                        <SelectField
-                            label="tracks"
-                            options={['Option 1', 'Option 2', 'Option 3']}
-                            name="tracks"
-                            value={track}
-                            onChange={(event) => {
-                                switch (event.target.value) {
-                                    case 'Option 1':
-                                        setTrack(1);
-                                        break;
-                                    case 'Option 2':
-                                        setTrack(2);
-                                        break;
-                                    case 'Option 3':
-                                        setTrack(3);
-                                        break;
-                                    default:
-                                        setTrack(0);
-                                        break;
-                                }
-                            }}
-                        />
+                        <Dropdown label={'track'} options={options} />
 
                         <InputField
                             type="text"
