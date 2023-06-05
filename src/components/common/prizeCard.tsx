@@ -13,9 +13,11 @@ const PrizeCard = ({ name, amount, text, iconSource }: Props) => {
         <>
             <div className=" relative font-spaceGrotesk bg-[#252525] bg-opacity-40 text-white  lg:h-[35vh] lg:w-[20vw] h-[25vh] w-[40%] rounded-xl">
                 <div className="flex h-full w-full flex-col justify-center items-center gap-1 sm:gap-3">
-                    <div className="text-3xl w-full text-center">{name}</div>
-                    <div className="text-3xl w-full text-center drop-shadow-prize-text">
-                        {amount}
+                    <div className="sm:text-3xl w-full  flex justify-around items-center text-center">
+                        {name}
+                    </div>
+                    <div className="sm:text-3xl w-full text-center drop-shadow-prize-text">
+                        ₹{amount}
                     </div>
                     <div className="text-sm px-8 w-full text-center">
                         {text}
