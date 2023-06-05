@@ -1,11 +1,39 @@
-import { NextFetchEvent, NextMiddleware, NextRequest } from 'next/server';
-import { MiddlewareHandler } from './type';
+import { getServerSession } from 'next-auth';
+import { NextApiRequest, NextApiResponse } from 'next';
+import authOptions from '@/server/auth';
+import User from '@/models/userModel';
 
-const sessionCheck: MiddlewareHandler = (next: NextMiddleware) => {
-    return async (request: NextRequest, _next: NextFetchEvent) => {
-        console.log('Log some data here', request.nextUrl.pathname);
-        return next(request, _next);
+const sessionCheck =
+    (handler: (req: NextApiRequest, res: NextApiResponse) => Promise<void>) =>
+    async (req: NextApiRequest, res: NextApiResponse) => {
+        try {
+            const session = await getServerSession(req, res, authOptions);
+
+            if (!session) {
+                return res.status(401).json({
+                    status: 'error',
+                    message: 'You are not logged in.',
+                });
+            }
+
+            req.session = session;
+
+            const user = await User.findById(session.user.id);
+
+            if (!user) {
+                return res.status(401).json({
+                    status: 'error',
+                    message: 'Cannot perform this action, log in again.',
+                });
+            }
+
+            return handler(req, res);
+        } catch (error) {
+            return res.status(500).json({
+                status: 'error',
+                message: 'Internal Server Error2',
+            });
+        }
     };
-};
 
 export default sessionCheck;

@@ -1,6 +1,7 @@
 import { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import envHandler from '@/managers/envHandler';
+import User from '@/models/userModel';
 
 const authOptions: NextAuthOptions = {
     providers: [
@@ -13,17 +14,31 @@ const authOptions: NextAuthOptions = {
     ],
     secret: envHandler('JWT_KEY'),
     callbacks: {
-        // async signIn({ user, account, profile, email, credentials }) { // can check user in db here
-        //     console.log('here');
-        //     return false;
-        // },
-        session: ({ session, user }) => ({
-            ...session,
-            user: {
-                ...session.user,
-                id: user.id,
-            },
-        }),
+        async signIn({ user, account, profile, email, credentials }) {
+            try {
+                const dbUser = await User.findOne({ email: user.email });
+                if (!dbUser)
+                    await User.create({
+                        name: user.name,
+                        email: user.email,
+                        profilePic: user.image,
+                    });
+                return true;
+            } catch {
+                return false;
+            }
+        },
+        session: async ({ session }) => {
+            // if this runs before signIn then shift this into sessionCheck middleware
+            const user = await User.findOne({ email: session.user.email });
+            return {
+                ...session,
+                user: {
+                    ...session.user,
+                    id: user.id,
+                },
+            };
+        },
     },
 };
 

@@ -5,6 +5,7 @@ export interface UserDocument extends mongoose.Document {
     email: string;
     profilePic: string;
     phoneNo: string;
+    admin: boolean;
 }
 
 const userSchema = new mongoose.Schema({
@@ -23,6 +24,10 @@ const userSchema = new mongoose.Schema({
         default: 'default.jpg',
     },
     phoneNo: Number,
+    admin: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const User =
