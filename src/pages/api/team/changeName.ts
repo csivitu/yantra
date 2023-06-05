@@ -16,20 +16,29 @@ const changeName = async (req: NextApiRequest, res: NextApiResponse) => {
                     validationRes.error.issues[0].message,
             });
         else {
-            const team = await Team.findById(req.team.id);
-            team.title = req.body.title;
-            team.isNameChanged = true;
-            team.save();
+            if (req.team.isNameChanged) {
+                res.status(400).json({
+                    status: 'error',
+                    message: 'Team name already changed once',
+                });
+            } else {
+                const team = await Team.findById(req.team.id);
+                team.title = req.body.title;
+                team.isNameChanged = true;
+                team.save();
 
-            res.status(200).json({
-                status: 'success',
-                message: 'Team name changed.',
-            });
+                res.status(200).json({
+                    status: 'success',
+                    message: 'Team name changed.',
+                });
+            }
         }
-    } catch {
+    } catch (err) {
+        console.log(err);
         res.status(500).json({
             status: 'success',
             message: 'Internal Server Error',
+            error: err,
         });
     }
 };

@@ -6,6 +6,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Loader from '@/components/common/loader';
+import Toaster from '@/utils/toaster';
+import patchHandler from '@/handlers/patchHandler';
 
 const HeroSection = () => {
     const router = useRouter();
@@ -17,15 +19,44 @@ const HeroSection = () => {
         submission: new mongoose.Schema.Types.ObjectId(''),
     });
     const [loading, setLoading] = useState(true);
+    const [changeTitle, setChangeTitle] = useState(false);
+    const [newTitle, setNewTitle] = useState('');
 
     const { data: session } = useSession();
 
     useEffect(() => {
-        if (session?.user.team) {
-            setTeamDetails(session?.user.team);
-            setLoading(false);
+        if (session?.user) {
+            if (!session.user.team) {
+                Toaster.error(
+                    'You are not a part of any team, contact the admin.'
+                );
+                router.push('/sdg');
+            } else {
+                setTeamDetails(session.user.team);
+                setNewTitle(session.user.team.title);
+                setLoading(false);
+            }
         }
     }, [session]);
+
+    const handleChangeName = async () => {
+        const toaster = Toaster.startLoad();
+        const res = await patchHandler(
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/team/changeName`,
+            { title: newTitle }
+        );
+        if (res.status === 1) {
+            const newTeamDetails = { ...teamDetails };
+            newTeamDetails.title = newTitle;
+            newTeamDetails.isNameChanged = true;
+            setTeamDetails(newTeamDetails);
+            Toaster.stopLoad(toaster, 'Name Changed', 1);
+            setChangeTitle(false);
+        } else {
+            Toaster.stopLoad(toaster, 'Internal Server Error', 0);
+        }
+    };
+
     return (
         <>
             <div className="h-[60vh] lg:h-[90vh] sm:px-20 py-10 flex justify-around items-center text-white">
@@ -59,16 +90,44 @@ const HeroSection = () => {
                     ) : (
                         <>
                             <div className="h-fit flex justify-start items-center gap-x-3 text-5xl text-white font-bronson max-md:my-4 max-md:text-4xl">
-                                <div>{teamDetails.title}</div>
-                                <div>
-                                    <Image
-                                        src="/edit-button.svg"
-                                        alt="Logo"
-                                        height={1000000}
-                                        width={100000}
-                                        className="w-6 h-6 object-contain cursor-pointer"
+                                {changeTitle ? (
+                                    <input
+                                        type="text"
+                                        className="focus:outline-none bg-none text-black w-full"
+                                        value={newTitle}
+                                        onChange={(el) =>
+                                            setNewTitle(el.target.value)
+                                        }
                                     />
-                                </div>
+                                ) : (
+                                    <div>{teamDetails.title}</div>
+                                )}
+
+                                <Image
+                                    src="/edit-button.svg"
+                                    alt="Logo"
+                                    height={1000000}
+                                    width={100000}
+                                    className={`w-6 h-6 object-contain cursor-pointer ${
+                                        teamDetails.isNameChanged
+                                            ? 'hidden'
+                                            : changeTitle
+                                            ? 'hidden'
+                                            : ''
+                                    }`}
+                                    onClick={() => setChangeTitle(true)}
+                                />
+
+                                <Image
+                                    src="/arrow.png"
+                                    alt="Logo"
+                                    height={1000000}
+                                    width={100000}
+                                    className={`w-6 h-6 object-contain cursor-pointer ${
+                                        !changeTitle ? 'hidden' : ''
+                                    }`}
+                                    onClick={handleChangeName}
+                                />
                             </div>
                             <div className="flex md:flex-col gap-4 max-md:w-full max-md:justify-between pt-6">
                                 <div className="h-max">
@@ -103,24 +162,27 @@ const HeroSection = () => {
                                 </div>
                             </div>
                             <Link
-                                href="https://vtop.vit.ac.in/"
-                                className="relative w-[70%] sm:w-[50%] lg:w-[40%] h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
+                                href="/team"
+                                className="relative inline-flex items-center px-12 py-3 overflow-hidden text-lg font-medium text-white border-2 border-white rounded-full hover:text-black group hover:bg-black"
                             >
-                                <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
-                                <span className="absolute top-0 left-0 w-96 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:translate-x-0"></span>
-                                <span className="font-spaceGrotesk text-lg font-bold flex justify-center items-center  relative w-full text-left text-white transition-colors gap-x-3 duration-300 ease-in-out group-hover:text-gray-900">
-                                    <div>
-                                        <Image
-                                            src="/plus-icon.svg"
-                                            alt="Logo"
-                                            height={1000000}
-                                            width={100000}
-                                            className="w-6 h-6 object-contain cursor-pointer group-hover:hidden"
-                                        />
-                                    </div>
-                                    <div>Submit Project</div>
+                                <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                                <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                                    <svg
+                                        className="w-5 h-5"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                        ></path>
+                                    </svg>
                                 </span>
-                                <span className="absolute inset-0 border-2 border-white rounded-full"></span>
+                                <span className="relative">Submissions</span>
                             </Link>
                         </>
                     )}

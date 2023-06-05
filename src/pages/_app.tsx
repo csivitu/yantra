@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 interface AppPropsWithSession extends AppProps {
     session: Session;
-} // if not then add the session manually from types
+}
 
 export default function App({
     Component,

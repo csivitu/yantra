@@ -27,12 +27,6 @@ export const getServerSideProps = async (
                 destination: '/sdg',
             },
         };
-    } else if (!session.user.team) {
-        return {
-            redirect: {
-                destination: '/sdg',
-            },
-        };
     }
     return {
         props: {},
