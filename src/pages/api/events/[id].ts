@@ -1,10 +1,9 @@
 import AppError from '@/managers/AppError';
-import { connectToDB, disconnectFromDB } from '@/managers/DB';
+import { connectToDB } from '@/managers/DB';
 import Event from '@/models/eventModel';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 const getEvent = async (req: NextApiRequest, res: NextApiResponse) => {
-    connectToDB();
     const event = await Event.findById(req.query.id);
 
     if (!event)
@@ -20,9 +19,7 @@ const getEvent = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 const updateEvent = async (req: NextApiRequest, res: NextApiResponse) => {
-    connectToDB();
     const event = await Event.findByIdAndUpdate(req.query.id, req.body);
-    disconnectFromDB();
 
     if (!event) throw new AppError('No Event of this ID Found.', 400);
 
@@ -33,9 +30,7 @@ const updateEvent = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 const deleteEvent = async (req: NextApiRequest, res: NextApiResponse) => {
-    connectToDB();
     const event = await Event.findByIdAndDelete(req.query.id);
-    disconnectFromDB();
 
     if (!event) throw new AppError('No Event of this ID Found.', 400);
 
@@ -45,6 +40,7 @@ const deleteEvent = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+    connectToDB();
     switch (req.method) {
         case 'GET':
             await getEvent(req, res);

@@ -21,9 +21,10 @@ const TrackCard = ({ name, rank, text, colour, iconSource }: Props) => {
                         className="w-[3rem] h-[3rem] sm:w-[4rem] object-contain"
                     />
                     <div
-                        className={`text-xl uppercase w-full text-[#${colour}]`}
+                        className={`text-xl uppercase w-full`}
+                        style={{ color: colour }}
                     >
-                        {colour}
+                        {name}
                     </div>
                     <div className="text-sm w-full">
                         Lorem, ipsum dolor sit amet consectetur adipisicing
