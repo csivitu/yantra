@@ -5,6 +5,7 @@ import Spline from '@splinetool/react-spline';
 import Image from 'next/image';
 import Loader from '@/components/common/loader';
 import { useSession, signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 declare global {
     namespace JSX {
@@ -19,8 +20,11 @@ const SDGHeroSection = () => {
 
     const { data: session } = useSession();
 
+    const router = useRouter();
+
     const handleClick = () => {
         if (!session) signIn('google');
+        else router.push('/sdg/view-team');
     };
 
     return (

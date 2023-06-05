@@ -3,6 +3,7 @@ import GoogleProvider from 'next-auth/providers/google';
 import envHandler from '@/managers/envHandler';
 import User from '@/models/userModel';
 import Team from '@/models/teamModel';
+import { connectToDB } from '@/managers/DB';
 
 const authOptions: NextAuthOptions = {
     providers: [
@@ -17,6 +18,7 @@ const authOptions: NextAuthOptions = {
     callbacks: {
         async signIn({ user, account, profile, email, credentials }) {
             try {
+                await connectToDB();
                 const dbUser = await User.findOne({ email: user.email });
                 if (!dbUser)
                     await User.create({
@@ -31,8 +33,11 @@ const authOptions: NextAuthOptions = {
         },
         session: async ({ session }) => {
             // if this runs before signIn then shift this into sessionCheck middleware
+            await connectToDB();
             const user = await User.findOne({ email: session.user.email });
-            const team = await Team.findOne({ members: user.id });
+            const team = await Team.findOne({ members: user.id }).populate(
+                'members'
+            );
             return {
                 ...session,
                 user: {

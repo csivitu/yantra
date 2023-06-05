@@ -10,6 +10,6 @@ export const changeTeamNameSchema = z
 export const createTeamSchema = z // check if it takes extra fields
     .object({
         title: z.string().min(4),
-        members: z.array(z.string()).min(4).max(4),
+        members: z.array(z.string()).max(4),
     })
     .strict();
