@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Spline from '@splinetool/react-spline';
 import Image from 'next/image';
 import Loader from '@/components/common/loader';
+import { signIn } from 'next-auth/react';
 
 declare global {
     namespace JSX {
@@ -60,8 +61,8 @@ const SDGHeroSection = () => {
                             REGISTER NOW
                         </span>
                     </Link> */}
-                    <Link
-                        href="https://vtop.vit.ac.in/"
+                    <div
+                        onClick={() => signIn('google')}
                         className="relative w-42 h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
                     >
                         <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
@@ -70,7 +71,7 @@ const SDGHeroSection = () => {
                             REGISTER NOW
                         </span>
                         <span className="absolute inset-0 border-2 border-white rounded-full"></span>
-                    </Link>
+                    </div>
                 </div>
                 <div className="lg:w-[50%] w-[100%] lg:h-[100%] h-[50%] bg-transparent">
                     <div className="h-full w-full bg-transparent">
