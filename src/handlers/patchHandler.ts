@@ -1,17 +1,14 @@
 import axios from 'axios';
-import { getCookie } from 'cookies-next';
 
 const patchHandler = async (
     URL: string,
     formData: object,
-    protect: boolean,
     type: string = 'application/json'
 ) => {
     const headers = {
         'Content-Type': type,
         Authorization: '',
     };
-    if (protect) headers.Authorization = `Bearer ${getCookie('token')}`;
     const response: any = {
         status: 0,
         data: {},
