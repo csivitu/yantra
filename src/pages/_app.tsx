@@ -1,31 +1,25 @@
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
-import ReactGA from 'react-ga';
-import localFont from '@next/font/local';
+import { SessionProvider } from 'next-auth/react';
+import { DefaultSession } from 'next-auth';
 
-// const bronson = localFont({
-//     src: [
-//         {
-//             path: '../../public/BronsonBlack.ttf',
-//         },
-//     ],
-//     variable: '--font-bronson',
-// });
+interface AppPropsWithSession extends AppProps {
+    session: Session;
+}
 
-// const trackingID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID;
+interface Session {
+    user: {} & DefaultSession['user'];
+    expires: string;
+}
 
-// if (trackingID) {
-//     ReactGA.initialize(trackingID);
-// } else {
-//     // Handle the case when the tracking ID is undefined
-//     console.error('Google Analytics tracking ID is not defined.');
-// }
-
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+    Component,
+    pageProps,
+    session,
+}: AppPropsWithSession) {
     return (
-        <Component
-            // className={`${bronson.variable}`}
-            {...pageProps}
-        />
+        <SessionProvider session={session}>
+            <Component {...pageProps} />
+        </SessionProvider>
     );
 }
