@@ -1,3 +1,4 @@
+import { LOCK_SUBMISSIONS } from '@/constants';
 import { connectToDB } from '@/managers/DB';
 import sessionCheck from '@/middlewares/sessionCheck';
 import teamCheck from '@/middlewares/teamCheck';
@@ -36,14 +37,21 @@ const addSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
                     validationRes.error.issues[0].message,
             });
         else {
-            const submission = await Submission.create(req.body);
-            const team = await Team.findById(req.team.id);
-            team.submission = submission.id;
-            await team.save();
+            if (LOCK_SUBMISSIONS)
+                res.status(201).json({
+                    status: 'error',
+                    message: 'Submissions are now locked.',
+                });
+            else {
+                const submission = await Submission.create(req.body);
+                const team = await Team.findById(req.team.id);
+                team.submission = submission.id;
+                await team.save();
 
-            res.status(201).json({
-                status: 'success',
-            });
+                res.status(201).json({
+                    status: 'success',
+                });
+            }
         }
     } catch {
         res.status(500).json({
@@ -64,12 +72,21 @@ const editSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
                     validationRes.error.issues[0].message,
             });
         else {
-            const submission = await Submission.findById(req.team.submission);
-            await submission.update(req.body);
+            if (LOCK_SUBMISSIONS)
+                res.status(201).json({
+                    status: 'error',
+                    message: 'Submissions are now locked.',
+                });
+            else {
+                const submission = await Submission.findById(
+                    req.team.submission
+                );
+                await submission.update(req.body);
 
-            res.status(201).json({
-                status: 'success',
-            });
+                res.status(201).json({
+                    status: 'success',
+                });
+            }
         }
     } catch {
         res.status(500).json({

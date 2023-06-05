@@ -5,6 +5,7 @@ import fs from 'fs/promises';
 import sessionCheck from '@/middlewares/sessionCheck';
 import teamCheck from '@/middlewares/teamCheck';
 import Submission from '@/models/submissionModel';
+import { LOCK_SUBMISSIONS } from '@/constants';
 
 export const config = {
     api: {
@@ -41,28 +42,35 @@ const readFile = (
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-    try {
-        await fs.readdir(
-            path.join(
-                process.cwd() + '/public',
-                '/submissions',
-                `/${req.team.id}`
-            )
-        );
-    } catch (error) {
-        await fs.mkdir(
-            path.join(
-                process.cwd() + '/public',
-                '/submissions',
-                `/${req.team.id}`
-            )
-        );
+    if (LOCK_SUBMISSIONS)
+        res.status(201).json({
+            status: 'error',
+            message: 'Submissions are now locked.',
+        });
+    else {
+        try {
+            await fs.readdir(
+                path.join(
+                    process.cwd() + '/public',
+                    '/submissions',
+                    `/${req.team.id}`
+                )
+            );
+        } catch (error) {
+            await fs.mkdir(
+                path.join(
+                    process.cwd() + '/public',
+                    '/submissions',
+                    `/${req.team.id}`
+                )
+            );
+        }
+        await readFile(req);
+        res.status(200).json({
+            status: 'success',
+            message: 'Files successfully uploaded.',
+        });
     }
-    await readFile(req);
-    res.status(200).json({
-        status: 'success',
-        message: 'Files successfully uploaded.',
-    });
 };
 
 export default sessionCheck(teamCheck(handler));
