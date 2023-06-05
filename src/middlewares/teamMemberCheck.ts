@@ -1,22 +1,17 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { TeamDocument } from '@/models/teamModel';
-import Team from '@/models/teamModel';
 
-const teamCheck =
+const teamMemberCheck =
     (handler: (req: NextApiRequest, res: NextApiResponse) => Promise<void>) =>
     async (req: NextApiRequest, res: NextApiResponse) => {
         try {
-            const teamID = req.body.teamID;
-            const team: TeamDocument | null = await Team.findById(teamID);
-            if (!team)
+            const team = req.team;
+            if (!team.members.includes(req.session.user.id))
                 return res.status(400).json({
                     status: 'success',
-                    message: 'No Team with this ID found.',
+                    message:
+                        'Cannot perform this action. You are not a part of this team.',
                 });
-            else {
-                req.team = team;
-                return handler(req, res);
-            }
+            else return handler(req, res);
         } catch (error) {
             return res.status(500).json({
                 status: 'error',
@@ -25,4 +20,4 @@ const teamCheck =
         }
     };
 
-export default teamCheck;
+export default teamMemberCheck;

@@ -8,7 +8,9 @@ interface AppPropsWithSession extends AppProps {
 }
 
 interface Session {
-    user: {} & DefaultSession['user'];
+    user: {
+        id: string;
+    } & DefaultSession['user'];
     expires: string;
 }
 

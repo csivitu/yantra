@@ -31,7 +31,7 @@ const sessionCheck =
         } catch (error) {
             return res.status(500).json({
                 status: 'error',
-                message: 'Internal Server Error2',
+                message: 'Internal Server Error',
             });
         }
     };
