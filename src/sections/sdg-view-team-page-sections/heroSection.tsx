@@ -9,6 +9,7 @@ import Toaster from '@/utils/toaster';
 import ProjectSubmission from '@/sections/sdg-view-team-page-sections/project-submission';
 import EditSubmission from './edit-submission';
 import ViewSubmission from './view-submission';
+import { LOCK_SUBMISSIONS } from '@/constants';
 
 const HeroSection = () => {
     const router = useRouter();
@@ -120,7 +121,16 @@ const HeroSection = () => {
                                     )}
                                 </>
                             ) : (
-                                <ProjectSubmission />
+                                <>
+                                    {' '}
+                                    {LOCK_SUBMISSIONS ? (
+                                        <div className="font-bronson w-full h-[50vh] flex justify-center items-center">
+                                            Submission aren&apos;t Open Yet!
+                                        </div>
+                                    ) : (
+                                        <ProjectSubmission />
+                                    )}
+                                </>
                             )}
                         </div>
                     </>
