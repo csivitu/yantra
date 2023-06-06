@@ -92,10 +92,10 @@ const editSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
                     message: 'Submissions are now locked.',
                 });
             else {
-                const submission = await Submission.findById(
-                    req.team.submission
+                const submission = await Submission.findByIdAndUpdate(
+                    req.team.submission,
+                    req.body
                 );
-                await submission.update(req.body);
 
                 res.status(201).json({
                     status: 'success',
