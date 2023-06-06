@@ -7,10 +7,11 @@ import InputField from '@/components/common/InputField';
 import TagsField from '@/components/common/TagsField';
 import Toaster from '@/utils/toaster';
 import Dropdown from '@/components/common/Dropdown';
-import postHandler from '@/handlers/postHandler';
+
 import { useSession } from 'next-auth/react';
 import { SubmissionType } from '@/models/submissionModel';
 import mongoose from 'mongoose';
+import patchHandler from '@/handlers/patchHandler';
 
 const EditSubmission = () => {
     const [submission, setSubmission] = useState<SubmissionType>();
@@ -60,11 +61,11 @@ const EditSubmission = () => {
         const formData = {
             title: projectName,
             description: projectDescription,
-            track: track,
+
             links: links,
         };
 
-        const res = await postHandler(
+        const res = await patchHandler(
             `${process.env.NEXT_PUBLIC_BASE_URL}/api/submission`,
             formData
         );
