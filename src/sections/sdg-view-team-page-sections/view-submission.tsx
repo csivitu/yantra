@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Loader from '@/components/common/loader';
-import InputField from '@/components/common/InputField';
-import TagsField from '@/components/common/TagsField';
 import Toaster from '@/utils/toaster';
 import postHandler from '@/handlers/postHandler';
 import { useSession } from 'next-auth/react';
