@@ -10,8 +10,6 @@ import { SubmissionType } from '@/models/submissionModel';
 import patchHandler from '@/handlers/patchHandler';
 import postHandler from '@/handlers/postHandler';
 import InputTextField from '@/components/common/InputTextField';
-// import path from 'path';
-// import * as fs from 'fs';
 
 type ViewSubmissionProps = {
     toggleEdit: (value: number) => void;
@@ -22,6 +20,7 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
     const [projectDescription, setProjectDescription] = useState('');
     const [links, setLinks] = useState<string[]>([]);
     const [inputFiles, setInputFiles] = useState<File[]>();
+    const [files, setFiles] = useState<string[]>([]);
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
@@ -39,15 +38,8 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                 setProjectName(sub.title);
                 setProjectDescription(sub.description);
                 setLinks(sub.links);
+                setFiles(sub.files);
                 setLoading(false);
-                const files = [];
-
-                // sub.files.forEach((file) => {
-                //     fs.readFile(
-                //         path.join(process.cwd(), `/public/${file}`),
-                //         (err, data) => {}
-                //     );
-                // });
             }
         }
     }, [session]);
@@ -90,13 +82,21 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
         }
     };
 
+    const handleRemoveFile = (index: number) => {
+        const newFiles: File[] = [];
+        inputFiles?.forEach((el, i) => {
+            if (i !== index) newFiles.push(el);
+        });
+        setInputFiles(newFiles);
+    };
+
     return (
         <>
             <div className="h-full w-full flex justify-around items-center">
                 {loading ? (
                     <Loader />
                 ) : (
-                    <div className="h-full w-full font-spaceGrotesk flex flex-col gap-2 justify-center">
+                    <div className="h-full w-full font-spaceGrotesk flex flex-col gap-2 justify-start mt-12 pb-12">
                         <div className="w-full font-bronson text-2xl flex justify-between pr-4">
                             <div>Edit Submission Details</div>
                             <div
@@ -124,6 +124,41 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                             tags={links}
                             setTags={setLinks}
                         />
+                        <div className="text-sm flex justify-start gap-2 items-center pt-4">
+                            <p className="font-spaceGrotesk text-white opacity-[0.4]">
+                                New Files
+                            </p>
+                            <div>
+                                <Image
+                                    src="/edit-button.svg"
+                                    alt="Logo"
+                                    height={1000000}
+                                    width={100000}
+                                    className="w-4 h-4 object-contain cursor-pointer"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="w-full flex flex-col text-center">
+                            {inputFiles?.map((file, index) => {
+                                return (
+                                    <div
+                                        key={file.name}
+                                        className="w-full flex justify-between border-[1px] border-white border-dashed px-2 py-1 pr-3 rounded-md text-base text-ellipsis overflow-hidden"
+                                    >
+                                        <div>{file?.name}</div>
+                                        <div
+                                            className="cursor-pointer"
+                                            onClick={() =>
+                                                handleRemoveFile(index)
+                                            }
+                                        >
+                                            X
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
                         <div className="flex h-max py-0 gap-x-10 justify-start items-center flex-row gap-2">
                             <input
                                 type="file"
@@ -139,16 +174,26 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                                                 names.push(file.name)
                                             );
                                             if (!names.includes(file.name)) {
-                                                if (inputFiles) {
-                                                    const newFiles = [
-                                                        ...inputFiles,
-                                                        file,
-                                                    ];
-                                                    setInputFiles(newFiles);
-                                                } else {
-                                                    const newFiles = [file];
-                                                    setInputFiles(newFiles);
-                                                }
+                                                if (
+                                                    inputFiles &&
+                                                    inputFiles?.length +
+                                                        files.length <
+                                                        5
+                                                ) {
+                                                    if (inputFiles) {
+                                                        const newFiles = [
+                                                            ...inputFiles,
+                                                            file,
+                                                        ];
+                                                        setInputFiles(newFiles);
+                                                    } else {
+                                                        const newFiles = [file];
+                                                        setInputFiles(newFiles);
+                                                    }
+                                                } else
+                                                    Toaster.error(
+                                                        'Can only input 5 files.'
+                                                    );
                                             }
                                         } else
                                             Toaster.error(
@@ -158,61 +203,54 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                                 }}
                             />
 
-                            <div className=" w-[40%] h-full">
-                                <div
-                                    className={`w-full relative cursor-pointer h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group`}
-                                >
-                                    <span className="w-96 h-96 rotate-45 cursor-pointer -translate-x-10 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
-                                    <span className="absolute top-0 cursor-pointer left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-0"></span>
-
-                                    <span className="absolute inset-0 cursor-pointer border-2 border-white rounded-full"></span>
-                                    <label
-                                        htmlFor="resume"
-                                        className="cursor-pointer flex justify-start items-center gap-x-2"
+                            <div className="w-full flex justify-around">
+                                <div className=" w-1/4 h-full">
+                                    <div
+                                        className={`w-full relative cursor-pointer h-12 mt-4 flex items-center justify-center py-3 overflow-hidden font-bold rounded-full group`}
                                     >
-                                        <Image
-                                            width={10000}
-                                            height={10000}
-                                            alt={'+'}
-                                            src={'/add.svg'}
-                                            className={'w-5 h-5 cursor-pointer'}
-                                        />
-                                        <span className="font-spaceGrotesk cursor-pointer text-lg font-bold flex justify-center items-center  relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
-                                            ADD FILE
-                                        </span>
-                                    </label>
-                                </div>
-                                <div className="absolute flex flex-col text-center">
-                                    {inputFiles?.map((file) => {
-                                        return (
-                                            <div
-                                                key={file.name}
-                                                className="w-full cursor-pointer text-center text-sm text-ellipsis overflow-hidden"
-                                            >
-                                                {file?.name}
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-                            <div
-                                onClick={handleSubmit}
-                                className="cursor-pointer relative w-[40%] h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
-                            >
-                                <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
-                                <span className="absolute top-0 left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-0"></span>
+                                        <label
+                                            htmlFor="resume"
+                                            className="cursor-pointer flex justify-start items-center gap-x-2"
+                                        >
+                                            <span className="w-96 h-96 rotate-45 cursor-pointer -translate-x-10 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
+                                            <span className="absolute top-0 cursor-pointer left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-0"></span>
 
-                                <span className="font-spaceGrotesk text-lg font-bold  items-center  relative w-full text-left flex justify-center gap-x-3 text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
-                                    <Image
-                                        src="/edit-button.svg"
-                                        alt="Logo"
-                                        height={1000000}
-                                        width={100000}
-                                        className="w-4 h-4 object-contain cursor-pointer"
-                                    />
-                                    <div>SUBMIT</div>
-                                </span>
-                                <span className="absolute inset-0 border-2 border-white rounded-full"></span>
+                                            <span className="absolute inset-0 cursor-pointer border-2 border-white rounded-full"></span>
+
+                                            <Image
+                                                width={10000}
+                                                height={10000}
+                                                alt={'+'}
+                                                src={'/add.svg'}
+                                                className={
+                                                    'w-5 h-5 cursor-pointer'
+                                                }
+                                            />
+                                            <span className="font-spaceGrotesk cursor-pointer text-lg font-bold flex justify-center items-center  relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
+                                                Add File
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div
+                                    onClick={handleSubmit}
+                                    className="cursor-pointer relative w-1/4 h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
+                                >
+                                    <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
+                                    <span className="absolute top-0 left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-0"></span>
+
+                                    <span className="font-spaceGrotesk text-lg font-bold  items-center  relative w-full text-left flex justify-center gap-x-3 text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
+                                        <Image
+                                            src="/edit-button.svg"
+                                            alt="Logo"
+                                            height={1000000}
+                                            width={100000}
+                                            className="w-4 h-4 object-contain cursor-pointer"
+                                        />
+                                        <div>SUBMIT</div>
+                                    </span>
+                                    <span className="absolute inset-0 border-2 border-white rounded-full"></span>
+                                </div>
                             </div>
                         </div>
                     </div>

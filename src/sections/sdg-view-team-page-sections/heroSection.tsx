@@ -2,17 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { TeamType } from '@/models/teamModel';
 import mongoose from 'mongoose';
-import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Loader from '@/components/common/loader';
 import Toaster from '@/utils/toaster';
 import patchHandler from '@/handlers/patchHandler';
 import ProjectSubmission from '@/sections/sdg-view-team-page-sections/project-submission';
-
 import EditSubmission from './edit-submission';
-import { SubmissionType } from '@/models/submissionModel';
 import ViewSubmission from './view-submission';
+
 const HeroSection = () => {
     const router = useRouter();
     const [teamDetails, setTeamDetails] = useState<TeamType>({

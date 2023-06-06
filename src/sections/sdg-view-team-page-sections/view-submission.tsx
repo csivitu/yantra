@@ -73,7 +73,7 @@ const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                                 Links
                             </p>
                         </div>
-                        <div>
+                        <div className="w-full flex flex-col">
                             {submission?.links.map((el) => {
                                 return (
                                     <Link

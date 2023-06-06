@@ -63,11 +63,11 @@ const TagsField = ({ label, tags, setTags }: Props) => {
                 {tags.map((tag) => (
                     <div
                         key={tag}
-                        className="flex items-center justify-center py-1 border-[1px] rounded-md cursor-default px-3"
+                        className="flex items-center justify-center py-1 border-[1px] rounded-md cursor-default px-3 line-clamp-1"
                     >
                         {tag}
                         <svg
-                            className="w-4 h-4 ml-1  cursor-pointer"
+                            className="w-4 h-4 ml-1 cursor-pointer z-10"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
