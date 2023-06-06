@@ -71,8 +71,8 @@ const TrackPage = ({ id }: Props) => {
     return (
         <>
             <SDGHeader />
-            <div className="h-max bg-events-bg font-spaceGrotesk bg-cover">
-                <div className="h-max w-full">
+            <div className="h-[100vh] bg-events-bg font-spaceGrotesk bg-cover">
+                <div className="max-lg:h-max h-full w-full">
                     {tracks &&
                         tracks.map((el) => {
                             if (el.id == id) {
@@ -85,17 +85,17 @@ const TrackPage = ({ id }: Props) => {
                                             >
                                                 {el.track}
                                             </div>
-                                            <div className="text-white mt-4 pb-8">
+                                            <div className="text-white h-full mt-4 pb-8">
                                                 <p className="text-3xl">
                                                     Problem Statements :
                                                 </p>
-                                                <div className="flex justify-around max-lg:flex-col gap-y-10 my-6 items-center flex-wrap">
+                                                <div className="flex h-full justify-around max-lg:flex-col gap-y-10 my-6 items-center lg:flex-wrap">
                                                     {el.paragraphs &&
                                                         el.paragraphs.map(
                                                             (el2) => {
                                                                 return (
                                                                     <>
-                                                                        <div className="flex justify-center items-center py-2 border-2 rounded-md border-white px-2 text-center text-lg lg:w-[30%] lg:h-[40vh] max-xl:h-[54vh] max-xl:text-2xl glassMorphism2">
+                                                                        <div className="flex justify-center items-center py-2 border-2 rounded-md border-white px-2 text-center text-lg lg:w-[30%] lg:h-[60%]  glassMorphism2">
                                                                             {
                                                                                 el2
                                                                             }

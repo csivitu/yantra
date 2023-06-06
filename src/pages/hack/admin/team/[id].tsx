@@ -55,7 +55,6 @@ const ProjectReviewPage = ({ id }: Props) => {
         id: new mongoose.Schema.Types.ObjectId(''),
         title: '',
         members: [],
-        isNameChanged: false,
         submission: new mongoose.Schema.Types.ObjectId(''),
     });
     const [loading, setLoading] = useState(true);
@@ -110,43 +109,7 @@ const ProjectReviewPage = ({ id }: Props) => {
                                 </div>
                             </div>{' '}
                             <div className="h-fit flex justify-start items-center gap-x-3 text-5xl text-white font-bronson max-md:my-4 max-md:text-4xl">
-                                {changeTitle ? (
-                                    <input
-                                        type="text"
-                                        className="focus:outline-none bg-none text-black w-full"
-                                        value={newTitle}
-                                        onChange={(el) =>
-                                            setNewTitle(el.target.value)
-                                        }
-                                    />
-                                ) : (
-                                    <div>{teamDetails.title}</div>
-                                )}
-
-                                <Image
-                                    src="/edit-button.svg"
-                                    alt="Logo"
-                                    height={1000000}
-                                    width={100000}
-                                    className={`w-6 h-6 object-contain cursor-pointer ${
-                                        teamDetails.isNameChanged
-                                            ? 'hidden'
-                                            : changeTitle
-                                            ? 'hidden'
-                                            : ''
-                                    }`}
-                                    onClick={() => setChangeTitle(true)}
-                                />
-
-                                <Image
-                                    src="/arrow.png"
-                                    alt="Logo"
-                                    height={1000000}
-                                    width={100000}
-                                    className={`w-6 h-6 object-contain cursor-pointer ${
-                                        !changeTitle ? 'hidden' : ''
-                                    }`}
-                                />
+                                <div>{teamDetails.title}</div>
                             </div>
                             <div className="flex md:flex-col gap-4 max-md:w-full max-md:justify-between pt-6">
                                 <div className="h-max">
