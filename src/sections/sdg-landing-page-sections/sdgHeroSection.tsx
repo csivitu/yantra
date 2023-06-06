@@ -24,7 +24,7 @@ const SDGHeroSection = () => {
 
     const handleClick = () => {
         if (!session) signIn('google');
-        else router.push('/sdg/view-team');
+        else router.push('/sdg/team');
     };
 
     return (

@@ -90,7 +90,7 @@ const EditSubmission = () => {
                         <form onSubmit={handleSubmit}>
                             <InputField
                                 type="text"
-                                label="Title"
+                                label="Project Title"
                                 value={projectName}
                                 onChange={setProjectName}
                             />
@@ -145,29 +145,33 @@ const EditSubmission = () => {
                                     }}
                                 />
 
-                                <div
-                                    className={` relative w-[30%] cursor-pointer h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group`}
-                                >
-                                    <span className="w-96 h-96 rotate-45 cursor-pointer translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
-                                    <span className="absolute top-0 cursor-pointer left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
-
-                                    <span className="absolute inset-0 cursor-pointer border-2 border-white rounded-full"></span>
-                                    <label
-                                        htmlFor="resume"
-                                        className="cursor-pointer flex justify-start items-center gap-x-2"
+                                <div className=" w-[40%] h-full">
+                                    <div
+                                        className={`w-full relative cursor-pointer h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group`}
                                     >
-                                        <Image
-                                            width={10000}
-                                            height={10000}
-                                            alt={'+'}
-                                            src={'/add.svg'}
-                                            className={'w-5 h-5 cursor-pointer'}
-                                        />
-                                        <span className="font-spaceGrotesk cursor-pointer text-lg font-bold flex justify-center items-center  relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
-                                            ADD FILE
-                                        </span>
-                                    </label>
-                                    <>
+                                        <span className="w-96 h-96 rotate-45 cursor-pointer -translate-x-10 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
+                                        <span className="absolute top-0 cursor-pointer left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-0"></span>
+
+                                        <span className="absolute inset-0 cursor-pointer border-2 border-white rounded-full"></span>
+                                        <label
+                                            htmlFor="resume"
+                                            className="cursor-pointer flex justify-start items-center gap-x-2"
+                                        >
+                                            <Image
+                                                width={10000}
+                                                height={10000}
+                                                alt={'+'}
+                                                src={'/add.svg'}
+                                                className={
+                                                    'w-5 h-5 cursor-pointer'
+                                                }
+                                            />
+                                            <span className="font-spaceGrotesk cursor-pointer text-lg font-bold flex justify-center items-center  relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
+                                                ADD FILE
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div className="absolute flex flex-col text-center">
                                         {inputFiles?.map((file) => {
                                             return (
                                                 <div
@@ -178,14 +182,14 @@ const EditSubmission = () => {
                                                 </div>
                                             );
                                         })}
-                                    </>
+                                    </div>
                                 </div>
                                 <div
                                     onClick={handleSubmit}
-                                    className="cursor-pointer relative w-[30%] h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
+                                    className="cursor-pointer relative w-[40%] h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
                                 >
                                     <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
-                                    <span className="absolute top-0 left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
+                                    <span className="absolute top-0 left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-0"></span>
                                     <span className="font-spaceGrotesk text-lg font-bold flex justify-center items-center  relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
                                         SUBMIT
                                     </span>
