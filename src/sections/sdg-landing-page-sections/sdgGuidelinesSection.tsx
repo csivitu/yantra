@@ -7,7 +7,7 @@ const SDGGuidelinesSection = () => {
                 id="prizes-section"
                 className="w-full mt-20 max-md:text-4xl h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold m-auto text-center"
             >
-                WIN CASH PRIZES WORTH
+                GUIDELINES
             </div>
             <div className="flex justify-around items-center px-5 sm:px-20 gap-y-3 py-10 flex-col text-white">
                 <div className="w-[100%]">

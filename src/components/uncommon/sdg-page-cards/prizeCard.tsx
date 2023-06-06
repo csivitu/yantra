@@ -11,7 +11,7 @@ const PrizeCard = ({ name, amount, text, iconSource }: Props) => {
     // const { name, amount, text, iconSource } = el;
     return (
         <>
-            <div className=" relative font-spaceGrotesk bg-[#252525] bg-opacity-40 text-white  lg:h-[35vh] lg:w-[20vw] h-[17.5vh] w-[40%] rounded-xl">
+            <div className=" relative font-spaceGrotesk bg-[#252525] bg-opacity-40 text-white  lg:h-[35vh] lg:w-[20vw] h-[25vh] w-[40%] rounded-xl">
                 <div className="flex h-full w-full flex-col justify-center items-center gap-1 sm:gap-3">
                     <div className="sm:text-2xl w-full px-3  flex justify-around items-center text-center">
                         {name}
@@ -19,7 +19,7 @@ const PrizeCard = ({ name, amount, text, iconSource }: Props) => {
                     <div className="sm:text-3xl w-full text-center drop-shadow-prize-text">
                         ₹{amount}
                     </div>
-                    <div className="text-sm px-8 w-full text-center">
+                    <div className="text-sm px-3 sm:px-8 w-full text-center">
                         {text}
                     </div>
                 </div>
