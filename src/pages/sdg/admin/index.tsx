@@ -1,9 +1,29 @@
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchBar from '@/components/common/searchBar';
 import ProjectCard from '@/components/uncommon/sdg-admin-page-cards/ProjectCard';
+import { SubmissionPopulatedTeam } from '@/models/teamModel';
+import getHandler from '@/handlers/getHandler';
+import Loader from '@/components/common/loader';
+import { GetServerSidePropsContext } from 'next';
+import { getSession } from 'next-auth/react';
+
 const Index = () => {
     const router = useRouter();
+    const [teams, setTeams] = useState<SubmissionPopulatedTeam[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        getHandler(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/teams`)
+            .then((res) => {
+                setTeams(res.data.teams);
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
+
     return (
         <>
             <div className="w-full lg:px-32 flex items-center max-md:flex-col">
@@ -40,15 +60,39 @@ const Index = () => {
                 </div>
             </div>
             <div className="h-max px-4 lg:px-20 py-10 gap-y-5 sm:gap-y-3 flex justify-around items-start flex-col">
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
+                {loading ? (
+                    <Loader />
+                ) : (
+                    <>
+                        {teams.map((team) => {
+                            return (
+                                <ProjectCard
+                                    key={String(team.id)}
+                                    team={team}
+                                />
+                            );
+                        })}
+                    </>
+                )}
             </div>
         </>
     );
+};
+
+export const getServerSideProps = async (
+    context: GetServerSidePropsContext
+) => {
+    const session = await getSession(context);
+    if (!session || !session.user.isAdmin) {
+        return {
+            redirect: {
+                destination: '/sdg',
+            },
+        };
+    }
+    return {
+        props: {},
+    };
 };
 
 export default Index;

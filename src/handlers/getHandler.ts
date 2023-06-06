@@ -1,13 +1,10 @@
 import axios from 'axios';
 import { getCookie } from 'cookies-next';
 
-const getHandler = async (URL: string, protect: boolean) => {
+const getHandler = async (URL: string) => {
     const headers = {
         'Content-Type': 'application/json',
-        Authorization: '',
-        'ngrok-skip-browser-warning': true,
     };
-    if (protect) headers.Authorization = `Bearer ${getCookie('token')}`;
     const response: any = {
         status: 0,
         data: '',

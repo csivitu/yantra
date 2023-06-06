@@ -45,6 +45,7 @@ const authOptions: NextAuthOptions = {
                 user: {
                     ...session.user,
                     id: user.id,
+                    isAdmin: user.admin,
                     team: team, // for all purposes
                 },
             };

@@ -3,6 +3,10 @@ import NextAuth, { DefaultSession } from 'next-auth';
 
 declare module 'next-auth' {
     export interface Session {
-        user: { id: string; team: TeamDocument } & DefaultSession['user'];
+        user: {
+            id: string;
+            team: TeamDocument;
+            isAdmin: boolean;
+        } & DefaultSession['user'];
     }
 }
