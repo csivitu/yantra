@@ -58,7 +58,7 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
                     </div>
                     <div
                         className="cursor-pointer w-[80%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
-                        onClick={() => router.push('/sdg')}
+                        onClick={() => router.push('/hack')}
                     >
                         YANTRA Hackathon
                     </div>

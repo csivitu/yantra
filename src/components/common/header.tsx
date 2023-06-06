@@ -92,7 +92,7 @@ const Header = () => {
                     </div>
                     <div
                         className="cursor-pointer hover-underline-animation"
-                        onClick={() => router.push('/sdg')}
+                        onClick={() => router.push('/hack')}
                     >
                         YANTRA Hackathon
                     </div>

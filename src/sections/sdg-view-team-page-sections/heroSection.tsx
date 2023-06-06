@@ -33,7 +33,7 @@ const HeroSection = () => {
                 Toaster.error(
                     'You are not a part of any team, contact the admin.'
                 );
-                router.push('/sdg');
+                router.push('/hack');
             } else {
                 setTeamDetails(session.user.team);
                 setNewTitle(session.user.team.title);
@@ -71,7 +71,7 @@ const HeroSection = () => {
                         <div className="lg:w-[60%] w-full h-full">
                             <div className=" h-[7.5vh] flex justify-start gap-2 items-center max-md:hidden">
                                 <div
-                                    onClick={() => router.push('/sdg')}
+                                    onClick={() => router.push('/hack')}
                                     className="flex justify-start gap-2 items-center cursor-pointer"
                                 >
                                     <svg

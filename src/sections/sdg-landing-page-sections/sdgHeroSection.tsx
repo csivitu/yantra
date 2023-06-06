@@ -24,7 +24,7 @@ const SDGHeroSection = () => {
 
     const handleClick = () => {
         if (!session) signIn('google');
-        else router.push('/sdg/team');
+        else router.push('/hack/team');
     };
 
     return (
@@ -71,7 +71,7 @@ const SDGHeroSection = () => {
                             REGISTER NOW
                         </span>
                     </Link> */}
-                    <div
+                    {/* <div
                         onClick={handleClick}
                         className="cursor-pointer relative w-42 h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
                     >
@@ -81,7 +81,7 @@ const SDGHeroSection = () => {
                             {session ? 'VIEW TEAM' : 'REGISTER NOW'}
                         </span>
                         <span className="absolute inset-0 border-2 border-white rounded-full"></span>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="lg:w-[50%] w-[100%] lg:h-[100%] h-[50%] bg-transparent">
                     <div className="h-full w-full bg-transparent">

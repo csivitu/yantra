@@ -36,7 +36,7 @@ const SDGHeader = () => {
             if (targetElement) {
                 targetElement.scrollIntoView({ behavior: 'smooth' });
             }
-            router.push('/sdg/#' + targetId);
+            router.push('/hack/#' + targetId);
         } else if (router.asPath.startsWith('/sdg')) {
             const targetElement = document.getElementById(targetId);
             if (targetElement) {

@@ -22,7 +22,7 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
             if (targetElement) {
                 targetElement.scrollIntoView({ behavior: 'smooth' });
             }
-            router.push('/sdg/#' + targetId);
+            router.push('/hack/#' + targetId);
         } else if (router.asPath.startsWith('/sdg')) {
             const targetElement = document.getElementById(targetId);
             if (targetElement) {
@@ -60,7 +60,7 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
                 <div className="h-[70vh] w-[80vw] font-spaceGrotesk lg:w-[30%]  glassMorphism3 rounded-lg text-3xl lg:text-3xl flex justify-around items-center flex-col">
                     <div
                         className="cursor-pointer w-[80%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
-                        onClick={() => router.push('/sdg')}
+                        onClick={() => router.push('/hack')}
                     >
                         YANTRA
                     </div>

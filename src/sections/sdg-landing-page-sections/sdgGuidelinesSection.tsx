@@ -9,9 +9,9 @@ const SDGGuidelinesSection = () => {
             >
                 GUIDELINES
             </div>
-            <div className="flex justify-around items-center px-12 sm:px-48 gap-y-3 py-10 flex-col text-white">
+            <div className="flex justify-around items-center px-12 sm:px-48 gap-y-6 py-10 flex-col text-white">
                 <div className="w-[100%]">
-                    <span className="text-xl font-bold text-[#279B48]">
+                    <span className="text-2xl font-bold text-[#279B48]">
                         1. Eligibility :
                     </span>{' '}
                     During the Yantra week multiple clubs and chapters had
@@ -25,21 +25,21 @@ const SDGGuidelinesSection = () => {
                     Technology, Vellore and must be in campus to take part.
                 </div>
                 <div className="w-[100%]">
-                    <span className="text-xl font-bold text-[#279B48]">
+                    <span className="text-2xl font-bold text-[#279B48]">
                         2. Venue & Format :
                     </span>{' '}
                     The event will take place in a completely offline format at
                     the Anna Auditorium. Participation is free of charge.
                 </div>
                 <div className="w-[100%]">
-                    <span className="text-xl font-bold text-[#279B48]">
+                    <span className="text-2xl font-bold text-[#279B48]">
                         3. Team Composition :
                     </span>{' '}
                     We believe in the power of teamwork! Form a team of 4 to 5
                     members to participate in the hackathon.
                 </div>
                 <div className="w-[100%]">
-                    <span className="text-xl font-bold text-[#279B48]">
+                    <span className="text-2xl font-bold text-[#279B48]">
                         4. Duration :
                     </span>{' '}
                     The hackathon will run from 6th June, 2023 to 8th June,
@@ -48,7 +48,7 @@ const SDGGuidelinesSection = () => {
                     will not be considered.
                 </div>
                 <div className="w-[100%]">
-                    <span className="text-xl font-bold text-[#279B48]">
+                    <span className="text-2xl font-bold text-[#279B48]">
                         5. Tracks & Project Submission :
                     </span>{' '}
                     We have six tracks for the hackathon, each with its own
@@ -57,14 +57,14 @@ const SDGGuidelinesSection = () => {
                     chosen track.
                 </div>
                 <div className="w-[100%]">
-                    <span className="text-xl font-bold text-[#279B48]">
+                    <span className="text-2xl font-bold text-[#279B48]">
                         6. Originality :
                     </span>{' '}
                     Your solutions should be innovative and developed on your
                     own merit. Plagiarized ideas will lead to disqualification.
                 </div>
                 <div className="w-[100%]">
-                    <span className="text-xl font-bold text-[#279B48]">
+                    <span className="text-2xl font-bold text-[#279B48]">
                         {' '}
                         7. Development :
                     </span>{' '}
@@ -77,14 +77,14 @@ const SDGGuidelinesSection = () => {
                     Connect, Twitter feeds, etc.
                 </div>
                 <div className="w-[100%]">
-                    <span className="text-xl font-bold text-[#279B48]">
+                    <span className="text-2xl font-bold text-[#279B48]">
                         8. Intellectual Property :
                     </span>{' '}
                     The intellectual property rights of your code and all
                     associated materials belong solely to your team.
                 </div>
                 <div className="w-[100%]">
-                    <span className="text-xl font-bold text-[#279B48]">
+                    <span className="text-2xl font-bold text-[#279B48]">
                         9. Fair Play :
                     </span>{' '}
                     We uphold the highest standards of integrity and expect the

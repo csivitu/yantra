@@ -31,7 +31,7 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                 Toaster.error(
                     'You are not a part of any team, contact the admin.'
                 );
-                router.push('/sdg');
+                router.push('/hack');
             } else {
                 const sub = session.user.team
                     .submission as unknown as SubmissionType;

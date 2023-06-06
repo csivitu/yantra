@@ -6,6 +6,7 @@ import { useSession } from 'next-auth/react';
 import { SubmissionType } from '@/models/submissionModel';
 import Link from 'next/link';
 import { LOCK_SUBMISSIONS } from '@/constants';
+import getHandler from '@/handlers/getHandler';
 
 type ViewSubmissionProps = {
     toggleEdit: (value: number) => void;
@@ -23,13 +24,24 @@ const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                 Toaster.error(
                     'You are not a part of any team, contact the admin.'
                 );
-                router.push('/sdg');
+                router.push('/hack');
             } else {
                 setSubmission(
                     session.user.team.submission as unknown as SubmissionType
                 );
                 const sub = session.user.team
                     .submission as unknown as SubmissionType;
+
+                if (!sub.title)
+                    getHandler(
+                        `${process.env.NEXT_PUBLIC_BASE_URL}/api/submission`
+                    )
+                        .then((res) => {
+                            setSubmission(res.data.submission);
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        });
 
                 setLoading(false);
             }
@@ -74,22 +86,23 @@ const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                             </p>
                         </div>
                         <div className="w-full flex flex-col">
-                            {submission?.links.map((el) => {
-                                return (
-                                    <Link
-                                        href={el}
-                                        key={Math.random()}
-                                        className="hover:underline underline-offset-4"
-                                    >
-                                        {
-                                            new URL(el)
-                                                ? new URL(el).hostname
-                                                : el
-                                            //add a svg here
-                                        }
-                                    </Link>
-                                );
-                            })}
+                            {submission?.links &&
+                                submission?.links.map((el) => {
+                                    return (
+                                        <Link
+                                            href={el}
+                                            key={Math.random()}
+                                            className="hover:underline underline-offset-4"
+                                        >
+                                            {
+                                                new URL(el)
+                                                    ? new URL(el).hostname
+                                                    : el
+                                                //add a svg here
+                                            }
+                                        </Link>
+                                    );
+                                })}
                         </div>
 
                         <div className="text-sm flex justify-start gap-2 items-center pt-4">
@@ -98,18 +111,19 @@ const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                             </p>
                         </div>
                         <div className="w-full flex flex-col">
-                            {submission?.files.map((el) => {
-                                return (
-                                    <Link
-                                        href={`/${el}`}
-                                        target="_blank"
-                                        key={Math.random()}
-                                        className="hover:underline underline-offset-4"
-                                    >
-                                        {el.split('/').slice(-1)}
-                                    </Link>
-                                );
-                            })}
+                            {submission?.files &&
+                                submission?.files.map((el) => {
+                                    return (
+                                        <Link
+                                            href={`/${el}`}
+                                            target="_blank"
+                                            key={Math.random()}
+                                            className="hover:underline underline-offset-4"
+                                        >
+                                            {el.split('/').slice(-1)}
+                                        </Link>
+                                    );
+                                })}
                         </div>
 
                         {!LOCK_SUBMISSIONS && (

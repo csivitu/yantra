@@ -18,7 +18,7 @@ const TrackCard = ({ name, rank, text, colour, iconSource }: Props) => {
                 onClick={() => {
                     setModalVisibility(true);
                 }}
-                className="cursor-pointer relative max-sm:py-5 py-3 font-spaceGrotesk bg-[#252525] bg-opacity-40 text-white   lg:w-[20vw] max-sm:h-[32.5vh] sm:h-[40vh] w-[70%] rounded-xl"
+                className="cursor-default relative max-sm:py-5 py-3 font-spaceGrotesk bg-[#252525] bg-opacity-40 text-white lg:w-[20vw] max-sm:h-[32.5vh] sm:h-[50vh] w-[70%] rounded-xl"
             >
                 <div className="flex h-full w-full flex-col gap-1 sm:gap-3 px-4">
                     <Image
@@ -40,7 +40,7 @@ const TrackCard = ({ name, rank, text, colour, iconSource }: Props) => {
                     #{rank}
                 </div>
             </div>
-            {modalVisibility !== false && (
+            {/* {modalVisibility !== false && (
                 <TrackModal
                     modalVisibility={setModalVisibility}
                     visible={true}
@@ -48,7 +48,7 @@ const TrackCard = ({ name, rank, text, colour, iconSource }: Props) => {
                     //     setModalData();
                     // }}
                 />
-            )}
+            )} */}
         </>
     );
 };

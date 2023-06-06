@@ -87,7 +87,7 @@ const ProjectReviewPage = ({ id }: Props) => {
                         <div className="lg:w-[50%] w-full h-full">
                             <div className=" h-[7.5vh] w-full flex justify-start gap-2 items-center max-md:hidden">
                                 <div
-                                    onClick={() => router.push('/sdg/admin')}
+                                    onClick={() => router.push('/hack/admin')}
                                     className="flex justify-start gap-2 items-center cursor-pointer"
                                 >
                                     <svg

@@ -32,7 +32,7 @@ const Index = () => {
                 <div className="lg:w-[40%] flex items-center gap-2 font-spaceGrotesk text-3xl font-extrabold py-8 text-white">
                     <div className=" h-[7.5vh] flex justify-start gap-2 items-center max-md:hidden">
                         <div
-                            onClick={() => router.push('/sdg')}
+                            onClick={() => router.push('/hack')}
                             className="flex justify-start gap-2 items-center cursor-pointer text-base"
                         >
                             <svg
