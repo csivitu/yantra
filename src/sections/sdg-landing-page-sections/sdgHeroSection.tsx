@@ -47,11 +47,19 @@ const SDGHeroSection = () => {
                             TECHNICAL
                         </span>
                         <br /> INNOVATION */}
-                        <p className="font-bronson text-3xl">Page</p>
-                        <p className="text-[#244EE4] w-full text-7xl max-md:text-6xl font-bold">
-                            Under
+
+                        <div className="text-[#244EE4] w-[80%] text-7xl max-md:text-6xl font-bold">
+                            <Image
+                                src="/hack23.gif"
+                                alt="logo"
+                                height={10000}
+                                width={10000}
+                                className="w-full h-auto object-cover cursor-pointer"
+                            />
+                        </div>
+                        <p className="font-bronson max-lg:mt-2 mt-4 text-xl">
+                            A SUSTAINABLE DEVELOPMENT HACKATHON
                         </p>
-                        <p className="font-bronson">Construction</p>
                     </div>
 
                     {/* <Link
