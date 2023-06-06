@@ -38,13 +38,7 @@ const SDGTracksSection = () => {
             text: 'Step into a world of gears and grids! This track is all about diving into the heart of industry, unearthing the potential of innovation, and laying the groundwork for a prosperous future. Get set to engineer your impact!',
             colour: '#FF8945',
             iconSource: '/sdg-cards/IIAI.svg',
-            statements: [
-                'Labour management system',
-                'Bottlenecks in the supply chain (using blockchain if possible)',
-                'Track and traceability',
-                'AI/ML workflow helper',
-                'Price prediction model for real estate',
-            ],
+            statements: ['Open innovation'],
         },
         {
             name: 'reduced inequalities',
@@ -74,7 +68,13 @@ const SDGTracksSection = () => {
             text: 'Step onto the green stage! This track delves into the delicate balance of consumption and production, examining how technology can contribute to a sustainable economy. Are you ready to compute for the planet?',
             colour: '#E48E16',
             iconSource: '/sdg-cards/RCAP.svg',
-            statements: ['Open innovation'],
+            statements: [
+                'Empowering underrepresented groups',
+                'Equal learning opportunities.',
+                'Affordable banking services.',
+                'Fair compensation practices.',
+                'Supporting underprivileged communities',
+            ],
         },
     ];
     return (

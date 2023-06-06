@@ -202,6 +202,7 @@ html {
 .content {
     margin: 30px;
     padding: 80px 50px;
+
     background-image: linear-gradient(
         to bottom right,
         hsla(0, 0%, 0%, 1) 0%,

@@ -104,16 +104,25 @@ const TrackPage = ({ id }: Props) => {
                                                             (el2) => {
                                                                 return (
                                                                     <>
-                                                                        <div
-                                                                            style={{
-                                                                                backgroundColor:
-                                                                                    el.colour,
-                                                                            }}
-                                                                            className="text-white max-lg:text-sm max-lg:p-6 w-5/6 content hover:scale-105 font-bold text-4xl flex justify-center items-center py-2 rounded-xl border-white px-2 text-center transition-all duration-300 ease-in-out"
-                                                                        >
-                                                                            {
-                                                                                el2
-                                                                            }
+                                                                        <div className="relative group h-full w-full flex justify-center">
+                                                                            <p className="ext-white max-lg:text-sm max-lg:p-6 w-5/6   group-hover:scale-105 font-bold text-4xl flex justify-center items-center py-2 rounded-xl border-white px-2 text-center transition-all duration-300 ease-in-out absolute right-1/2 top-1/2 translate-x-1/2 translate-y-[-50%] z-50 text-white">
+                                                                                {
+                                                                                    el2
+                                                                                }
+                                                                            </p>
+                                                                            <div
+                                                                                style={{
+                                                                                    backgroundColor:
+                                                                                        el.colour,
+                                                                                }}
+                                                                                className="text-white max-lg:text-sm max-lg:p-6 w-5/6 content  group-hover:scale-105 font-bold text-4xl flex justify-center items-center py-2 rounded-xl border-white px-2 text-center transition-all duration-300 opacity-50 ease-in-out"
+                                                                            >
+                                                                                <p className="opacity-0">
+                                                                                    {
+                                                                                        el2
+                                                                                    }
+                                                                                </p>
+                                                                            </div>
                                                                         </div>
                                                                     </>
                                                                 );
@@ -121,14 +130,22 @@ const TrackPage = ({ id }: Props) => {
                                                         )}
                                                 </div>
                                             ) : (
-                                                <div
-                                                    style={{
-                                                        backgroundColor:
-                                                            el.colour,
-                                                    }}
-                                                    className="text-white content border-2 font-bold text-4xl flex justify-center items-center py-2 rounded-xl border-white text-center"
-                                                >
-                                                    This Is an Open Track
+                                                <div className="relative group  h-full w-full flex justify-center">
+                                                    <p className="ext-white max-lg:text-sm max-lg:p-6 w-5/6   group-hover:scale-105 font-bold text-4xl flex justify-center items-center py-2 rounded-xl border-white px-2 text-center transition-all duration-300 ease-in-out absolute right-1/2 top-1/2 translate-x-1/2 translate-y-[-50%] z-50 text-white">
+                                                        This is an Open Track
+                                                    </p>
+                                                    <div
+                                                        style={{
+                                                            backgroundColor:
+                                                                el.colour,
+                                                        }}
+                                                        className="text-white  max-lg:text-sm max-lg:p-6 w-5/6 content  group-hover:scale-105 font-bold text-4xl flex justify-center items-center py-2 rounded-xl border-white px-2 text-center transition-all duration-300 opacity-50 ease-in-out"
+                                                    >
+                                                        <p className="opacity-0">
+                                                            This is an Open
+                                                            Track
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             )}
                                         </div>
