@@ -50,7 +50,7 @@ const TrackPage = ({ id }: Props) => {
             track: 'reduced inequalities',
             colour: '#FF4FA9',
             paragraphs: [
-                'Create an innovative and impactful application, software, or digital platform that addresses the challenge of reduced inequalities and the restoration of gender stereotypes. This solution should empower underrepresented groups, promote diversity and inclusion, and challenge societal norms and biases.',
+                'Create an innovative and impactful application, software, or digital platform that addresses the challenge of reduced inequalities and the removal of gender stereotypes. This solution should empower underrepresented groups, promote diversity and inclusion, and challenge societal norms and biases.',
                 'Design an innovative digital platform, application, or software that addresses educational disparities and expands access to quality learning for underprivileged individuals. This solution should provide equal opportunities for education, offer personalized learning resources, and bridge the digital divide.',
                 'Design an innovative digital platform, application, or software that addresses financial disparities and promotes inclusive access to financial services. This solution should enable affordable banking services, facilitate financial literacy, and support economic empowerment for marginalized communities.',
                 'Design an innovative solution that addresses gender-based pay disparities through performance-based evaluations. This solution should promote fair compensation practices, eliminate gender biases, and provide transparent and objective evaluation mechanisms.',

@@ -53,7 +53,7 @@ const SDGTracksSection = () => {
             colour: '#FF4FA9',
             iconSource: '/sdg-cards/RI.svg',
             statements: [
-                'Restoring gender stereotypes',
+                'Removing gender stereotypes',
                 'Accessing education for the underprivileged',
                 'Provide equal access to finance',
                 'Reduce gender inequality in pay based on performance check',
