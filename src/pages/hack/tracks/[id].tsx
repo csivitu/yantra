@@ -17,6 +17,7 @@ const TrackPage = ({ id }: Props) => {
                 'The current accessibility landscape for individuals with disabilities is marked by a noticeable lack of seamless integration between health and technology, resulting in limited support for their specific needs and suboptimal overall well-being. It is imperative to develop inclusive technological solutions that improve accessibility, enhance independence, and promote overall health and well-being for individuals with disabilities.',
                 'The challenge is to develop advanced technological solutions leveraging AI, machine learning, IoT, blockchain, and cloud computing to revolutionize health and healthcare facilitation in resource-constrained rural areas. These solutions should address barriers to access, enable telemedicine services, improve diagnostic capabilities, and enhance the overall quality of healthcare delivery in rural communities.',
             ],
+            isOpen: false,
         },
         {
             id: '2',
@@ -29,6 +30,7 @@ const TrackPage = ({ id }: Props) => {
                 'The challenge at hand is to devise cutting-edge technological solutions leveraging data analytics, AI, personalized algorithms, real-time industry monitoring, networking platforms, skill assessment tools, and online learning resources to empower individuals in education and career transitions. These solutions should provide personalized career guidance, facilitate skill development, and bridge the gap between education and industry requirements.',
                 'The challenge is to develop innovative solutions that leverage Augmented Reality (AR) and Virtual Reality (VR) technologies to enhance concept explanation and engagement in education. These solutions should provide immersive learning experiences, simulate real-world scenarios, and enable interactive exploration of complex concepts.',
             ],
+            isOpen: false,
         },
         {
             id: '3',
@@ -41,6 +43,7 @@ const TrackPage = ({ id }: Props) => {
                 'Develop solutions that streamline and optimize AI/ML workflows, addressing challenges in data preprocessing, model selection, explainability, workflow orchestration, and model monitoring. These solutions should automate and streamline the end-to-end AI/ML process, making it more efficient, scalable, and accessible to a broader range of users.',
                 'Develop accurate price prediction models for real estate by leveraging advanced data analytics and machine learning techniques. These models should consider a wide range of factors, including market trends, property characteristics, and economic indicators, to provide reliable and actionable insights for buyers, sellers, and investors.',
             ],
+            isOpen: false,
         },
         {
             id: '4',
@@ -53,18 +56,21 @@ const TrackPage = ({ id }: Props) => {
                 'Design an innovative solution that addresses gender-based pay disparities through performance-based evaluations. This solution should promote fair compensation practices, eliminate gender biases, and provide transparent and objective evaluation mechanisms.',
                 'Develop user-friendly web or mobile applications, digital platforms, or software that streamline reservation management, provide targeted educational support, optimize resource allocation, or offer awareness and counseling services. These solutions should ensure equal access to opportunities, promote social welfare, and support the well-being of underprivileged individuals and communities.',
             ],
+            isOpen: false,
         },
         {
             id: '5',
             track: 'Sustainable cities and communities',
             colour: '#FF9F03',
             paragraphs: ['This is an Open Inovation Track'],
+            isOpen: true,
         },
         {
             id: '6',
             colour: '#E48E16',
             track: 'responsible consumption and production',
             paragraphs: ['This is an Open Inovation Track'],
+            isOpen: true,
         },
     ];
 
@@ -78,24 +84,27 @@ const TrackPage = ({ id }: Props) => {
                             if (el.id == id) {
                                 return (
                                     <>
-                                        <div className="px-10 py-16 h-full ">
+                                        <div className="px-10 py-16 h-full min-h-[91vh]">
                                             <div
-                                                className="text-white text-4xl uppercase py-5 mb-10"
+                                                className="w-full text-white text-center text-6xl uppercase py-5 mb-10 max-lg:py-0"
                                                 style={{ color: el.colour }}
                                             >
                                                 {el.track}
                                             </div>
-                                            <div className="text-white h-full mt-4  pb-8">
-                                                <p className="text-3xl">
-                                                    Problem Statements :
-                                                </p>
-                                                <div className="flex h-full justify-around max-lg:flex-col gap-y-10 py-6 items-center lg:flex-wrap mb-10">
+                                            {!el.isOpen ? (
+                                                <div className="flex h-full justify-around flex-col items-center  mb-10">
                                                     {el.paragraphs &&
                                                         el.paragraphs.map(
                                                             (el2) => {
                                                                 return (
                                                                     <>
-                                                                        <div className="flex justify-center items-center py-2 border-2 rounded-md border-white px-2 text-center text-lg lg:w-[90%] lg:min-h-[22vh]  glassMorphism2">
+                                                                        <div
+                                                                            style={{
+                                                                                backgroundColor:
+                                                                                    el.colour,
+                                                                            }}
+                                                                            className="text-white max-lg:text-sm max-lg:p-6 w-5/6 content hover:scale-105 font-bold text-4xl flex justify-center items-center py-2 rounded-xl border-white px-2 text-center transition-all duration-300 ease-in-out"
+                                                                        >
                                                                             {
                                                                                 el2
                                                                             }
@@ -105,7 +114,17 @@ const TrackPage = ({ id }: Props) => {
                                                             }
                                                         )}
                                                 </div>
-                                            </div>
+                                            ) : (
+                                                <div
+                                                    style={{
+                                                        backgroundColor:
+                                                            el.colour,
+                                                    }}
+                                                    className="text-white content border-2 font-bold text-4xl flex justify-center items-center py-2 rounded-xl border-white text-center"
+                                                >
+                                                    This Is an Open Track
+                                                </div>
+                                            )}
                                         </div>
                                     </>
                                 );

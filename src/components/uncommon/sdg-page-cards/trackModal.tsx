@@ -27,9 +27,9 @@ const TrackModal = ({
             <div
                 onClick={handleOnClose}
                 id="modalcontainer"
-                className="fixed inset-0 bg-black bg-opacity-[0.6] backdrop-blur-sm flex items-center justify-center z-50"
+                className=" fixed inset-0 bg-black bg-opacity-[0.6] backdrop-blur-sm flex items-center justify-center z-50"
             >
-                <div className="h-[70vh] w-[80vw] font-spaceGrotesk text-white lg:w-max px-10  glassMorphism rounded-lg text-3xl lg:text-3xl flex justify-center items-start flex-col">
+                <div className="h-[70vh] w-1/2 max-lg:w-5/6 font-spaceGrotesk text-white px-10  glassMorphism rounded-lg text-3xl lg:text-3xl flex justify-center items-start flex-col">
                     <div className="py-3 font-bold" style={{ color: colour }}>
                         Tracks :
                     </div>
