@@ -7,7 +7,7 @@ interface Props {
     text: string;
     iconSource: string;
 }
-const SDGPriceSection = () => {
+const SDGPrizeSection = () => {
     const prizesRow1 = [
         {
             name: 'FIRST PRIZE',
@@ -50,7 +50,10 @@ const SDGPriceSection = () => {
     ];
     return (
         <>
-            <div className="w-full mt-20 max-md:text-4xl h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold m-auto text-center">
+            <div
+                id="prizes-section"
+                className="w-full mt-20 max-md:text-4xl h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold m-auto text-center"
+            >
                 WIN CASH PRIZES WORTH
             </div>
             <div className="w-full flex justify-around items-center sm:pb-24 lg:pb-10 px-32 max-lg:px-8">
@@ -96,4 +99,4 @@ const SDGPriceSection = () => {
     );
 };
 
-export default SDGPriceSection;
+export default SDGPrizeSection;

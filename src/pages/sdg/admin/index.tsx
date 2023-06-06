@@ -32,8 +32,9 @@ const Index = () => {
                             Back
                         </div>
                     </div>
-                    <div>Projects</div>
+                    <div>ADMIN</div>
                 </div>
+                {/* CHANGE SEARCH BAR MAKE DUPLICATE WITH NEW FILTERS */}
                 <div className="w-[90%] lg:w-[60%]">
                     <SearchBar initialSearch="" />
                 </div>

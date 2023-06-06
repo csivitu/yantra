@@ -56,7 +56,10 @@ const SDGTracksSection = () => {
     ];
     return (
         <>
-            <div className="w-full mt-20 max-md:text-4xl h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold  text-center">
+            <div
+                id="tracks-section"
+                className="w-full mt-20 max-md:text-4xl h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold  text-center"
+            >
                 TRACKS
             </div>
             <div className="w-full lg:py-10 lg:px-8">

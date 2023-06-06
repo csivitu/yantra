@@ -1,5 +1,6 @@
 import Footer from '@/components/common/footer';
 import Header from '@/components/common/header';
+import SDGHeader from '@/components/common/sdgheader';
 import HeroSection from '@/sections/sdg-view-team-page-sections/heroSection';
 import { GetServerSidePropsContext } from 'next';
 import { getSession } from 'next-auth/react';
@@ -9,7 +10,7 @@ const ViewTeam = () => {
     return (
         <>
             <div className="h-max bg-events-bg  bg-cover">
-                <Header />
+                <SDGHeader />
                 <HeroSection />
                 <Footer />
             </div>
