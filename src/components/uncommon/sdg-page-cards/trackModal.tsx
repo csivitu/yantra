@@ -15,7 +15,9 @@ const TrackModal = ({ modalVisibility, visible }: Props) => {
                 id="modalcontainer"
                 className="fixed inset-0 bg-black bg-opacity-[0.6] backdrop-blur-sm flex items-center justify-center z-50"
             >
-                <div className="h-[70vh] w-[80vw] font-spaceGrotesk lg:w-[30%]  glassMorphism3 rounded-lg text-3xl lg:text-3xl flex justify-around items-center flex-col"></div>
+                <div className="h-[70vh] w-[80vw] font-spaceGrotesk text-white lg:w-[30%]  glassMorphism rounded-lg text-3xl lg:text-3xl flex justify-around items-center flex-col">
+                    asd
+                </div>
             </div>
         </>
     );

@@ -127,13 +127,6 @@ const SDGHeroSection = () => {
                     width={10000}
                     height={10000}
                 />
-                <Image
-                    src={`/logoYantra.png`}
-                    alt="g2"
-                    className="h-5 sm:h-12 w-auto object-contain "
-                    width={10000}
-                    height={10000}
-                />
             </div>
         </>
     );
