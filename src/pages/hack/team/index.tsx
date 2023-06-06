@@ -24,7 +24,7 @@ export const getServerSideProps = async (
     if (!session) {
         return {
             redirect: {
-                destination: '/sdg',
+                destination: '/hack',
             },
         };
     }

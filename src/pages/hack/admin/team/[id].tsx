@@ -238,7 +238,7 @@ export const getServerSideProps = async (
     if (!session || !session.user.isAdmin) {
         return {
             redirect: {
-                destination: '/sdg',
+                destination: '/hack',
             },
         };
     }
