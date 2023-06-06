@@ -85,7 +85,7 @@ const TagsField = ({ label, tags, setTags }: Props) => {
                 <input
                     type="text"
                     className="flex-1 p-2 outline-none bg-transparent text-white border-b-2"
-                    placeholder="Type in upto 4 Links"
+                    placeholder="Can add upto 5 Links"
                     value={tagInput}
                     onChange={handleTagInputChange}
                     onKeyDown={handleTagInputKeyDown}

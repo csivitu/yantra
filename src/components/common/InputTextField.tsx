@@ -1,15 +1,13 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import Image from 'next/image';
 
 interface InputProps {
     label: string;
-
-    type?: string;
     value: string;
     onChange: (el: string) => void;
 }
 
-const InputField = ({ label, type = 'text', value, onChange }: InputProps) => {
+const InputTextField = ({ label, value, onChange }: InputProps) => {
     return (
         <>
             <div className="text-sm flex justify-start gap-2 items-center pt-4">
@@ -27,9 +25,8 @@ const InputField = ({ label, type = 'text', value, onChange }: InputProps) => {
                 </div>
             </div>
             <div className="flex items-center border-b-2 border-white py-2">
-                <input
-                    className="appearance-none bg-transparent border-none w-full text-white px-2 leading-tight focus:outline-none"
-                    type={type}
+                <textarea
+                    className="appearance-none rounded-lg p-3 max-h-[25vh] min-h-[25vh] bg-[#2828287e] border-none w-full text-white leading-tight focus:outline-none"
                     value={value}
                     onChange={(el) => {
                         onChange(el.target.value);
@@ -41,4 +38,4 @@ const InputField = ({ label, type = 'text', value, onChange }: InputProps) => {
     );
 };
 
-export default InputField;
+export default InputTextField;

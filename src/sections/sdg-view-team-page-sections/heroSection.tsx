@@ -176,7 +176,9 @@ const HeroSection = () => {
                                             toggleEdit={setToggleEdit}
                                         />
                                     ) : (
-                                        <EditSubmission />
+                                        <EditSubmission
+                                            toggleEdit={setToggleEdit}
+                                        />
                                     )}
                                 </>
                             ) : (

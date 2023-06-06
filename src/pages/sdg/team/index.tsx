@@ -9,10 +9,9 @@ import React from 'react';
 const ViewTeam = () => {
     return (
         <>
-            <div className="h-max bg-events-bg  bg-cover">
+            <div className="min-h-[90vh] bg-events-bg bg-cover">
                 <SDGHeader />
                 <HeroSection />
-                <Footer />
             </div>
         </>
     );
