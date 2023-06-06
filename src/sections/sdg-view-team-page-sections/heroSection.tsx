@@ -73,7 +73,7 @@ const HeroSection = () => {
                         <div className="lg:w-[60%] w-full h-full">
                             <div className=" h-[7.5vh] flex justify-start gap-2 items-center max-md:hidden">
                                 <div
-                                    onClick={() => router.back()}
+                                    onClick={() => router.push('/sdg')}
                                     className="flex justify-start gap-2 items-center cursor-pointer"
                                 >
                                     <svg
