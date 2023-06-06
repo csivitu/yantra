@@ -40,7 +40,7 @@ const SDGHeroSection = () => {
                             className="w-[100%] h-[100%] object-contain"
                         />
                     </div>
-                    <div className="text-4xl lg:text-5xl font-sans font-bold tracking-normal text-center lg:text-start">
+                    <div className="text-4xl lg:text-5xl font-sans flex justify-center max-lg:items-center flex-col font-bold tracking-normal text-center lg:text-start">
                         {/* A WEEK OF
                         <br />
                         <span className="text-[#244EE4] w-full text-center">
