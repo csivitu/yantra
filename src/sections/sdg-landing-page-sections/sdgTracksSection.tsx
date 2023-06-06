@@ -10,6 +10,13 @@ const SDGTracksSection = () => {
             text: 'Welcome to a track pulsating with vitality! Here, we navigate the nexus of technology and health, exploring how digital innovation can empower us all to live healthier, happier lives. Are you ready to step into the world of wellness?',
             colour: '#279B48',
             iconSource: '/sdg-cards/GHAWB.svg',
+            statements: [
+                'Elderly loneliness',
+                'App related to educating, providing and ensuring a balanced diet',
+                'Keeping a check on addiction',
+                'Ease disabilities app',
+                'Healthcare facilitation in rural areas',
+            ],
         },
         {
             name: 'Quality Education',
@@ -17,34 +24,57 @@ const SDGTracksSection = () => {
             text: 'Open the door to a realm of knowledge! This track immerses you in the educational landscape, inviting you to think about how technology can play a part in shaping future learners. Ready to embark on this educational odyssey?',
             colour: '#C92639',
             iconSource: '/sdg-cards/QE.svg',
+            statements: [
+                'Assure that a person with certifications also has the skills',
+                'Ensure slow learners learn',
+                'To break the taboo',
+                'Career switch helper (roadmaps/people connect/updates in the industry)',
+                'AR/VR concept explanation',
+            ],
+        },
+        {
+            name: 'Industry, innovation and infrastructure',
+            rank: '3',
+            text: 'Step into a world of gears and grids! This track is all about diving into the heart of industry, unearthing the potential of innovation, and laying the groundwork for a prosperous future. Get set to engineer your impact!',
+            colour: '#FF8945',
+            iconSource: '/sdg-cards/IIAI.svg',
+            statements: [
+                'Labour management system',
+                'Bottlenecks in the supply chain (using blockchain if possible)',
+                'Track and traceability',
+                'AI/ML workflow helper',
+                'Price prediction model for real estate',
+            ],
         },
         {
             name: 'reduced inequalities',
-            rank: '3',
+            rank: '4',
             text: 'Embark on a journey towards justice! This track delves into the struggle for equality, asking you to consider how technology might level the playing field. Are you prepared to code for a cause?',
             colour: '#FF4FA9',
             iconSource: '/sdg-cards/RI.svg',
+            statements: [
+                'Restoring gender stereotypes',
+                'Accessing education for the underprivileged',
+                'Provide equal access to finance',
+                'Reduce gender inequality in pay based on performance check',
+                'Educational reservation',
+            ],
         },
         {
             name: 'Sustainable cities and communities',
-            rank: '4',
+            rank: '5',
             text: "Welcome to the blueprint of tomorrow! This track explores the intricacies of sustainable urban and community development. How can technology help us build the cities and communities of the future? Let's find out!",
             colour: '#FF9F03',
             iconSource: '/sdg-cards/SCAC.svg',
+            statements: ['Open innovation'],
         },
         {
             name: 'responsible consumption and production',
-            rank: '5',
+            rank: '6',
             text: 'Step onto the green stage! This track delves into the delicate balance of consumption and production, examining how technology can contribute to a sustainable economy. Are you ready to compute for the planet?',
             colour: '#E48E16',
             iconSource: '/sdg-cards/RCAP.svg',
-        },
-        {
-            name: 'partnership for goals',
-            rank: '6',
-            text: 'Welcome to the unity hub! This track is all about exploring how collaborations can accelerate our journey towards the Sustainable Development Goals. Are you ready to code for cohesion and progress?',
-            colour: '#33589C',
-            iconSource: '/sdg-cards/PFG.svg',
+            statements: ['Open innovation'],
         },
     ];
     return (
@@ -67,6 +97,7 @@ const SDGTracksSection = () => {
                                     text={el.text}
                                     colour={el.colour}
                                     iconSource={el.iconSource}
+                                    statements={el.statements}
                                 />
                             );
                         })}
