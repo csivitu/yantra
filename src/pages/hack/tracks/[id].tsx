@@ -43,7 +43,7 @@ const TrackPage = ({ id }: Props) => {
                 'Develop solutions that streamline and optimize AI/ML workflows, addressing challenges in data preprocessing, model selection, explainability, workflow orchestration, and model monitoring. These solutions should automate and streamline the end-to-end AI/ML process, making it more efficient, scalable, and accessible to a broader range of users.',
                 'Develop accurate price prediction models for real estate by leveraging advanced data analytics and machine learning techniques. These models should consider a wide range of factors, including market trends, property characteristics, and economic indicators, to provide reliable and actionable insights for buyers, sellers, and investors.',
             ],
-            isOpen: false,
+            isOpen: true,
         },
         {
             id: '4',
@@ -69,8 +69,14 @@ const TrackPage = ({ id }: Props) => {
             id: '6',
             colour: '#E48E16',
             track: 'responsible consumption and production',
-            paragraphs: ['This is an Open Inovation Track'],
-            isOpen: true,
+            paragraphs: [
+                'Create a platform that encourages sustainable and responsible shopping habits by leveraging artificial intelligence and machine learning algorithms to provide personalized recommendations for eco-friendly products and help consumers make informed purchasing decisions.',
+                'Design an innovative solution to promote circular economy principles by using blockchain technology to track and trace product lifecycle, enabling consumers to make sustainable choices and encouraging businesses to adopt responsible production practices.',
+                'Develop a mobile application that incentivizes and rewards individuals for adopting eco-friendly lifestyle choices, such as recycling, reducing energy consumption, and practicing responsible consumption, using gamification techniques and location-based services.',
+                'Develop a solution to reduce the environmental impact of the fashion industry by leveraging technologies such as 3D printing, virtual reality, and augmented reality to create virtual try-on experiences, enable sustainable manufacturing practices, and promote responsible fashion consumption.',
+                'Design and develop a user-friendly web platform or application that promotes responsible consumption and production by providing educational resources, interactive tools, and community engagement features to empower individuals and businesses to adopt sustainable practices, track their environmental impact, and share their success stories with others.',
+            ],
+            isOpen: false,
         },
     ];
 
