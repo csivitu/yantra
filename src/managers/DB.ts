@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 import envHandler from './envHandler';
 
-// const URL = envHandler('DATABASE_URL').replace(
-//     '<password>',
-//     envHandler('DATABASE_PASSWORD')
-// );
+const URL = envHandler('DATABASE_URL').replace(
+    '<password>',
+    envHandler('DATABASE_PASSWORD')
+);
 
-const URL = envHandler('LOCAL_DB');
+// const URL = envHandler('LOCAL_DB');
 
 export const connectToDB = async () => {
     if (mongoose.connections[0].readyState) {

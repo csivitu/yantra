@@ -7,7 +7,9 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 const getSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-        const submission = await Submission.findById(req.body.submissionID);
+        const query = req.query;
+        const { id } = query;
+        const submission = await Submission.findById(id);
         res.status(200).json({
             status: 'success',
             message: '',
@@ -23,7 +25,9 @@ const getSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
 
 const editSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-        const submission = await Submission.findById(req.body.submissionID);
+        const query = req.query;
+        const { id } = query;
+        const submission = await Submission.findById(id);
         if (submission.status !== req.body.status - 1)
             res.status(400).json({
                 status: 'error',

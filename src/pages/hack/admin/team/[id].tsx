@@ -145,22 +145,27 @@ const ProjectReviewPage = ({ id }: Props) => {
                             </div>
                             <div className="flex md:flex-col gap-4 max-md:w-full max-md:justify-between pt-6">
                                 {rounds.map((round, index) => (
-                                    <div
-                                        key={index}
-                                        className="text-xl py-1 flex justify-start items-center gap-x-2 font-spaceGrotesk"
-                                    >
-                                        {round.round}
-                                        <label className="ml-2">
-                                            <input
-                                                type="checkbox"
-                                                checked={round.checked}
-                                                onChange={() =>
-                                                    handleCheckboxChange(index)
-                                                }
-                                            />
-                                            Checked
-                                        </label>
-                                    </div>
+                                    <>
+                                        <div
+                                            key={index}
+                                            className="text-xl py-1 flex justify-start items-center gap-x-2 font-spaceGrotesk"
+                                        >
+                                            {round.round}
+                                            <label className="ml-2">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={round.checked}
+                                                    onChange={() =>
+                                                        handleCheckboxChange(
+                                                            index
+                                                        )
+                                                    }
+                                                />
+                                                Checked
+                                            </label>
+                                            <div>- Score : xx</div>
+                                        </div>
+                                    </>
                                 ))}
                                 <div
                                     onClick={() => {
@@ -182,9 +187,12 @@ const ProjectReviewPage = ({ id }: Props) => {
                         {/* STRONGLY SUGGESTED MAKE NEW DUPLICATE 2 COMPONENTS BELOW JUST FOR ADMIN PANEL SOLO PROJECT VIEW PAGE CUZ IT WILL HAVE A NEW CHECK KI EVEN SUPER USER CAN VIEW ALL */}
                         <div className="w-full lg:w-[50%] h-full">
                             {toggleEdit === 0 ? (
-                                <ViewSubmission toggleEdit={setToggleEdit} />
+                                <ViewSubmission
+                                    id={id}
+                                    toggleEdit={setToggleEdit}
+                                />
                             ) : (
-                                <EditSubmission />
+                                <EditSubmission id={id} />
                             )}
                         </div>
                     </>
