@@ -30,10 +30,6 @@ const teamSchema = new mongoose.Schema({
             ref: 'User',
         },
     ],
-    isNameChanged: {
-        type: Boolean,
-        default: false,
-    },
     submission: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Submission',
