@@ -4,7 +4,7 @@ const SDGGuidelinesSection = () => {
     return (
         <>
             <div
-                id="prizes-section"
+                id="guidelines-section"
                 className="w-full mt-20 max-md:text-4xl h-[20vh] flex justify-around items-center text-white font-bronson uppercase text-5xl font-extrabold m-auto text-center"
             >
                 GUIDELINES

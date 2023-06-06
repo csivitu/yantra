@@ -78,6 +78,12 @@ const Header = () => {
                 </div>
                 <div className="w-[80%] h-full flex gap-10 items-center justify-end font-spaceGrotesk font-semibold text-lg">
                     <div
+                        className="cursor-pointer hover-underline-animation"
+                        onClick={() => router.push('/hack')}
+                    >
+                        YANTRA Hackathon
+                    </div>
+                    <div
                         className="cursor-pointer relative hover-underline-animation"
                         onClick={() => handleMenuClick('about-section')}
                     >
@@ -90,12 +96,7 @@ const Header = () => {
                     >
                         Timeline
                     </div>
-                    <div
-                        className="cursor-pointer hover-underline-animation"
-                        onClick={() => router.push('/hack')}
-                    >
-                        YANTRA Hackathon
-                    </div>
+
                     <div
                         className="cursor-pointer hover-underline-animation"
                         onClick={() => handleMenuClick('events-section')}

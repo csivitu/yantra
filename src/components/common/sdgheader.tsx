@@ -101,37 +101,29 @@ const SDGHeader = () => {
                         YANTRA
                     </div>
                     <div
-                        className="cursor-pointer relative hover-underline-animation"
-                        onClick={() => handleMenuClick('aboutSDG-section')}
-                    >
-                        <div>About</div>
-                    </div>
-
-                    <div
                         className="cursor-pointer hover-underline-animation"
                         onClick={() => handleMenuClick('timeline-section')}
                     >
                         Timeline
                     </div>
-
                     <div
-                        className="cursor-pointer hover-underline-animation"
+                        className="cursor-pointer hover-underline-animation text-center"
                         onClick={() => handleMenuClick('tracks-section')}
                     >
-                        Tracks
+                        Tracks & Prizes
                     </div>
                     <div
                         className="cursor-pointer hover-underline-animation"
-                        onClick={() => handleMenuClick('prizes-section')}
+                        onClick={() => handleMenuClick('guidelines-section')}
                     >
-                        Prizes
+                        Guidelines
                     </div>
                     <div
                         className="cursor-pointer hover-underline-animation"
                         onClick={() => router.push('/team')}
                     >
                         Team
-                    </div>
+                    </div>{' '}
                     <div
                         className="cursor-pointer hover-underline-animation"
                         onClick={() => handleMenuClick('contact-section')}

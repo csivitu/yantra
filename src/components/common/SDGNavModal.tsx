@@ -82,14 +82,15 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
                         className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
                         onClick={() => handleMenuClick('tracks-section')}
                     >
-                        Tracks
+                        Tracks & Prizes
                     </div>
                     <div
                         className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
-                        onClick={() => handleMenuClick('prizes-section')}
+                        onClick={() => handleMenuClick('guidelines-section')}
                     >
-                        Prizes
+                        Guidelines
                     </div>
+
                     <div
                         className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
                         onClick={() => router.push('/team')}
