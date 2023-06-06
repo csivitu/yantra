@@ -5,21 +5,37 @@ import { useSession } from 'next-auth/react';
 import mongoose from 'mongoose';
 import { TeamType } from '@/models/teamModel';
 import Toaster from '@/utils/toaster';
-import ViewSubmission from '@/sections/sdg-view-team-page-sections/view-submission';
-import EditSubmission from '@/sections/sdg-view-team-page-sections/edit-submission';
+import ViewSubmission from '@/sections/admin-page-sections/admin-view-submission';
+import EditSubmission from '@/sections/admin-page-sections/admin-edit-submission';
 import Header from '@/components/common/header';
 import { useRouter } from 'next/router';
 const ProjectReviewPage = () => {
     const router = useRouter();
     // ROUND PASSING LOGIC
     const [rounds, setRounds] = useState([
-        { round: 'Round 1', value: '' },
-        { round: 'Round 2', value: '' },
-        { round: 'Round 3', value: '' },
+        { round: 'Round 1', checked: false },
+        { round: 'Round 2', checked: false },
+        { round: 'Round 3', checked: false },
     ]);
-    const handleRadioChange = (index: number, value: string) => {
-        const updatedRounds = [...rounds];
-        updatedRounds[index].value = value;
+    const handleCheckboxChange = (index: number) => {
+        const updatedRounds = rounds.map((round, roundIndex) => {
+            if (roundIndex < index) {
+                return {
+                    ...round,
+                    checked: true,
+                };
+            } else if (roundIndex === index) {
+                return {
+                    ...round,
+                    checked: !round.checked,
+                };
+            } else {
+                return {
+                    ...round,
+                    checked: false,
+                };
+            }
+        });
         setRounds(updatedRounds);
     };
 
@@ -35,7 +51,7 @@ const ProjectReviewPage = () => {
         isNameChanged: false,
         submission: new mongoose.Schema.Types.ObjectId(''),
     });
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [changeTitle, setChangeTitle] = useState(false);
     const [newTitle, setNewTitle] = useState('');
     const [isSubmission, setIsSubmission] = useState(false);
@@ -170,33 +186,13 @@ const ProjectReviewPage = () => {
                                         {round.round}
                                         <label className="ml-2">
                                             <input
-                                                type="radio"
-                                                name={`round-${index}`}
-                                                value="yes"
-                                                checked={round.value === 'yes'}
+                                                type="checkbox"
+                                                checked={round.checked}
                                                 onChange={() =>
-                                                    handleRadioChange(
-                                                        index,
-                                                        'yes'
-                                                    )
+                                                    handleCheckboxChange(index)
                                                 }
                                             />
-                                            Yes
-                                        </label>
-                                        <label className="ml-2">
-                                            <input
-                                                type="radio"
-                                                name={`round-${index}`}
-                                                value="no"
-                                                checked={round.value === 'no'}
-                                                onChange={() =>
-                                                    handleRadioChange(
-                                                        index,
-                                                        'no'
-                                                    )
-                                                }
-                                            />
-                                            No
+                                            Checked
                                         </label>
                                     </div>
                                 ))}

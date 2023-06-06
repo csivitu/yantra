@@ -12,7 +12,6 @@ import { useSession } from 'next-auth/react';
 import { SubmissionType } from '@/models/submissionModel';
 import mongoose from 'mongoose';
 import patchHandler from '@/handlers/patchHandler';
-import postHandler from '@/handlers/postHandler';
 
 const EditSubmission = () => {
     const [submission, setSubmission] = useState<SubmissionType>();
@@ -39,12 +38,18 @@ const EditSubmission = () => {
         }
     }, [session]);
 
+    const options = [
+        { value: 'option1', label: 'Option 1' },
+        { value: 'option2', label: 'Option 2' },
+        { value: 'option3', label: 'Option 3' },
+    ];
     const [projectName, setProjectName] = useState('');
+    const [track, setTrack] = useState<number>(0);
     const [projectDescription, setProjectDescription] = useState('');
 
     const [links, setLinks] = useState<string[]>([]);
     const [inputFiles, setInputFiles] = useState<File[]>();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const router = useRouter();
 
     const handleSubmit = async () => {
@@ -66,24 +71,8 @@ const EditSubmission = () => {
         );
 
         if (res.status === 1) {
-            if (inputFiles && inputFiles.length > 0) {
-                const formData = new FormData();
-
-                inputFiles.forEach((file, index) =>
-                    formData.append(`media${index}`, file)
-                );
-                const res = await postHandler(
-                    `${process.env.NEXT_PUBLIC_BASE_URL}/api/submission/files`,
-                    formData,
-                    'multipart/form-data'
-                );
-                if (res.status === 1) Toaster.stopLoad(toaster, 'Submitted', 1);
-                else Toaster.stopLoad(toaster, res.data, 0);
-            } else {
-                alert('No input files');
-            }
-
-            // router.reload();
+            Toaster.stopLoad(toaster, 'Submitted', 1);
+            router.reload();
         } else {
             Toaster.stopLoad(toaster, res.data, 0);
         }

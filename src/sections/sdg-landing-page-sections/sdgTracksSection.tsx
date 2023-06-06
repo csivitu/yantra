@@ -62,8 +62,8 @@ const SDGTracksSection = () => {
             >
                 TRACKS
             </div>
-            <div className="w-full lg:py-10 lg:px-8">
-                <div className="w-full flex justify-center items-center flex-wrap gap-y-8 sm:gap-y-16 lg:gap-y-20 gap-x-8 lg:gap-x-7">
+            <div className="w-full lg:py-10 lg:px-0">
+                <div className="w-full flex justify-center items-center flex-wrap gap-y-10 sm:gap-y-16 lg:gap-y-20 gap-x-8 lg:gap-x-4">
                     {tracks &&
                         tracks.map((el, index) => {
                             return (

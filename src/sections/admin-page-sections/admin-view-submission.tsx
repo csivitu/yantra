@@ -60,11 +60,11 @@ const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
 
     return (
         <>
-            <div className="h-full w-full flex justify-around items-center">
+            <div className="h-full w-full flex flex-col justify-end items-center">
                 {loading ? (
                     <Loader />
                 ) : (
-                    <div className="h-full w-full font-spaceGrotesk">
+                    <div className="h-[80%] w-full font-spaceGrotesk">
                         <form onSubmit={handleSubmit}>
                             <div className="text-sm flex justify-start gap-2 items-center pt-4">
                                 <p className="font-spaceGrotesk text-white opacity-[0.4]">
@@ -89,6 +89,7 @@ const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                                     Project Links
                                 </p>
                             </div>
+                            <div>{track}</div>
 
                             <div>
                                 {links.map((el) => {
