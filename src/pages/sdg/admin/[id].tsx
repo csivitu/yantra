@@ -1,20 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
-import { TeamType } from '@/models/teamModel';
-import mongoose from 'mongoose';
-import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import Loader from '@/components/common/loader';
+import { useSession } from 'next-auth/react';
+import mongoose from 'mongoose';
+import { TeamType } from '@/models/teamModel';
 import Toaster from '@/utils/toaster';
-import patchHandler from '@/handlers/patchHandler';
-import ProjectSubmission from '@/sections/sdg-view-team-page-sections/project-submission';
-
-import EditSubmission from './edit-submission';
-import { SubmissionType } from '@/models/submissionModel';
-import ViewSubmission from './view-submission';
-const HeroSection = () => {
+import ViewSubmission from '@/sections/sdg-view-team-page-sections/view-submission';
+import EditSubmission from '@/sections/sdg-view-team-page-sections/edit-submission';
+import Header from '@/components/common/header';
+import { useRouter } from 'next/router';
+const ProjectReviewPage = () => {
     const router = useRouter();
+    // ROUND PASSING LOGIC
+    const [rounds, setRounds] = useState([
+        { round: 'Round 1', value: '' },
+        { round: 'Round 2', value: '' },
+        { round: 'Round 3', value: '' },
+    ]);
+    const handleRadioChange = (index: number, value: string) => {
+        const updatedRounds = [...rounds];
+        updatedRounds[index].value = value;
+        setRounds(updatedRounds);
+    };
+
+    const SaveRoundChangesHandler = () => {
+        console.log(rounds);
+    };
+
+    // FETCHING TEAM / PROJECT LOGIC
     const [teamDetails, setTeamDetails] = useState<TeamType>({
         id: new mongoose.Schema.Types.ObjectId(''),
         title: '',
@@ -35,7 +48,7 @@ const HeroSection = () => {
                 Toaster.error(
                     'You are not a part of any team, contact the admin.'
                 );
-                router.push('/sdg');
+                // router.push('/sdg');
             } else {
                 setTeamDetails(session.user.team);
                 setNewTitle(session.user.team.title);
@@ -44,36 +57,18 @@ const HeroSection = () => {
             }
         }
     }, [session]);
-
-    const handleChangeName = async () => {
-        const toaster = Toaster.startLoad();
-        const res = await patchHandler(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/team/changeName`,
-            { title: newTitle }
-        );
-        if (res.status === 1) {
-            const newTeamDetails = { ...teamDetails };
-            newTeamDetails.title = newTitle;
-            newTeamDetails.isNameChanged = true;
-            setTeamDetails(newTeamDetails);
-            Toaster.stopLoad(toaster, 'Name Changed', 1);
-            setChangeTitle(false);
-        } else {
-            Toaster.stopLoad(toaster, 'Internal Server Error', 0);
-        }
-    };
-
     return (
         <>
-            <div className="max-sm:px-8 sm:h-max sm:py-10 lg:h-[90vh] sm:px-20 py-10 flex flex-col gap-y-10 lg:flex-row justify-around items-center text-white">
+            <Header />
+            <div className="max-sm:px-8 sm:h-max  lg:h-[90vh] sm:px-20  flex flex-col gap-y-10 lg:flex-row justify-around items-center text-white">
                 {loading ? (
                     <Loader />
                 ) : (
                     <>
-                        <div className="lg:w-[60%] w-full h-full">
-                            <div className=" h-[7.5vh] flex justify-start gap-2 items-center max-md:hidden">
+                        <div className="lg:w-[50%] w-full h-full">
+                            <div className=" h-[7.5vh] w-full flex justify-start gap-2 items-center max-md:hidden">
                                 <div
-                                    onClick={() => router.push('/sdg')}
+                                    onClick={() => router.push('/sdg/admin')}
                                     className="flex justify-start gap-2 items-center cursor-pointer"
                                 >
                                     <svg
@@ -132,7 +127,6 @@ const HeroSection = () => {
                                     className={`w-6 h-6 object-contain cursor-pointer ${
                                         !changeTitle ? 'hidden' : ''
                                     }`}
-                                    onClick={handleChangeName}
                                 />
                             </div>
                             <div className="flex md:flex-col gap-4 max-md:w-full max-md:justify-between pt-6">
@@ -167,20 +161,68 @@ const HeroSection = () => {
                                         })}
                                 </div>
                             </div>
+                            <div className="flex md:flex-col gap-4 max-md:w-full max-md:justify-between pt-6">
+                                {rounds.map((round, index) => (
+                                    <div
+                                        key={index}
+                                        className="text-xl py-1 flex justify-start items-center gap-x-2 font-spaceGrotesk"
+                                    >
+                                        {round.round}
+                                        <label className="ml-2">
+                                            <input
+                                                type="radio"
+                                                name={`round-${index}`}
+                                                value="yes"
+                                                checked={round.value === 'yes'}
+                                                onChange={() =>
+                                                    handleRadioChange(
+                                                        index,
+                                                        'yes'
+                                                    )
+                                                }
+                                            />
+                                            Yes
+                                        </label>
+                                        <label className="ml-2">
+                                            <input
+                                                type="radio"
+                                                name={`round-${index}`}
+                                                value="no"
+                                                checked={round.value === 'no'}
+                                                onChange={() =>
+                                                    handleRadioChange(
+                                                        index,
+                                                        'no'
+                                                    )
+                                                }
+                                            />
+                                            No
+                                        </label>
+                                    </div>
+                                ))}
+                                <div
+                                    onClick={() => {
+                                        SaveRoundChangesHandler();
+                                    }}
+                                    className="cursor-pointer relative w-[30%] h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
+                                >
+                                    <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
+                                    <span className="absolute top-0 left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-0"></span>
+
+                                    <span className="font-spaceGrotesk text-lg font-bold  items-center  relative w-full text-left flex justify-center gap-x-3 text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
+                                        <div>SAVE</div>
+                                    </span>
+                                    <span className="absolute inset-0 border-2 border-white rounded-full"></span>
+                                </div>
+                            </div>
                         </div>
+
+                        {/* STRONGLY SUGGESTED MAKE NEW DUPLICATE 2 COMPONENTS BELOW JUST FOR ADMIN PANEL SOLO PROJECT VIEW PAGE CUZ IT WILL HAVE A NEW CHECK KI EVEN SUPER USER CAN VIEW ALL */}
                         <div className="w-full lg:w-[50%] h-full">
-                            {isSubmission ? (
-                                <>
-                                    {toggleEdit === 0 ? (
-                                        <ViewSubmission
-                                            toggleEdit={setToggleEdit}
-                                        />
-                                    ) : (
-                                        <EditSubmission />
-                                    )}
-                                </>
+                            {toggleEdit === 0 ? (
+                                <ViewSubmission toggleEdit={setToggleEdit} />
                             ) : (
-                                <ProjectSubmission />
+                                <EditSubmission />
                             )}
                         </div>
                     </>
@@ -190,4 +232,4 @@ const HeroSection = () => {
     );
 };
 
-export default HeroSection;
+export default ProjectReviewPage;

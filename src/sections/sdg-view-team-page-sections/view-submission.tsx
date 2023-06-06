@@ -92,7 +92,7 @@ const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
 
                             <div>
                                 {links.map((el) => {
-                                    return <p key={el}>{el}</p>;
+                                    return <p key={Math.random()}>{el}</p>;
                                 })}
                             </div>
 
