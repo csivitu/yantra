@@ -12,30 +12,24 @@ import { useSession } from 'next-auth/react';
 import { SubmissionType } from '@/models/submissionModel';
 import mongoose from 'mongoose';
 import patchHandler from '@/handlers/patchHandler';
-
-const EditSubmission = () => {
+import getHandler from '@/handlers/getHandler';
+interface Props {
+    id: string;
+}
+const EditSubmission = ({ id }: Props) => {
+    const [teamData, setTeamData] = useState([]);
     const [submission, setSubmission] = useState<SubmissionType>();
     const { data: session } = useSession();
     useEffect(() => {
-        if (session?.user) {
-            if (!session.user.team) {
-                Toaster.error(
-                    'You are not a part of any team, contact the admin.'
-                );
-                router.push('/hack');
-            } else {
-                setSubmission(
-                    session.user.team.submission as unknown as SubmissionType
-                );
-                const sub = session.user.team
-                    .submission as unknown as SubmissionType;
-                setProjectName(sub.title);
-                setProjectDescription(sub.description);
-                setLinks(sub.links);
+        getHandler(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/team/${id}`)
+            .then((res) => {
+                setTeamData(res.data);
                 setLoading(false);
-                console.log(submission);
-            }
-        }
+            })
+            .catch((err) => {
+                Toaster.error('Internal Server Error');
+                console.log(err);
+            });
     }, [session]);
 
     const options = [
@@ -66,7 +60,7 @@ const EditSubmission = () => {
         };
 
         const res = await patchHandler(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/submission`,
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/submission/${id}`,
             formData
         );
 

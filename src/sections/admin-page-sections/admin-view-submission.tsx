@@ -7,34 +7,25 @@ import postHandler from '@/handlers/postHandler';
 import { useSession } from 'next-auth/react';
 import { SubmissionType } from '@/models/submissionModel';
 import mongoose from 'mongoose';
+import getHandler from '@/handlers/getHandler';
 type ViewSubmissionProps = {
     toggleEdit: (value: number) => void;
+    id: string;
 };
-const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
+const ViewSubmission = ({ toggleEdit, id }: ViewSubmissionProps) => {
     const [submission, setSubmission] = useState<SubmissionType>();
+    const [teamData, setTeamData] = useState([]);
     const { data: session } = useSession();
     useEffect(() => {
-        if (session?.user) {
-            if (!session.user.team) {
-                Toaster.error(
-                    'You are not a part of any team, contact the admin.'
-                );
-                router.push('/hack');
-            } else {
-                setSubmission(
-                    session.user.team.submission as unknown as SubmissionType
-                );
-                const sub = session.user.team
-                    .submission as unknown as SubmissionType;
-                setProjectName(sub.title);
-                setProjectDescription(sub.description);
-                setLinks(sub.links);
-                setTrack(sub.track);
-
+        getHandler(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/team/${id}`)
+            .then((res) => {
+                setTeamData(res.data);
                 setLoading(false);
-                console.log(submission);
-            }
-        }
+            })
+            .catch((err) => {
+                Toaster.error('Internal Server Error');
+                console.log(err);
+            });
     }, [session]);
 
     const options = [
@@ -48,7 +39,7 @@ const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
 
     const [links, setLinks] = useState<string[]>([]);
     const [inputFiles, setInputFiles] = useState<File[]>();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const router = useRouter();
 
     const handleSubmit = async () => {

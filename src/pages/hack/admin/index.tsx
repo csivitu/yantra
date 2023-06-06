@@ -57,7 +57,7 @@ const Index = () => {
                 </div>
                 {/* CHANGE SEARCH BAR MAKE DUPLICATE WITH NEW FILTERS */}
                 <div className="w-[90%] lg:w-[60%]">
-                    <SearchBar initialSearch="" />
+                    {/* <SearchBar initialSearch="" /> */}
                 </div>
             </div>
             <div className="h-max px-4 lg:px-20 py-10 gap-y-5 sm:gap-y-3 flex justify-around items-start flex-col">
@@ -68,7 +68,7 @@ const Index = () => {
                         {teams.map((team) => {
                             return (
                                 <ProjectCard
-                                    key={String(team.id)}
+                                    key={String(team._id)}
                                     team={team}
                                 />
                             );
