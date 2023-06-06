@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Loader from '@/components/common/loader';
-import { useSession } from 'next-auth/react';
+import { getSession, useSession } from 'next-auth/react';
 import mongoose from 'mongoose';
 import { TeamType } from '@/models/teamModel';
 import Toaster from '@/utils/toaster';
@@ -9,7 +9,14 @@ import ViewSubmission from '@/sections/admin-page-sections/admin-view-submission
 import EditSubmission from '@/sections/admin-page-sections/admin-edit-submission';
 import Header from '@/components/common/header';
 import { useRouter } from 'next/router';
-const ProjectReviewPage = () => {
+import { GetServerSidePropsContext } from 'next';
+import getHandler from '@/handlers/getHandler';
+
+interface Props {
+    id: string;
+}
+
+const ProjectReviewPage = ({ id }: Props) => {
     const router = useRouter();
     // ROUND PASSING LOGIC
     const [rounds, setRounds] = useState([
@@ -51,28 +58,24 @@ const ProjectReviewPage = () => {
         isNameChanged: false,
         submission: new mongoose.Schema.Types.ObjectId(''),
     });
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [changeTitle, setChangeTitle] = useState(false);
     const [newTitle, setNewTitle] = useState('');
     const [isSubmission, setIsSubmission] = useState(false);
     const [toggleEdit, setToggleEdit] = useState(0);
 
-    const { data: session } = useSession();
     useEffect(() => {
-        if (session?.user) {
-            if (!session.user.team) {
-                Toaster.error(
-                    'You are not a part of any team, contact the admin.'
-                );
-                // router.push('/sdg');
-            } else {
-                setTeamDetails(session.user.team);
-                setNewTitle(session.user.team.title);
+        getHandler(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/team/${id}`)
+            .then((res) => {
+                setTeamDetails(res.data.team);
+                console.log(res.data.team);
                 setLoading(false);
-                if (session.user.team.submission) setIsSubmission(true);
-            }
-        }
-    }, [session]);
+            })
+            .catch((err) => {
+                Toaster.error('Internal Server Error');
+                console.log(err);
+            });
+    }, []);
     return (
         <>
             <Header />
@@ -226,6 +229,23 @@ const ProjectReviewPage = () => {
             </div>
         </>
     );
+};
+
+export const getServerSideProps = async (
+    context: GetServerSidePropsContext
+) => {
+    const session = await getSession(context);
+    if (!session || !session.user.isAdmin) {
+        return {
+            redirect: {
+                destination: '/sdg',
+            },
+        };
+    }
+    const { id } = context.query;
+    return {
+        props: { id },
+    };
 };
 
 export default ProjectReviewPage;

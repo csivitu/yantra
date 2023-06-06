@@ -1,5 +1,6 @@
 import { SubmissionDocument } from '@/models/submissionModel';
 import { SubmissionPopulatedTeam } from '@/models/teamModel';
+import Link from 'next/link';
 import React from 'react';
 
 interface Props {
@@ -9,7 +10,10 @@ interface Props {
 const ProjectCard = ({ team }: Props) => {
     return (
         <>
-            <div className="w-full rounded-lg border-[2px] border-white sm:h-[20vh] py-4 flex flex-col sm:flex-row justify-around items-center text-white">
+            <Link
+                href={`/sdg/admin/team/${team._id}`}
+                className="w-full rounded-lg border-[2px] border-white sm:h-[20vh] py-4 flex flex-col sm:flex-row justify-around items-center text-white"
+            >
                 <div className="h-full text-lg text-center py-2 sm:py-3 w-full sm:w-[20%] flex justify-center items-center">
                     Project Name: {team.submission.title}
                 </div>
@@ -41,12 +45,7 @@ const ProjectCard = ({ team }: Props) => {
                         </p>
                     </div>
                 </div>
-                <div className="h-full py-2 sm:py-3 w-full sm:w-[20%] flex justify-center items-center">
-                    <p className="px-3 py-4 border-2 border-white rounded-md cursor-pointer hover:bg-white hover:text-black text-xl">
-                        Open
-                    </p>
-                </div>
-            </div>
+            </Link>
         </>
     );
 };

@@ -7,6 +7,7 @@ import getHandler from '@/handlers/getHandler';
 import Loader from '@/components/common/loader';
 import { GetServerSidePropsContext } from 'next';
 import { getSession } from 'next-auth/react';
+import Toaster from '@/utils/toaster';
 
 const Index = () => {
     const router = useRouter();
@@ -20,6 +21,7 @@ const Index = () => {
                 setLoading(false);
             })
             .catch((err) => {
+                Toaster.error('Internal Server Error');
                 console.log(err);
             });
     }, []);

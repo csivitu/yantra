@@ -16,6 +16,7 @@ export interface TeamDocument extends TeamType, mongoose.Document {
 }
 
 export interface SubmissionPopulatedTeam {
+    _id: string;
     id: mongoose.Schema.Types.ObjectId;
     title: string;
     members: UserDocument[];
