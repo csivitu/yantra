@@ -41,13 +41,6 @@ const SDGHeroSection = () => {
                         />
                     </div>
                     <div className="text-4xl lg:text-5xl font-sans flex justify-center max-lg:items-center flex-col font-bold tracking-normal text-center lg:text-start">
-                        {/* A WEEK OF
-                        <br />
-                        <span className="text-[#244EE4] w-full text-center">
-                            TECHNICAL
-                        </span>
-                        <br /> INNOVATION */}
-
                         <div className="text-[#244EE4] w-[80%] text-7xl max-md:text-6xl font-bold">
                             <Image
                                 src="/hack23.gif"
@@ -62,16 +55,7 @@ const SDGHeroSection = () => {
                         </p>
                     </div>
 
-                    {/* <Link
-                        href="https://vtop.vit.ac.in/"
-                        className="rounded-md px-10 py-3 mt-3 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#9207FF] text-[#9207FF] "
-                    >
-                        <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#9207FF] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                        <span className="relative text-[#9207FF] transition duration-300 group-hover:text-white ease font-spaceGrotesk text-xl tracking-wider">
-                            REGISTER NOW
-                        </span>
-                    </Link> */}
-                    {/* <div
+                    <div
                         onClick={handleClick}
                         className="cursor-pointer relative w-42 h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
                     >
@@ -81,7 +65,7 @@ const SDGHeroSection = () => {
                             {session ? 'VIEW TEAM' : 'REGISTER NOW'}
                         </span>
                         <span className="absolute inset-0 border-2 border-white rounded-full"></span>
-                    </div> */}
+                    </div>
                 </div>
                 <div className="lg:w-[50%] w-[100%] lg:h-[100%] h-[50%] bg-transparent">
                     <div className="h-full w-full bg-transparent">

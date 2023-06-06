@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Loader from '@/components/common/loader';
 import Toaster from '@/utils/toaster';
-import patchHandler from '@/handlers/patchHandler';
 import ProjectSubmission from '@/sections/sdg-view-team-page-sections/project-submission';
 import EditSubmission from './edit-submission';
 import ViewSubmission from './view-submission';
@@ -17,12 +16,9 @@ const HeroSection = () => {
         id: new mongoose.Schema.Types.ObjectId(''),
         title: '',
         members: [],
-        isNameChanged: false,
         submission: new mongoose.Schema.Types.ObjectId(''),
     });
     const [loading, setLoading] = useState(true);
-    const [changeTitle, setChangeTitle] = useState(false);
-    const [newTitle, setNewTitle] = useState('');
     const [isSubmission, setIsSubmission] = useState(false);
     const [toggleEdit, setToggleEdit] = useState(0);
 
@@ -36,30 +32,11 @@ const HeroSection = () => {
                 router.push('/hack');
             } else {
                 setTeamDetails(session.user.team);
-                setNewTitle(session.user.team.title);
                 setLoading(false);
                 if (session.user.team.submission) setIsSubmission(true);
             }
         }
     }, [session]);
-
-    const handleChangeName = async () => {
-        const toaster = Toaster.startLoad();
-        const res = await patchHandler(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/team/changeName`,
-            { title: newTitle }
-        );
-        if (res.status === 1) {
-            const newTeamDetails = { ...teamDetails };
-            newTeamDetails.title = newTitle;
-            newTeamDetails.isNameChanged = true;
-            setTeamDetails(newTeamDetails);
-            Toaster.stopLoad(toaster, 'Name Changed', 1);
-            setChangeTitle(false);
-        } else {
-            Toaster.stopLoad(toaster, 'Internal Server Error', 0);
-        }
-    };
 
     return (
         <>
@@ -94,44 +71,7 @@ const HeroSection = () => {
                                 </div>
                             </div>{' '}
                             <div className="h-fit flex justify-start items-center gap-x-3 text-5xl text-white font-bronson max-md:my-4 max-md:text-4xl">
-                                {changeTitle ? (
-                                    <input
-                                        type="text"
-                                        className="focus:outline-none bg-none text-black w-full"
-                                        value={newTitle}
-                                        onChange={(el) =>
-                                            setNewTitle(el.target.value)
-                                        }
-                                    />
-                                ) : (
-                                    <div>{teamDetails.title}</div>
-                                )}
-
-                                <Image
-                                    src="/edit-button.svg"
-                                    alt="Logo"
-                                    height={1000000}
-                                    width={100000}
-                                    className={`w-6 h-6 object-contain cursor-pointer ${
-                                        teamDetails.isNameChanged
-                                            ? 'hidden'
-                                            : changeTitle
-                                            ? 'hidden'
-                                            : ''
-                                    }`}
-                                    onClick={() => setChangeTitle(true)}
-                                />
-
-                                <Image
-                                    src="/arrow.png"
-                                    alt="Logo"
-                                    height={1000000}
-                                    width={100000}
-                                    className={`w-6 h-6 object-contain cursor-pointer ${
-                                        !changeTitle ? 'hidden' : ''
-                                    }`}
-                                    onClick={handleChangeName}
-                                />
+                                <div>{teamDetails.title}</div>
                             </div>
                             <div className="flex md:flex-col gap-4 max-md:w-full max-md:justify-between pt-6">
                                 <div className="h-max">

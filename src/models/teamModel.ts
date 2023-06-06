@@ -6,7 +6,6 @@ export interface TeamType {
     id: mongoose.Schema.Types.ObjectId;
     title: string;
     members: UserDocument[];
-    isNameChanged: boolean;
     submission: mongoose.Schema.Types.ObjectId | SubmissionDocument;
 }
 
@@ -20,7 +19,6 @@ export interface SubmissionPopulatedTeam {
     id: mongoose.Schema.Types.ObjectId;
     title: string;
     members: UserDocument[];
-    isNameChanged: boolean;
     submission: SubmissionDocument;
 }
 
