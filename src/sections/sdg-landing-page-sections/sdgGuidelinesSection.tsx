@@ -9,7 +9,7 @@ const SDGGuidelinesSection = () => {
             >
                 GUIDELINES
             </div>
-            <div className="flex justify-around items-center px-5 sm:px-20 gap-y-3 py-10 flex-col text-white">
+            <div className="flex justify-around items-center px-12 sm:px-48 gap-y-3 py-10 flex-col text-white">
                 <div className="w-[100%]">
                     <span className="text-xl font-bold text-[#279B48]">
                         1. Eligibility :
