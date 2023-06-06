@@ -99,10 +99,12 @@ const editSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
 
                 res.status(201).json({
                     status: 'success',
+                    message: 'Successfully added the submission.',
                 });
             }
         }
-    } catch {
+    } catch (err) {
+        console.log(err);
         res.status(500).json({
             status: 'error',
             message: 'Internal server error',
