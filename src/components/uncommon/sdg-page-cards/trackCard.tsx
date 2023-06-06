@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import TrackModal from './trackModal';
 
 interface Props {
     name: string;
@@ -9,9 +10,16 @@ interface Props {
     iconSource: string;
 }
 const TrackCard = ({ name, rank, text, colour, iconSource }: Props) => {
+    const [modalVisibility, setModalVisibility] = useState(false);
+
     return (
         <>
-            <div className=" relative py-6 font-spaceGrotesk bg-[#252525] bg-opacity-40 text-white  lg:min-h-[48vh] lg:w-[20vw] min-h-[25vh] w-[70%] rounded-xl">
+            <div
+                onClick={() => {
+                    setModalVisibility(true);
+                }}
+                className="cursor-pointer relative py-6 font-spaceGrotesk bg-[#252525] bg-opacity-40 text-white  lg:min-h-[48vh] lg:w-[20vw] min-h-[25vh] w-[70%] rounded-xl"
+            >
                 <div className="flex h-full w-full flex-col gap-1 sm:gap-3 px-6">
                     <Image
                         src={`${iconSource}`}
@@ -32,6 +40,15 @@ const TrackCard = ({ name, rank, text, colour, iconSource }: Props) => {
                     #{rank}
                 </div>
             </div>
+            {modalVisibility !== false && (
+                <TrackModal
+                    modalVisibility={setModalVisibility}
+                    visible={true}
+                    // setModalDataFunc={() => {
+                    //     setModalData();
+                    // }}
+                />
+            )}
         </>
     );
 };
