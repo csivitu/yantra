@@ -4,7 +4,7 @@ import sessionCheck from '@/middlewares/sessionCheck';
 import User from '@/models/userModel';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const getTeams = async (req: NextApiRequest, res: NextApiResponse) => {
+const getUsers = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         const users = await User.find();
         res.status(200).json({
@@ -24,7 +24,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await connectToDB();
     switch (req.method) {
         case 'GET':
-            await getTeams(req, res);
+            await getUsers(req, res);
             break;
     }
 };
