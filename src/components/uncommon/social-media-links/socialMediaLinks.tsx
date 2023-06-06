@@ -23,7 +23,7 @@ const SocialMediaLinks = () => {
             photo: 'instagram.png',
         },
         {
-            name: 'linkedIn',
+            name: 'linkedin',
             link: 'https://www.linkedin.com/school/vellore-institute-of-technology',
             photo: 'linkedinLogo.png',
         },
