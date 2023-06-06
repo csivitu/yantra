@@ -5,7 +5,7 @@ import Submission from '@/models/submissionModel';
 import Team from '@/models/teamModel';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const changeName = async (req: NextApiRequest, res: NextApiResponse) => {
+const changeStatus = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         const submission = await Submission.findById(req.body.submissionID);
         if (submission.status !== req.body.status - 1)
@@ -33,7 +33,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await connectToDB();
     switch (req.method) {
         case 'PATCH':
-            await changeName(req, res);
+            await changeStatus(req, res);
             break;
     }
 };
