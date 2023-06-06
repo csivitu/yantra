@@ -18,16 +18,11 @@ const ProjectSubmission = () => {
     const [projectName, setProjectName] = useState('');
     const [track, setTrack] = useState<number>(0);
     const [projectDescription, setProjectDescription] = useState('');
-
     const [links, setLinks] = useState<string[]>([]);
-    const [inputFiles, setInputFiles] = useState<File[]>();
-    const [isLoading, setIsLoading] = useState(false);
+
     const router = useRouter();
 
     const handleSubmit = async () => {
-        // Perform submission logic here
-        // For demonstration purposes, we'll just log the form dat
-
         const toaster = Toaster.startLoad();
 
         const formData = {
@@ -107,7 +102,7 @@ const ProjectSubmission = () => {
                             <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
                             <span className="absolute top-0 left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
                             <span className="font-spaceGrotesk text-lg font-bold flex justify-center items-center  relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
-                                SUBMIT
+                                Submit
                             </span>
                             <span className="absolute inset-0 border-2 border-white rounded-full"></span>
                         </div>

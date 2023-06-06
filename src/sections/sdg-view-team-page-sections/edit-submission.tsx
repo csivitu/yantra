@@ -247,7 +247,7 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                                             width={100000}
                                             className="w-4 h-4 object-contain cursor-pointer"
                                         />
-                                        <div>SUBMIT</div>
+                                        <div>Submit</div>
                                     </span>
                                     <span className="absolute inset-0 border-2 border-white rounded-full"></span>
                                 </div>

@@ -29,7 +29,7 @@ const Index = () => {
     return (
         <>
             <div className="w-full lg:px-32 flex items-center max-md:flex-col">
-                <div className="lg:w-[40%] flex items-center gap-2 font-spaceGrotesk uppercase text-3xl font-extrabold py-8 text-white">
+                <div className="lg:w-[40%] flex items-center gap-2 font-spaceGrotesk text-3xl font-extrabold py-8 text-white">
                     <div className=" h-[7.5vh] flex justify-start gap-2 items-center max-md:hidden">
                         <div
                             onClick={() => router.push('/sdg')}
@@ -54,7 +54,6 @@ const Index = () => {
                             Back
                         </div>
                     </div>
-                    <div>ADMIN</div>
                 </div>
                 {/* CHANGE SEARCH BAR MAKE DUPLICATE WITH NEW FILTERS */}
                 <div className="w-[90%] lg:w-[60%]">
