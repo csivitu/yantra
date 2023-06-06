@@ -5,7 +5,23 @@ import Submission from '@/models/submissionModel';
 import Team from '@/models/teamModel';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const changeStatus = async (req: NextApiRequest, res: NextApiResponse) => {
+const getSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
+    try {
+        const submission = await Submission.findById(req.body.submissionID);
+        res.status(200).json({
+            status: 'success',
+            message: '',
+            submission,
+        });
+    } catch {
+        res.status(500).json({
+            status: 'success',
+            message: 'Internal Server Error',
+        });
+    }
+};
+
+const editSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         const submission = await Submission.findById(req.body.submissionID);
         if (submission.status !== req.body.status - 1)
@@ -32,8 +48,11 @@ const changeStatus = async (req: NextApiRequest, res: NextApiResponse) => {
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await connectToDB();
     switch (req.method) {
+        case 'GET':
+            await getSubmission(req, res);
+            break;
         case 'PATCH':
-            await changeStatus(req, res);
+            await editSubmission(req, res);
             break;
     }
 };
