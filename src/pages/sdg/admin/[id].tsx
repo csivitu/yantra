@@ -5,8 +5,8 @@ import { useSession } from 'next-auth/react';
 import mongoose from 'mongoose';
 import { TeamType } from '@/models/teamModel';
 import Toaster from '@/utils/toaster';
-import ViewSubmission from '@/sections/admin-page-sections/view-submission';
-import EditSubmission from '@/sections/sdg-view-team-page-sections/edit-submission';
+import ViewSubmission from '@/sections/admin-page-sections/admin-view-submission';
+import EditSubmission from '@/sections/admin-page-sections/admin-edit-submission';
 import Header from '@/components/common/header';
 import { useRouter } from 'next/router';
 const ProjectReviewPage = () => {

@@ -49,7 +49,7 @@ const EditSubmission = () => {
 
     const [links, setLinks] = useState<string[]>([]);
     const [inputFiles, setInputFiles] = useState<File[]>();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const router = useRouter();
 
     const handleSubmit = async () => {
