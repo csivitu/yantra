@@ -9,8 +9,7 @@ const EventsSection = () => {
     const [eventData, setEventData] = useState([]);
     const eventsController = async () => {
         const res = await getHandler(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/events`,
-            false
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/events`
         );
         if (res.status === 1) setEventData(res.data.events);
     };

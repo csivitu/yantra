@@ -17,8 +17,7 @@ const HackathonsList = () => {
         getHandler(
             `${
                 process.env.NEXT_PUBLIC_BASE_URL
-            }/api/events?page=${page}&limit=${40}`,
-            false
+            }/api/events?page=${page}&limit=${40}`
         )
             .then((res) => {
                 setHackathons([...hackathons, ...res.data.events]);

@@ -31,7 +31,7 @@ const SearchHackathonsList = ({ search, type }: Props) => {
         });
         URL += `&search=${search}`;
 
-        getHandler(URL, false)
+        getHandler(URL)
             .then((res) => {
                 setHackathons(res.data.events);
                 setLoading(false);

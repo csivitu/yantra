@@ -39,7 +39,7 @@ const EventPage = ({ id }: Props) => {
 
     useEffect(() => {
         const URL = `${process.env.NEXT_PUBLIC_BASE_URL}/api/events/${id}`;
-        getHandler(URL, false)
+        getHandler(URL)
             .then((res) => {
                 setEvent(res.data.event);
                 if (res.statusCode !== 200) router.push('/events');
