@@ -56,7 +56,6 @@ const EditSubmission = () => {
         const formData = {
             title: projectName,
             description: projectDescription,
-
             links: links,
         };
 
@@ -80,10 +79,10 @@ const EditSubmission = () => {
                 if (res.status === 1) Toaster.stopLoad(toaster, 'Submitted', 1);
                 else Toaster.stopLoad(toaster, res.data, 0);
             } else {
-                alert('No input files');
+                Toaster.stopLoad(toaster, 'Submitted', 1);
             }
 
-            // router.reload();
+            router.reload();
         } else {
             Toaster.stopLoad(toaster, res.data, 0);
         }

@@ -20,8 +20,16 @@ const TagsField = ({ label, tags, setTags }: Props) => {
             if (newTag !== '') {
                 if (tags.length < 5) {
                     if (!tags.includes(newTag)) {
-                        setTags([...tags, newTag]);
-                        setTagInput('');
+                        if (
+                            !newTag.match(
+                                /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
+                            )
+                        )
+                            Toaster.error('Enter a valid URL');
+                        else {
+                            setTags([...tags, newTag]);
+                            setTagInput('');
+                        }
                     }
                 } else {
                     Toaster.error('Only 5 Tags allowed');
@@ -55,15 +63,15 @@ const TagsField = ({ label, tags, setTags }: Props) => {
                 {tags.map((tag) => (
                     <div
                         key={tag}
-                        className="flex items-center justify-center py-1 border-[1px] rounded-md cursor-pointer"
-                        onClick={() => handleTagRemove(tag)}
+                        className="flex items-center justify-center py-1 border-[1px] rounded-md cursor-default px-3"
                     >
                         {tag}
                         <svg
-                            className="w-4 h-4 ml-1"
+                            className="w-4 h-4 ml-1  cursor-pointer"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
+                            onClick={() => handleTagRemove(tag)}
                         >
                             <path
                                 strokeLinecap="round"

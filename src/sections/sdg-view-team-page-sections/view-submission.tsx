@@ -73,7 +73,18 @@ const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                         </div>
                         <div>
                             {submission?.links.map((el) => {
-                                return <p key={Math.random()}>{el}</p>;
+                                return (
+                                    <Link
+                                        href={el}
+                                        key={Math.random()}
+                                        className="hover:underline underline-offset-4"
+                                    >
+                                        {
+                                            new URL(el).hostname
+                                            //add a svg here
+                                        }
+                                    </Link>
+                                );
                             })}
                         </div>
 
