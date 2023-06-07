@@ -8,18 +8,24 @@ import { useSession } from 'next-auth/react';
 import { SubmissionType } from '@/models/submissionModel';
 import mongoose from 'mongoose';
 import getHandler from '@/handlers/getHandler';
+import { TeamType } from '@/models/teamModel';
 type ViewSubmissionProps = {
     toggleEdit: (value: number) => void;
-    id: string;
+    id: mongoose.Schema.Types.ObjectId;
 };
 const ViewSubmission = ({ toggleEdit, id }: ViewSubmissionProps) => {
+    console.log(id);
     const [submission, setSubmission] = useState<SubmissionType>();
     const [teamData, setTeamData] = useState([]);
     const { data: session } = useSession();
     useEffect(() => {
-        getHandler(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/team/${id}`)
+        getHandler(
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/submission/${id}`
+        )
             .then((res) => {
-                setTeamData(res.data);
+                console.log(res.data.submission);
+                setSubmission(res.data.submission);
+
                 setLoading(false);
             })
             .catch((err) => {
@@ -27,7 +33,12 @@ const ViewSubmission = ({ toggleEdit, id }: ViewSubmissionProps) => {
                 console.log(err);
             });
     }, [session]);
-
+    const [teamDetails, setTeamDetails] = useState<TeamType>({
+        id: new mongoose.Schema.Types.ObjectId(''),
+        title: '',
+        members: [],
+        submission: new mongoose.Schema.Types.ObjectId(''),
+    });
     const options = [
         { value: 'option1', label: 'Option 1' },
         { value: 'option2', label: 'Option 2' },
@@ -48,7 +59,18 @@ const ViewSubmission = ({ toggleEdit, id }: ViewSubmissionProps) => {
 
         toggleEdit(1);
     };
+    useEffect(() => {
+        getHandler(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/team/${id}`)
+            .then((res) => {
+                setTeamDetails(res.data.team);
 
+                setLoading(false);
+            })
+            .catch((err) => {
+                Toaster.error('Internal Server Error');
+                console.log(err);
+            });
+    }, []);
     return (
         <>
             <div className="h-full w-full flex flex-col justify-end items-center">
@@ -59,28 +81,27 @@ const ViewSubmission = ({ toggleEdit, id }: ViewSubmissionProps) => {
                         <form onSubmit={handleSubmit}>
                             <div className="text-sm flex justify-start gap-2 items-center pt-4">
                                 <p className="font-spaceGrotesk text-white opacity-[0.4]">
-                                    Project Name
+                                    Project Title
                                 </p>
                             </div>
-                            <div>{projectName}</div>
+                            <div>{submission?.title}</div>
                             <div className="text-sm flex justify-start gap-2 items-center pt-4">
                                 <p className="font-spaceGrotesk text-white opacity-[0.4]">
                                     Project Description
                                 </p>
                             </div>
-                            <div>{projectDescription}</div>
+                            <div>{submission?.description}</div>
                             <div className="text-sm flex justify-start gap-2 items-center pt-4">
                                 <p className="font-spaceGrotesk text-white opacity-[0.4]">
                                     Project Track
                                 </p>
                             </div>
-                            <div>{track}</div>
+                            <div>{submission?.track}</div>
                             <div className="text-sm flex justify-start gap-2 items-center pt-4">
                                 <p className="font-spaceGrotesk text-white opacity-[0.4]">
                                     Project Links
                                 </p>
                             </div>
-                            <div>{track}</div>
 
                             <div>
                                 {links.map((el) => {

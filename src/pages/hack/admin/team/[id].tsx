@@ -81,7 +81,6 @@ const ProjectReviewPage = ({ id }: Props) => {
             `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/submission/${id}`,
             formData
         );
-        console.log(data);
     };
 
     const handleScoreChange = (index: number, value: number) => {
@@ -262,7 +261,7 @@ const ProjectReviewPage = ({ id }: Props) => {
                             )} */}
                             {teamDetails.submission ? (
                                 <ViewSubmission
-                                    id={id}
+                                    id={teamDetails.submission._id}
                                     toggleEdit={setToggleEdit}
                                 />
                             ) : (
