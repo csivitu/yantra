@@ -76,26 +76,39 @@ const addSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 const editSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
-    try {
-        if (LOCK_SUBMISSIONS)
-            res.status(201).json({
-                status: 'error',
-                message: 'Submissions are now locked.',
-            });
-        else {
-            await Submission.findByIdAndUpdate(req.team.submission, req.body);
+    const validationRes = editSubmissionSchema.safeParse(req.body);
+    if (!validationRes.success)
+        res.status(400).json({
+            status: 'error',
+            message:
+                'Payload Validation Failed: ' +
+                validationRes.error.issues[0].message,
+        });
+    else {
+        try {
+            if (LOCK_SUBMISSIONS)
+                res.status(201).json({
+                    status: 'error',
+                    message: 'Submissions are now locked.',
+                });
+            else {
+                await Submission.findByIdAndUpdate(
+                    req.team.submission,
+                    req.body
+                );
 
-            res.status(201).json({
-                status: 'success',
-                message: 'Successfully edited the submission.',
+                res.status(201).json({
+                    status: 'success',
+                    message: 'Successfully edited the submission.',
+                });
+            }
+        } catch (err) {
+            console.log(err);
+            res.status(500).json({
+                status: 'error',
+                message: 'Internal server error',
             });
         }
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({
-            status: 'error',
-            message: 'Internal server error',
-        });
     }
 };
 
