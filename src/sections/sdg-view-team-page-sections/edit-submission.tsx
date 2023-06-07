@@ -50,7 +50,8 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
         const formData = {
             title: projectName,
             description: projectDescription,
-            links: links,
+            links: links || [],
+            files: files,
         };
 
         const res = await patchHandler(
@@ -99,6 +100,9 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
         const toaster = Toaster.startLoad();
 
         const formData = {
+            title: projectName,
+            description: projectDescription,
+            links: links || [],
             files: newFiles,
         };
 
