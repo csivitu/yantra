@@ -27,20 +27,7 @@ interface RoundType {
 
 const ProjectReviewPage = ({ id }: Props) => {
     const { data: session } = useSession();
-    useEffect(() => {
-        if (session?.user) {
-            if (!session.user.team) {
-                Toaster.error(
-                    'You are not a part of any team, contact the admin.'
-                );
-                router.push('/hack');
-            } else {
-                setTeamDetails(session.user.team);
-                setLoading(false);
-                if (session.user.team.submission) setIsSubmission(true);
-            }
-        }
-    }, [session]);
+
     const router = useRouter();
     // ROUND PASSING LOGIC
     const [rounds, setRounds] = useState<RoundType[]>([
@@ -203,60 +190,67 @@ const ProjectReviewPage = ({ id }: Props) => {
                                         })}
                                 </div>
                             </div>
-                            <div className="flex md:flex-col gap-4 max-md:w-full max-md:justify-between pt-6">
-                                {rounds.map((round, index) => (
-                                    <>
-                                        <div
-                                            key={index}
-                                            className="text-xl py-1 flex justify-start items-center gap-x-2 font-spaceGrotesk"
-                                        >
-                                            {round.round}
-                                            <label className="ml-2">
-                                                <input
-                                                    type="checkbox"
-                                                    checked={round.checked}
-                                                    onChange={() =>
-                                                        handleCheckboxChange(
-                                                            index
+                            {teamDetails.submission ? (
+                                <div className="flex md:flex-col gap-4 max-md:w-full max-md:justify-between pt-6">
+                                    {rounds.map((round, index) => (
+                                        <>
+                                            <div
+                                                key={index}
+                                                className="text-xl py-1 flex justify-start items-center gap-x-2 font-spaceGrotesk"
+                                            >
+                                                {round.round}
+                                                <label className="ml-2">
+                                                    <input
+                                                        type="checkbox"
+                                                        checked={round.checked}
+                                                        onChange={() =>
+                                                            handleCheckboxChange(
+                                                                index
+                                                            )
+                                                        }
+                                                    />
+                                                    Checked
+                                                </label>
+                                                <div>- Score : </div>
+                                                <InputField
+                                                    label=""
+                                                    value={round.score.toString()}
+                                                    type="number"
+                                                    canEdit={true}
+                                                    onChange={(value) =>
+                                                        handleScoreChange(
+                                                            index,
+                                                            Number(value)
                                                         )
                                                     }
                                                 />
-                                                Checked
-                                            </label>
-                                            <div>- Score : </div>
-                                            <InputField
-                                                label=""
-                                                value={round.score.toString()}
-                                                type="number"
-                                                canEdit={true}
-                                                onChange={(value) =>
-                                                    handleScoreChange(
-                                                        index,
-                                                        Number(value)
-                                                    )
-                                                }
-                                            />
-                                        </div>
-                                    </>
-                                ))}
-                                <div
-                                    onClick={() => {
-                                        SaveRoundChangesHandler();
-                                    }}
-                                    className="cursor-pointer relative w-[30%] h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
-                                >
-                                    <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
-                                    <span className="absolute top-0 left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-0"></span>
+                                            </div>
+                                        </>
+                                    ))}
+                                    <div
+                                        onClick={() => {
+                                            SaveRoundChangesHandler();
+                                        }}
+                                        className="cursor-pointer relative w-[30%] h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
+                                    >
+                                        <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
+                                        <span className="absolute top-0 left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-0"></span>
 
-                                    <span className="font-spaceGrotesk text-lg font-bold  items-center  relative w-full text-left flex justify-center gap-x-3 text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
-                                        <div>SAVE</div>
-                                    </span>
-                                    <span className="absolute inset-0 border-2 border-white rounded-full"></span>
+                                        <span className="font-spaceGrotesk text-lg font-bold  items-center  relative w-full text-left flex justify-center gap-x-3 text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
+                                            <div>SAVE</div>
+                                        </span>
+                                        <span className="absolute inset-0 border-2 border-white rounded-full"></span>
+                                    </div>
                                 </div>
-                            </div>
+                            ) : (
+                                <div className="my-12 font-ibmMono">
+                                    No Submission found for this team.
+                                </div>
+                            )}
                         </div>
 
                         {/* STRONGLY SUGGESTED MAKE NEW DUPLICATE 2 COMPONENTS BELOW JUST FOR ADMIN PANEL SOLO PROJECT VIEW PAGE CUZ IT WILL HAVE A NEW CHECK KI EVEN SUPER USER CAN VIEW ALL */}
+
                         <div className="w-full lg:w-[50%] h-full">
                             {/* {toggleEdit === 0 ? (
                                 <ViewSubmission
@@ -266,10 +260,14 @@ const ProjectReviewPage = ({ id }: Props) => {
                             ) : (
                                 <EditSubmission id={id} />
                             )} */}
-                            <ViewSubmission
-                                id={id}
-                                toggleEdit={setToggleEdit}
-                            />
+                            {teamDetails.submission ? (
+                                <ViewSubmission
+                                    id={id}
+                                    toggleEdit={setToggleEdit}
+                                />
+                            ) : (
+                                <></>
+                            )}
                         </div>
                     </>
                 )}
