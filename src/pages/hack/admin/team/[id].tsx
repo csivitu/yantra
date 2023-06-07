@@ -55,7 +55,7 @@ const ProjectReviewPage = ({ id }: Props) => {
 
     const [score, setScore] = useState(0);
 
-    const CURRENT_ROUND = Number(process.env.CURRENT_ROUND);
+    const CURRENT_ROUND = Number(process.env.NEXT_PUBLIC_CURRENT_ROUND);
 
     useEffect(() => {
         getHandler(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/team/${id}`)

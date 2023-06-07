@@ -24,7 +24,6 @@ const AdminSearchBar = ({ teams, setTeams, initialTeams }: Props) => {
         const newTeams = initialTeams.filter((team) =>
             team.title.toLowerCase().includes(newSearch.toLowerCase())
         );
-        console.log(newTeams);
         setTeams(newTeams);
     };
 
