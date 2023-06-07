@@ -97,7 +97,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
         const submission = await Submission.findById(req.team.submission);
 
-        submission.files = fileURLs;
+        let submittedFiles = submission.files || [];
+
+        submittedFiles = [...submittedFiles, ...fileURLs];
+
+        submission.files = submittedFiles;
 
         await submission.save();
 

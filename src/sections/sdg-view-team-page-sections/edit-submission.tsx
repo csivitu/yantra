@@ -90,6 +90,31 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
         setInputFiles(newFiles);
     };
 
+    const handleRemoveSubmittedFile = async (index: number) => {
+        const newFiles: string[] = [];
+        files.forEach((el, i) => {
+            if (i !== index) newFiles.push(el);
+        });
+
+        const toaster = Toaster.startLoad();
+
+        const formData = {
+            files: newFiles,
+        };
+
+        const res = await patchHandler(
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/submission`,
+            formData
+        );
+
+        if (res.status === 1) {
+            Toaster.stopLoad(toaster, 'File Deleted', 1);
+            setFiles(newFiles);
+        } else {
+            Toaster.stopLoad(toaster, res.data.message, 0);
+        }
+    };
+
     return (
         <>
             <div className="h-full w-full flex justify-around items-center">
@@ -139,25 +164,80 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                             </div>
                         </div>
 
-                        <div className="w-full flex flex-col text-center">
-                            {inputFiles?.map((file, index) => {
-                                return (
-                                    <div
-                                        key={file.name}
-                                        className="w-full flex justify-between border-[1px] border-white border-dashed px-2 py-1 pr-3 rounded-md text-base text-ellipsis overflow-hidden"
-                                    >
-                                        <div>{file?.name}</div>
-                                        <div
-                                            className="cursor-pointer"
-                                            onClick={() =>
-                                                handleRemoveFile(index)
-                                            }
-                                        >
-                                            X
-                                        </div>
-                                    </div>
-                                );
-                            })}
+                        <div className="w-full flex flex-col text-center gap-2">
+                            {inputFiles && inputFiles?.length > 0 ? (
+                                <>
+                                    {inputFiles?.map((file, index) => {
+                                        return (
+                                            <div
+                                                key={file.name}
+                                                className="w-full flex justify-between border-[1px] border-white border-dashed px-2 py-1 pr-3 rounded-md text-base text-ellipsis overflow-hidden"
+                                            >
+                                                <div>{file?.name}</div>
+                                                <div
+                                                    className="cursor-pointer"
+                                                    onClick={() =>
+                                                        handleRemoveFile(index)
+                                                    }
+                                                >
+                                                    X
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </>
+                            ) : (
+                                <div className="text-left">-</div>
+                            )}
+                        </div>
+                        <div className="text-sm flex justify-start gap-2 items-center pt-4">
+                            <p className="font-spaceGrotesk text-white opacity-[0.4]">
+                                Submitted Files
+                            </p>
+                            <div>
+                                <Image
+                                    src="/edit-button.svg"
+                                    alt="Logo"
+                                    height={1000000}
+                                    width={100000}
+                                    className="w-4 h-4 object-contain cursor-pointer"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="w-full flex flex-col text-center gap-2">
+                            {files && files.length > 0 ? (
+                                <>
+                                    {files?.map((file, index) => {
+                                        return (
+                                            <div
+                                                key={index}
+                                                className="w-full flex justify-between border-[1px] border-white border-dashed px-2 py-1 pr-3 rounded-md text-base text-ellipsis overflow-hidden"
+                                            >
+                                                <div>
+                                                    {file
+                                                        .split('/')
+                                                        .slice(-1)[0]
+                                                        .split('_')
+                                                        .slice(-1)}
+                                                </div>
+                                                <div
+                                                    className="cursor-pointer"
+                                                    onClick={() =>
+                                                        handleRemoveSubmittedFile(
+                                                            index
+                                                        )
+                                                    }
+                                                >
+                                                    X
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </>
+                            ) : (
+                                <div className="text-left">-</div>
+                            )}
                         </div>
                         <div className="flex h-max py-0 gap-x-10 justify-start items-center flex-row gap-2">
                             <input
@@ -168,37 +248,28 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                                 onChange={({ target }) => {
                                     if (target.files && target.files[0]) {
                                         const file = target.files[0];
-                                        if (file.type.split('/')[1] == 'pdf') {
-                                            const names: string[] = [];
-                                            inputFiles?.forEach((file) =>
-                                                names.push(file.name)
-                                            );
-                                            if (!names.includes(file.name)) {
-                                                if (
-                                                    inputFiles &&
-                                                    inputFiles?.length +
-                                                        files.length <
-                                                        5
-                                                ) {
-                                                    if (inputFiles) {
-                                                        const newFiles = [
-                                                            ...inputFiles,
-                                                            file,
-                                                        ];
-                                                        setInputFiles(newFiles);
-                                                    } else {
-                                                        const newFiles = [file];
-                                                        setInputFiles(newFiles);
-                                                    }
-                                                } else
-                                                    Toaster.error(
-                                                        'Can only input 5 files.'
-                                                    );
-                                            }
-                                        } else
-                                            Toaster.error(
-                                                'Only PDF Files can be selected'
-                                            );
+
+                                        const names: string[] = [];
+                                        inputFiles?.forEach((file) =>
+                                            names.push(file.name)
+                                        );
+                                        if (!names.includes(file.name)) {
+                                            if (files.length < 5) {
+                                                if (inputFiles) {
+                                                    const newFiles = [
+                                                        ...inputFiles,
+                                                        file,
+                                                    ];
+                                                    setInputFiles(newFiles);
+                                                } else {
+                                                    const newFiles = [file];
+                                                    setInputFiles(newFiles);
+                                                }
+                                            } else
+                                                Toaster.error(
+                                                    'Can only input 5 files.'
+                                                );
+                                        }
                                     }
                                 }}
                             />

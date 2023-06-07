@@ -39,7 +39,7 @@ const Dropdown: React.FC<DropdownProps> = ({ items, onChange, label }) => {
                         {items.map((item) => (
                             <button
                                 key={item}
-                                className="block w-full px-4 py-2 text-sm text-white hover:bg-gray-100 "
+                                className=" block w-full px-4 py-2 text-sm text-white hover:bg-gray-100 "
                                 onClick={() => handleItemClick(item)}
                             >
                                 {item}

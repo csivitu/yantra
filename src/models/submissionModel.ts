@@ -6,6 +6,12 @@ export interface SubmissionInput {
     track: number;
     links: string[];
     files: string[];
+    round1Score: number;
+    round1Judge: string;
+    round2Score: number;
+    round2Judge: string;
+    round3Score: number;
+    round3Judge: string;
 }
 
 export interface SubmissionType extends SubmissionInput {
@@ -36,6 +42,12 @@ const submissionSchema = new mongoose.Schema({
         default: Date.now,
     },
     files: [String],
+    round1Score: Number,
+    round1Judge: String,
+    round2Score: Number,
+    round2Judge: String,
+    round3Score: Number,
+    round3Judge: String,
 });
 
 const Submission =

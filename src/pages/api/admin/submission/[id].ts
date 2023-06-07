@@ -1,3 +1,4 @@
+import { CURRENT_ROUND } from '@/constants';
 import { connectToDB } from '@/managers/DB';
 import adminOnlyCheck from '@/middlewares/adminOnlyCheck';
 import sessionCheck from '@/middlewares/sessionCheck';
@@ -33,12 +34,16 @@ const editSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
                 status: 'error',
                 message: 'Invalid attempt to change the submission status',
             });
-        else {
-            submission.status = req.body.status;
-            await submission.save();
+        else if (submission.status !== CURRENT_ROUND - 1) {
+            res.status(400).json({
+                status: 'error',
+                message: 'Invalid attempt to change the submission status',
+            });
+        } else {
+            await Submission.findByIdAndUpdate(id, req.body);
             res.status(200).json({
                 status: 'success',
-                message: 'Submission status updated.',
+                message: 'Submission updated.',
             });
         }
     } catch {

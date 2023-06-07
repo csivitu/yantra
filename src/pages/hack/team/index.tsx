@@ -1,5 +1,3 @@
-import Footer from '@/components/common/footer';
-import Header from '@/components/common/header';
 import SDGHeader from '@/components/common/sdgheader';
 import HeroSection from '@/sections/sdg-view-team-page-sections/heroSection';
 import { GetServerSidePropsContext } from 'next';

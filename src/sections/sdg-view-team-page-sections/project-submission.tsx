@@ -8,13 +8,9 @@ import TagsField from '@/components/common/TagsField';
 import Toaster from '@/utils/toaster';
 import Dropdown from '@/components/common/Dropdown';
 import postHandler from '@/handlers/postHandler';
+import InputTextField from '@/components/common/InputTextField';
 
 const ProjectSubmission = () => {
-    const options = [
-        { value: 'option1', label: 'Option 1' },
-        { value: 'option2', label: 'Option 2' },
-        { value: 'option3', label: 'Option 3' },
-    ];
     const [projectName, setProjectName] = useState('');
     const [track, setTrack] = useState<number>(0);
     const [projectDescription, setProjectDescription] = useState('');
@@ -23,8 +19,6 @@ const ProjectSubmission = () => {
     const router = useRouter();
 
     const handleSubmit = async () => {
-        const toaster = Toaster.startLoad();
-
         const formData = {
             title: projectName,
             description: projectDescription,
@@ -32,40 +26,45 @@ const ProjectSubmission = () => {
             links: links,
         };
 
-        const res = await postHandler(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/submission`,
-            formData
-        );
+        if (track < 1 || track > 6) Toaster.error('Select a valid Track.');
+        else {
+            const toaster = Toaster.startLoad();
+            const res = await postHandler(
+                `${process.env.NEXT_PUBLIC_BASE_URL}/api/submission`,
+                formData
+            );
 
-        if (res.status === 1) {
-            Toaster.stopLoad(toaster, 'Submitted', 1);
-            router.reload();
-        } else {
-            Toaster.stopLoad(toaster, res.data.message, 0);
+            if (res.status === 1) {
+                Toaster.stopLoad(toaster, 'Submitted', 1);
+                router.reload();
+            } else {
+                Toaster.stopLoad(toaster, res.data.message, 0);
+            }
         }
     };
 
     const handleDropDownChange = (item: string) => {
-        if (item === 'item1') {
+        if (item === 'GOOD HEALTH AND WELL BEING') {
             setTrack(1);
-        } else if (item === 'item2') {
+        } else if (item === 'QUALITY EDUCATION') {
             setTrack(2);
-        } else if (item === 'item3') {
+        } else if (item === 'INDUSTRY, INNOVATION AND INFRASTRUCTURE') {
             setTrack(3);
-        } else if (item === 'item4') {
+        } else if (item === 'REDUCED INEQUALITIES') {
             setTrack(4);
-        } else if (item === 'item5') {
+        } else if (item === 'SUSTAINABLE CITIES AND COMMUNITIES') {
             setTrack(5);
-        } else if (item === 'item6') {
+        } else if (item === 'RESPONSIBLE CONSUMPTION AND PRODUCTION') {
             setTrack(6);
-        } else if (item === 'item7') {
-            setTrack(7);
         }
     };
 
     return (
         <>
-            <div className="h-full w-full flex justify-around items-center">
+            <div className="h-full w-full flex flex-col justify-around items-center gap-8">
+                <div className="font-bronson text-2xl">
+                    Submit your Project!
+                </div>
                 <div className="h-full w-full">
                     <InputField
                         type="text"
@@ -76,18 +75,16 @@ const ProjectSubmission = () => {
                     <Dropdown
                         label="Track"
                         items={[
-                            'item1',
-                            'item2',
-                            'item3',
-                            'item4',
-                            'item5',
-                            'item6',
-                            'item7',
+                            'GOOD HEALTH AND WELL BEING',
+                            'QUALITY EDUCATION',
+                            'INDUSTRY, INNOVATION AND INFRASTRUCTURE',
+                            'REDUCED INEQUALITIES',
+                            'SUSTAINABLE CITIES AND COMMUNITIES',
+                            'RESPONSIBLE CONSUMPTION AND PRODUCTION',
                         ]}
                         onChange={handleDropDownChange}
                     />
-                    <InputField
-                        type="text"
+                    <InputTextField
                         label="Project Description"
                         value={projectDescription}
                         onChange={setProjectDescription}

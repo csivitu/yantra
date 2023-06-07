@@ -52,6 +52,15 @@ const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
         toggleEdit(1);
     };
 
+    const getLink = (str: string): string => {
+        try {
+            let url = new URL(str);
+            return url.hostname;
+        } catch {
+            return str;
+        }
+    };
+
     return (
         <>
             <div className="h-full w-full flex justify-around items-center">
@@ -87,22 +96,28 @@ const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                         </div>
                         <div className="w-full flex flex-col">
                             {submission?.links &&
-                                submission?.links.map((el) => {
-                                    return (
-                                        <Link
-                                            href={el}
-                                            key={Math.random()}
-                                            className="hover:underline underline-offset-4"
-                                        >
-                                            {
-                                                new URL(el)
-                                                    ? new URL(el).hostname
-                                                    : el
-                                                //add a svg here
-                                            }
-                                        </Link>
-                                    );
-                                })}
+                            submission.links.length > 0 ? (
+                                <>
+                                    {submission?.links &&
+                                        submission?.links.map((el) => {
+                                            return (
+                                                <Link
+                                                    href={el}
+                                                    key={Math.random()}
+                                                    className="hover:underline underline-offset-4"
+                                                >
+                                                    {
+                                                        getLink(el)
+
+                                                        //add a svg here
+                                                    }
+                                                </Link>
+                                            );
+                                        })}
+                                </>
+                            ) : (
+                                <>-</>
+                            )}
                         </div>
 
                         <div className="text-sm flex justify-start gap-2 items-center pt-4">
@@ -112,18 +127,25 @@ const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                         </div>
                         <div className="w-full flex flex-col">
                             {submission?.files &&
-                                submission?.files.map((el) => {
-                                    return (
-                                        <Link
-                                            href={`/${el}`}
-                                            target="_blank"
-                                            key={Math.random()}
-                                            className="hover:underline underline-offset-4"
-                                        >
-                                            {el.split('/').slice(-1)}
-                                        </Link>
-                                    );
-                                })}
+                            submission.files.length > 0 ? (
+                                <>
+                                    {submission?.files &&
+                                        submission?.files.map((el) => {
+                                            return (
+                                                <Link
+                                                    href={`/${el}`}
+                                                    target="_blank"
+                                                    key={Math.random()}
+                                                    className="hover:underline underline-offset-4"
+                                                >
+                                                    {el.split('/').slice(-1)}
+                                                </Link>
+                                            );
+                                        })}
+                                </>
+                            ) : (
+                                <>-</>
+                            )}
                         </div>
 
                         {!LOCK_SUBMISSIONS && (
