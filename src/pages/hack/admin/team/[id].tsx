@@ -6,94 +6,57 @@ import mongoose from 'mongoose';
 import { TeamType } from '@/models/teamModel';
 import Toaster from '@/utils/toaster';
 import ViewSubmission from '@/sections/admin-page-sections/admin-view-submission';
-import EditSubmission from '@/sections/admin-page-sections/admin-edit-submission';
 import Header from '@/components/common/header';
 import { useRouter } from 'next/router';
 import { GetServerSidePropsContext } from 'next';
 import getHandler from '@/handlers/getHandler';
 import patchHandler from '@/handlers/patchHandler';
-import InputField from '@/components/common/InputField';
 import { CURRENT_ROUND } from '@/constants';
+import CommentView from '@/sections/admin-page-sections/admin-view-comment';
+import CommentEdit from '@/sections/admin-page-sections/admin-edit-comment copy';
 
 interface Props {
     id: string;
-}
-interface RoundType {
-    round: string;
-    checked: boolean;
-    score: number;
-    judge: string;
 }
 
 const ProjectReviewPage = ({ id }: Props) => {
     const { data: session } = useSession();
 
     const router = useRouter();
-    // ROUND PASSING LOGIC
-    const [rounds, setRounds] = useState<RoundType[]>([
-        { round: 'Round 1', checked: false, score: 0, judge: '' },
-        { round: 'Round 2', checked: false, score: 0, judge: '' },
-        { round: 'Round 3', checked: false, score: 0, judge: '' },
-    ]);
 
-    const handleCheckboxChange = (index: number) => {
-        const updatedRounds = rounds.map((round, roundIndex) => {
-            if (roundIndex < index) {
-                return {
-                    ...round,
-                    checked: true,
-                };
-            } else if (roundIndex === index) {
-                return {
-                    ...round,
-                    checked: !round.checked,
-                };
-            } else {
-                return {
-                    ...round,
-                    checked: false,
-                };
-            }
-        });
-        setRounds(updatedRounds);
-    };
+    const [comment, setComment] = useState('');
+
+    const [score, setScore] = useState(0);
 
     const SaveRoundChangesHandler = async () => {
+        if (score > 10) Toaster.error('Score cannot be more than 10');
         let formData = {};
-        if (CURRENT_ROUND === 1) {
+
+        if (CURRENT_ROUND === 1)
             formData = {
-                round1Score: rounds[0].score,
+                round1Score: score,
+                round1Comment: comment,
                 round1Judge: session?.user.name,
             };
-        } else if (CURRENT_ROUND === 2) {
+        else if (CURRENT_ROUND === 2)
             formData = {
-                round2Score: rounds[1].score,
+                round2Score: score,
+                round2Comment: comment,
                 round2Judge: session?.user.name,
             };
-        } else if (CURRENT_ROUND === 3) {
+        else if (CURRENT_ROUND === 3)
             formData = {
-                round3Score: rounds[2].score,
+                round3Score: score,
+                round3Comment: comment,
                 round3Judge: session?.user.name,
             };
-        }
 
-        const data = await patchHandler(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/submission/${id}`,
-            formData
-        );
-    };
+        console.log(formData);
 
-    const handleScoreChange = (index: number, value: number) => {
-        const updatedRounds = rounds.map((round, roundIndex) => {
-            if (roundIndex === index) {
-                return {
-                    ...round,
-                    score: value,
-                };
-            }
-            return round;
-        });
-        setRounds(updatedRounds);
+        // const data = await patchHandler(
+        //     `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/submission/${id}`,
+        //     formData
+        // );
     };
 
     // FETCHING TEAM / PROJECT LOGIC
@@ -104,10 +67,6 @@ const ProjectReviewPage = ({ id }: Props) => {
         submission: new mongoose.Schema.Types.ObjectId(''),
     });
     const [loading, setLoading] = useState(true);
-    const [changeTitle, setChangeTitle] = useState(false);
-    const [newTitle, setNewTitle] = useState('');
-    const [isSubmission, setIsSubmission] = useState(false);
-    const [toggleEdit, setToggleEdit] = useState(0);
 
     useEffect(() => {
         getHandler(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/team/${id}`)
@@ -121,6 +80,7 @@ const ProjectReviewPage = ({ id }: Props) => {
                 console.log(err);
             });
     }, []);
+
     return (
         <>
             <Header />
@@ -190,42 +150,87 @@ const ProjectReviewPage = ({ id }: Props) => {
                                 </div>
                             </div>
                             {teamDetails.submission ? (
-                                <div className="flex md:flex-col gap-4 max-md:w-full max-md:justify-between pt-6">
-                                    {rounds.map((round, index) => (
-                                        <>
-                                            <div
-                                                key={index}
-                                                className="text-xl py-1 flex justify-start items-center gap-x-2 font-spaceGrotesk"
-                                            >
-                                                {round.round}
-                                                <label className="ml-2">
-                                                    <input
-                                                        type="checkbox"
-                                                        checked={round.checked}
-                                                        onChange={() =>
-                                                            handleCheckboxChange(
-                                                                index
-                                                            )
-                                                        }
-                                                    />
-                                                    Checked
-                                                </label>
-                                                <div>- Score : </div>
-                                                <InputField
-                                                    label=""
-                                                    value={round.score.toString()}
-                                                    type="number"
-                                                    canEdit={true}
-                                                    onChange={(value) =>
-                                                        handleScoreChange(
-                                                            index,
-                                                            Number(value)
-                                                        )
-                                                    }
-                                                />
-                                            </div>
-                                        </>
-                                    ))}
+                                <div className="flex flex-col gap-4 max-md:w-full max-md:justify-between pt-6">
+                                    <div className="w-full flex flex-col pr-20 gap-12 max-md:pr-2">
+                                        {CURRENT_ROUND === 1 ? (
+                                            <CommentEdit
+                                                score={score}
+                                                setScore={setScore}
+                                                comment={comment}
+                                                setComment={setComment}
+                                            />
+                                        ) : (
+                                            <>
+                                                {CURRENT_ROUND === 2 ? (
+                                                    <>
+                                                        <CommentView
+                                                            roundNumber={1}
+                                                            score={9}
+                                                            judge={'someone'}
+                                                            comment={
+                                                                'iawjdhuihwaduahi'
+                                                            }
+                                                        />
+                                                        <CommentEdit
+                                                            score={score}
+                                                            setScore={setScore}
+                                                            comment={comment}
+                                                            setComment={
+                                                                setComment
+                                                            }
+                                                        />
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        {CURRENT_ROUND === 3 ? (
+                                                            <>
+                                                                <CommentView
+                                                                    roundNumber={
+                                                                        1
+                                                                    }
+                                                                    score={9}
+                                                                    judge={
+                                                                        'someone'
+                                                                    }
+                                                                    comment={
+                                                                        'iawjdhuihwaduahi'
+                                                                    }
+                                                                />
+                                                                <CommentView
+                                                                    roundNumber={
+                                                                        1
+                                                                    }
+                                                                    score={9}
+                                                                    judge={
+                                                                        'someone'
+                                                                    }
+                                                                    comment={
+                                                                        'iawjdhuihwaduahi'
+                                                                    }
+                                                                />
+                                                                <CommentEdit
+                                                                    score={
+                                                                        score
+                                                                    }
+                                                                    setScore={
+                                                                        setScore
+                                                                    }
+                                                                    comment={
+                                                                        comment
+                                                                    }
+                                                                    setComment={
+                                                                        setComment
+                                                                    }
+                                                                />
+                                                            </>
+                                                        ) : (
+                                                            <></>
+                                                        )}
+                                                    </>
+                                                )}
+                                            </>
+                                        )}
+                                    </div>
                                     <div
                                         onClick={() => {
                                             SaveRoundChangesHandler();
@@ -251,18 +256,9 @@ const ProjectReviewPage = ({ id }: Props) => {
                         {/* STRONGLY SUGGESTED MAKE NEW DUPLICATE 2 COMPONENTS BELOW JUST FOR ADMIN PANEL SOLO PROJECT VIEW PAGE CUZ IT WILL HAVE A NEW CHECK KI EVEN SUPER USER CAN VIEW ALL */}
 
                         <div className="w-full lg:w-[50%] h-full">
-                            {/* {toggleEdit === 0 ? (
-                                <ViewSubmission
-                                    id={id}
-                                    toggleEdit={setToggleEdit}
-                                />
-                            ) : (
-                                <EditSubmission id={id} />
-                            )} */}
                             {teamDetails.submission ? (
                                 <ViewSubmission
                                     id={teamDetails.submission._id}
-                                    toggleEdit={setToggleEdit}
                                 />
                             ) : (
                                 <></>

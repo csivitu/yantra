@@ -8,10 +8,13 @@ export interface SubmissionInput {
     files: string[];
     round1Score: number;
     round1Judge: string;
+    round1Comment: string;
     round2Score: number;
     round2Judge: string;
+    round2Comment: string;
     round3Score: number;
     round3Judge: string;
+    round3Comment: string;
 }
 
 export interface SubmissionType extends SubmissionInput {
@@ -43,11 +46,32 @@ const submissionSchema = new mongoose.Schema({
     },
     files: [String],
     round1Score: Number,
-    round1Judge: String,
+    round1Judge: {
+        type: String,
+        default: '',
+    },
+    round1Comment: {
+        type: String,
+        default: '',
+    },
     round2Score: Number,
-    round2Judge: String,
+    round2Judge: {
+        type: String,
+        default: '',
+    },
+    round2Comment: {
+        type: String,
+        default: '',
+    },
     round3Score: Number,
-    round3Judge: String,
+    round3Judge: {
+        type: String,
+        default: '',
+    },
+    round3Comment: {
+        type: String,
+        default: '',
+    },
 });
 
 const Submission =
