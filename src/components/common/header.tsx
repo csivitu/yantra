@@ -7,7 +7,11 @@ import { useWindowHeight } from '@react-hook/window-size';
 import { useRouter } from 'next/router';
 import NavModal from './NavModal';
 
-const Header = () => {
+interface HeaderProps {
+	onendpoint: string;
+}
+
+const Header: React.FC<HeaderProps> = ({onendpoint}) => {
     const [modalVisibility, setModalVisibility] = useState(false);
 
     const [scrollPosition, setScrollPosition] = useState(0);
@@ -26,7 +30,14 @@ const Header = () => {
         };
     }, []);
 
-    const handleMenuClick = (targetId: string) => {
+    const handleMenuClick = async (targetId: string) => {
+        if(onendpoint === "True"){
+            await new Promise<void>((resolve) => {
+                router.push('/').then(() => {
+                  resolve();
+                });
+            });
+        }
         if (
             router.asPath.split('/')[1].startsWith('event') &&
             targetId !== 'events-section'

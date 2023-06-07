@@ -2,10 +2,10 @@ import Header from "@/components/common/header";
 import React from "react";
 import PlaySection from "@/sections/Play-section/PlaySection";
 
-const Play = () => {
+const Play:React.FC = () => {
 	return (
 		<div>
-			<Header />
+			<Header onendpoint = "True"/>
 			<PlaySection />
 		</div>
 	);
