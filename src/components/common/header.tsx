@@ -102,12 +102,12 @@ const Header = () => {
                     >
                         Events
                     </div>
-                    {/* <div
+                    <div
                         className="cursor-pointer hover-underline-animation"
-                        onClick={() => handleMenuClick('patrons-section')}
+                        onClick={() => router.push('/play')}
                     >
-                        Patrons
-                    </div> */}
+                        Play
+                    </div> 
                     <div
                         className="cursor-pointer hover-underline-animation"
                         onClick={() => router.push('/team')}
