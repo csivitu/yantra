@@ -40,6 +40,18 @@ const authOptions: NextAuthOptions = {
                 );
             }
 
+            const submissionData = {
+                id: team.submission.id,
+                _id: team.submission._id,
+                title: team.submission.title,
+                description: team.submission.description,
+                track: team.submission.track,
+                links: team.submission.links,
+                files: team.submission.files,
+            };
+
+            team.submission = submissionData;
+
             return {
                 ...session,
                 user: {
