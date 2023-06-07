@@ -13,6 +13,7 @@ import { GetServerSidePropsContext } from 'next';
 import getHandler from '@/handlers/getHandler';
 import patchHandler from '@/handlers/patchHandler';
 import InputField from '@/components/common/InputField';
+import { CURRENT_ROUND } from '@/constants';
 
 interface Props {
     id: string;
@@ -70,20 +71,30 @@ const ProjectReviewPage = ({ id }: Props) => {
         setRounds(updatedRounds);
     };
 
-    const SaveRoundChangesHandler = () => {
-        const formData = {
-            round1Score: rounds[0].score,
-            round1Judge: session?.user.name,
-            round2Score: rounds[1].score,
-            round2Judge: session?.user.name,
-            round3Score: rounds[2].score,
-            round3Judge: session?.user.name,
-        };
-        const data = patchHandler(
+    const SaveRoundChangesHandler = async () => {
+        let formData = {};
+        if (CURRENT_ROUND === 1) {
+            formData = {
+                round1Score: rounds[0].score,
+                round1Judge: session?.user.name,
+            };
+        } else if (CURRENT_ROUND === 2) {
+            formData = {
+                round2Score: rounds[1].score,
+                round2Judge: session?.user.name,
+            };
+        } else if (CURRENT_ROUND === 3) {
+            formData = {
+                round3Score: rounds[2].score,
+                round3Judge: session?.user.name,
+            };
+        }
+
+        const data = await patchHandler(
             `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/submission/${id}`,
             formData
         );
-        console.log(rounds);
+        console.log(data);
     };
 
     const handleScoreChange = (index: number, value: number) => {
@@ -247,14 +258,18 @@ const ProjectReviewPage = ({ id }: Props) => {
 
                         {/* STRONGLY SUGGESTED MAKE NEW DUPLICATE 2 COMPONENTS BELOW JUST FOR ADMIN PANEL SOLO PROJECT VIEW PAGE CUZ IT WILL HAVE A NEW CHECK KI EVEN SUPER USER CAN VIEW ALL */}
                         <div className="w-full lg:w-[50%] h-full">
-                            {toggleEdit === 0 ? (
+                            {/* {toggleEdit === 0 ? (
                                 <ViewSubmission
                                     id={id}
                                     toggleEdit={setToggleEdit}
                                 />
                             ) : (
                                 <EditSubmission id={id} />
-                            )}
+                            )} */}
+                            <ViewSubmission
+                                id={id}
+                                toggleEdit={setToggleEdit}
+                            />
                         </div>
                     </>
                 )}
