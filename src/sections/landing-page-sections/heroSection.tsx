@@ -15,15 +15,6 @@ declare global {
 
 const HeroSection = () => {
     const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        const loaderTimeout = setTimeout(() => {
-            setIsLoading(false);
-        }, 6000); // Set a timeout to simulate loading time
-
-        return () => clearTimeout(loaderTimeout);
-    }, []);
-
     return (
         <>
             <div className="h-[70vh] w-[95%] m-auto max-md:h-[100vh] flex justify-around flex-col-reverse lg:flex-row items-end lg:px-24 text-white">
@@ -37,18 +28,24 @@ const HeroSection = () => {
                             className="w-[100%] h-[100%] object-contain"
                         />
                     </div>
-                    <div className="text-4xl lg:text-5xl font-sans font-bold tracking-normal leading-[3rem] text-center lg:text-start">
+                    <div className="text-4xl lg:text-5xl font-sans flex justify-center max-lg:items-center flex-col font-bold tracking-normal text-center lg:text-start">
                         {/* A WEEK OF
                         <br />
                         <span className="text-[#244EE4] w-full text-center">
                             TECHNICAL
                         </span>
                         <br /> INNOVATION */}
-                        <p className="font-bronson">A WEEK OF</p>
-                        <p className="text-[#244EE4] w-full text-7xl">
-                            TECHNICAL
-                        </p>
-                        <p className="tracking-wider">INNOVATION</p>
+                        <p className="font-bronson text-3xl">A WEEK OF</p>
+                        <div className="text-[#244EE4] w-[80%] text-7xl max-md:text-6xl font-bold">
+                            <Image
+                                src="/technical.gif"
+                                alt="logo"
+                                height={10000}
+                                width={10000}
+                                className="w-full h-auto object-cover cursor-pointer"
+                            />
+                        </div>
+                        <p className="font-bronson max-lg:mt-2">INNOVATION</p>
                     </div>
 
                     {/* <Link
@@ -62,11 +59,11 @@ const HeroSection = () => {
                     </Link> */}
                     <Link
                         href="https://vtop.vit.ac.in/"
-                        className="relative w-48 h-16 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
+                        className="relative w-42 h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
                     >
                         <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
                         <span className="absolute top-0 left-0 w-56 h-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-96 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8"></span>
-                        <span className="font-spaceGrotesk text-xl font-bold flex justify-center items-center  relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
+                        <span className="font-spaceGrotesk text-lg font-bold flex justify-center items-center  relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-gray-900">
                             REGISTER NOW
                         </span>
                         <span className="absolute inset-0 border-2 border-white rounded-full"></span>
@@ -86,7 +83,8 @@ const HeroSection = () => {
                                 isLoading ? 'hidden' : ''
                             }`}
                             style={{ height: '100%', width: '100%' }}
-                            scene="https://draft.spline.design/BtDxBI0l4IDDJacH/scene.splinecode"
+                            scene="https://draft.spline.design/9qE9I0UICCc8UAAL/scene.splinecode"
+                            onLoad={() => setIsLoading(false)}
                         />
                     </div>
                 </div>
@@ -94,7 +92,7 @@ const HeroSection = () => {
                 <SocialMediaLinks />
             </div>
 
-            <div className="bg-[#6C6C6C] bg-opacity-[0.12] flex justify-center gap-32 items-center w-full h-[12vh] max-lg:mt-8">
+            <div className="bg-[#6C6C6C] bg-opacity-[0.05] flex justify-center gap-32 items-center w-full h-[12vh] max-lg:mt-8">
                 <Image
                     src={`/g2.png`}
                     alt="g2"

@@ -49,9 +49,9 @@ const FiltersModal = ({ modalVisibility, visible }: Props) => {
         URL = URL.replace(/\?type\[\]=\d+/g, '');
 
         selectedCheckboxes.forEach((type) => {
-            if (URL.split('/')[2]?.startsWith('search'))
+            if (URL.split('/')[2]?.startsWith('search?'))
                 URL += `&type[]=${type}`;
-            else URL += `/search?type[]=${type}`;
+            else URL = `/events/search?type[]=${type}`;
         });
 
         router.push(URL);

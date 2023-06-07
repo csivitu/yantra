@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import moment from 'moment';
 import { EventType } from '@/models/eventModel';
+import Link from 'next/link';
 
 interface Props {
     event: EventType;
@@ -13,11 +14,11 @@ const EventSection = ({ event }: Props) => {
 
     return (
         <>
-            <div className=" flex lg:flex-row flex-col-reverse text-white font-spaceGrotesk justify-around items-center px-20 py-4 max-md:px-8">
-                <div className="lg:w-1/2 ">
+            <div className=" flex h-max gap-3 lg:flex-row flex-col-reverse text-white font-spaceGrotesk justify-around items-center px-16 max-md:px-8">
+                <div className="lg:w-[60%] ">
                     <div className=" h-[7.5vh] flex justify-start gap-2 items-center max-md:hidden">
                         <div
-                            onClick={() => router.push('/events')}
+                            onClick={() => router.back()}
                             className="flex justify-start gap-2 items-center cursor-pointer"
                         >
                             <svg
@@ -27,7 +28,6 @@ const EventSection = ({ event }: Props) => {
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="cursor-pointer"
-                                onClick={() => router.push('/events')}
                             >
                                 <path
                                     d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z"
@@ -36,10 +36,7 @@ const EventSection = ({ event }: Props) => {
                                     clipRule="evenodd"
                                 ></path>
                             </svg>
-                            <div
-                                onClick={() => router.push('/events')}
-                                className="cursor-pointer"
-                            ></div>
+                            <div className="cursor-pointer"></div>
                             Back
                         </div>
                     </div>{' '}
@@ -65,7 +62,13 @@ const EventSection = ({ event }: Props) => {
                                 FROM
                             </div>
                             <div className="text-xl font-spaceGrotesk">
-                                {moment(event.startDate).format('DD MMMM')}
+                                {moment(event.startDate, 'MMDDYYYY').format(
+                                    'DD MMMM'
+                                )}
+                                {' | '}
+                                {moment(event.startTime, 'HH:mm:ss A').format(
+                                    'hh:mm A'
+                                )}
                             </div>
                         </div>
                         <div className="h-max">
@@ -73,40 +76,78 @@ const EventSection = ({ event }: Props) => {
                                 TO
                             </div>
                             <div className="font-spaceGrotesk text-xl">
-                                {moment(event.endDate).format('DD MMMM')}
+                                {moment(event.endDate, 'MMDDYYYY').format(
+                                    'DD MMMM'
+                                )}
+                                {' | '}
+                                {moment(event.endTime, 'HH:mm:ss A').format(
+                                    'hh:mm A'
+                                )}
                             </div>
                         </div>
                     </div>
-                    <div className="h-max">
-                        <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
-                            VENUE
+                    <div className="w-full flex justify-start gap-12">
+                        <div className="h-max">
+                            <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
+                                VENUE
+                            </div>
+                            <div className="font-spaceGrotesk text-xl">
+                                {event.venue}
+                            </div>
+                            <br />
                         </div>
-                        <div className="font-spaceGrotesk text-xl">
-                            {event.venue}
+                        <div className="h-max">
+                            <div className="text-xs font-spaceGrotesk text-white opacity-[0.4]">
+                                STUDENT COORDINATOR
+                            </div>
+                            {event.studentCoordName?.map(
+                                (studentCord, index) => {
+                                    return (
+                                        <div
+                                            key={index}
+                                            className="font-spaceGrotesk text-xl flex gap-2 items-center capitalize "
+                                        >
+                                            <div>{studentCord}</div>
+                                            <div className="text-sm">
+                                                (
+                                                {event.studentCordNumber[index]}
+                                                )
+                                            </div>
+                                        </div>
+                                    );
+                                }
+                            )}
+
+                            <br />
                         </div>
-                        <br />
                     </div>
-                    <div className="">{event.description}</div>
-                    <div className="flex justify-start gap-2 max-md:my-6 my-8">
+                    <div className="pb-4">{event.description}</div>
+                    <Link
+                        href={event.link}
+                        target="_blank"
+                        className={`flex w-fit justify-start gap-2 max-md:my-6 my-8 hover:underline underline-offset-4 ${
+                            event.link === '' ? 'hidden' : ''
+                        }`}
+                    >
                         <Image
                             id="shadow-image"
-                            src={'/link.svg'}
+                            src={'/globe.png'}
                             alt="photo"
                             height={10000}
                             width={10000}
                             className="w-6 h-6 object-contain"
                         />
-                        <div>Link here</div>
-                    </div>
+                        <div>{event.link}</div>
+                    </Link>
                 </div>
-                <div className="h-full lg:w-1/2 flex justify-around items-center">
+                <div className="h-full lg:w-[40%] flex justify-around items-center">
                     <Image
                         id="shadow-image"
-                        src={'/vit-maingate.jpg'}
+                        src={`/events/${event.coverPic}`}
                         alt="photo"
                         height={10000}
                         width={10000}
-                        className="lg:w-[60vh] lg:h-[50vh] object-cover rounded-xl"
+                        className="lg:w-[60vh] lg:h-[60vh] rounded-xl"
                     />
                 </div>
             </div>

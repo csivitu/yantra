@@ -41,6 +41,12 @@ class APIFeatures<T> {
                           $or: [
                               { title: { $in: regexArry } },
                               { venue: { $in: regexArry } },
+                              {
+                                  organisedBy: { $in: regexArry },
+                              },
+                              {
+                                  studentCoordName: { $in: regexArry },
+                              },
                           ],
                       },
                       {

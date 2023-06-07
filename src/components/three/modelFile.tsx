@@ -116,7 +116,6 @@ const ComputerModel: React.FC = () => {
             animate();
 
             return () => {
-                console.log('unmount');
                 renderer.dispose();
             };
         }

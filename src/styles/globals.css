@@ -64,6 +64,12 @@ html {
     .vertical-timeline-element-content {
         width: 90% !important;
     }
+    .vertical-timeline {
+        width: 80% !important;
+    }
+    .vertical-timeline-element-content {
+        width: 80% !important;
+    }
 }
 
 .glassMorphism {
@@ -111,4 +117,68 @@ html {
 *::-webkit-scrollbar-thumb {
     background-color: #282828;
     border: 1px solid #383838;
+}
+
+.overlay {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(0, 0, 0, 0.864) 100%
+    );
+}
+
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+}
+
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.slideInner___2mfX9 {
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.drop-shadow-prize-text {
+    text-shadow: 0.125rem 0.125rem 0px rgba(35, 78, 228, 1);
+}
+
+.progressbar {
+    position: relative;
+    overflow: hidden;
+    width: 350px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: #eee;
+}
+
+.progressPercent {
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #eee;
+    text-shadow: -1px 0 #555, 0 1px #555, 1px 0 #555, 0 -1px #555;
 }

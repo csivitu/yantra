@@ -18,7 +18,9 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
             targetId !== 'events-section'
         )
             router.push('/');
-        modalVisibility(false);
+
+        if (router.asPath.split('/')[1].startsWith('team'))
+            router.push(`/#${targetId}`);
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
             const yOffset = 0; // Adjust the yOffset value as per your requirement
@@ -29,6 +31,7 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
             window.scrollTo({ top: y, behavior: 'smooth' });
             modalVisibility(false);
         }
+        modalVisibility(false);
     };
 
     if (!visible) return null;
@@ -54,6 +57,12 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
                         Timeline
                     </div>
                     <div
+                        className="cursor-pointer w-[80%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
+                        onClick={() => router.push('/sdg')}
+                    >
+                        YANTRA Hackathon
+                    </div>
+                    <div
                         className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
                         onClick={() => handleMenuClick('events-section')}
                     >
@@ -65,12 +74,12 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
                     >
                         Patrons
                     </div>
-                    {/* <div
+                    <div
                         className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
-                        onClick={() => router.push('/team#organizing-team')}
+                        onClick={() => router.push('/team')}
                     >
                         Team
-                    </div> */}
+                    </div>
 
                     <div
                         className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
