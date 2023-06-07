@@ -1,11 +1,11 @@
 import { SubmissionDocument } from '@/models/submissionModel';
-import { SubmissionPopulatedTeam } from '@/models/teamModel';
+import { SubmissionPopulatedTeam, TeamDocument } from '@/models/teamModel';
 import Link from 'next/link';
 import React from 'react';
 import { useState } from 'react';
 import { CURRENT_ROUND } from '@/constants';
 interface Props {
-    team: SubmissionPopulatedTeam;
+    team: TeamDocument;
 }
 
 const ProjectCard = ({ team }: Props) => {
@@ -20,7 +20,7 @@ const ProjectCard = ({ team }: Props) => {
                     setHover(false);
                 }}
                 href={`/hack/admin/team/${team._id}`}
-                className={`lg:w-[20vw] w-[40%] h-[25vh] glassMorphism ${
+                className={`lg:w-[20vw] w-[40%] h-[25vh] font-spaceGrotesk glassMorphism transition-all duration-100 ease-in-out ${
                     hover ? 'content2 ' : ''
                 }  rounded-lg border-[2px] border-white lg:h-[35vh] py-4 flex flex-col sm:flex-row justify-around items-center text-white`}
             >

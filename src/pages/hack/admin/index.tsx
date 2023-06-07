@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import SearchBar from '@/components/common/searchBar';
 import ProjectCard from '@/components/uncommon/sdg-admin-page-cards/ProjectCard';
-import { SubmissionPopulatedTeam } from '@/models/teamModel';
+import { SubmissionPopulatedTeam, TeamDocument } from '@/models/teamModel';
 import getHandler from '@/handlers/getHandler';
 import Loader from '@/components/common/loader';
 import { GetServerSidePropsContext } from 'next';
@@ -12,13 +12,15 @@ import AdminSearchBar from '@/components/common/adminSearchBar';
 
 const Index = () => {
     const router = useRouter();
-    const [teams, setTeams] = useState<SubmissionPopulatedTeam[]>([]);
+    const [teams, setTeams] = useState<TeamDocument[]>([]);
+    const [initalTeams, setInitialTeams] = useState<TeamDocument[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         getHandler(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/teams`)
             .then((res) => {
                 setTeams(res.data.teams);
+                setInitialTeams(res.data.teams);
                 setLoading(false);
             })
             .catch((err) => {
@@ -58,7 +60,11 @@ const Index = () => {
                 </div>
                 {/* CHANGE SEARCH BAR MAKE DUPLICATE WITH NEW FILTERS */}
                 <div className="w-[90%] lg:w-[60%]">
-                    <AdminSearchBar initialSearch="" />
+                    <AdminSearchBar
+                        teams={teams}
+                        setTeams={setTeams}
+                        initialTeams={initalTeams}
+                    />
                 </div>
             </div>
             <div className="h-max px-4 lg:px-20 py-10 sm:gap-x-7 gap-y-10 sm:gap-y-10 flex justify-around items-start flex-wrap">
