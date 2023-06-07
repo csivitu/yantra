@@ -65,14 +65,15 @@ const Index = () => {
                     <Loader />
                 ) : (
                     <>
-                        {teams.map((team) => {
-                            return (
-                                <ProjectCard
-                                    key={String(team._id)}
-                                    team={team}
-                                />
-                            );
-                        })}
+                        {teams &&
+                            teams.map((team) => {
+                                return (
+                                    <ProjectCard
+                                        key={String(team._id)}
+                                        team={team}
+                                    />
+                                );
+                            })}
                     </>
                 )}
             </div>
