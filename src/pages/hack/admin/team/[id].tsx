@@ -15,7 +15,6 @@ import { useRouter } from 'next/router';
 import { GetServerSidePropsContext } from 'next';
 import getHandler from '@/handlers/getHandler';
 import patchHandler from '@/handlers/patchHandler';
-import { CURRENT_ROUND } from '@/constants';
 import CommentView from '@/sections/admin-page-sections/admin-view-comment';
 import CommentEdit from '@/sections/admin-page-sections/admin-edit-comment copy';
 
@@ -55,6 +54,8 @@ const ProjectReviewPage = ({ id }: Props) => {
     const [comment, setComment] = useState('');
 
     const [score, setScore] = useState(0);
+
+    const CURRENT_ROUND = Number(process.env.CURRENT_ROUND);
 
     useEffect(() => {
         getHandler(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/team/${id}`)
