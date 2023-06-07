@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { SubmissionDocument } from './submissionModel';
+import { SubmissionDocument, SubmissionExportType } from './submissionModel';
 import { UserDocument } from './userModel';
 
 export interface TeamType {
@@ -19,7 +19,7 @@ export interface SubmissionPopulatedTeam {
     id: mongoose.Schema.Types.ObjectId;
     title: string;
     members: UserDocument[];
-    submission: SubmissionDocument;
+    submission: SubmissionExportType;
 }
 
 const teamSchema = new mongoose.Schema({

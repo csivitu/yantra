@@ -116,7 +116,7 @@ const TrackPage = ({ id }: Props) => {
                                                             '/hack/tracks/1'
                                                         );
                                                     }}
-                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60`}
+                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60 transition-all duration-200 ease-in-out hover:scale-125`}
                                                     style={{
                                                         backgroundColor:
                                                             '#279B48',
@@ -128,7 +128,7 @@ const TrackPage = ({ id }: Props) => {
                                                             '/hack/tracks/2'
                                                         );
                                                     }}
-                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60`}
+                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60 transition-all duration-200 ease-in-out hover:scale-125`}
                                                     style={{
                                                         backgroundColor:
                                                             '#C92639',
@@ -140,7 +140,7 @@ const TrackPage = ({ id }: Props) => {
                                                             '/hack/tracks/3'
                                                         );
                                                     }}
-                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60`}
+                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60 transition-all duration-200 ease-in-out hover:scale-125`}
                                                     style={{
                                                         backgroundColor:
                                                             '#FF8945',
@@ -152,7 +152,7 @@ const TrackPage = ({ id }: Props) => {
                                                             '/hack/tracks/4'
                                                         );
                                                     }}
-                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60`}
+                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60 transition-all duration-200 ease-in-out hover:scale-125`}
                                                     style={{
                                                         backgroundColor:
                                                             '#FF4FA9',
@@ -164,7 +164,7 @@ const TrackPage = ({ id }: Props) => {
                                                             '/hack/tracks/5'
                                                         );
                                                     }}
-                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60`}
+                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60 transition-all duration-200 ease-in-out hover:scale-125`}
                                                     style={{
                                                         backgroundColor:
                                                             '#FF9F03',
@@ -176,7 +176,7 @@ const TrackPage = ({ id }: Props) => {
                                                             '/hack/tracks/6'
                                                         );
                                                     }}
-                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60`}
+                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60 transition-all duration-200 ease-in-out hover:scale-125`}
                                                     style={{
                                                         backgroundColor:
                                                             '#E48E16',

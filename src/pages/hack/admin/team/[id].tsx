@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Loader from '@/components/common/loader';
 import { getSession, useSession } from 'next-auth/react';
 import mongoose from 'mongoose';
-import { TeamType } from '@/models/teamModel';
+import { SubmissionPopulatedTeam, TeamType } from '@/models/teamModel';
 import Toaster from '@/utils/toaster';
 import ViewSubmission from '@/sections/admin-page-sections/admin-view-submission';
 import Header from '@/components/common/header';
@@ -20,11 +20,31 @@ interface Props {
 }
 
 const ProjectReviewPage = ({ id }: Props) => {
-    const [teamDetails, setTeamDetails] = useState<TeamType>({
+    const [teamDetails, setTeamDetails] = useState<SubmissionPopulatedTeam>({
         id: new mongoose.Schema.Types.ObjectId(''),
         title: '',
         members: [],
-        submission: new mongoose.Schema.Types.ObjectId(''),
+        submission: {
+            _id: '',
+            id: new mongoose.Schema.Types.ObjectId(''),
+            status: 0,
+            submittedAt: new Date(),
+            title: '',
+            description: '',
+            track: 0,
+            links: [],
+            files: [],
+            round1Score: 0,
+            round1Judge: '',
+            round1Comment: '',
+            round2Score: 0,
+            round2Judge: '',
+            round2Comment: '',
+            round3Score: 0,
+            round3Judge: '',
+            round3Comment: '',
+        },
+        _id: '',
     });
     const [loading, setLoading] = useState(true);
 
@@ -299,7 +319,7 @@ const ProjectReviewPage = ({ id }: Props) => {
                         <div className="w-full lg:w-[50%] h-full">
                             {teamDetails.submission ? (
                                 <ViewSubmission
-                                    id={teamDetails.submission._id}
+                                    id={String(teamDetails.submission._id)}
                                 />
                             ) : (
                                 <></>

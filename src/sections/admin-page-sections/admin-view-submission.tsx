@@ -11,7 +11,7 @@ import getHandler from '@/handlers/getHandler';
 import { TeamType } from '@/models/teamModel';
 import Link from 'next/link';
 type ViewSubmissionProps = {
-    id: mongoose.Schema.Types.ObjectId;
+    id: string;
 };
 const ViewSubmission = ({ id }: ViewSubmissionProps) => {
     const [submission, setSubmission] = useState<SubmissionType>();

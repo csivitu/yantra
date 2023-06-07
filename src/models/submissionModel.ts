@@ -22,6 +22,11 @@ export interface SubmissionType extends SubmissionInput {
     submittedAt: Date;
 }
 
+export interface SubmissionExportType extends SubmissionType {
+    _id: string;
+    id: mongoose.Schema.Types.ObjectId;
+}
+
 export interface SubmissionDocument extends SubmissionType, mongoose.Document {
     _id: string;
     id: mongoose.Schema.Types.ObjectId;
