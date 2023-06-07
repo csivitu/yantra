@@ -6,7 +6,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 const getTeams = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-        const teams = await Team.find().populate('submission');
+        const teams = await Team.find();
         res.status(200).json({
             status: 'success',
             message: '',

@@ -8,6 +8,7 @@ import Loader from '@/components/common/loader';
 import { GetServerSidePropsContext } from 'next';
 import { getSession } from 'next-auth/react';
 import Toaster from '@/utils/toaster';
+import AdminSearchBar from '@/components/common/adminSearchBar';
 
 const Index = () => {
     const router = useRouter();
@@ -57,10 +58,10 @@ const Index = () => {
                 </div>
                 {/* CHANGE SEARCH BAR MAKE DUPLICATE WITH NEW FILTERS */}
                 <div className="w-[90%] lg:w-[60%]">
-                    {/* <SearchBar initialSearch="" /> */}
+                    <AdminSearchBar initialSearch="" />
                 </div>
             </div>
-            <div className="h-max px-4 lg:px-20 py-10 gap-y-5 sm:gap-y-3 flex justify-around items-start flex-col">
+            <div className="h-max px-4 lg:px-20 py-10 sm:gap-x-7 gap-y-10 sm:gap-y-10 flex justify-around items-start flex-wrap">
                 {loading ? (
                     <Loader />
                 ) : (

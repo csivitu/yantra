@@ -214,6 +214,19 @@ html {
     background-position: 0 0;
     animation: slide 1s linear infinite;
 }
+.content2 {
+    background-color: #006eff96;
+    background-image: linear-gradient(
+        to bottom right,
+        hsla(0, 0%, 0%, 1) 0%,
+        hsla(0, 0%, 0%, 1) 25%,
+        hsla(0, 0%, 100%, 0) 25%,
+        hsla(0, 0%, 100%, 0) 75%
+    );
+    background-size: 16px 16px;
+    background-position: 0 0;
+    animation: slide 1s linear infinite;
+}
 
 @keyframes slide {
     to {
