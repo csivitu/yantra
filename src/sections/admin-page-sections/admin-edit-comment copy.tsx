@@ -29,7 +29,7 @@ const CommentEdit = ({ comment, setComment, score, setScore }: Props) => {
                 <div className="font-ibmMono font-extrabold text-lg flex gap-2">
                     <div> Score: </div>
                     <input
-                        className="text-black w-1/2"
+                        className="text-black w-fit px-2 focus:outline-none rounded-lg"
                         type="number"
                         value={score}
                         onChange={(el) => {

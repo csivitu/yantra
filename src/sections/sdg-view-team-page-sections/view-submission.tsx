@@ -61,6 +61,16 @@ const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
         }
     };
 
+    const getTrack = (index: number) => {
+        if (index == 1) return 'GOOD HEALTH AND WELL BEING';
+        else if (index == 2) return 'QUALITY EDUCATION';
+        else if (index == 3) return 'INDUSTRY, INNOVATION AND INFRASTRUCTURE';
+        else if (index == 4) return 'REDUCED INEQUALITIES';
+        else if (index == 5) return 'SUSTAINABLE CITIES AND COMMUNITIES';
+        else if (index == 6) return 'RESPONSIBLE CONSUMPTION AND PRODUCTION';
+        else '';
+    };
+
     return (
         <>
             <div className="h-full w-full flex justify-around items-center">
@@ -88,7 +98,14 @@ const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                                 Track
                             </p>
                         </div>
-                        <div>{submission?.track}</div>
+                        <div>
+                            {' '}
+                            {getTrack(
+                                submission?.track
+                                    ? Number(submission?.track)
+                                    : 0
+                            )}
+                        </div>
                         <div className="text-sm flex justify-start gap-2 items-center pt-4">
                             <p className="font-spaceGrotesk text-white opacity-[0.4]">
                                 Links
