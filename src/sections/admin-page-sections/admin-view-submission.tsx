@@ -100,6 +100,7 @@ const ViewSubmission = ({ id }: ViewSubmissionProps) => {
                                                 <Link
                                                     href={el}
                                                     key={Math.random()}
+                                                    target="_blank"
                                                     className="hover:underline underline-offset-4"
                                                 >
                                                     {
