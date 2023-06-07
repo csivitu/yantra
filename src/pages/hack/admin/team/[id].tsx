@@ -341,7 +341,14 @@ export const getServerSideProps = async (
     context: GetServerSidePropsContext
 ) => {
     const session = await getSession(context);
-    if (!session || !session.user.isAdmin) {
+    if (!session) {
+        return {
+            redirect: {
+                destination: '/hack',
+            },
+        };
+    }
+    if (!session.user.isAdmin) {
         return {
             redirect: {
                 destination: '/hack',
