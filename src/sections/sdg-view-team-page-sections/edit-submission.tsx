@@ -110,6 +110,7 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
         if (res.status === 1) {
             Toaster.stopLoad(toaster, 'File Deleted', 1);
             setFiles(newFiles);
+            router.reload();
         } else {
             Toaster.stopLoad(toaster, res.data.message, 0);
         }
