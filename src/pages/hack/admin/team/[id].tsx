@@ -3,7 +3,11 @@ import Image from 'next/image';
 import Loader from '@/components/common/loader';
 import { getSession, useSession } from 'next-auth/react';
 import mongoose from 'mongoose';
-import { SubmissionPopulatedTeam, TeamType } from '@/models/teamModel';
+import {
+    SubmissionPopulatedTeam,
+    SubmissionTypeTeam,
+    TeamType,
+} from '@/models/teamModel';
 import Toaster from '@/utils/toaster';
 import ViewSubmission from '@/sections/admin-page-sections/admin-view-submission';
 import Header from '@/components/common/header';
@@ -20,7 +24,7 @@ interface Props {
 }
 
 const ProjectReviewPage = ({ id }: Props) => {
-    const [teamDetails, setTeamDetails] = useState<SubmissionPopulatedTeam>({
+    const [teamDetails, setTeamDetails] = useState<SubmissionTypeTeam>({
         id: new mongoose.Schema.Types.ObjectId(''),
         title: '',
         members: [],
@@ -91,10 +95,13 @@ const ProjectReviewPage = ({ id }: Props) => {
         }
         let formData = {};
 
-        if (teamDetails.submission.status !== CURRENT_ROUND - 1) {
-            Toaster.error('Invalid Submission.');
-            return;
-        }
+        alert(teamDetails.submission.status);
+
+        // if (teamDetails.submission.status !== CURRENT_ROUND - 1)
+        //     if (teamDetails.submission.status !== CURRENT_ROUND) {
+        //         Toaster.error('Invalid Submission.');
+        //         return;
+        //     }
         if (CURRENT_ROUND === 1)
             formData = {
                 round1Score: score,

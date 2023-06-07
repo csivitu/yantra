@@ -19,6 +19,14 @@ export interface SubmissionPopulatedTeam {
     id: mongoose.Schema.Types.ObjectId;
     title: string;
     members: UserDocument[];
+    submission: SubmissionDocument;
+}
+
+export interface SubmissionTypeTeam {
+    _id: string;
+    id: mongoose.Schema.Types.ObjectId;
+    title: string;
+    members: UserDocument[];
     submission: SubmissionExportType;
 }
 
