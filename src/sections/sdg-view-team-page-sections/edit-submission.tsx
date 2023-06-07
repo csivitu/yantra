@@ -72,14 +72,14 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                     'multipart/form-data'
                 );
                 if (res.status === 1) Toaster.stopLoad(toaster, 'Submitted', 1);
-                else Toaster.stopLoad(toaster, res.data.message, 0);
+                else Toaster.stopLoad(toaster, res.data, 0);
             } else {
                 Toaster.stopLoad(toaster, 'Submitted', 1);
             }
 
             router.reload();
         } else {
-            Toaster.stopLoad(toaster, res.data.message, 0);
+            Toaster.stopLoad(toaster, res.data, 0);
         }
     };
 
@@ -116,7 +116,7 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
             setFiles(newFiles);
             router.reload();
         } else {
-            Toaster.stopLoad(toaster, res.data.message, 0);
+            Toaster.stopLoad(toaster, res.data, 0);
         }
     };
 

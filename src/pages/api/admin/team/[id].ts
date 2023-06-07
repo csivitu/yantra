@@ -18,7 +18,15 @@ const getTeam = async (req: NextApiRequest, res: NextApiResponse) => {
                     description: 1,
                     links: 1,
                     status: 1,
-                    submittedAt: 1,
+                    round1Score: 1,
+                    round1Judge: 1,
+                    round1Comment: 1,
+                    round2Score: 1,
+                    round2Judge: 1,
+                    round2Comment: 1,
+                    round3Score: 1,
+                    round3Judge: 1,
+                    round3Comment: 1,
                 },
             })
             .populate('members');
