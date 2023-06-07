@@ -55,25 +55,27 @@ const ProjectReviewPage = ({ id }: Props) => {
 
     const [score, setScore] = useState(0);
 
-    const CURRENT_ROUND = Number(process.env.NEXT_PUBLIC_CURRENT_ROUND);
+    const CURRENT_ROUND = 2;
 
     useEffect(() => {
         getHandler(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/team/${id}`)
             .then((res) => {
                 setTeamDetails(res.data.team);
                 if (res.data.team.submission)
-                    if (res.data.team.submission.title) {
-                        if (CURRENT_ROUND === 1) {
-                            setComment(res.data.team.submission.round1Comment);
-                            setScore(res.data.team.submission.round1Score);
-                        } else if (CURRENT_ROUND === 2) {
+                    if (res.data.team.submission.title)
+                        if (CURRENT_ROUND === 2) {
+                            // {
+                            // if (CURRENT_ROUND === 1) {
+                            //     setComment(res.data.team.submission.round1Comment);
+                            //     setScore(res.data.team.submission.round1Score);
+                            // } else
                             setComment(res.data.team.submission.round2Comment);
                             setScore(res.data.team.submission.round2Score);
-                        } else if (CURRENT_ROUND === 3) {
-                            setComment(res.data.team.submission.round3Comment);
-                            setScore(res.data.team.submission.round3Score);
+                            // } else if (CURRENT_ROUND === 3) {
+                            //     setComment(res.data.team.submission.round3Comment);
+                            //     setScore(res.data.team.submission.round3Score);
+                            // }
                         }
-                    }
 
                 setLoading(false);
             })
@@ -99,24 +101,24 @@ const ProjectReviewPage = ({ id }: Props) => {
         //         Toaster.error('Invalid Submission.');
         //         return;
         //     }
-        if (CURRENT_ROUND === 1)
-            formData = {
-                round1Score: score,
-                round1Comment: comment,
-                round1Judge: session?.user.name,
-            };
-        else if (CURRENT_ROUND === 2)
-            formData = {
-                round2Score: score,
-                round2Comment: comment,
-                round2Judge: session?.user.name,
-            };
-        else if (CURRENT_ROUND === 3)
-            formData = {
-                round3Score: score,
-                round3Comment: comment,
-                round3Judge: session?.user.name,
-            };
+        // if (CURRENT_ROUND === 1)
+        //     formData = {
+        //         round1Score: score,
+        //         round1Comment: comment,
+        //         round1Judge: session?.user.name,
+        //     };
+        // else if (CURRENT_ROUND === 2)
+        formData = {
+            round2Score: score,
+            round2Comment: comment,
+            round2Judge: session?.user.name,
+        };
+        // else if (CURRENT_ROUND === 3)
+        //     formData = {
+        //         round3Score: score,
+        //         round3Comment: comment,
+        //         round3Judge: session?.user.name,
+        //     };
 
         const statusObj = {
             status: CURRENT_ROUND,
@@ -204,7 +206,7 @@ const ProjectReviewPage = ({ id }: Props) => {
                             {teamDetails.submission ? (
                                 <div className="flex flex-col gap-4 max-md:w-full max-md:justify-between pt-6">
                                     <div className="w-full flex flex-col pr-20 gap-12 max-md:pr-2">
-                                        {CURRENT_ROUND === 1 ? (
+                                        {/* {CURRENT_ROUND === 1 ? (
                                             <CommentEdit
                                                 score={score}
                                                 setScore={setScore}
@@ -295,7 +297,31 @@ const ProjectReviewPage = ({ id }: Props) => {
                                                     </>
                                                 )}
                                             </>
-                                        )}
+                                        )} */}
+
+                                        <>
+                                            <CommentView
+                                                roundNumber={1}
+                                                score={
+                                                    teamDetails.submission
+                                                        .round1Score
+                                                }
+                                                judge={
+                                                    teamDetails.submission
+                                                        .round1Judge
+                                                }
+                                                comment={
+                                                    teamDetails.submission
+                                                        .round1Comment
+                                                }
+                                            />
+                                            <CommentEdit
+                                                score={score}
+                                                setScore={setScore}
+                                                comment={comment}
+                                                setComment={setComment}
+                                            />
+                                        </>
                                     </div>
                                     <div
                                         onClick={handleSubmit}
