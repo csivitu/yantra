@@ -60,12 +60,10 @@ const ProjectReviewPage = ({ id }: Props) => {
     useEffect(() => {
         getHandler(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/team/${id}`)
             .then((res) => {
-                console.log(res.data.team);
                 setTeamDetails(res.data.team);
                 if (res.data.team.submission)
                     if (res.data.team.submission.title) {
                         if (CURRENT_ROUND === 1) {
-                            console.log(res.data.team.submission);
                             setComment(res.data.team.submission.round1Comment);
                             setScore(res.data.team.submission.round1Score);
                         } else if (CURRENT_ROUND === 2) {
@@ -132,7 +130,6 @@ const ProjectReviewPage = ({ id }: Props) => {
         if (res.status === 1) Toaster.success('Response Submitted');
         else {
             Toaster.error(res.data);
-            console.log(res);
         }
     };
 

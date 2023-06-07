@@ -38,7 +38,6 @@ const ProjectSubmission = () => {
                 Toaster.stopLoad(toaster, 'Submitted', 1);
                 router.reload();
             } else {
-                console.log(res);
                 Toaster.stopLoad(toaster, res.data, 0);
             }
         }

@@ -37,7 +37,6 @@ const SearchHackathonsList = ({ search, type }: Props) => {
                 setLoading(false);
             })
             .catch((err) => {
-                console.log(err);
                 setLoading(false);
             });
     };

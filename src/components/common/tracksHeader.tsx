@@ -27,7 +27,6 @@ const TracksHeader = () => {
     }, []);
 
     const handleMenuClick = (targetId: string) => {
-        console.log(targetId);
         if (
             router.asPath.startsWith('/sdg/team') &&
             targetId !== 'about-section'

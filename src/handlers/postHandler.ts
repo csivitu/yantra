@@ -24,7 +24,6 @@ const postHandler = async (
             response.statusCode = res.status;
         })
         .catch((err) => {
-            console.log(err);
             response.status = 0;
             response.data = err.response.data.message;
         });

@@ -46,7 +46,6 @@ const EventPage = ({ id }: Props) => {
                 setLoading(false);
             })
             .catch((err) => {
-                console.log(err);
                 setLoading(false);
             });
     }, [id]);
