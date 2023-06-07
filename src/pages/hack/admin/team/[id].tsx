@@ -20,13 +20,47 @@ interface Props {
 }
 
 const ProjectReviewPage = ({ id }: Props) => {
-    const { data: session } = useSession();
-
-    const router = useRouter();
+    const [teamDetails, setTeamDetails] = useState<TeamType>({
+        id: new mongoose.Schema.Types.ObjectId(''),
+        title: '',
+        members: [],
+        submission: new mongoose.Schema.Types.ObjectId(''),
+    });
+    const [loading, setLoading] = useState(true);
 
     const [comment, setComment] = useState('');
 
     const [score, setScore] = useState(0);
+
+    useEffect(() => {
+        getHandler(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/team/${id}`)
+            .then((res) => {
+                setTeamDetails(res.data.team);
+                if (res.data.team.submission)
+                    if (res.data.team.submission.title) {
+                        if (CURRENT_ROUND === 1) {
+                            setComment(res.data.team.submission.round1Comment);
+                            setScore(res.data.team.submission.round1Score);
+                        } else if (CURRENT_ROUND === 2) {
+                            setComment(res.data.team.submission.round2Comment);
+                            setScore(res.data.team.submission.round2Score);
+                        } else if (CURRENT_ROUND === 3) {
+                            setComment(res.data.team.submission.round3Comment);
+                            setScore(res.data.team.submission.round3Score);
+                        }
+                    }
+
+                setLoading(false);
+            })
+            .catch((err) => {
+                Toaster.error('Internal Server Error');
+                console.log(err);
+            });
+    }, []);
+
+    const { data: session } = useSession();
+
+    const router = useRouter();
 
     const SaveRoundChangesHandler = async () => {
         if (score > 10) Toaster.error('Score cannot be more than 10');
@@ -51,35 +85,21 @@ const ProjectReviewPage = ({ id }: Props) => {
                 round3Judge: session?.user.name,
             };
 
-        console.log(formData);
+        const statusObj = {
+            status: CURRENT_ROUND,
+        };
 
-        // const data = await patchHandler(
-        //     `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/submission/${id}`,
-        //     formData
-        // );
+        const res = await patchHandler(
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/submission/${id}`,
+            { ...formData, ...statusObj }
+        );
+
+        if (res.status === 1) Toaster.success('Response Submitted');
+        else {
+            Toaster.error(res.data.message);
+            console.log(res);
+        }
     };
-
-    // FETCHING TEAM / PROJECT LOGIC
-    const [teamDetails, setTeamDetails] = useState<TeamType>({
-        id: new mongoose.Schema.Types.ObjectId(''),
-        title: '',
-        members: [],
-        submission: new mongoose.Schema.Types.ObjectId(''),
-    });
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        getHandler(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/team/${id}`)
-            .then((res) => {
-                setTeamDetails(res.data.team);
-                console.log(res.data.team);
-                setLoading(false);
-            })
-            .catch((err) => {
-                Toaster.error('Internal Server Error');
-                console.log(err);
-            });
-    }, []);
 
     return (
         <>

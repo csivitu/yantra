@@ -45,7 +45,10 @@ const submissionSchema = new mongoose.Schema({
         default: Date.now,
     },
     files: [String],
-    round1Score: Number,
+    round1Score: {
+        type: Number,
+        default: 0,
+    },
     round1Judge: {
         type: String,
         default: '',
@@ -54,7 +57,10 @@ const submissionSchema = new mongoose.Schema({
         type: String,
         default: '',
     },
-    round2Score: Number,
+    round2Score: {
+        type: Number,
+        default: 0,
+    },
     round2Judge: {
         type: String,
         default: '',
@@ -63,7 +69,10 @@ const submissionSchema = new mongoose.Schema({
         type: String,
         default: '',
     },
-    round3Score: Number,
+    round3Score: {
+        type: Number,
+        default: 0,
+    },
     round3Judge: {
         type: String,
         default: '',

@@ -1,3 +1,4 @@
+import { CURRENT_ROUND } from '@/constants';
 import React from 'react';
 
 interface Props {
@@ -11,7 +12,7 @@ const CommentEdit = ({ comment, setComment, score, setScore }: Props) => {
     return (
         <div className="w-full flex flex-col gap-2">
             <div className="text-2xl font-bronson font-bold">
-                Round 2 Details
+                Round {CURRENT_ROUND} Details
             </div>
 
             <div className="flex flex-col gap-4">

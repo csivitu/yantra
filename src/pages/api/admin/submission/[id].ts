@@ -47,8 +47,9 @@ const editSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
                     message: 'Invalid attempt to change the submission status',
                 });
             } else {
+                console.log(req.body);
                 const editedSubmission = await Submission.findByIdAndUpdate(
-                    id,
+                    submission.id,
                     req.body
                 );
                 res.status(200).json({

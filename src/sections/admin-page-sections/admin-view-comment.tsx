@@ -1,6 +1,13 @@
 import React from 'react';
 
-const CommentView = ({ roundNumber, comment, score, judge }) => {
+interface Props {
+    roundNumber: number;
+    comment: string;
+    score: number;
+    judge: string;
+}
+
+const CommentView = ({ roundNumber, comment, score, judge }: Props) => {
     return (
         <div className="w-full flex flex-col gap-2">
             <div className="text-2xl font-bronson font-bold">
