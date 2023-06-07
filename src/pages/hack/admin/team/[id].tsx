@@ -40,6 +40,7 @@ const ProjectReviewPage = ({ id }: Props) => {
                 if (res.data.team.submission)
                     if (res.data.team.submission.title) {
                         if (CURRENT_ROUND === 1) {
+                            console.log(res.data.team.submission);
                             setComment(res.data.team.submission.round1Comment);
                             setScore(res.data.team.submission.round1Score);
                         } else if (CURRENT_ROUND === 2) {
@@ -63,13 +64,17 @@ const ProjectReviewPage = ({ id }: Props) => {
 
     const router = useRouter();
 
-    const SaveRoundChangesHandler = async () => {
+    const handleSubmit = async () => {
         if (score > 10) {
             Toaster.error('Score cannot be more than 10');
             return;
         }
         let formData = {};
 
+        if (teamDetails.submission.status !== CURRENT_ROUND - 1) {
+            Toaster.error('Invalid Submission.');
+            return;
+        }
         if (CURRENT_ROUND === 1)
             formData = {
                 round1Score: score,
@@ -270,9 +275,7 @@ const ProjectReviewPage = ({ id }: Props) => {
                                         )}
                                     </div>
                                     <div
-                                        onClick={() => {
-                                            SaveRoundChangesHandler();
-                                        }}
+                                        onClick={handleSubmit}
                                         className="cursor-pointer relative w-[30%] h-12 mt-4 flex items-center justify-center px-5 py-3 overflow-hidden font-bold rounded-full group"
                                     >
                                         <span className="w-96 h-96 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]"></span>
