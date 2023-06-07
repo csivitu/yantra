@@ -7,6 +7,7 @@ export interface UserDocument extends mongoose.Document {
     phoneNo: string;
     admin: boolean;
     regNo: string;
+    club: string;
 }
 
 const userSchema = new mongoose.Schema({
@@ -30,6 +31,7 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    club: String,
 });
 
 const User =
