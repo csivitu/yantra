@@ -95,8 +95,6 @@ const ProjectReviewPage = ({ id }: Props) => {
         }
         let formData = {};
 
-        alert(teamDetails.submission.status);
-
         // if (teamDetails.submission.status !== CURRENT_ROUND - 1)
         //     if (teamDetails.submission.status !== CURRENT_ROUND) {
         //         Toaster.error('Invalid Submission.');

@@ -44,6 +44,15 @@ const ViewSubmission = ({ id }: ViewSubmissionProps) => {
         else '';
     };
 
+    const getLink = (str: string): string => {
+        try {
+            let url = new URL(str);
+            return url.hostname;
+        } catch {
+            return str;
+        }
+    };
+
     return (
         <>
             <div className="h-full w-full flex flex-col justify-end items-center">
@@ -81,17 +90,31 @@ const ViewSubmission = ({ id }: ViewSubmissionProps) => {
                             </p>
                         </div>
 
-                        {submission?.links && submission?.links.length > 0 ? (
-                            <>
-                                <div>
-                                    {submission?.links.map((el) => {
-                                        return <p key={Math.random()}>{el}</p>;
-                                    })}
-                                </div>
-                            </>
-                        ) : (
-                            <>-</>
-                        )}
+                        <div className="w-full flex flex-col">
+                            {submission?.links &&
+                            submission.links.length > 0 ? (
+                                <>
+                                    {submission?.links &&
+                                        submission?.links.map((el) => {
+                                            return (
+                                                <Link
+                                                    href={el}
+                                                    key={Math.random()}
+                                                    className="hover:underline underline-offset-4"
+                                                >
+                                                    {
+                                                        getLink(el)
+
+                                                        //add a svg here
+                                                    }
+                                                </Link>
+                                            );
+                                        })}
+                                </>
+                            ) : (
+                                <>-</>
+                            )}
+                        </div>
 
                         <div className="text-sm flex justify-start gap-2 items-center pt-4">
                             <p className="font-spaceGrotesk text-white opacity-[0.4]">
@@ -106,7 +129,10 @@ const ViewSubmission = ({ id }: ViewSubmissionProps) => {
                                         submission?.files.map((el) => {
                                             return (
                                                 <Link
-                                                    href={`/${el}`}
+                                                    href={`/${el.replace(
+                                                        '/home/adminuser/yantra/public',
+                                                        ''
+                                                    )}`}
                                                     target="_blank"
                                                     key={Math.random()}
                                                     className="hover:underline underline-offset-4"

@@ -150,7 +150,10 @@ const ViewSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                                         submission?.files.map((el) => {
                                             return (
                                                 <Link
-                                                    href={`/${el}`}
+                                                    href={`/${el.replace(
+                                                        '/home/adminuser/yantra/public',
+                                                        ''
+                                                    )}`}
                                                     target="_blank"
                                                     key={Math.random()}
                                                     className="hover:underline underline-offset-4"
