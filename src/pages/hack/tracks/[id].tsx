@@ -1,10 +1,22 @@
 import React from 'react';
 import { GetServerSidePropsContext } from 'next';
 import SDGHeader from '@/components/common/sdgheader';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import TracksHeader from '@/components/common/tracksHeader';
 interface Props {
     id: string;
 }
 const TrackPage = ({ id }: Props) => {
+    const router = useRouter();
+    const [hooks, setHooks] = useState([
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+    ]);
     const tracks = [
         {
             id: '1',
@@ -82,7 +94,7 @@ const TrackPage = ({ id }: Props) => {
 
     return (
         <>
-            <SDGHeader />
+            <TracksHeader />
             <div className="h-max bg-events-bg font-spaceGrotesk bg-cover">
                 <div className="max-lg:h-max h-full w-full">
                     {tracks &&
@@ -90,12 +102,86 @@ const TrackPage = ({ id }: Props) => {
                             if (el.id == id) {
                                 return (
                                     <>
-                                        <div className="px-10 py-16 h-full min-h-[91vh]">
+                                        <div className="px-10 h-full min-h-[91vh]">
                                             <div
-                                                className="w-full text-white text-center text-6xl uppercase py-5 mb-10 max-lg:py-0"
+                                                className="w-full h-[20vh] lg:h-[23.5vh] flex justify-around items-center text-white text-center text-6xl uppercase py-5  max-lg:py-0"
                                                 style={{ color: el.colour }}
                                             >
                                                 {el.track}
+                                            </div>
+                                            <div className="py-7 w-full h-[4vh]  flex justify-center gap-x-2 sm:gap-x-10 items-center">
+                                                <div
+                                                    onClick={() => {
+                                                        router.push(
+                                                            '/hack/tracks/1'
+                                                        );
+                                                    }}
+                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60`}
+                                                    style={{
+                                                        backgroundColor:
+                                                            '#279B48',
+                                                    }}
+                                                ></div>
+                                                <div
+                                                    onClick={() => {
+                                                        router.push(
+                                                            '/hack/tracks/2'
+                                                        );
+                                                    }}
+                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60`}
+                                                    style={{
+                                                        backgroundColor:
+                                                            '#C92639',
+                                                    }}
+                                                ></div>
+                                                <div
+                                                    onClick={() => {
+                                                        router.push(
+                                                            '/hack/tracks/3'
+                                                        );
+                                                    }}
+                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60`}
+                                                    style={{
+                                                        backgroundColor:
+                                                            '#FF8945',
+                                                    }}
+                                                ></div>
+                                                <div
+                                                    onClick={() => {
+                                                        router.push(
+                                                            '/hack/tracks/4'
+                                                        );
+                                                    }}
+                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60`}
+                                                    style={{
+                                                        backgroundColor:
+                                                            '#FF4FA9',
+                                                    }}
+                                                ></div>
+                                                <div
+                                                    onClick={() => {
+                                                        router.push(
+                                                            '/hack/tracks/5'
+                                                        );
+                                                    }}
+                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60`}
+                                                    style={{
+                                                        backgroundColor:
+                                                            '#FF9F03',
+                                                    }}
+                                                ></div>
+                                                <div
+                                                    onClick={() => {
+                                                        router.push(
+                                                            '/hack/tracks/6'
+                                                        );
+                                                    }}
+                                                    className={`rounded-full h-6 w-6 cursor-pointer content3 opacity-60`}
+                                                    style={{
+                                                        backgroundColor:
+                                                            '#E48E16',
+                                                    }}
+                                                ></div>
                                             </div>
                                             {!el.isOpen ? (
                                                 <div className="flex h-full justify-around flex-col items-center  mb-10">
@@ -115,7 +201,7 @@ const TrackPage = ({ id }: Props) => {
                                                                                     backgroundColor:
                                                                                         el.colour,
                                                                                 }}
-                                                                                className="text-white max-lg:text-sm max-lg:p-6 w-5/6 content  group-hover:scale-105 font-bold text-4xl flex justify-center items-center py-2 rounded-xl border-white px-2 text-center transition-all duration-300 opacity-50 ease-in-out"
+                                                                                className="text-white max-lg:text-sm max-lg:p-6 w-5/6 content  group-hover:scale-105 font-bold text-4xl flex justify-center items-center py-2 rounded-xl border-white px-2 text-center transition-all duration-300 opacity-60 ease-in-out"
                                                                             >
                                                                                 <p className="opacity-0">
                                                                                     {
@@ -139,7 +225,7 @@ const TrackPage = ({ id }: Props) => {
                                                             backgroundColor:
                                                                 el.colour,
                                                         }}
-                                                        className="text-white  max-lg:text-sm max-lg:p-6 w-5/6 content  group-hover:scale-105 font-bold text-4xl flex justify-center items-center py-2 rounded-xl border-white px-2 text-center transition-all duration-300 opacity-50 ease-in-out"
+                                                        className="text-white  max-lg:text-sm max-lg:p-6 w-5/6 content  group-hover:scale-105 font-bold text-4xl flex justify-center items-center py-2 rounded-xl border-white px-2 text-center transition-all duration-300 opacity-60 ease-in-out"
                                                     >
                                                         <p className="opacity-0">
                                                             This is an Open
