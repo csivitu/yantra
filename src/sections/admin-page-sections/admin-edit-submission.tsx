@@ -87,9 +87,11 @@ const EditSubmission = ({ id }: Props) => {
                                 label="Project Title"
                                 value={projectName}
                                 onChange={setProjectName}
+                                canEdit={true}
                             />
 
                             <InputField
+                                canEdit={true}
                                 type="text"
                                 label="Project Description"
                                 value={projectDescription}

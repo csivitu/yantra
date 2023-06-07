@@ -2,7 +2,7 @@ import { SubmissionDocument } from '@/models/submissionModel';
 import { SubmissionPopulatedTeam } from '@/models/teamModel';
 import Link from 'next/link';
 import React from 'react';
-
+import { CURRENT_ROUND } from '@/constants';
 interface Props {
     team: SubmissionPopulatedTeam;
 }

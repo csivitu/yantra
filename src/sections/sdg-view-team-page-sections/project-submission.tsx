@@ -71,6 +71,7 @@ const ProjectSubmission = () => {
                         label="Title"
                         value={projectName}
                         onChange={setProjectName}
+                        canEdit={true}
                     />
                     <Dropdown
                         label="Track"

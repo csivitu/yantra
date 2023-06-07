@@ -11,19 +11,43 @@ import Header from '@/components/common/header';
 import { useRouter } from 'next/router';
 import { GetServerSidePropsContext } from 'next';
 import getHandler from '@/handlers/getHandler';
+import patchHandler from '@/handlers/patchHandler';
+import InputField from '@/components/common/InputField';
 
 interface Props {
     id: string;
 }
+interface RoundType {
+    round: string;
+    checked: boolean;
+    score: number;
+    judge: string;
+}
 
 const ProjectReviewPage = ({ id }: Props) => {
+    const { data: session } = useSession();
+    useEffect(() => {
+        if (session?.user) {
+            if (!session.user.team) {
+                Toaster.error(
+                    'You are not a part of any team, contact the admin.'
+                );
+                router.push('/hack');
+            } else {
+                setTeamDetails(session.user.team);
+                setLoading(false);
+                if (session.user.team.submission) setIsSubmission(true);
+            }
+        }
+    }, [session]);
     const router = useRouter();
     // ROUND PASSING LOGIC
-    const [rounds, setRounds] = useState([
-        { round: 'Round 1', checked: false },
-        { round: 'Round 2', checked: false },
-        { round: 'Round 3', checked: false },
+    const [rounds, setRounds] = useState<RoundType[]>([
+        { round: 'Round 1', checked: false, score: 0, judge: '' },
+        { round: 'Round 2', checked: false, score: 0, judge: '' },
+        { round: 'Round 3', checked: false, score: 0, judge: '' },
     ]);
+
     const handleCheckboxChange = (index: number) => {
         const updatedRounds = rounds.map((round, roundIndex) => {
             if (roundIndex < index) {
@@ -47,7 +71,32 @@ const ProjectReviewPage = ({ id }: Props) => {
     };
 
     const SaveRoundChangesHandler = () => {
+        const formData = {
+            round1Score: rounds[0].score,
+            round1Judge: session?.user.name,
+            round2Score: rounds[1].score,
+            round2Judge: session?.user.name,
+            round3Score: rounds[2].score,
+            round3Judge: session?.user.name,
+        };
+        const data = patchHandler(
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/submission/${id}`,
+            formData
+        );
         console.log(rounds);
+    };
+
+    const handleScoreChange = (index: number, value: number) => {
+        const updatedRounds = rounds.map((round, roundIndex) => {
+            if (roundIndex === index) {
+                return {
+                    ...round,
+                    score: value,
+                };
+            }
+            return round;
+        });
+        setRounds(updatedRounds);
     };
 
     // FETCHING TEAM / PROJECT LOGIC
@@ -163,7 +212,19 @@ const ProjectReviewPage = ({ id }: Props) => {
                                                 />
                                                 Checked
                                             </label>
-                                            <div>- Score : xx</div>
+                                            <div>- Score : </div>
+                                            <InputField
+                                                label=""
+                                                value={round.score.toString()}
+                                                type="number"
+                                                canEdit={true}
+                                                onChange={(value) =>
+                                                    handleScoreChange(
+                                                        index,
+                                                        Number(value)
+                                                    )
+                                                }
+                                            />
                                         </div>
                                     </>
                                 ))}

@@ -137,6 +137,7 @@ const EditSubmission = ({ toggleEdit }: ViewSubmissionProps) => {
                             label="Project Title"
                             value={projectName}
                             onChange={setProjectName}
+                            canEdit={true}
                         />
 
                         <InputTextField
