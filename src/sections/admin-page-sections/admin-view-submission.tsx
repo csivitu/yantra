@@ -21,7 +21,6 @@ const ViewSubmission = ({ id }: ViewSubmissionProps) => {
             `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/submission/${id}`
         )
             .then((res) => {
-                console.log(res.data.submission);
                 setSubmission(res.data.submission);
 
                 setLoading(false);

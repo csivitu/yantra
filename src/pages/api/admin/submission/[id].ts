@@ -36,12 +36,7 @@ const editSubmission = async (req: NextApiRequest, res: NextApiResponse) => {
                 message: 'No submission for the team found.',
             });
         } else {
-            if (submission.status !== req.body.status - 1)
-                res.status(400).json({
-                    status: 'error',
-                    message: 'Invalid attempt to change the submission status',
-                });
-            else if (submission.status !== CURRENT_ROUND - 1) {
+            if (submission.status > CURRENT_ROUND) {
                 res.status(400).json({
                     status: 'error',
                     message: 'Invalid attempt to change the submission status',

@@ -35,6 +35,7 @@ const ProjectReviewPage = ({ id }: Props) => {
     useEffect(() => {
         getHandler(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/team/${id}`)
             .then((res) => {
+                console.log(res.data.team);
                 setTeamDetails(res.data.team);
                 if (res.data.team.submission)
                     if (res.data.team.submission.title) {
@@ -63,7 +64,10 @@ const ProjectReviewPage = ({ id }: Props) => {
     const router = useRouter();
 
     const SaveRoundChangesHandler = async () => {
-        if (score > 10) Toaster.error('Score cannot be more than 10');
+        if (score > 10) {
+            Toaster.error('Score cannot be more than 10');
+            return;
+        }
         let formData = {};
 
         if (CURRENT_ROUND === 1)
@@ -96,7 +100,7 @@ const ProjectReviewPage = ({ id }: Props) => {
 
         if (res.status === 1) Toaster.success('Response Submitted');
         else {
-            Toaster.error(res.data.message);
+            Toaster.error(res.data);
             console.log(res);
         }
     };
@@ -185,10 +189,20 @@ const ProjectReviewPage = ({ id }: Props) => {
                                                     <>
                                                         <CommentView
                                                             roundNumber={1}
-                                                            score={9}
-                                                            judge={'someone'}
+                                                            score={
+                                                                teamDetails
+                                                                    .submission
+                                                                    .round1Score
+                                                            }
+                                                            judge={
+                                                                teamDetails
+                                                                    .submission
+                                                                    .round1Judge
+                                                            }
                                                             comment={
-                                                                'iawjdhuihwaduahi'
+                                                                teamDetails
+                                                                    .submission
+                                                                    .round1Comment
                                                             }
                                                         />
                                                         <CommentEdit
@@ -208,7 +222,11 @@ const ProjectReviewPage = ({ id }: Props) => {
                                                                     roundNumber={
                                                                         1
                                                                     }
-                                                                    score={9}
+                                                                    score={
+                                                                        teamDetails
+                                                                            .submission
+                                                                            .round1Score
+                                                                    }
                                                                     judge={
                                                                         'someone'
                                                                     }
