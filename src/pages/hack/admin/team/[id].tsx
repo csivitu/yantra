@@ -68,7 +68,7 @@ const ProjectReviewPage = ({ id }: Props) => {
                             // if (CURRENT_ROUND === 1) {
                             //     setComment(res.data.team.submission.round1Comment);
                             //     setScore(res.data.team.submission.round1Score);
-                            // } else
+                            // } else {
                             setComment(res.data.team.submission.round2Comment);
                             setScore(res.data.team.submission.round2Score);
                             // } else if (CURRENT_ROUND === 3) {
