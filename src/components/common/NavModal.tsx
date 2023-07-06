@@ -70,9 +70,9 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
                     </div>
                     <div
                         className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
-                        onClick={() => handleMenuClick('patrons-section')}
+                        onClick={() => router.push('/play')}
                     >
-                        Patrons
+                        Play
                     </div>
                     <div
                         className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
